@@ -114,12 +114,28 @@ On définit de même  la notion de minorant, de plus petit élément, et on mont
 
 Attention, contrairement à un plus grand élément, la borne supérieure de $A$, si elle existe, n'appartient pas forcément à $A$. 
 \begin{exemple}
-La partie $A=[0,2[ \subset \R$ possède une borne supérieure à savoir $2$.
+La partie $A=[0,1[ \subset \R$ possède une borne supérieure à savoir $1$.
 \end{exemple}
 \begin{proof}
-D'une part, il est clair que $2$ est un majorant de $[0,2[$, c'est-à-dire que $\forall x\in [0,2[, \: x\leq 2$.
+D'une part, il est clair que $1$ est un majorant de $[0,1[$, c'est-à-dire que $\forall x\in [0,1[, \: x\leq 1$.
 
-Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,2[$ et supposons par l'absurde que $m < 2$. On doit forcément avoir $0\leq m$ puisque $0\in [0,2[$. Donc $1+\frac{m}{2} \in [0,2[$. Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $2+m\leq 2m$ donc $m\geq 2$, absurde.
+Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$ et supposons par l'absurde que $m < 1$. On doit forcément avoir $0\leq m$ puisque $0\in [0,1[$. Donc $m+\frac{1-m}{2}=1+\frac{m}{2} \in [0,1[$.
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.5,-1.5) rectangle (10.5,1);
+\draw (0,0)-- (10,0);
+\begin{scriptsize}
+\draw[color=black] (0.0,-0.5) node {$0$};
+\draw [fill=black] (6,0) circle (2pt);
+\draw[color=black] (6.0,-0.5) node {$m$};
+\draw [fill=black] (8,0) circle (2pt);
+\draw[color=black] (8.0,-0.5) node {$m+\frac{1-m}{2}$};
+\draw[color=black] (10.0,-0.5) node {$1$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+ Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $1+m\leq 2m$ donc $m\geq 1$, absurde.
 \end{proof}
 
 \begin{proposition}
