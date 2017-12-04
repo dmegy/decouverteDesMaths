@@ -1,0 +1,127 @@
+
+\begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire} $R$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
+\end{definition}
+
+On notera $xRy$ au lieu de $R(x,y)=\text{vrai}$.
+
+\section{Relations d'ordre}
+
+\begin{definition}
+Soit $E$ un ensemble. Une relation binaire $R$ sur $E$ est
+\begin{enumerate}
+\item réflexive ssi $\forall x\in E, xRx$;
+\item transitive ssi $\forall x, y, z\in E, xRy \text{ et } yRz \implies xRz$;
+\item antisymétrique ssi $\forall x, y \in E, xRy\text{ et } yRx \implies x=y$.
+\end{enumerate}
+
+Une relation est une \emph{relation d'ordre} ssi elle est réflexive, transitive et antisymétrique.
+\end{definition}
+
+\begin{exemples}
+$\leq$ est une relation d'ordre sur $\N$, ou sur $\Z$, $\Q$, $\R$. (Mais pas sur $\C$ : la relation $\leq$ n'est même pas \emph{définie} sur $\C$.)
+$\subset$ est une relation d'ordre sur $\mathcal P(E)$.
+$|$ (\og divise\fg) est une relation d'ordre sur $\N^*$
+\end{exemples}
+
+Attention : $<$ n'est pas une relation d'ordre, et $|$ n'est pas une relation d'ordre sur $\Z^*$. Pourquoi ?
+% pas réflexive, pas antisymétrique (1 et -1)
+
+\begin{definition}
+Si $R$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ xRy\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
+\end{definition}
+
+Un ensemble $E$ muni d'une relation d'ordre $R$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné. S'il n'y a pas de confusion possible sur la relation d'ordre, on peut simplement dire que $E$ est ordonné. (Cependant, il y a en général plusieurs relations d'ordre sur un ensemble.)
+
+Dans ce cours, on notera souvent $\leq_E$ au lieu de $R$ une relation d'ordre sur $E$, même si la relation n'a rien à voir avec $\leq$ sur $\R$.
+
+% exos de base de vérification de définitions.
+
+\paragraph{Vocabulaire sur les ensembles ordonnés}
+
+\begin{definition}
+Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si:
+\[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq x.\]
+\end{definition}
+
+\begin{exemples}
+La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\$Q$, $\Z$) est totale. Par contre, $\subset$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
+\end{exemples}
+
+\begin{definition}
+Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés, et $f : E\to F$. On dit que $f$ est \emph{croissante} si :
+\[ \forall x, y\in E, x\leq_E y \implies f(x) \leq_F f(y),\]
+et \emph{décroissante} si :
+\[\forall x, y\in E, x\leq_E y \implies f(y) \leq_F f(x).\]
+\end{definition}
+
+(Remarque : dans cette situation, il est crucial de distinguer les relations d'ordre sur $E$ et sur $F$.)
+
+\begin{exemple}
+\begin{enumerate}
+\item L'application $f : \R\to \R, x\mapsto x+e^x$ est croissante pour l'ordre usuel $\leq $ sur $\R$.
+\item Si $E$ est fini, l'application $f : \mathcal P(E) \to \N, \: A\mapsto \operatorname{Card}(A)$ est croissante entre les ensembles ordonnés $(\mathcal P(E), \subset)$ et $(\N, \leq)$.
+\item L'application $f : \mathcal P(E) \to \mathcal P(E), \: A\mapsto A^c$ est décroissante pour l'inclusion, car $A\subset B \implies B^c\subset A^c$.
+\end{enumerate}
+\end{exemple}
+
+Comme d'habitude, après les définitions viennent les propositions et théorèmes.
+
+\begin{proposition}
+\begin{enumerate}
+\item La composée de deux applications croissantes est croissante.
+\item La composée de deux applications décroissantes est décroissante.
+\item La composée d'une application décroissante et d'une décroissante est décroissante.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Application directe de la définition.
+\end{proof}
+
+\section{Éléments remarquables dans un ensemble ordonné}
+
+Soit $(E,\leq_E)$ un ensemble ordonné et $A\subset E$ une partie non vide. Un élément $m\in E$ est un \emph{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
+
+La partie $A$ est majorée si elle possède des majorants.
+
+La partie $A$ possède un plus grand élément s'il existe un élément $m\in A$ qui majore $A$.
+
+\begin{exemple}
+La partie $[0,1]$ est majorée dans $\R$ car $1$, $2$, $\pi$ sont des majorants. Elle possède un plus grand élément : $1$.
+
+La partie $[0,1[$ est majorée dans $\R$ (pour les mêmes raisons). Par contre, elle n'a pas de plus grand élément. Elle possède par contre un plus petit majorant réel, à savoir $1$, mais il n'appartient pas à  $A$.
+\end{exemple}
+
+\begin{proposition}
+Si $A\subset E$ possède un plus grand élément, il est unique.
+\end{proposition}
+\begin{proof}
+Soient $m$ et $m'$ deux plus grands éléments de $A$. Comme $m$ est un plus grand élément, on a par définition $\forall x\in A, x\leq_E m$ et donc en particulier $m'\leq_E m$. De même, comme $m'$ est un plus grand élément, on a $m\leq_E m'$. Par antisymétrie de la relation d'ordre, on a $m=m'$.
+\end{proof}
+
+Si $A$ possède un plus grand élément (unique par ce qui précède), on le note $\max(A)$.
+
+
+On définit de même  la notion de minorant, de plus petit élément, et on montre que s'il existe un plus petit élément d'une partie $A$, il est unique. On le note alors $\min(A)$.
+
+\begin{definition} La partie $A\subset E$ admet une borne supérieure $s\in E$ ssi:
+\begin{enumerate}
+\item $s$ est un majorant de $A$;
+\item tout majorant de $A$ majore $s$.
+\end{enumerate}
+(En d'autres termes, $s$ est le plus petit des majorants de $A$, ou encore : l'ensemble de tous les majorants de $A$ possède un plus petit élément $s$.)
+\end{definition}
+
+Attention, contrairement à un plus grand élément, la borne supérieure de $A$, si elle existe, n'appartient pas forcément à $A$. 
+\begin{exemple}
+La partie $A=[0,2[ \subset \R$ possède une borne supérieure à savoir $2$.
+\end{exemple}
+\begin{proof}
+D'une part, il est clair que $2$ est un majorant de $[0,2[$, c'est-à-dire que $\forall x\in [0,2[, \: x\leq 2$.
+
+Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,2[$ et supposons par l'absurde que $m < 2$. On doit forcément avoir $0\leq m$ puisque $0\in [0,2[$. Donc $1+\frac{m}{2} \in [0,2[$. Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $2+m\leq 2m$ donc $m\geq 2$, absurde.
+\end{proof}
+
+\begin{proposition}
+Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
+\end{proposition}

@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[10pt,a4paper]{book}
 \usepackage{geometry}
 
 \usepackage[utf8]{inputenc}
@@ -18,8 +18,24 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\K}{\mathbb{K}}
 
+
 \theoremstyle{definition}
-\newtheorem{exo}{Exercice}
+
+\newtheorem{theoreme}{Th\'eor\`eme}[section]
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\newtheorem{lemmme}[theoreme]{Lemme}
+\newenvironment{preuve}{{\bf Preuve. }}{$\Box$}
+\newenvironment{red}{Exemple de r\'edaction:\\}{$\Box$}
+
+\newtheorem{propdef}[theoreme]{Proposition--Définition}
+\newtheorem{definition}[theoreme]{D\'efinition}
+\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{exercice}[theoreme]{Exercice}
+\newtheorem{exemple}[theoreme]{Exemple}
+\newtheorem{exemples}[theoreme]{Exemples}
+
+
 
 
 \begin{document}
@@ -30,14 +46,25 @@ Résumé de cours}
 \tableofcontents
 
 
-\section{Logique et raisonnement}
-\subsection{Introduction}
 
 
-\section{Ensembles et applications}
+\chapter{Logique et raisonnements}
+\input{logique}
 
-\section{Nombres naturels et ensembles finis}
+\chapter{Ensembles}
+\input{ensembles}
 
-\section{Arithmétique}
+\chapter{Applications}
+\input{applications}
+
+\chapter{Entiers et ensembles finis, combinatoire}
+\input{entiers}
+
+\chapter{Arithmétique}
+\input{arithmetique}
+
+\chapter{Relations d'ordre et d'équivalence}
+\input{relations}
+
 
 \end{document}

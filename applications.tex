@@ -1,0 +1,31 @@
+
+
+
+\begin{definition}[Applications entre ensembles]\end{definition}
+\begin{definition}Soient $A$ et $B$ deux ensembles, et $f : A \to B$ une application. On dit que $f$ est \underline{injective} si
+\[\forall (x,y) \in A^2,\quad f(x)=f(y) \Rightarrow  x=y,\]
+autrement dit si (contraposée) 
+\[\forall (x,y) \in A^2,\quad x\neq y \Rightarrow  f(x)\neq f(y),\]
+autrement dit si deux éléments distincts ont toujours des images distinctes. On dit aussi que $f$ \og sépare les points\fg.\end{definition}
+\begin{definition}
+On dit que $f$ est \underline{surjective} si
+\[\forall b \in B,\quad \exists a\in A / f(a)=b,\]
+autrement dit tout élément $b\in B$ a (au moins) un antécédent par $f$.
+\end{definition}
+\begin{definition}
+On dit que $f$ est bijective si elle est injective et surjective.
+\end{definition}
+
+\begin{exemple}La fonction $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. Elle n'est pas injective car bien que $1$ soit différent de $-1$, ils ont la même image. Elle n'est pas surjective car $-2$ n'a pas d'antécédent dans $\R$ : on ne peut pas trouver de réel $x$ tel que $x^2 = -2$.\end{exemple}
+
+\begin{exemple} La fonction $g : \R \to \R_+, x\mapsto x^2$ n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : l'ensemble d'arrivée est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
+\end{exemple}
+
+\begin{exemple} La fonction $h : \R_+ \to \R_+, x\mapsto x^2$ est injective et surjective, donc bijective. Elle est surjective pour la même raison que $g$, elle est injective, car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe).
+\end{exemple}
+
+En général, la surjectivité est plus dure à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général ça se voit (éventuellement après un petit calcul / majoration / développement d'expression).
+\begin{remarque} Si $f : A\to B$ est injective, alors on peut \og identifier\fg $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. Cette identification n'est pas abusive grace à la propriété d'injectivité. La formulation correcte de cette identification est que $f$ induit une bijection de $A$ sur $f(A)$. Ceci n'est qu'une remarque.\end{remarque}
+
+\begin{definition}[Restriction et prolongement d'une application]\end{definition}
+
