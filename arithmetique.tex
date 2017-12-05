@@ -20,6 +20,13 @@ Exemple : $17=5\times 3 + 2$ est la division euclidienne de $17$ par $5$. Le quo
 
 \subsection{Idéaux de $\Z$}
 
+Soit $\alpha$ un entier. On rappelle que $\alpha\Z = \{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
+
+Exemples : $3\Z = \{-6,-3,0,3,6,9,12,...\}$. Si $\alpha=0$, alors $\alpha\Z = \{0\}$. On a $\alpha\Z = \Z$ ssi $\alpha$ est égal à $1$ ou $-1$.
+
+Une partie de $\Z$ de la forme $\alpha\Z$ contient zéro, est stable par addition, et par opposé. Réciproquement, on peut s'intéresser aux parties qui vérifient ces trois  propriétés et se demander si elles sont toutes de la forme $\alpha\Z$.
+
+\begin{definition}
 Soit $I \subseteq \Z$ une partie de $\Z$. On dit que $I$ est un \emph{idéal} de $\Z$ si
 \begin{enumerate}
 \item C'est un \emph{sous-groupe} de $\Z$, c'est-à-dire $I$ contient $0$ et est stable par addition et opposé : 
@@ -27,6 +34,7 @@ Soit $I \subseteq \Z$ une partie de $\Z$. On dit que $I$ est un \emph{idéal} de
 \item Il est \emph{absorbant pour la multiplication} c'est-à-dire:
 \[  \text{Si } x \in I \text{ et }n\in \Z, \text{alors } n\cdot x \in I.\]
 \end{enumerate}
+\end{definition}
 
 \begin{proposition}
 Tout idéal de $\Z$ est de la forme $\{k\alpha\:\mid \: k \in \Z\}$, avec $\alpha /in \N$. (Un tel ensemble est noté $\alpha\Z$.)
@@ -108,8 +116,105 @@ Soient $a$, $b$ et $k$ des entiers relatifs. Alors:
 \end{lemme}
 
 \begin{proof}
-
+Ils y a au moins deux façons de prouver le résultat : on peut montrer que les idéaux $a\Z+b\Z$ et $(a+kb)\Z+b\Z$ sont les mêmes, ce qui implique qu'ils ont le même générateur principal, ou alors on peut montrer que $(a,b)$ et $(a+kb,b)$ ont les mêmes diviseurs communs, donc le même plus grand diviseur commun.\\
+\underline{Première preuve (mêmes idéaux)}.
+D'une part, $(a+kb)\Z+b\Z \subseteq a\Z+b\Z$ car si $i$ et $j$ sont des entiers, alors $i(a+kb)+jb = ia+(iK+j)b \in a\Z+b\Z$.
+D'autre part, $a\Z+b\Z \subseteq (a+kb)\Z+b\Z$ car si $i$ et $j$ sont des entiers, alors $ia+jb = i(a+kb) +(j-ik)b \in (a+kb)\Z+b\Z$.
+Finalement, les idéaux $a\Z+b\Z$ et $(a+kb)\Z+b\Z$ sont identiques donc ont le même générateur principal.\\
+\underline{Deuxième preuve (mêmes diviseurs)}.
+Si $m|a$ et $m|b$, alors $m|a+kb$ et $m|b$.\\
+Si $m|a+kb$ et $m|b$, alors $m|a+kb-kb$ et $m|b$, donc $m$ divise $a$ et $b$.\\
+On en déduit que les couples $(a,b)$ et $(a+kb,b)$ ont les mêmes diviseurs communs. Ils ont donc le même pgcd.
 \end{proof}
+
+\begin{corollaire} En particulier, si $a = bq+r$ est la division de $a$ par $b\neq 0$, alors 
+\[ \pgcd(a,b) = \pgcd(b,r).\]
+\end{corollaire}
+
+\begin{theoreme}[Algorithme d'Euclide]
+
+Appliquer l'algorithme d'Euclide aux entiers naturels $a$ et $b$, c'est effectuer une suite de divisions euclidiennes:
+
+\begin{align*}
+a &= q_1 b + r_1\\
+b &= q_2 r_1+r_2\\
+r_1 &= q_3 r_2+ r_3\\
+\cdots & \\
+r_{n-2} &= q_nr_{n-1}+r_n
+\end{align*}
+en continuant tant que $r_n$ n'est pas nul. Alors, on a les résultats suivants:
+
+\begin{enumerate}
+\item (terminaison de l'algorithme) Au bout d'un certain nombre d'étapes, on a $r_n=0$, donc l'algorithme termine en un nombre fini d'étapes.
+\item Le dernier reste non nul $r_{n-1}$ est le pgcd de $a$ et $b$.
+\end{enumerate}
+\end{theoreme}
+\begin{proof}
+
+\begin{enumerate}
+\item (Preuve de terminaison) Il s'agit de montrer que l'on ne peut pas continuer indéfiniment à faire des divisions euclidiennes. Par définition de ce qu'est une division euclidienne, on a  : $b>r_1$, $r_1>r_2$ et plus généralement $r_i>r_{i+1}$. La suite des restes est une suite strictement décroissante d'entiers positifs, elle ne peut pas être infinie.
+\item (Preuve de correction du calcul de pgcd) Par le lemme d'Euclide et son corollaire appliqués à chaque étape, on a 
+\[
+\pgcd(a,b) = \pgcd(b,r_1)=\pgcd(r_1,r_2) = ... = \pgcd(r_{n-1},r_n) = \pgcd(r_{n-1},0) = r_{n-1}.
+\]
+
+\end{enumerate}
+\end{proof}
+
+On remarque qu'il n'est pas nécessaire que $a>b$ dans l'algorithme : si ce n'est pas le cas, l'algorithme les replace dans le bon ordre au cours de la première étape.
+
+L'algorithme d'Euclide permet également d'obtenir une relation de Bézout en \og remontant \fg{} les étapes de l'algorithme : 
+\[ d = r_{n-1} = r_{n-3} - q_{n-1}r_{n-2} = r_{n-3} - q_{n-1}(r_{n-4} - q_{n-2}r_{n-3})... = au+bv.\]
+
+\subsection{Nombres premiers entre eux, lemmes de Gauss}
+
+\begin{definition}
+Deux nombres relatifs $a$ et $b$ sont premiers entre eux si $\pgcd(a,b)=1$. On note :  $a\wedge b = 1$.
+\end{definition}
+
+\begin{proposition} Soient $a$ et $b$ des entiers. On a 
+\[
+a\wedge b = 1 \iff \left(\exists u, v\in \Z\mid au+bv=1\right)
+\]
+\end{proposition}
+\begin{proof}
+Sens $\implies$ : il existe une relation de Bézout.\\
+Sens $\impliedby$ : si $au+bv=1$, alors  $\pgcd(a,b)$ divise $1$, donc vaut $1$.
+\end{proof}
+
+\begin{proposition}
+Soient $a$ et $b$ des entiers.
+Si $a\wedge b = 1$ et $a\wedge c = 1$, alors $a\wedge bc=1$.
+\end{proposition}
+\begin{proof}
+Si $au+bv=1$ et $au'+cv'=1$ sont des relations de Bézout, on a en multipliant les deux:
+\[ 1 = (au+bv)(au'+cv') = a(auu'+bvu'+ucv')+bcvv'.\]
+\end{proof}
+\begin{corollaire}
+Soient $a$, $b$ et $n>0$, $m>0$ des entiers.
+Si $a\wedge b = 1$, alors $a^n\wedge b^m=1$.
+\end{corollaire}
+\begin{proof}
+On a $a\wedge b = 1 \implies a\wedge b^2= ... =  a\wedge b^m=1$, puis $b^m\wedge a  1\implies b^m\wedge a^2 = ... = b^m\wedge a^n=1$.
+\end{proof}
+
+\textbf{Attention}, ceci n'est \textbf{pas} un résultat de passage au produit avec le symbole $\wedge$ ! Si on a $a\wedge b = 1$ et $c\wedge d = 1$, on n'a \textbf{pas} $ac\wedge bd=1$. Exemple  : $2\wedge 3=1$ et $3\wedge 2=1$ et pourtant $6\wedge 6\neq 1$.
+
+\begin{theoreme}[\og théorème/lemme de Gauss\fg]
+Soient $a$, $b$ et $c$ des entiers.
+Si $a\wedge b = 1$ et $a|bc$, alors $a|c$.
+\end{theoreme}
+\begin{proof}
+Soit $ak+bl=1$ une relation de Bézout pour $a$ et $b$.
+Si $a$ divise $bc$, alors il divise également $blc$. D'autre part, $a$ divise $akc$. Donc $a | (bl+ak)c$ c'est-à-dire $a|c$.
+\end{proof}
+
+\subsection{Résolution des équations diophantiennes du type $ax+by=c$}
+
+
+
+
+
 
 \section{Nombres premiers}
 
