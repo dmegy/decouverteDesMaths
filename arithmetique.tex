@@ -1,9 +1,126 @@
 
+Attention, la présentation qui suit diffère sans doute beaucoup de celle vue en terminale : il faut faire l'effort de l'étudier en détail même si l'ordre dans lequel les notions sont introduites semble \og mauvais\fg : en fait, c'est le \og bon\fg{}  ordre.
+
+Le cours d'arithmétique des polynômes suivra le même canevas (définitions semblables, mêmes lemmes aux mêmes endroits, mêmes preuves), de même que le cours d'algèbre générale sur les anneaux par la suite.
+
+\section{Préliminaires}
+
+\subsection{Division euclidienne}
+\begin{proposition}[Division euclidienne]
+Soit $a\in \N$ et $b\in \N*$. Il existe un unique couple $(b,r) \in \N^2$ vérifiant les deux propriétés suivantes:
+\begin{enumerate}
+\item $a=bq+r$;
+\item $r < b$.
+\end{enumerate}
+L'entier $b$ est le \emph{quotient} de la division euclidienne de $a$ par $b$, et $r$ est le \emph{reste}.
+Effectuer la division euclidienne de $a$ par $b$, c'est écrire $a = bq+r$ avec $b$ et $q$ comme plus haut.
+\end{proposition}
+
+Exemple : $17=5\times 3 + 2$ est la division euclidienne de $17$ par $5$. Le quotient est $3$ et il reste $2$. Par contre, l'écriture $17=5\times 2+7$ bien que correcte  n'est pas une division euclidienne, car le reste \emph{doit} être strictement inférieur à $5$, dans une division euclidienne.
+
+\subsection{Idéaux de $\Z$}
+
+Soit $I \subseteq \Z$ une partie de $\Z$. On dit que $I$ est un \emph{idéal} de $\Z$ si
+\begin{enumerate}
+\item C'est un \emph{sous-groupe} de $\Z$, c'est-à-dire $I$ contient $0$ et est stable par addition et opposé : 
+\[ \forall x, y\in I, \: x+y \in I \text{et} -x \in I.\]
+\item Il est \emph{absorbant pour la multiplication} c'est-à-dire:
+\[  \text{Si } x \in I \text{ et }n\in \Z, \text{alors } n\cdot x \in I.\]
+\end{enumerate}
+
+\begin{proposition}
+Tout idéal de $\Z$ est de la forme $\{k\alpha\:\mid \: k \in \Z\}$, avec $\alpha /in \N$. (Un tel ensemble est noté $\alpha\Z$.)
+\end{proposition}
+
+\begin{proof}
+On va montrer que les sous-groupes de $\Z$ sont de cette forme, et que ce sont des idéaux.
+
+Soit $G \subseteq \Z$ un sous-groupe. Soit $G^*_+ = G \cap \N^*$. Il y a deux cas:
+\begin{enumerate}
+\item Si $G^*_+$ est vide, cela signifie que $G$ ne possède aucun élément strictement positif. Comme $G$ est stable par opposé, il ne peut pas non plus contenir d'éléments strictement négatifs. Cela signifie que $G=\{0\}$.
+\item Sinon, c'est une partie non vide de $\N$, qui possède donc un plus petit élément, notons-le $\alpha$.
+Par définition, $G$ est stable par somme et opposé, donc $2\alpha\in G$ et $-\alpha \in G$ et plus généralement, pour tout $k\in \Z$, on a $k\alpha \in G$.
+Donc $\alpha \subseteq G$. Montrons l'inclusion inverse.
+Soit $x\in G$, positif. \'Ecrivons la division euclidienne de $x$ par $\alpha$. On a $x = \alpha q + r$, avec $r<\alpha$. Comme $G$ est stable par somme et différence et que $\alpha q \in G$, on en déduit que $r = x-\alpha q$ est également dans $G$. Or, $r<\alpha$, donc par minimalité de $\alpha$, $r=0$, ce qui montre que $x = \alpha q$, donc que $x\in \alpha\Z$.
+Si $x$ est négatif, ce qui précède montre que $-x\in \alpha\Z$, donc que $x\in \alpha\Z$.
+\end{enumerate}
+
+On vérifie ensuite sans peine que tous les sous-groupes de $\Z$ sont en fait des idéaux de $\Z$.
+\end{proof}
 
 
+L'entier $\alpha$ dans la définition est appelé le générateur principal de $G$.
 
 
-\begin{definition}[Union, intersection et complémentaire de parties]\end{definition}
+\section{Pgcd}
 
-\begin{definition}[Restriction d'un ensemble]\end{definition}
+\begin{proposition}
+Soient $a$ et $b$ deux entiers. L'ensemble $\{ak+bl\:\mid\: k, l\in \Z\}$ noté par définition $a\Z+b\Z$ ou $\langle a,b\rangle$, est un idéal de $\Z$. 
+\end{proposition}
+\begin{proof}
+Appliquer la définition de sous-groupe, ce qui prouve que c'est un idéal par la section précédente.
+\end{proof}
 
+\begin{definition}
+Soient $a$ et $b$ des entiers. Le générateur principal de $a\Z+b\Z$ est appelé le pgcd de $a$ et $b$, il est noté $\pgcd(a,b)$ ou bien $a\wedge b$.
+\end{definition}
+
+\begin{proposition}
+Soient $a$ et $b$ des entiers, et $d=\pgcd(a,b)$.
+On a les propriétés suivantes
+\begin{enumerate}
+\item L'entier $a$ est dans $a\Z+b\Z$, donc $d$ divise $a$. De même, $d$ divise $b$.
+\item L'entier $df$ est dans $d\Z$, donc il existe $k$ et $l$ dans $\Z$, tels que $d = ak+bl$. On dit que $(k,l)$ est un couple (ou paire, par abus de langage) de Bézout pour $a$ et $b$. L'égalité $d=ak+bl$ est appelée \emph{relation de Bézout}.
+\item Au sens de la divisibilité, $d$ est le plus grand diviseur commun  de $a$ et $b$. Ceci explique le nom (\emph{plus grand commun diviseur} de $d$. Cette propriété est précisée dans la proposition suivante.
+\item Si $d=0$, alors $a=b=0$.
+\item On a $\pgcd(a,b)=\pgcd(a,b) = \pgcd(a,-b)$, car $a\Z+b\Z = b\Z+a\Z=a\Z+(-b)\Z$.
+\item $\pgcd(a,0)=|a|$.
+\item $\pgcd(a,1)=1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Si $x>0$, $x|a$ et $x|b$, et $\forall m, m|a \text{ et } m|b \implies m|x$, alors $x=d$.
+\end{proposition}
+\begin{proof}
+Si $x|a$ et $x|b$, alors $x|d$. D'autre part, $d|a$ et $d|a$, donc $d|x$. Donc finalement, $d=x$.
+Attention, la condition $x>0$ est indispensable pour ce raisonnement. Deux entiers relatifs peuvent se diviser l'un l'autre, comme $1$ et $-1$, sans être égaux.
+\end{proof}
+
+\begin{proposition}
+Soit $k>0$. On a $\pgcd(ka,kb)=k\pgcd(a,b)$.
+\end{proposition}
+\begin{proof}
+Notons provisoirement $d_1 = \pgcd(a,b)$ et $d_2 = \pgcd(ka,kb)$.
+
+Comme $d_1|a$ et $d_1|b$, on a $kd_1|ka$ et $kd_1|kb$ donc finalement $kd_1|d_2$. En  particulier, $k|d_2$ donc $\frac{d_2}{k}$ est un entier.
+
+D'autre part, $d_2|ka$ et $d_2|kb$, donc  en divisant par $k$ et en utilisant la remarque précédente, on a $\frac{d_2}{k} | a$ et $\frac{d_2}{k} | b$ donc $\frac{d_2}{k} | d_1$, d'où $d_2 | kd_1$. 
+
+Comme $kd_1$ et $d_2$ sont positifs, on en déduit $d_2=kd_1$.
+\end{proof}
+
+\subsection{Algorithme d'Euclide}
+
+\begin{lemme}[d'Euclide]
+Soient $a$, $b$ et $k$ des entiers relatifs. Alors:
+\[ \pgcd(a,b) = \pgcd(a+kb,b).\]
+\end{lemme}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Nombres premiers}
+
+\subsection{Définition}
+
+\subsection{Factorisation en produit d'irréductibles}
+
+\section{Ppcm}
+
+\section{Compléments}
+
+\subsection{Petit théorème de Fermat}
+\subsection{Théorème chinois}
+\subsection{Indicatrice d'Euler}
