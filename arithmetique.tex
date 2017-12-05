@@ -212,7 +212,39 @@ Si $a$ divise $bc$, alors il divise également $blc$. D'autre part, $a$ divise $
 \subsection{Résolution des équations diophantiennes du type $ax+by=c$}
 
 
+\begin{definition}
+Une équation diophantienne est une équation du type $F(x_1, x_2, ...x_k)=0$, les inconnues $x_1$, ... $x_k$ appartiennent à $\Z$, ou une partie de $\Z$.
+\end{definition}
 
+Exemples :\\
+$12x+3y=8$, d'inconnues $x$ et $y$ dans $\Z$.\\
+$2^n-3^m=7$ d'inconnues $n$ et $m$ dans $\N$.\\
+$x^n+y^n=z^n$ d'inconnues $x$, $y$, $z$, $n$ dans $\N$. (C'est l'équation de Fermat; il a été démontré en 1994 après trois siècles d'efforts que l'équation n'admet des solutions que si $n=2$.)
+
+Dans ce cours, on s'intéresse aux équations du type $ax+by=c$ d'inconnues $x$ et $y$ dans $\Z$, et avec $a$, $b$ et $c$ des paramètres entiers. 
+
+Géométriquement, cela revient à trouver les points à coordonnées entières de la droite du plan d'équation cartésienne $ax+by=c$.
+
+La méthode de résolution consiste à trouver une solution particulière de l'équation, puis à y ajouter les solutions de l'équation homogène associée, qui est par définition l'équation obtenue en remplaçant le second membre par zéro: $ax+by=0$.
+
+\begin{proposition}[Résolution des équations homogènes]
+Soient $a$, $b$ des entiers non tous deux  nuls, et notons $d = \pgcd(a,b)$. L'équation $ax+by=0$ d'inconnue $(x,y)\in \Z^2$ a pour ensemble de solutions :
+\[
+\left\{k\left(\frac{-b}{d} , \frac{a}{d}\right),\: k\in \Z\right\}
+\]
+\end{proposition}
+
+(Remarque : si $a$ et $b$ sont nuls, alors l'ensemble des solutions est $\Z^2$ tout entier...)
+
+\begin{proof}(de la proposition)
+\'Ecrivons $a=da'$ et $b=db'$. L'équation s'écrit donc $da'x+db'y=0$ et en simplifiant par $d$ qui est non nul, on obtient l'équation équivalente $a'x+b'y=0$, avec $a'\wedge b'=1$.
+
+Si un des deux entiers $a$ ou $b$ est nul, le résultat est facile.
+
+Sinon, le théorème de Gauss donne alors $a'|y$ donc il existe $k\in \Z$ tel que $y = ka'$.  On trouve alors $x=-kb'$ en simplifiant par $a'$.
+\end{proof}
+
+\begin{proposition}
 
 
 
