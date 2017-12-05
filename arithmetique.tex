@@ -248,6 +248,20 @@ donc $(x,y)$ est solution de $(E)$ si et seulement si $(x-x_p,y-y_p)$ est soluti
 
 Il reste donc à établir un critère pour l'existence de solutions, et à donner une méthode pour trouver des solutions particulières, et pour résoudre les équations homogènes.
 
+\begin{proposition}[Existence de solutions et solution particulière]
+Soient $a$, $b$ et $c$ des entiers.
+\begin{enumerate}
+\item L'équation $(E)\: : \: ax+by=c$ d'inconnue $(x,y)\in \Z^2$ admet des solutions si et seulement si $\pgcd(a,b)|c$.
+\item Dans ce cas, en notant $k=c/\pgcd(a,b)$ et $au+bv=\pgcd(a,b)$ une relation de Bézout, une solution particulière est $(ku,kv)$.
+\end{enumerate}
+\end{proposition}
+\begin{preuve}
+Montrons d'abord que la condition est nécessaire. S'il existe une solution $(x,y)$, alors $ax+by=c$ et donc tout diviseur commun de $a$ et $b$ divise aussi $ax+by$ et donc $c$. En  particulier $\pgcd(a,b) | c$.
+
+Réciproquement, montrons que la condition est suffisante en prouvant que le couple fourni est bien solution. En multipliant par $k$ la relation de Bézout on obtient $auk+bvk=\pgcd(a,b) k=c$ donc $(uk,vk)$ est bien une solution de $(E)$.
+\end{preuve}
+
+
 \begin{proposition}[Résolution des équations homogènes]
 Soient $a$, $b$ des entiers non tous deux  nuls, et notons $d = \pgcd(a,b)$. L'équation $ax+by=0$ d'inconnue $(x,y)\in \Z^2$ a pour ensemble de solutions :
 \[
