@@ -225,7 +225,28 @@ Dans ce cours, on s'intéresse aux équations du type $ax+by=c$ d'inconnues $x$ 
 
 Géométriquement, cela revient à trouver les points à coordonnées entières de la droite du plan d'équation cartésienne $ax+by=c$.
 
-La méthode de résolution (prouvée plus bas) consiste\footnote{comme pour les équations différentielles, ou les systèmes linéaires} à trouver une solution particulière de l'équation, puis à y ajouter les solutions de l'équation homogène associée, qui est par définition l'équation obtenue en remplaçant le second membre par zéro: $ax+by=0$.
+La méthode de résolution consiste\footnote{comme pour les équations différentielles, ou les systèmes linéaires} à trouver une solution particulière de l'équation, puis à y ajouter les solutions de l'équation homogène associée, qui est par définition l'équation obtenue en remplaçant le second membre par zéro: $ax+by=0$. C'est le contenu de la proposition suivante:
+
+\begin{proposition}
+Soient $a$, $b$ des entiers non tous deux  nuls, $c$ un entier. On considère l'équation $(E) \: : \: ax+by=c$ d'inconnue $(x,y)\in \Z^2$, ainsi que l'équation homogène associée $(E_h) \: : \: ax+by=0$. 
+
+Si $(x_p,y_p)$ est une solution particulière de $(E)$, alors son ensemble de solutions est 
+\[
+\left\{(x_p,y_p) + (s,t)\:\mid\: (s,t) \text{ solution de } E_h\right\}
+\]
+\end{proposition}
+
+\begin{proof}
+Soit $(x,y)$ un couple d'entiers. 
+\begin{align*}
+ax+by=c 
+&\iff ax+by = ax_p+by_p\\
+&\iff a(x-x_p) + b(y-y_p) = c-c=0,
+\end{align*}
+donc $(x,y)$ est solution de $(E)$ si et seulement si $(x-x_p,y-y_p)$ est solution de l'équation homogène $(E_h)$ associée à $(E)$. On en déduit le résultat.
+\end{proof}
+
+Il reste donc à établir un critère pour l'existence de solutions, et à donner une méthode pour trouver des solutions particulières, et pour résoudre les équations homogènes.
 
 \begin{proposition}[Résolution des équations homogènes]
 Soient $a$, $b$ des entiers non tous deux  nuls, et notons $d = \pgcd(a,b)$. L'équation $ax+by=0$ d'inconnue $(x,y)\in \Z^2$ a pour ensemble de solutions :
@@ -241,10 +262,17 @@ Soient $a$, $b$ des entiers non tous deux  nuls, et notons $d = \pgcd(a,b)$. L'�
 
 Si un des deux entiers $a$ ou $b$ est nul, le résultat est facile.
 
-Sinon, le théorème de Gauss donne alors $a'|y$ donc il existe $k\in \Z$ tel que $y = ka'$.  On trouve alors $x=-kb'$ en simplifiant par $a'$.
+Sinon, le théorème de Gauss donne alors $a'|y$, donc il existe $k\in \Z$ tel que $y = ka'$.  On trouve alors $x=-kb'$ en simplifiant par $a'$.
 \end{proof}
 
-\begin{proposition}
+\begin{exemple}
+L'ensemble des solutions entières de l'équation $2x+6y=0$ est $\{k(3,-1)\:\mid\:k\in\Z\}$.
+\end{exemple}
+
+
+
+
+
 
 
 
