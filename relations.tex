@@ -100,7 +100,7 @@ Si $A\subset E$ possède un plus grand élément, il est unique.
 Soient $m$ et $m'$ deux plus grands éléments de $A$. Comme $m$ est un plus grand élément, on a par définition $\forall x\in A, x\leq_E m$ et donc en particulier $m'\leq_E m$. De même, comme $m'$ est un plus grand élément, on a $m\leq_E m'$. Par antisymétrie de la relation d'ordre, on a $m=m'$.
 \end{proof}
 
-Si $A$ possède un plus grand élément (unique par ce qui précède), on le note $\max(A)$.
+Si $A$ possède un plus grand élément (unique par ce qui précède), on le note $\max(A)$. Toutes les parties n'ont pas de plus grand élément, par exemple $]3,+\infty[$, ou $\N$ n'ont pas de plus grand élément.
 
 
 On définit de même  la notion de minorant, de plus petit élément, et on montre que s'il existe un plus petit élément d'une partie $A$, il est unique. On le note alors $\min(A)$.
@@ -113,11 +113,12 @@ On définit de même  la notion de minorant, de plus petit élément, et on mont
 (En d'autres termes, $s$ est le plus petit des majorants de $A$, ou encore : l'ensemble de tous les majorants de $A$ possède un plus petit élément $s$.)
 \end{definition}
 
-Attention, contrairement à un plus grand élément, la borne supérieure de $A$, si elle existe, n'appartient pas forcément à $A$. 
+Attention, contrairement à un plus grand élément, une  borne supérieure de $A$, s'il en existe, n'appartient pas forcément à $A$. 
 \begin{exemple}
-La partie $A=[0,1[ \subset \R$ possède une borne supérieure à savoir $1$.
+La partie $\R_+ \subseteq \R$ n'a pas de borne supérieure. 
+La partie $A=[0,1[ \subseteq \R$ n'a pas de plus grand élément, mais possède une borne supérieure : $1$.
 \end{exemple}
-\begin{proof}
+\begin{proof} Pour le premier point, la partie n'a même pas de majorant donc c'est clair. 
 D'une part, il est clair que $1$ est un majorant de $[0,1[$, c'est-à-dire que $\forall x\in [0,1[, \: x\leq 1$.
 
 Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$ et supposons par l'absurde que $m < 1$. On doit forcément avoir $0\leq m$ puisque $0\in [0,1[$. Donc $m+\frac{1-m}{2}=1+\frac{m}{2} \in [0,1[$.
@@ -139,8 +140,7 @@ Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$
  Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $1+m\leq 2m$ donc $m\geq 1$, absurde.
 \end{proof}
 
-\begin{proposition}
-Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
+\begin{proposition}Soit $(E,\leq_E)$ un ensemble totalement ordonné, et $a\subseteq E$. Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
 \end{proposition}
 
 \subsection{Ordre produit et ordre lexicographique}

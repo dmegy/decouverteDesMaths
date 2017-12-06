@@ -285,8 +285,45 @@ L'ensemble des solutions entières de l'équation $2x+6y=0$ est $\{k(3,-1)\:\mid
 
 
 
+\subsection{Ppcm}
 
+\begin{proposition}
+Soient $a$, $b \in \Z$. L'ensemble $a\Z\cap b\Z$ (qui est par définition l'ensemble des entiers qui sont à la fois multiples de $a$ et multiples de $b$, c'est-à-dire l'ensemble des multiples communs de $a$ et $b$) est un idéal de $\Z$.
+\end{proposition}
+\begin{proof}
+On a déjà vu qu'il suffit de montrer que c'est un sous-groupe de $\Z$, donc que $a\Z\cap b\Z$ contient $0$, est stable par somme et par opposé. 
+\begin{enumerate}
+\item $0 \in a\Z$ et $0\in b\Z$, donc $0 \in a\Z\cap b\Z$.
+\item Soient $x$, $y$ dans $a\Z\cap b\Z$. Comme $x$ et $y$ sont dans $a\Z$, $x+y\in a\Z$ car $a\Z$ est stable par somme. On montre de même que $x+y\in b\Z$. Donc $x+y \in a\Z\cap b\Z$.
+\item Soit $x\in a\Z\cap b\Z$. Comme $x\in a\Z$, on a $-x\in a\Z$ car $a\Z$ est stable par opposé. On montre de même que $-x\in b\Z$. Donc $-x \in a\Z\cap b\Z$.
+\end{enumerate}
 
+De façon générale et en anticipant sur un futur cours d'algèbre, l'intersection de deux sous-groupes est un sous-groupe.
+\end{proof}
+
+\begin{definition}
+Soient $a, b\in \Z$. Le générateur principal de l'idéal $a\Z\cap b\Z$ est appelé \emph{plus petit commun multiple} (sous-entendu, le plus petit parmi ceux strictement positifs) et noté $\ppcm(a,b)$.
+\end{definition}
+
+\begin{proposition}
+Soient $a$, $b \in \Z$. On a :
+\begin{enumerate}
+\item $\ppcm(a,1)=|a|$.
+\item $\ppcm(a,0)=0$.
+\item Si $M$ est un multiple de $a$ et de $b$, alors c'est un multiple de $\ppcm(a,b)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Soient $a$ et $b$ des naturels non nuls. On a :
+\[ \pgcd(a,b)\times \ppcm(a,b) = ab.\]
+\end{proposition}
+\begin{proof}
+\begin{itemize}
+\item Premier cas : $a\wedge b = 1$. Soit $m = \ppcm(a,b)$. Alors $a$ divise $m$ donc on peut écrire $m = ka$. D'autre part $b$ divise $m$, donc $b$ divise $ka$, par le théorème de Gauss, comme $b$ est premier avec $a$, on en déduit que $b$ divise $k$. Donc $ab|m$. D'autre part, $ab$ est un multiple commun de $a$ et de $b$, donc $m|ab$. Finalement, $m = ab$.
+\item Deuxième cas  : $d=\pgcd(a,b) \geq 1$. \'Ecrivons $a = da'$ et $b = db'$. On a donc $a'\wedge b'=1$. Donc $\ppcm(a',b')=a'b'$, puis $\ppcm(da',db') = da'b' = ab/d$.
+\end{itemize}
+\end{proof}
 
 
 
