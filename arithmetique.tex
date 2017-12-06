@@ -334,22 +334,41 @@ Soient $a$ et $b$ des naturels non nuls. On a :
 \begin{definition}
 Un entier naturel $p$ est dit \emph{premier} s'il possède exactement deux diviseurs positifs distincts : $1$ et $p$.
 En particulier, un nombre premier est toujours $\geq 2$.
-Un entier naturel $\geq 2$ qui n'est pas premier est dit \emph{composé}.
+
 \end{definition}
 % anecdote : voir la page nLab "too simple to be simple"
 
 
  Le nombre $1$ n'est pas premier. Les nombres premiers sont $2$, $3$, $5$, $7$, $11$, $13$, $17$, $19$, $23$ etc.
+ 
+\begin{proposition} Soit $p$ un nombre premier et $a\in \Z$. Alors $p|a$ ou $a\wedge p = 1$.
+\end{proposition}
+\begin{proof}
+On a $\pgcd(a,p)|p$ donc $\pgcd(a,p)$ vaut $1$ ou $p$.
+\end{proof}
+
+
+\begin{definition}
+Un entier naturel $n\geq 2$ qui n'est pas premier est dit \emph{composé}. Cela revient à :
+\[
+\exists a, b \in \llbracket 2,n-1 \rrbracket \:\mid\: n=ab.
+\]
+\end{definition}
+
+\begin{proposition}[Test de primalité]
+Un entier $n$ est premier si $\forall a \leq \sqrt n$ entier, $a$ ne divise pas $n$.
+\end{proposition}
+\begin{proof}
+Si $n$ est composé, alors $n=ab$ avec $a, b \in \llbracket 2,n-1 \rrbracket$, donc au moins un des deux entiers $a$ ou $b$ est $\sqrt n$ (sinon on aurait $n=ab > \sqrt{n}^2=n$, absurde). L'autre sens de l'équivalence est évident.
+\end{proof}
 
 
 
+\subsection{Décomposition en produit de nombres premiers}
 
-\subsection{Factorisation en produit d'irréductibles}
 
-\section{Ppcm}
 
-\section{Compléments}
-
+\section{Compléments (non traité en 2017-2018)}
 \subsection{Petit théorème de Fermat}
 \subsection{Théorème chinois}
 \subsection{Indicatrice d'Euler}
