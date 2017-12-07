@@ -20,7 +20,7 @@ Exemple : $17=5\times 3 + 2$ est la division euclidienne de $17$ par $5$. Le quo
 
 \subsection{Idéaux de $\Z$}
 
-Soit $\alpha$ un entier. On rappelle que $\alpha\Z = \{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
+Soit $\alpha$ un entier. On rappelle que $\alpha\Z = \{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. C'est l'ensemble des multiples de $\alpha$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
 
 Exemples : $3\Z = \{-6,-3,0,3,6,9,12,...\}$. Si $\alpha=0$, alors $\alpha\Z = \{0\}$. On a $\alpha\Z = \Z$ ssi $\alpha$ est égal à $1$ ou $-1$.
 
@@ -166,7 +166,7 @@ On remarque qu'il n'est pas nécessaire que $a>b$ dans l'algorithme : si ce n'es
 L'algorithme d'Euclide permet également d'obtenir une relation de Bézout en \og remontant \fg{} les étapes de l'algorithme : 
 \[ d = r_{n-1} = r_{n-3} - q_{n-1}r_{n-2} = r_{n-3} - q_{n-1}(r_{n-4} - q_{n-2}r_{n-3})... = au+bv.\]
 
-\subsection{Nombres premiers entre eux, lemmes de Gauss}
+\subsection{Nombres premiers entre eux, théorème de Gau{\ss}}
 
 \begin{definition}
 Deux nombres relatifs $a$ et $b$ sont premiers entre eux si $\pgcd(a,b)=1$. On note :  $a\wedge b = 1$.
@@ -200,7 +200,7 @@ On a $a\wedge b = 1 \implies a\wedge b^2= ... =  a\wedge b^m=1$, puis $b^m\wedge
 
 \textbf{Attention}, ceci n'est \textbf{pas} un résultat de passage au produit avec le symbole $\wedge$ ! Si on a $a\wedge b = 1$ et $c\wedge d = 1$, on n'a \textbf{pas} $ac\wedge bd=1$. Exemple  : $2\wedge 3=1$ et $3\wedge 2=1$ et pourtant $6\wedge 6\neq 1$.
 
-\begin{theoreme}[\og théorème/lemme de Gauss\fg]
+\begin{theoreme}[\og théorème/lemme de Gau{\ss}\fg]
 Soient $a$, $b$ et $c$ des entiers.
 Si $a\wedge b = 1$ et $a|bc$, alors $a|c$.
 \end{theoreme}
@@ -225,7 +225,7 @@ Dans ce cours, on s'intéresse aux équations du type $ax+by=c$ d'inconnues $x$ 
 
 Géométriquement, cela revient à trouver les points à coordonnées entières de la droite du plan d'équation cartésienne $ax+by=c$.
 
-La méthode de résolution consiste\footnote{comme pour les équations différentielles, ou les systèmes linéaires} à trouver une solution particulière de l'équation, puis à y ajouter les solutions de l'équation homogène associée, qui est par définition l'équation obtenue en remplaçant le second membre par zéro: $ax+by=0$. C'est le contenu de la proposition suivante:
+La méthode de résolution consiste, comme pour les équations différentielles linéaires, à trouver une solution particulière de l'équation, puis à y ajouter les solutions de l'équation homogène associée, qui est par définition l'équation obtenue en remplaçant le second membre par zéro: $ax+by=0$. C'est le contenu de la proposition suivante:
 
 \begin{proposition}
 Soient $a$, $b$ des entiers non tous deux  nuls, $c$ un entier. On considère l'équation $(E) \: : \: ax+by=c$ d'inconnue $(x,y)\in \Z^2$, ainsi que l'équation homogène associée $(E_h) \: : \: ax+by=0$. 
@@ -276,7 +276,7 @@ Soient $a$, $b$ des entiers non tous deux  nuls, et notons $d = \pgcd(a,b)$. L'�
 
 Si un des deux entiers $a$ ou $b$ est nul, le résultat est facile.
 
-Sinon, le théorème de Gauss donne alors $a'|y$, donc il existe $k\in \Z$ tel que $y = ka'$.  On trouve alors $x=-kb'$ en simplifiant par $a'$.
+Sinon, le théorème de Gau{\ss} donne alors $a'|y$, donc il existe $k\in \Z$ tel que $y = ka'$.  On trouve alors $x=-kb'$ en simplifiant par $a'$.
 \end{proof}
 
 \begin{exemple}
@@ -285,7 +285,7 @@ L'ensemble des solutions entières de l'équation $2x+6y=0$ est $\{k(3,-1)\:\mid
 
 
 
-\subsection{Ppcm}
+\section{Ppcm}
 
 \begin{proposition}
 Soient $a$, $b \in \Z$. L'ensemble $a\Z\cap b\Z$ (qui est par définition l'ensemble des entiers qui sont à la fois multiples de $a$ et multiples de $b$, c'est-à-dire l'ensemble des multiples communs de $a$ et $b$) est un idéal de $\Z$.
@@ -435,9 +435,17 @@ Le résultat sur le ppcm se démontre de la même manière.
 \end{proof}
 
 
+\subsection{Infinitude des nombres premiers}
+
+\begin{proposition}
+L'ensemble $\mathcal P$ des nombres premiers est infini.
+\end{proposition}
+\begin{proof}
+Supposons par l'absurde qu'il soit fini, et soir $M$ son plus grand élément. Pour tout $k\leq M$, $k$ divise $M!$, donc le reste par la division euclidienne de $M!+1$ par $k$ est $1$. On en déduit que $k$ ne divise pas $M!+1$. En particulier, aucun nombre premier ne divise $M!+1$, qui ne possède donc pas de décomposition en facteurs premiers, absurde.
+\end{proof}
 
 
-\section{Compléments (ne sera pas traité en 2017-2018)}
-\subsection{Petit théorème de Fermat}
-\subsection{Théorème chinois}
-\subsection{Indicatrice d'Euler}
+%\section{Compléments (ne sera pas traité en 2017-2018)}
+%\subsection{Petit théorème de Fermat}
+%\subsection{Théorème chinois}
+%\subsection{Indicatrice d'Euler}
