@@ -382,28 +382,62 @@ On montre l'existence par récurrence forte sur $n$. Pour $n\geq 1$, notons $A(n
 \[ bc = \prod_{p\in \mathcal P} p^{\beta_p} \cdot \prod_{p\in \mathcal P} p^{\gamma_p}
 = \prod_{p\in \mathcal P} p^{\beta_p+\gamma_p}\] et la suite $\alpha_p = \beta_p+\gamma_p$ convient.
 
-L'unicité de la décomposition est laissée en exercice (non immédiat).
+L'unicité de la décomposition est laissée en exercice.
 \end{proof}
 
-\begin{definition}
+\begin{definition}[Valuation $p$-adique]
 Soit $n$ un entier et $p$ un nombre premier. On appelle \emph{valuation $p$-adique de $n$} et on note $v_p(n)$l'exposant de $p$ dans la décomposition de $n$ en facteurs premiers. On peut donc écrire 
-\[ n = \prod_{p\in \mathcal P} p^{v_(n)}.\]
+\[ n = \prod_{p\in \mathcal P} p^{v_p(n)}.\]
 \end{definition}
 
 Exemples : $v_2(16)=4$, $v_3(17)=0$, $v_2(18)=1$.
 
-\begin{proposition}
+\begin{proposition}[Propriétés fondamentales de la valuation $p$-adique]
 \[ v_p(n)\geq 1 \iff p|n.\]
 \[ v_p(nm) = v_p(n)+v_p(m).\]
 \end{proposition}
 
-\begin{proposition}[Critère de divisibilité]
+\begin{proposition}[Critère de divisibilité en termes de valuations $p$-adiques]
 \[ 
 n|m \iff \left(\forall p\in \mathcal P, \: v_p(n)\leq v_p(m)\right)
 \]
 \end{proposition}
+\begin{proof}
+Si $m = kn$, alors pour tout $p\in \mathcal P$, $v_p(m) = v_p(k)+v_p(n) \geq v_p(n)$.
 
-\section{Compléments (non traité en 2017-2018)}
+Réciproquement, on a 
+\[ 
+m
+= \prod_{p\in\mathcal P}p^{v_p(m)}
+= \prod_{p\in\mathcal P}p^{v_p(n)} \cdot \prod_{p\in\mathcal P}p^{v_p(m)-v_p(n)}
+\]
+donc $n|m$.
+\end{proof}
+
+\begin{corollaire}[pgcd et ppcm en termes de valuations $p$-adiques]
+\[
+\pgcd(n,m) = \prod_{p\in\mathcal P}p^{\min(v_p(n),v_p(m))},
+\]
+\[
+\ppcm(n,m) = \prod_{p\in\mathcal P}p^{\max(v_p(n),v_p(m))}.
+\]
+\end{corollaire}
+\begin{proof}
+Notons $d=\pgcd(n,m)$ et $a = \prod_{p\in\mathcal P}p^{\min(v_p(n),v_p(m))}$.
+
+Pour tout $p\in \mathcal P$, on a $v_p(a) \leq v_p(n)$ donc $a|n$. De même, $a|m$. Donc $a$ est un diviseur commun de $m$ et $n$, et il divise donc leur pgcd : $a|d$.
+
+D'autre part, soit $\in \mathcal P$. On a $d|m$ donc $v_p(d)\leq v_p(m)$, et de même, $d|n$ donc $v_p(d)\leq v_p(n)$. On en déduit que $v_p(d) \leq \min(v_p(n),v_p(m)) = v_p(a)$. Comme ceci vaut pour tout $p\in \mathcal P$, on a $d|a$.
+
+Finalement on a $a|d$ et $d|a$, donc \fbox{$d=a$}.
+
+Le résultat sur le ppcm se démontre de la même manière.
+\end{proof}
+
+
+
+
+\section{Compléments (ne sera pas traité en 2017-2018)}
 \subsection{Petit théorème de Fermat}
 \subsection{Théorème chinois}
 \subsection{Indicatrice d'Euler}
