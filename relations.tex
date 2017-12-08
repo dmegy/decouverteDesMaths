@@ -198,4 +198,22 @@ En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \
 
 \subsection{Définitions}
 
+\begin{definition}[Relation d'équivalence]
+Une relation binaire $R$ sur un ensemble $E$ est une \emph{relation d'équivalence} ssi elle est:
+\begin{enumerate}
+\item réflexive (rappel : $\forall x\in E, xRx$);
+\item transitive (rappel : $forallx, y, z\in E, xRy\text{ et } yRz \implies xRz$);
+\item symétrique : $\forall x, y\in E, xRy \implies yRx$.
+\end{enumerate}
+\end{definition}
+
+\begin{exemples}
+Les relations $=$, $//$ (parallélisme), et toutes les congruences modulo un élément fixé dont des relations d'équivalence.
+
+La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
+\end{exemples}
+
 \subsection{Partition en classes d'équivalence}
+\begin{definition}
+Soit $E$ un ensemble muni d'une relation d'équivalence $R$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence} de $x$ l'ensemble $\{y\in E\:\mid\: yRx\}$ des éléments qui sont équivalents à $x$.
+\end{definition}
