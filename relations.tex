@@ -1,9 +1,9 @@
 \section{Relations binaires}
 
-\begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire} $R$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
+\begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
 \end{definition}
 
-Une relation $R$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que $R(x,y)=\text{vrai}$. On notera \og$xRy$\fg{} au lieu de \og$R(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}R y$\fg{} au lieu de \og$R(x,y)=\text{faux}$\fg{}
+Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$. On notera \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}{\mathcal R} y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{faux}$\fg{}
 
 \begin{exemples} Les symboles $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires entre ensembles.
 \end{exemples}
@@ -11,11 +11,11 @@ Une relation $R$ est caractérisée par la partie de $E\times E$ constituée des
 \section{Relations d'ordre}
 
 \begin{definition}
-Soit $E$ un ensemble. Une relation binaire $R$ sur $E$ est
+Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est
 \begin{enumerate}
-\item réflexive ssi $\forall x\in E, xRx$;
-\item transitive ssi $\forall x, y, z\in E, xRy \text{ et } yRz \implies xRz$;
-\item antisymétrique ssi $\forall x, y \in E, xRy\text{ et } yRx \implies x=y$.
+\item réflexive ssi $\forall x\in E, x{\mathcal R}x$;
+\item transitive ssi $\forall x, y, z\in E, xRy \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
+\item antisymétrique ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
 \end{enumerate}
 
 Une relation est une \emph{relation d'ordre} ssi elle est réflexive, transitive et antisymétrique.
@@ -30,12 +30,12 @@ $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$
 Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et $|$ n'est pas une relation d'ordre sur $\Z^*$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
 
 \begin{definition}
-Si $R$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ xRy\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
+Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
 \end{definition}
 
-Un ensemble $E$ muni d'une relation d'ordre $R$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné. S'il n'y a pas de confusion possible sur la relation d'ordre, on peut simplement dire que $E$ est ordonné. (Cependant, il y a en général plusieurs relations d'ordre sur un ensemble.)
+Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné. S'il n'y a pas de confusion possible sur la relation d'ordre, on peut simplement dire que $E$ est ordonné. (Cependant, il y a en général plusieurs relations d'ordre sur un ensemble.)
 
-Dans ce cours, on notera en général $\leq_E$ au lieu de $R$ une relation d'ordre sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$).
+Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales.
 
 % exos de base de vérification de définitions.
 
@@ -58,13 +58,13 @@ et \emph{décroissante} si :
 \[\forall x, y\in E, x\leq_E y \implies f(y) \leq_F f(x).\]
 \end{definition}
 
-(Remarque : dans cette situation, il est crucial de distinguer les relations d'ordre sur $E$ et sur $F$.)
+(Remarque : dans cette situation, il est important de distinguer les relations d'ordre sur $E$ et sur $F$.)
 
 \begin{exemple}
 \begin{enumerate}
 \item L'application $f : \R\to \R, x\mapsto x+e^x$ est croissante pour l'ordre usuel $\leq $ sur $\R$.
-\item Si $E$ est fini, l'application $f : \mathcal P(E) \to \N, \: A\mapsto \operatorname{Card}(A)$ est croissante entre les ensembles ordonnés $(\mathcal P(E), \subset)$ et $(\N, \leq)$.
-\item L'application $f : \mathcal P(E) \to \mathcal P(E), \: A\mapsto A^c$ est décroissante pour l'inclusion, car $A\subset B \implies B^c\subset A^c$.
+\item Si $E$ est fini, l'application $f : \mathcal P(E) \to \N, \: A\mapsto \operatorname{Card}(A)$ est croissante entre les ensembles ordonnés $(\mathcal P(E), \subseteq)$ et $(\N, \leq)$.
+\item L'application $f : \mathcal P(E) \to \mathcal P(E), \: A\mapsto A^c$ est décroissante pour l'inclusion, car $A\subseteq B \implies B^c\subseteq A^c$.
 \end{enumerate}
 \end{exemple}
 
@@ -84,7 +84,7 @@ Application directe de la définition.
 
 \subsection{Éléments remarquables dans un ensemble ordonné}
 
-Soit $(E,\leq_E)$ un ensemble ordonné et $A\subset E$ une partie non vide. Un élément $m\in E$ est un \emph{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
+Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide. Un élément $m\in E$ est un \emph{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
 
 La partie $A$ est majorée si elle possède des majorants.
 
@@ -97,7 +97,7 @@ La partie $[0,1[$ est majorée dans $\R$ (pour les mêmes raisons). Par contre, 
 \end{exemple}
 
 \begin{proposition}
-Si $A\subset E$ possède un plus grand élément, il est unique.
+Si $A\subseteq E$ possède un plus grand élément, il est unique.
 \end{proposition}
 \begin{proof}
 Soient $m$ et $m'$ deux plus grands éléments de $A$. Comme $m$ est un plus grand élément, on a par définition $\forall x\in A, x\leq_E m$ et donc en particulier $m'\leq_E m$. De même, comme $m'$ est un plus grand élément, on a $m\leq_E m'$. Par antisymétrie de la relation d'ordre, on a $m=m'$.
@@ -108,7 +108,7 @@ Si $A$ possède un plus grand élément (unique par ce qui précède), on le not
 
 On définit de même  la notion de minorant, de plus petit élément, et on montre que s'il existe un plus petit élément d'une partie $A$, il est unique. On le note alors $\min(A)$.
 
-\begin{definition} La partie $A\subset E$ admet une borne supérieure $s\in E$ ssi:
+\begin{definition} La partie $A\subseteq E$ admet une borne supérieure $s\in E$ ssi:
 \begin{enumerate}
 \item $s$ est un majorant de $A$;
 \item tout majorant de $A$ majore $s$.
@@ -199,11 +199,11 @@ En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \
 \subsection{Définitions}
 
 \begin{definition}[Relation d'équivalence]
-Une relation binaire $R$ sur un ensemble $E$ est une \emph{relation d'équivalence} ssi elle est:
+Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d'équivalence} ssi elle est:
 \begin{enumerate}
-\item réflexive (rappel : $\forall x\in E, xRx$);
-\item transitive (rappel : $forallx, y, z\in E, xRy\text{ et } yRz \implies xRz$);
-\item symétrique : $\forall x, y\in E, xRy \implies yRx$.
+\item réflexive (rappel : $\forall x\in E, x{\mathcal R}x$);
+\item transitive (rappel : $forallx, y, z\in E, x{\mathcal R}y\text{ et } y{\mathcal R}z \implies x{\mathcal R}z$);
+\item symétrique : $\forall x, y\in E, x{\mathcal R}y \implies yRx$.
 \end{enumerate}
 \end{definition}
 
@@ -213,7 +213,57 @@ Les relations $=$, $//$ (parallélisme), et toutes les congruences modulo un él
 La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
 \end{exemples}
 
-\subsection{Partition en classes d'équivalence}
+\subsection{Classes d'équivalence}
 \begin{definition}
-Soit $E$ un ensemble muni d'une relation d'équivalence $R$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence} de $x$ l'ensemble $\{y\in E\:\mid\: yRx\}$ des éléments qui sont équivalents à $x$.
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence} de $x$ l'ensemble $\left\{y\in E\:\mid\: y{\mathcal R}x\right\}$ des éléments qui sont équivalents à $x$.
 \end{definition}
+
+Attention aux notations : $x$ est un élément de $E$, mais $\overline{x}$ est une partie de $E$.
+
+\begin{proposition}
+\begin{enumerate}
+\item $\forall x\in E, x\in \overline{x}$.
+\item $\forall x, y\in E, x{\mathcal R}y \iff \overline{x}=\overline{y}$.
+\item $\forall x, y\in E, \overline{x} = \overline{y} \text{ ou } \overline{x}\cap \overline{y}=\varnothing$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Découle de la réflexivité.
+\item Sens $\impliedby$ : Supposons $\overline{x}=\overline{y}$. Comme $y\in \overline{y}$, on a $y\in \overline{x}$, donc $y{\mathcal R}x$.\\
+Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\mathcal R}y$, on a $z{\mathcal R}y$ par transitivité, et donc $z\in \overline{y}$. Ceci montre $\overline{x}\subseteq \overline{y}$. Pour montrer l'inclusion réciproque, on a $y{\mathcal R}x$ par symétrie de $R$ puis on termine de la même manière.
+\item Soient $x$ et $y$, et supposons $\overline{x}\cap \overline{y} \neq \varnothing$. Soit $z\in \overline{x}\cap \overline{y}$. Alors $z\mathcal R x$ et $z\mathcal R y$, donc par symétrie et transitivité, $x\mathcal R y$, d'où $\overline{x}=\overline{y}$. On en déduit que deux classes sont soit égales soit disjointes.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $R$} et est noté $E/{\mathcal R}$.
+\end{definition}
+
+\begin{exemple}Pour l'ensemble $E$ des droites du plan muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan.
+\end{exemple}
+
+\subsection{Partition en classes d'équivalence}
+
+\begin{definition}[Partition d'un ensemble]
+Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ ue famille de parties de $E$. On dit que c'est une \emph{partition de $E$} si :
+\begin{enumerate}
+\item Les $A_i$ sont toutes non vides.
+\item On a $\bigcup_{i\in I} A_i = E$.
+\item Les parties $A_i$ sont deux-à-deux disjointes : $\forall i, j\in I, i\neq j \implies A_i\cap A_j=\varnothing$.
+\end{enumerate}
+\end{definition}
+
+Exemple : $E = \Z$, $A_1 $ est l'ensemble des entiers pairs non nuls, $A_2=\{0\}$, et $A_3$ est l'ensemble des entiers impairs.
+
+\begin{proposition}
+Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est une partition de $E$.
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Une classe d'équivalence n'est jamais vide, puisque qu'elle est toujours de la forme $\overline{x}$ et donc contient un élément $x$.
+\item Soit $a\in E$. On a $\overline{a} \in E/\mathcal R$, et $a\in \overline{a}$. Donc $a\in \bigcup_{A\in E/\mathcal R} A$. On en déduit que $E\subseteq \bigcup_{A\in E/\mathcal R} A$.
+\item On a déjà montré que deux classes d'équivalence sont soit égales soit disjointes.
+\end{enumerate}
+\end{proof}
+
