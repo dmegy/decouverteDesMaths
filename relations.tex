@@ -1,9 +1,12 @@
-\subsection{Relations binaires}
+\section{Relations binaires}
 
 \begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire} $R$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
 \end{definition}
 
-On notera $xRy$ au lieu de $R(x,y)=\text{vrai}$.
+Une relation $R$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que $R(x,y)=\text{vrai}$. On notera \og$xRy$\fg{} au lieu de \og$R(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}R y$\fg{} au lieu de \og$R(x,y)=\text{faux}$\fg{}
+
+\begin{exemples} Les symboles $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires entre ensembles.
+\end{exemples}
 
 \section{Relations d'ordre}
 
@@ -24,8 +27,7 @@ $\subset$ est une relation d'ordre sur $\mathcal P(E)$.
 $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$
 \end{exemples}
 
-Attention : $<$ n'est pas une relation d'ordre, et $|$ n'est pas une relation d'ordre sur $\Z^*$. Pourquoi ?
-% pas réflexive, pas antisymétrique (1 et -1)
+Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et $|$ n'est pas une relation d'ordre sur $\Z^*$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
 
 \begin{definition}
 Si $R$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ xRy\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
@@ -33,7 +35,7 @@ Si $R$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph
 
 Un ensemble $E$ muni d'une relation d'ordre $R$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné. S'il n'y a pas de confusion possible sur la relation d'ordre, on peut simplement dire que $E$ est ordonné. (Cependant, il y a en général plusieurs relations d'ordre sur un ensemble.)
 
-Dans ce cours, on notera souvent $\leq_E$ au lieu de $R$ une relation d'ordre sur $E$, même si la relation n'a rien à voir avec $\leq$ sur $\R$.
+Dans ce cours, on notera en général $\leq_E$ au lieu de $R$ une relation d'ordre sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$).
 
 % exos de base de vérification de définitions.
 
@@ -42,6 +44,7 @@ Dans ce cours, on notera souvent $\leq_E$ au lieu de $R$ une relation d'ordre su
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si:
 \[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq x.\]
+Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné}.
 \end{definition}
 
 \begin{exemples}
@@ -140,10 +143,56 @@ Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$
  Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $1+m\leq 2m$ donc $m\geq 1$, absurde.
 \end{proof}
 
-\begin{proposition}Soit $(E,\leq_E)$ un ensemble totalement ordonné, et $a\subseteq E$. Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
+\begin{proposition}
+Soit $(E,\leq_E)$ un ensemble ordonné $A\subseteq E$.
+Si $A$ admet une borne supérieure et que $\sup(A) \in A$, alors c'est son plus grand élément.
+Si $A$ admet un plus grand élément, c'est aussi sa borne supérieure.
 \end{proposition}
+\begin{proof}
+Exercice, appliquer les définitions.
+\end{proof}
+
+%\begin{proposition}
+%Soit $(E,\leq_E)$ un ensemble totalement ordonné, et $a\subseteq E$. Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
+%\end{proposition}
 
 \subsection{Ordre produit et ordre lexicographique}
+
+\begin{propdef}
+Soient $(E\leq_E)$ et $F,\leq_F)$ des ensembles ordonnés.
+L'ordre produit sur $E\times F$ est défini par :
+\[
+(x,y) \leq_{E\times F} (x',y') \iff \left(x\leq_E x' \text{ et } y\leq_F y'\right).
+\]
+\end{propdef}
+\begin{proof}
+Il s'agit de prouver que la relation binaire définie est bien une relation d'ordre donc réflexive, antisymétrique et transitive. Exercice.
+\end{proof}
+
+Attention, même si $\leq_E$ et $\leq_F$ sont totales, l'ordre produit n'est pas forcément un ordre total. Par exemple, pour $E=F=\R$ et l'ordre usuel sur $\R$ qui est bien total, on remarque que l'ordre produit $\leq_{\R\times\R}$ sur $\R\times \R$ n'est pas total car $(1,2)$ et $(2,1)$ ne sont pas comparables.
+
+\begin{propdef}
+Soient $(E\leq_E)$ et $F,\leq_F)$ des ensembles \textbf{totalement} ordonnés.
+L'ordre lexicographique sur $E\times F$ est défini par :
+\[
+(x,y) \leq_{E\times F} (x',y') \iff \left(x< x' \text{ ou } (x=x' \text{ et } y\leq_F y')\right).
+\]
+C'est un ordre total.
+\end{propdef}
+\begin{proof}
+La propriété de relation d'ordre est laissée en exercice. Prouvons que l'ordre est total.
+
+Soient en effet $(x,y)$ et $(x',y')$ distincts.
+Si $x\neq x'$, alors comme $\leq_E$ est un ordre total, on a forcément $x<_E x'$ ou bien $x'<_E x$.
+Si $x=x'$, alors on a forcément $y\neq y'$ et comme $\leq_F$ est un ordre total, on a forcément $y <_F y'$ ou bien $y'<_F y$.
+
+En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \leq_{E\times F} (x,y)$.
+\end{proof}
+
+\begin{exemple}Avec l'ordre usuel sur l'alphabet, l'ordre lexicographique sur les mots est l'ordre dans lequel les mots sont classés dans un dictionnaire.
+\end{exemple}
+
+
 
 \section{Relations d'équivalence}
 
