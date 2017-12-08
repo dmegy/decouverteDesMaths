@@ -20,53 +20,58 @@ Exemple : $17=5\times 3 + 2$ est la division euclidienne de $17$ par $5$. Le quo
 
 \subsection{Idéaux de $\Z$}
 
-Soit $\alpha$ un entier. On rappelle que $\alpha\Z = \{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. C'est l'ensemble des multiples de $\alpha$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
+\begin{definition}[Ensembles $\alpha\Z$ et générateur principal]
+Soit $\alpha$ un entier relatif. On note $\alpha\Z$ l'ensemble $\{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. C'est l'ensemble des multiples de $\alpha$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
 
-Exemples : $3\Z = \{-6,-3,0,3,6,9,12,...\}$. Si $\alpha=0$, alors $\alpha\Z = \{0\}$. On a $\alpha\Z = \Z$ ssi $\alpha$ est égal à $1$ ou $-1$.
+Le \emph{générateur principal} de $\alpha\Z$ est $|\alpha|$.
+\end{definition}
 
-Une partie de $\Z$ de la forme $\alpha\Z$ contient zéro, est stable par addition, et par opposé. Réciproquement, on peut s'intéresser aux parties qui vérifient ces trois  propriétés et se demander si elles sont toutes de la forme $\alpha\Z$.
+Exemples : $3\Z = \{...,-6,-3,0,3,6,9,12,...\}$. Si $\alpha=0$, alors $\alpha\Z = \{0\}$. On a $\alpha\Z = \Z$ ssi $\alpha$ est égal à $1$ ou $-1$. Plus généralement, on a $a\Z=b\Z$ ssi $a=b$ ou $a=-b$.
+
+
 
 \begin{definition}
-Soit $I \subseteq \Z$ une partie de $\Z$. On dit que $I$ est un \emph{idéal} de $\Z$ si
+Un sous-groupe de $\Z$ est une partie $G \subseteq \Z$ vérifiant les trois propriétés suivantes : 
 \begin{enumerate}
-\item C'est un \emph{sous-groupe} de $\Z$, c'est-à-dire $I$ contient $0$ et est stable par addition et opposé : 
-\[ \forall x, y\in I, \: x+y \in I \text{et} -x \in I.\]
-\item Il est \emph{absorbant pour la multiplication} c'est-à-dire:
-\[  \text{Si } x \in I \text{ et }n\in \Z, \text{alors } n\cdot x \in I.\]
+\item $G$ contient $0$.
+\item $G$ et est stable par somme :$\forall x, y\in G, \: x+y \in G$.
+\item $G$ et est stable par opposé :$\forall x\in G, \: -x \in G$.
 \end{enumerate}
 \end{definition}
 
+Un ensemble de la forme $\alpha\Z$ est un sous-groupe de $\Z$ (exercice). La proposition qui suit affirme que la réciproque est vraie.
+
 \begin{proposition}
-Tout idéal de $\Z$ est de la forme $\{k\alpha\:\mid \: k \in \Z\}$, avec $\alpha /in \N$. (Un tel ensemble est noté $\alpha\Z$.)
+Soit $G\subseteq \Z$ un sous-groupe de $\Z$. Alors, il existe $\alpha \in \Z$ tel que $G = \alpha\Z$. 
 \end{proposition}
 
-\begin{proof}
-On va montrer que les sous-groupes de $\Z$ sont de cette forme, et que ce sont des idéaux.
 
-Soit $G \subseteq \Z$ un sous-groupe. Soit $G^*_+ = G \cap \N^*$. Il y a deux cas:
+\begin{proof}
+Soit $G \subseteq \Z$ un sous-groupe de $\Z$. Soit $G^*_+ = G \cap \N^*$. Il y a deux cas:
 \begin{enumerate}
-\item Si $G^*_+$ est vide, cela signifie que $G$ ne possède aucun élément strictement positif. Comme $G$ est stable par opposé, il ne peut pas non plus contenir d'éléments strictement négatifs. Cela signifie que $G=\{0\}$.
+\item Si $G^*_+$ est vide, cela signifie que $G$ ne possède aucun élément strictement positif. Comme $G$ est stable par opposé, il ne peut pas non plus contenir d'éléments strictement négatifs. Cela signifie que $G=\{0\} = 0\Z$.
 \item Sinon, c'est une partie non vide de $\N$, qui possède donc un plus petit élément, notons-le $\alpha$.
 Par définition, $G$ est stable par somme et opposé, donc $2\alpha\in G$ et $-\alpha \in G$ et plus généralement, pour tout $k\in \Z$, on a $k\alpha \in G$.
 Donc $\alpha \subseteq G$. Montrons l'inclusion inverse.
 Soit $x\in G$, positif. \'Ecrivons la division euclidienne de $x$ par $\alpha$. On a $x = \alpha q + r$, avec $r<\alpha$. Comme $G$ est stable par somme et différence et que $\alpha q \in G$, on en déduit que $r = x-\alpha q$ est également dans $G$. Or, $r<\alpha$, donc par minimalité de $\alpha$, $r=0$, ce qui montre que $x = \alpha q$, donc que $x\in \alpha\Z$.
 Si $x$ est négatif, ce qui précède montre que $-x\in \alpha\Z$, donc que $x\in \alpha\Z$.
 \end{enumerate}
-
-On vérifie ensuite sans peine que tous les sous-groupes de $\Z$ sont en fait des idéaux de $\Z$.
 \end{proof}
 
+\begin{proposition} Un sous-groupe $G$ de $\Z$ est automatiquement \emph{absorbant pour la multiplication}, c'est-à-dire:
+\[ \forall g\in G, \forall n\in \Z, ng \in G.\]
+\end{proposition}
 
-L'entier $\alpha$ dans la définition est appelé le générateur principal de $G$.
-
+Pour cette raison et d'autres qui deviendront claires dans un futur cours d'algèbre, on utilise la dénomination \og idéal de $\Z$\fg{} au lieu de \og sous-groupe de $\Z$\fg{}. Les deux terminologies sont parfaitement équivalentes, dire \emph{idéal} sert à rappeler la propriété supplémentaire d'être absorbant par multiplication.
 
 \section{Pgcd}
 
 \begin{proposition}
-Soient $a$ et $b$ deux entiers. L'ensemble $\{ak+bl\:\mid\: k, l\in \Z\}$ noté par définition $a\Z+b\Z$ ou $\langle a,b\rangle$, est un idéal de $\Z$. 
+Soient $a$ et $b$ deux entiers. L'ensemble $\{ak+bl\:\mid\: k, l\in \Z\}$ noté par définition $a\Z+b\Z$, est un idéal de $\Z$.
+C'est le plus petit idéal de $\Z$ contenant $a$ et $b$. % utile pour les preuves
 \end{proposition}
 \begin{proof}
-Appliquer la définition de sous-groupe, ce qui prouve que c'est un idéal par la section précédente.
+Il suffit de vérifier que c'est un sous-groupe de $\Z$.
 \end{proof}
 
 \begin{definition}
@@ -433,6 +438,10 @@ Finalement on a $a|d$ et $d|a$, donc \fbox{$d=a$}.
 
 Le résultat sur le ppcm se démontre de la même manière.
 \end{proof}
+
+\begin{exemple}
+$\pgcd(120,252)=\pgcd(2^3\cdot 3\cdot 5,2^2\cdot 3^2\cdot 7) =2^2\cdot 3=12$. Pour les nombres faciles à factoriser, c'est toujours comme cela que l'on procède, l'algorithme d'Euclide est à réserver aux cas difficiles, ou aux calculs de relations de Bézout.
+\end{exemple}
 
 
 \subsection{Infinitude des nombres premiers}
