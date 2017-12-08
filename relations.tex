@@ -37,6 +37,8 @@ Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé ensemble 
 
 Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales.
 
+Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict} qui lui est associée.
+
 % exos de base de vérification de définitions.
 
 \subsection{Vocabulaire sur les ensembles ordonnés}
@@ -44,11 +46,11 @@ Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une rel
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si:
 \[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq x.\]
-Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné}.
+Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné}. Une relation d'ordre qui n'est pas totale est dite d'ordre \emph{partiel}.
 \end{definition}
 
 \begin{exemples}
-La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\$Q$, $\Z$) est totale. Par contre, $\subset$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
+La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par contre, $\subseteq$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
 \end{exemples}
 
 \begin{definition}
@@ -82,33 +84,41 @@ Comme d'habitude, après les définitions viennent les propositions et théorèm
 Application directe de la définition.
 \end{proof}
 
-\subsection{Éléments remarquables dans un ensemble ordonné}
-
-Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide. Un élément $m\in E$ est un \emph{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
-
-La partie $A$ est majorée si elle possède des majorants.
-
-La partie $A$ possède un plus grand élément s'il existe un élément $m\in A$ qui majore $A$.
+\subsection{Maximum et minimum, borne supérieure et inférieure}
+\begin{definition}
+Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
+\begin{enumerate}
+\item Un élément $m\in E$ est un \emph{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
+\item La partie $A$ est \emph{majorée} si elle possède des majorants.
+\item Un élément $m\in A$ qui est un majorant de $A$ est appelé un \emph{plus grand élément de $A$}, ou \emph{maximum} de $A$.
+\item On définit de même les minorants, les parties minorées et les plus petits éléments.
+\end{enumerate}
+\end{definition}
 
 \begin{exemple}
-La partie $[0,1]$ est majorée dans $\R$ car $1$, $2$, $\pi$ sont des majorants. Elle possède un plus grand élément : $1$.
-
-La partie $[0,1[$ est majorée dans $\R$ (pour les mêmes raisons). Par contre, elle n'a pas de plus grand élément. Elle possède par contre un plus petit majorant réel, à savoir $1$, mais il n'appartient pas à  $A$.
+\begin{enumerate}[label=\alph*)]
+\item  La partie $[0,1]$ est majorée dans $\R$ car $1$, $2$, $\pi$ sont des majorants. Elle possède un plus grand élément : $1$.
+\item La partie $]3,+\infty]$ de $\R$ n'a pas de plus grand élément car elle n'est pas majorée.
+\item La partie $A=[0,1[$ de $\R$ est majorée. Par contre, elle n'a pas de plus grand élément. Elle possède par contre un plus petit majorant réel, à savoir $1$, mais il n'appartient pas à $A$.
+\item Si $E$ est un ensemble, alors $\mathcal P(E)$ muni de l'inclusion possède un plus grand élément : $E$, et un plus petit élément : $\varnothing$.
+\end{enumerate}
 \end{exemple}
 
-\begin{proposition}
+\begin{proposition}[Unicité du plus grand élément, s'il existe]
 Si $A\subseteq E$ possède un plus grand élément, il est unique.
+
 \end{proposition}
 \begin{proof}
 Soient $m$ et $m'$ deux plus grands éléments de $A$. Comme $m$ est un plus grand élément, on a par définition $\forall x\in A, x\leq_E m$ et donc en particulier $m'\leq_E m$. De même, comme $m'$ est un plus grand élément, on a $m\leq_E m'$. Par antisymétrie de la relation d'ordre, on a $m=m'$.
 \end{proof}
 
-Si $A$ possède un plus grand élément (unique par ce qui précède), on le note $\max(A)$. Toutes les parties n'ont pas de plus grand élément, par exemple $]3,+\infty[$, ou $\N$ n'ont pas de plus grand élément.
+Si $A$ possède un plus grand élément (unique par ce qui précède), on le note $\max(A)$. 
+On montre de même que s'il existe un plus petit élément d'une partie $A$, il est unique. On le note alors $\min(A)$.
 
 
-On définit de même  la notion de minorant, de plus petit élément, et on montre que s'il existe un plus petit élément d'une partie $A$, il est unique. On le note alors $\min(A)$.
 
-\begin{definition} La partie $A\subseteq E$ admet une borne supérieure $s\in E$ ssi:
+\begin{definition}[Borne supérieure]
+ La partie $A\subseteq E$ admet une borne supérieure $s\in E$ ssi:
 \begin{enumerate}
 \item $s$ est un majorant de $A$;
 \item tout majorant de $A$ majore $s$.
@@ -117,6 +127,14 @@ On définit de même  la notion de minorant, de plus petit élément, et on mont
 \end{definition}
 
 Attention, contrairement à un plus grand élément, une  borne supérieure de $A$, s'il en existe, n'appartient pas forcément à $A$. 
+
+\begin{proposition}[Unicité de la borne sup, s'il en  existe une]
+Soit $(E,\leq_E)$ un ensemble ordonné, et $A\subseteq E$. Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
+\end{proposition}
+\begin{proof}
+Soient $s$ et $s'$ deux bornes supérieures de $A$. Comme $s$ est une borne supérieure et $s'$ un majorant, on a $s\leq_E s'$. Un raisonnement symétrique montre que  $s'\leq_E s$, et finalement $s'=s$.
+\end{proof}
+
 \begin{exemple}
 La partie $\R_+ \subseteq \R$ n'a pas de borne supérieure. 
 La partie $A=[0,1[ \subseteq \R$ n'a pas de plus grand élément, mais possède une borne supérieure : $1$.
@@ -152,9 +170,10 @@ Si $A$ admet un plus grand élément, c'est aussi sa borne supérieure.
 Exercice, appliquer les définitions.
 \end{proof}
 
-%\begin{proposition}
-%Soit $(E,\leq_E)$ un ensemble totalement ordonné, et $a\subseteq E$. Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
-%\end{proposition}
+Enfin, on définit de même ce qu'est une \emph{borne inférieure}, et on montre que si une partie admet une borne inférieure, alors celle-ci est unique. On la note $\inf(A)$. 
+
+La borne inférieure d'une partie, même si elle existe, n'appartient pas forcément à la partie. Par exemple, $0$ est la borne inférieure de $]0,1]$.
+
 
 \subsection{Ordre produit et ordre lexicographique}
 
@@ -175,7 +194,7 @@ Attention, même si $\leq_E$ et $\leq_F$ sont totales, l'ordre produit n'est pas
 Soient $(E\leq_E)$ et $F,\leq_F)$ des ensembles \textbf{totalement} ordonnés.
 L'ordre lexicographique sur $E\times F$ est défini par :
 \[
-(x,y) \leq_{E\times F} (x',y') \iff \left(x< x' \text{ ou } (x=x' \text{ et } y\leq_F y')\right).
+(x,y) \leq_{E\times F} (x',y') \iff \left(x<_E x' \text{ ou } (x=x' \text{ et } y\leq_F y')\right).
 \]
 C'est un ordre total.
 \end{propdef}
@@ -208,17 +227,25 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \end{definition}
 
 \begin{exemples}
-Les relations $=$, $//$ (parallélisme), et toutes les congruences modulo un élément fixé dont des relations d'équivalence.
-
-La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
+\begin{enumerate}[label=\alph*)]
+\item Les relations $=$, $//$ (parallélisme), et toutes les congruences modulo un élément fixé dont des relations d'équivalence.
+\item La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
+\item Sur $\R$, la relation $x\mathcal R y \iff \left(x=y\text{ ou }x=-y\right)$ est une relation d'équivalence.
+\item Sur $\R$, la relation $x\mathcal R y \iff \sin(x)=\sin(y)$ est une relation d'équivalence.
+\item Sur $\C$, la relation $z\mathcal R z' \iff |z|=|z'|$ est une relation d'équivalence.
+\item De façon plus générale, si $f : E\to F$ est une application, alors la relation $x\mathcal R y \iff f(x)=f(y)$ est une relation d'équivalence sur $E$.
+(En fait, \emph{toutes} les relations d'équivalence sont de ce type, pour un choix adéquat de $F$ et de $f$.)
+\end{enumerate}
 \end{exemples}
+
+
 
 \subsection{Classes d'équivalence}
 \begin{definition}
 Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence} de $x$ l'ensemble $\left\{y\in E\:\mid\: y{\mathcal R}x\right\}$ des éléments qui sont équivalents à $x$.
 \end{definition}
 
-Attention aux notations : $x$ est un élément de $E$, mais $\overline{x}$ est une partie de $E$.
+Attention au type des objets : $x \in E$, mais $\overline{x} \subseteq E$.
 
 \begin{proposition}
 \begin{enumerate}
@@ -237,7 +264,10 @@ Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\
 \end{proof}
 
 \begin{definition}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $R$} et est noté $E/{\mathcal R}$.
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$.
+L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $R$} et est noté $E/{\mathcal R}$.
+
+L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}.
 \end{definition}
 
 \begin{exemple}Pour l'ensemble $E$ des droites du plan muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan.
