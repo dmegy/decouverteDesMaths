@@ -10,6 +10,8 @@ Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ cons
 
 \section{Relations d'ordre}
 
+\subsection{Définitions et vocabulaire}
+
 \begin{definition}
 Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est
 \begin{enumerate}
@@ -41,17 +43,18 @@ Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emp
 
 % exos de base de vérification de définitions.
 
-\subsection{Vocabulaire sur les ensembles ordonnés}
-
 \begin{definition}
-Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si:
-\[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq x.\]
+Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si tous les éléments sont comparables, c'est-à-dire si:
+\[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq_E x.\]
 Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné}. Une relation d'ordre qui n'est pas totale est dite d'ordre \emph{partiel}.
 \end{definition}
 
 \begin{exemples}
 La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par contre, $\subseteq$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
 \end{exemples}
+
+\subsection{Applications croissantes}
+
 
 \begin{definition}
 Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés, et $f : E\to F$. On dit que $f$ est \emph{croissante} si :
@@ -84,7 +87,7 @@ Comme d'habitude, après les définitions viennent les propositions et théorèm
 Application directe de la définition.
 \end{proof}
 
-\subsection{Maximum et minimum, borne supérieure et inférieure}
+\subsection{Plus grand et plus petit élément}
 \begin{definition}
 Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
 \begin{enumerate}
@@ -97,25 +100,35 @@ Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
 
 \begin{exemple}
 \begin{enumerate}[label=\alph*)]
-\item  La partie $[0,1]$ est majorée dans $\R$ car $1$, $2$, $\pi$ sont des majorants. Elle possède un plus grand élément : $1$.
-\item La partie $]3,+\infty]$ de $\R$ n'a pas de plus grand élément car elle n'est pas majorée.
-\item La partie $A=[0,1[$ de $\R$ est majorée. Par contre, elle n'a pas de plus grand élément. Elle possède par contre un plus petit majorant réel, à savoir $1$, mais il n'appartient pas à $A$.
-\item Si $E$ est un ensemble, alors $\mathcal P(E)$ muni de l'inclusion possède un plus grand élément : $E$, et un plus petit élément : $\varnothing$.
+\item Dans l'ensemble ordonné $(\R,\leq)$, la partie $[2,5]$ est majorée par $5$, mais aussi par $6$, $10$ etc. La partie $\R_+$ est minorée, mais pas majorée. La partie $\Z$ n'est ni minorée ni majorée.
+\item Toute partie non vide de $\N$ admet un plus petit élément (c'est la propriété fondamentale de $\N$), mais pas forcément de plus grand élément.
+\item Dans un ensemble ordonné non vide $(E,\leq_E)$, la partie vide est majorée: tout élément $m$ est un majorant, car l'assertion $\forall x\in \varnothing, x\leq_E m$ est vraie. De la même façon, dans un ensemble non-vide, la partie vide est minorée par n'importe quel élément.
 \end{enumerate}
 \end{exemple}
 
-\begin{proposition}[Unicité du plus grand élément, s'il existe]
-Si $A\subseteq E$ possède un plus grand élément, il est unique.
 
+
+\begin{proposition}[Unicité du plus grand élément, s'il existe]
+Si $A\subseteq E$ possède un plus grand élément, il est unique. On le note alors $\max(A)$.
+De même, si $A\subseteq E$ possède un plus petit élément, il est unique. On le note alors $\min(A)$.
 \end{proposition}
 \begin{proof}
 Soient $m$ et $m'$ deux plus grands éléments de $A$. Comme $m$ est un plus grand élément, on a par définition $\forall x\in A, x\leq_E m$ et donc en particulier $m'\leq_E m$. De même, comme $m'$ est un plus grand élément, on a $m\leq_E m'$. Par antisymétrie de la relation d'ordre, on a $m=m'$.
+
+On prouve le résultat pour le plus petit élément de la même manière.
 \end{proof}
 
-Si $A$ possède un plus grand élément (unique par ce qui précède), on le note $\max(A)$. 
-On montre de même que s'il existe un plus petit élément d'une partie $A$, il est unique. On le note alors $\min(A)$.
+\begin{exemples}
+\begin{enumerate}[label=\alph*)]
+\item  La partie $[0,1]$ est majorée dans $\R$ car $1$, $2$ ou encore $5$ sont des majorants. Elle possède un plus grand élément : $1$.
+\item La partie $]3,+\infty[$ de $\R$ n'a pas de plus grand élément car elle n'est pas majorée.
+\item La partie $A=[0,1[$ de $\R$ est majorée. Par contre, elle n'a pas de plus grand élément. 
+\item La partie $B=\{x\in \Q\:\mid\: x^2\leq 2\}$ est majorée (par $\sqrt2$ par exemple), mais n'admet pas de plus grand élément (rappel : $\sqrt 2 \not\in\Q$).
+\item Si $E$ est un ensemble, alors $\mathcal P(E)$ muni de l'inclusion possède un plus grand élément : $E$, et un plus petit élément : $\varnothing$.
+\end{enumerate}
+\end{exemples}
 
-
+\subsection{Borne supérieure, borne inférieure}
 
 \begin{definition}[Borne supérieure]
  La partie $A\subseteq E$ admet une borne supérieure $s\in E$ ssi:
@@ -161,6 +174,8 @@ Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$
  Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $1+m\leq 2m$ donc $m\geq 1$, absurde.
 \end{proof}
 
+Autre exemple important de borne supérieure qui n'est pas un plus grand élément: la partie $\{x\in \Q, x^2<2\}$ de $\R$ est majorée et admet une borne supérieure égale à $\sqrt 2$ et qui n'appartient pas à $A$ car $\sqrt2\not\in \Q$. 
+
 \begin{proposition}
 Soit $(E,\leq_E)$ un ensemble ordonné $A\subseteq E$.
 Si $A$ admet une borne supérieure et que $\sup(A) \in A$, alors c'est son plus grand élément.
@@ -174,11 +189,20 @@ Enfin, on définit de même ce qu'est une \emph{borne inférieure}, et on montre
 
 La borne inférieure d'une partie, même si elle existe, n'appartient pas forcément à la partie. Par exemple, $0$ est la borne inférieure de $]0,1]$.
 
+\begin{theoreme}[$\R$ possède la propriété de la borne supérieure]
+Dans $(\R,\leq)$, toute partie non vide et majorée admet une borne supérieure.
+\end{theoreme}
+\begin{proof}
+Admis provisoirement. Pour prouver ce théorème, il faut disposer d'une définition rigoureuse de l'ensemble $\R$. Voir le cours d'analyse de second semestre.
+\end{proof}
+
+Il existe des ensembles ordonnés ne possédant pas la propriété de la borne supérieure, c'est-à-dire possédant des parties non-vides, majorées, et sans borne supérieure. C'est le cas de $(\Q,\leq)$, si l'on considère la partie $\{x\in \Q\:\mid\: x^2\leq 2\}$ : il n'existe pas de borne supérieure \underline{dans $\Q$}.
+
 
 \subsection{Ordre produit et ordre lexicographique}
 
 \begin{propdef}
-Soient $(E\leq_E)$ et $F,\leq_F)$ des ensembles ordonnés.
+Soient $(E\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés.
 L'ordre produit sur $E\times F$ est défini par :
 \[
 (x,y) \leq_{E\times F} (x',y') \iff \left(x\leq_E x' \text{ et } y\leq_F y'\right).
