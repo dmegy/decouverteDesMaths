@@ -7,7 +7,7 @@ Le cours d'arithmétique des polynômes suivra le même canevas (définitions se
 
 \subsection{Division euclidienne}
 \begin{proposition}[Division euclidienne]
-Soit $a\in \N$ et $b\in \N*$. Il existe un unique couple $(b,r) \in \N^2$ vérifiant les deux propriétés suivantes:
+Soit $a\in \N$ et $b\in \N^*$. Il existe un unique couple $(b,r) \in \N^2$ vérifiant les deux propriétés suivantes:
 \begin{enumerate}
 \item $a=bq+r$;
 \item $r < b$.
@@ -16,18 +16,23 @@ L'entier $b$ est le \emph{quotient} de la division euclidienne de $a$ par $b$, e
 Effectuer la division euclidienne de $a$ par $b$, c'est écrire $a = bq+r$ avec $b$ et $q$ comme plus haut.
 \end{proposition}
 
-Exemple : $17=5\times 3 + 2$ est la division euclidienne de $17$ par $5$. Le quotient est $3$ et il reste $2$. Par contre, l'écriture $17=5\times 2+7$ bien que correcte  n'est pas une division euclidienne, car le reste \emph{doit} être strictement inférieur à $5$, dans une division euclidienne.
+\begin{exemple}
+$17=5\times 3 + 2$ est la division euclidienne de $17$ par $5$. Le quotient est $3$ et il reste $2$. Par contre, l'écriture $17=5\times 2+7$ bien que correcte  n'est pas une division euclidienne, car dans une division euclidienne, le reste \emph{doit} être strictement inférieur à $5$.
+\end{exemple}
 
 \subsection{Idéaux de $\Z$}
 
 \begin{definition}[Ensembles $\alpha\Z$ et générateur principal]
-Soit $\alpha$ un entier relatif. On note $\alpha\Z$ l'ensemble $\{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. C'est l'ensemble des multiples de $\alpha$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
-
-Le \emph{générateur principal} de $\alpha\Z$ est $|\alpha|$.
+Soit $\alpha$ un entier relatif.
+\begin{enumerate}
+\item On note $\alpha\Z$ l'ensemble $\{ \alpha k\:\mid\: k\in \Z\} = \{..., -2\alpha, -\alpha, 0, \alpha, 2\alpha, 3\alpha, ...\}$. C'est l'ensemble des multiples de $\alpha$. Les ensembles $\alpha\Z$ et $(-\alpha)\Z$ sont identiques.
+\item Le \emph{générateur principal} de $\alpha\Z$ est $|\alpha|$.
+\end{enumerate}
 \end{definition}
 
-Exemples : $3\Z = \{...,-6,-3,0,3,6,9,12,...\}$. Si $\alpha=0$, alors $\alpha\Z = \{0\}$. On a $\alpha\Z = \Z$ ssi $\alpha$ est égal à $1$ ou $-1$. Plus généralement, on a $a\Z=b\Z$ ssi $a=b$ ou $a=-b$.
-
+\begin{exemple}
+$3\Z = \{...,-6,-3,0,3,6,9,12,...\}$. Si $\alpha=0$, alors $\alpha\Z = \{0\}$. On a $\alpha\Z = \Z$ ssi $\alpha$ est égal à $1$ ou $-1$. Plus généralement, on a $a\Z=b\Z$ ssi $a=b$ ou $a=-b$.
+\end{exemple}
 
 
 \begin{definition}
@@ -52,7 +57,7 @@ Soit $G \subseteq \Z$ un sous-groupe de $\Z$. Soit $G^*_+ = G \cap \N^*$. Il y a
 \item Si $G^*_+$ est vide, cela signifie que $G$ ne possède aucun élément strictement positif. Comme $G$ est stable par opposé, il ne peut pas non plus contenir d'éléments strictement négatifs. Cela signifie que $G=\{0\} = 0\Z$.
 \item Sinon, c'est une partie non vide de $\N$, qui possède donc un plus petit élément, notons-le $\alpha$.
 Par définition, $G$ est stable par somme et opposé, donc $2\alpha\in G$ et $-\alpha \in G$ et plus généralement, pour tout $k\in \Z$, on a $k\alpha \in G$.
-Donc $\alpha \subseteq G$. Montrons l'inclusion inverse.
+Donc $\alpha\Z \subseteq G$. Montrons l'inclusion inverse.
 Soit $x\in G$, positif. \'Ecrivons la division euclidienne de $x$ par $\alpha$. On a $x = \alpha q + r$, avec $r<\alpha$. Comme $G$ est stable par somme et différence et que $\alpha q \in G$, on en déduit que $r = x-\alpha q$ est également dans $G$. Or, $r<\alpha$, donc par minimalité de $\alpha$, $r=0$, ce qui montre que $x = \alpha q$, donc que $x\in \alpha\Z$.
 Si $x$ est négatif, ce qui précède montre que $-x\in \alpha\Z$, donc que $x\in \alpha\Z$.
 \end{enumerate}
@@ -67,33 +72,45 @@ Pour cette raison et d'autres qui deviendront claires dans un futur cours d'alg�
 \section{Pgcd}
 
 \begin{proposition}
-Soient $a$ et $b$ deux entiers. L'ensemble $\{ak+bl\:\mid\: k, l\in \Z\}$ noté par définition $a\Z+b\Z$, est un idéal de $\Z$.
-C'est le plus petit idéal de $\Z$ contenant $a$ et $b$. % utile pour les preuves
+Soient $a$ et $b$ deux entiers. Alors:
+\begin{enumerate}
+\item L'ensemble $\{ak+bl\:\mid\: k, l\in \Z\}$ noté par définition $a\Z+b\Z$, est un idéal de $\Z$.
+\item C'est le plus petit idéal de $\Z$ contenant $a$ et $b$. % utile pour les preuves
+\item Il contient $a\Z$ et $b\Z$, donc également $a\Z\cup b\Z$, mais il est en général strictement plus grand que $a\Z\cup b\Z$.
+\end{enumerate}
 \end{proposition}
 \begin{proof}
-Il suffit de vérifier que c'est un sous-groupe de $\Z$.
+\begin{enumerate}
+\item Il suffit de vérifier que c'est un sous-groupe de $\Z$.
+\item Si un idéal $I$ de $\Z$ contient $a$ et $b$, comme il est stable par somme et opposé, il contient $-a$, $-b$, $a+(-a)=0$, $a+a=2a$, $a+b$ et plus généralement tous les $ka+lb$ pour $k,l\in\Z$. Donc $I$ contient $a\Z+b\Z$.
+\item Il est clair que $a\Z+b\Z=\{ka+bl\:\mid\: k,l\in Z\}$ contient $\{ka\:\mid\: k\in Z\} = a\Z$ (prendre $l=0$) ainsi que $b\Z$, et donc contient l'union $a\Z\cup b\Z$. Pour voir que l'inclusion peut être stricte, prenons $a=4$ et $b=6$. On a $4\Z\cup 6\Z = \{ ..., -6,-4,0,4,6,8,12,16,18,20,24,28, ...\}$. Cet ensemble ne contient pas $2$, alors que $2=6-4\in 4\Z+6\Z$.
+\end{enumerate}
 \end{proof}
 
+
 \begin{definition}
-Soient $a$ et $b$ des entiers. Le générateur principal de $a\Z+b\Z$ est appelé le pgcd de $a$ et $b$, il est noté $\pgcd(a,b)$ ou bien $a\wedge b$.
+Soient $a$ et $b$ des entiers. Le générateur principal de $a\Z+b\Z$ est appelé le \emph{pgcd} (pour \emph{plus grand commun diviseur}) de $a$ et $b$, il est noté $\pgcd(a,b)$.
 \end{definition}
+
+\begin{remarque}
+À ce stade, le nom de \emph{plus grand commun diviseur} est juste une notation. Les deux propositions qui suivent montrent que le pgcd est effectivement un diviseur commun, et que c'est le plus petit tel diviseur positif, en un sens précis.
+\end{remarque}
 
 \begin{proposition}
 Soient $a$ et $b$ des entiers, et $d=\pgcd(a,b)$.
 On a les propriétés suivantes
 \begin{enumerate}
-\item L'entier $a$ est dans $a\Z+b\Z$, donc $d$ divise $a$. De même, $d$ divise $b$.
-\item L'entier $df$ est dans $d\Z$, donc il existe $k$ et $l$ dans $\Z$, tels que $d = ak+bl$. On dit que $(k,l)$ est un couple (ou paire, par abus de langage) de Bézout pour $a$ et $b$. L'égalité $d=ak+bl$ est appelée \emph{relation de Bézout}.
-\item Au sens de la divisibilité, $d$ est le plus grand diviseur commun  de $a$ et $b$. Ceci explique le nom (\emph{plus grand commun diviseur} de $d$. Cette propriété est précisée dans la proposition suivante.
-\item Si $d=0$, alors $a=b=0$.
-\item On a $\pgcd(a,b)=\pgcd(a,b) = \pgcd(a,-b)$, car $a\Z+b\Z = b\Z+a\Z=a\Z+(-b)\Z$.
-\item $\pgcd(a,0)=|a|$.
-\item $\pgcd(a,1)=1$.
+\item L'entier $a$ est dans $a\Z+b\Z$, donc $d$ divise $a$. De même, $d$ divise $b$. C'est donc un \emph{diviseur commun} de $a$ et $b$, ce qui commence à justifier son nom.
+\item L'entier $d$ est dans $d\Z$, donc il existe $k$ et $l$ dans $\Z$, tels que $d = ak+bl$. On dit que $(k,l)$ est un couple (ou paire, par abus de langage) de Bézout pour $a$ et $b$. L'égalité $d=ak+bl$ est appelée \emph{relation de Bézout}.
+\item Si $d=0$, alors $a=b=0$. En effet, si $d=0$ alors $\{0\}=a\Z+b\Z\supseteq a\Z$, d'où $a=0$ et de même $b=0$.
+\item On a $\pgcd(a,b)=\pgcd(b,a) = \pgcd(a,-b)$, car $a\Z+b\Z = b\Z+a\Z=a\Z+(-b)\Z$.
+\item $\pgcd(a,0)=|a|$, car $a\Z+0\Z = a\Z$.
+\item $\pgcd(a,1)=1$, car $a\Z+\Z = \Z$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proposition}
-Si $x>0$, $x|a$ et $x|b$, et $\forall m, m|a \text{ et } m|b \implies m|x$, alors $x=d$.
+Si $x>0$, $x|a$ et $x|b$, et $\forall m, m|a \text{ et } m|b \implies m|x$, alors $x=d$. C'est en ce sens que $d$ est le \emph{plus petit} diviseur commun de $a$ et $b$.
 \end{proposition}
 \begin{proof}
 Si $x|a$ et $x|b$, alors $x|d$. D'autre part, $d|a$ et $d|a$, donc $d|x$. Donc finalement, $d=x$.
