@@ -16,7 +16,7 @@ Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ cons
 Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est
 \begin{enumerate}
 \item réflexive ssi $\forall x\in E, x{\mathcal R}x$;
-\item transitive ssi $\forall x, y, z\in E, xRy \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
+\item transitive ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
 \item antisymétrique ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
 \end{enumerate}
 
@@ -24,12 +24,12 @@ Une relation est une \emph{relation d'ordre} ssi elle est réflexive, transitive
 \end{definition}
 
 \begin{exemples}
-$\leq$ est une relation d'ordre sur $\N$, ou sur $\Z$, $\Q$, $\R$. (Mais pas sur $\C$ : la relation $\leq$ n'est même pas \emph{définie} sur $\C$.)
-$\subset$ est une relation d'ordre sur $\mathcal P(E)$.
-$|$ (\og divise\fg) est une relation d'ordre sur $\N^*$
+La relation $\leq$ est une relation d'ordre sur $\N$, ou sur $\Z$, $\Q$, $\R$. (Mais pas sur $\C$ : la relation $\leq$ n'est même pas \emph{définie} sur $\C$.)
+La relation $\subseteq$ est une relation d'ordre sur $\mathcal P(E)$.
+La relation $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$
 \end{exemples}
 
-Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et $|$ n'est pas une relation d'ordre sur $\Z^*$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
+Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et la relation de divisibilité $|$ n'est pas une relation d'ordre sur $\Z^*$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
 
 \begin{definition}
 Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)

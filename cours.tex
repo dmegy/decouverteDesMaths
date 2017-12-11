@@ -1,14 +1,13 @@
 \documentclass[11pt,a4paper]{book}
 
-\usepackage{fourier}
-
-\usepackage{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[francais]{babel}
+\usepackage{geometry}% gestion des marges etc
+\usepackage[utf8]{inputenc} % caractères utf8 dans le fichier source
+\usepackage[T1]{fontenc} % encodage en sortie
+\usepackage[francais]{babel} % paramètres de langue : guillemets etc
 \usepackage{amssymb,mathtools,amsthm}
-\usepackage{stmaryrd,mathrsfs,fancybox,graphicx}
-\usepackage{multicol,comment,variations,enumitem}
+\usepackage{stmaryrd,mathrsfs} % polices et symboles supplémentaires
+\usepackage{fancybox,graphicx}
+\usepackage{multicol,comment,variations,enumitem,datetime}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -26,7 +25,12 @@
    \shorthandoff{:;!?};}
 }}
 
-\everymath{\displaystyle}
+
+% - - - - - - -
+% Spécifique à ce document :
+
+\usepackage{fourier} % police de caractères : Adobe Utopia + Fourier math
+\everymath{\displaystyle} % plus lisible mais casse l'homogénéité de la mise en page
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -34,19 +38,21 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\K}{\mathbb{K}}
-
+\newcommand{\U}{\mathbb{U}}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
+\DeclareMathOperator{\Card}{Card} % cardinal
 
+% Environnements : 
 
 \theoremstyle{definition}
-
 \newtheorem{theoreme}{Th\'eor\`eme}[section]
 \newtheorem{proposition}[theoreme]{Proposition}
 \newtheorem{corollaire}[theoreme]{Corollaire}
 \newtheorem{lemme}[theoreme]{Lemme}
+\newtheorem*{exred}{Exemple de rédaction}
 \newenvironment{preuve}{{\bf Preuve. }}{$\Box$}
-\newenvironment{red}{Exemple de r\'edaction:\\}{$\Box$}
+\newenvironment{red}{\begin{exred}~\\\begin{quote}}{\end{quote}\end{exred}}
 
 \newtheorem{propdef}[theoreme]{Proposition--Définition}
 \newtheorem{definition}[theoreme]{D\'efinition}
@@ -63,6 +69,7 @@ Résumé de cours\\
 L1, année 2017-2018\\
 {\small 
 \'Etat d'avancement : chapitres 5 et 6 finis, en cours de relecture.\\ À rédiger : 4.2 ensembles finis et cardinal, 4.3 combinatoire.\\ Le reste ne sera peut-être pas rédigé, se reporter au cours fait en classe}}
+\date{Version du \today{} à \currenttime}
 \maketitle
 
 
@@ -72,7 +79,7 @@ L1, année 2017-2018\\
 
 
 
-\chapter{Logique et raisonnements}
+\chapter{Logique et raisonnements (UTILISABLE)}
 \input{logique}
 
 \chapter{Ensembles (VIDE)}
@@ -81,13 +88,13 @@ L1, année 2017-2018\\
 \chapter{Applications (VIDE)}
 \input{applications}
 
-\chapter{Entiers et ensembles finis, combinatoire (VIDE)}
+\chapter{Entiers et ensembles finis, combinatoire (EN COURS)}
 \input{entiers}
 
-\chapter{Arithmétique}
+\chapter{Arithmétique (UTILISABLE)}
 \input{arithmetique}
 
-\chapter{Relations d'ordre et d'équivalence}
+\chapter{Relations d'ordre et d'équivalence (UTILISABLE)}
 \input{relations}
 
 

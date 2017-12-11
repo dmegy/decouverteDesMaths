@@ -103,6 +103,7 @@ On a les propriétés suivantes
 \begin{enumerate}
 \item L'entier $a$ est dans $a\Z+b\Z$, donc $d$ divise $a$. De même, $d$ divise $b$. C'est donc un \emph{diviseur commun} de $a$ et $b$, ce qui commence à justifier son nom.
 \item L'entier $d$ est dans $d\Z$, donc il existe $k$ et $l$ dans $\Z$, tels que $d = ak+bl$. On dit que $(k,l)$ est un couple (ou paire, par abus de langage) de Bézout pour $a$ et $b$. L'égalité $d=ak+bl$ est appelée \emph{relation de Bézout}.
+\item Si $m$ est un diviseur commun de $a$ et $b$ et que $ak+bl=d$ est une relation de Bézout, alors on voit que $m$ divise $ak+bl$ donc $m$ divise $d$. C'est en ce sens que $d$ est le \emph{plus grand} diviseur commun.
 \item Si $d=0$, alors $a=b=0$. En effet, si $d=0$ alors $\{0\}=a\Z+b\Z\supseteq a\Z$, d'où $a=0$ et de même $b=0$.
 \item On a $\pgcd(a,b)=\pgcd(b,a) = \pgcd(a,-b)$, car $a\Z+b\Z = b\Z+a\Z=a\Z+(-b)\Z$.
 \item $\pgcd(a,0)=|a|$, car $a\Z+0\Z = a\Z$.
@@ -111,7 +112,7 @@ On a les propriétés suivantes
 \end{proposition}
 
 \begin{proposition}
-Si $x>0$, $x|a$ et $x|b$, et $\forall m, m|a \text{ et } m|b \implies m|x$, alors $x=d$. C'est en ce sens que $d$ est le \emph{plus petit} diviseur commun de $a$ et $b$.
+Si $x>0$, $x|a$ et $x|b$, et $\forall m, m|a \text{ et } m|b \implies m|x$, alors $x=d$.
 \end{proposition}
 \begin{proof}
 Si $x|a$ et $x|b$, alors $x|d$. D'autre part, $d|a$ et $d|a$, donc $d|x$. Donc finalement, $d=x$.

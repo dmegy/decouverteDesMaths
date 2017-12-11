@@ -129,9 +129,10 @@ Puis, on démontre $A(x)$.\\
 Puis, pour conclure, on écrit : \og $x$ étant pris quelconque dans $E$, la propriété est bien démontrée\fg.\\
 
 
-\begin{exemple}Montrer que $\forall x\in \R, x^2+x+1> 0$\fg.\\
+\begin{exemple}
+Montrer que $\forall x\in \R, x^2+x+1> 0$\fg.
+\begin{red}$ $\\
 
-Exemple de rédaction:\\
 \begin{tabular}{lr}
 Soit $x\in \R$. & (déclaration de $x$)\\
 On a $x^2+x+1 = (x+\frac12)^2+\frac34$. & (Début preuve de $A(x)$)\\
@@ -139,11 +140,15 @@ Comme un carré est toujours positif, on a $(x+\frac12)^2 \geq 0$ & \\
  et donc  $x^2+x+1>0$. & (fin preuve de $A(x)$)\\
 Ceci montre donc bien $\forall x\in \R, x^2+x+1>0$ & (Conclusion)\\
 \end{tabular}
+\end{red}
 \end{exemple}
 
 
-Exemple : Démontrer que $\forall x\in\R,\; x^2+\cos(x)>0$.\\
-\begin{red} Soit $x\in\R$.\\
+\begin{exemple}
+Démontrer que $\forall x\in\R,\; x^2+\cos(x)>0$.
+\end{exemple}
+\begin{red}
+Soit $x\in\R$.\\
 On distingue deux cas possibles suivant la valeur de $x$.\\
 Si $0\leq |x|< \pi/2$, alors $x^2\geq 0$ et $\cos(x)> 0$ donc $x^2+\cos(x)>0$.\\
 Si  $\pi/2\leq|x|$, alors $x^2+\cos(x)\geq \pi^2/4-1>0$.\\
@@ -155,16 +160,23 @@ Dans le cas particulier où le quantificateur universel porte sur l'ensemble $\N
 
 \paragraph{Démonstrations de propositions avec quantificateur existentiel}$ $\\
 
-Pour démontrer \og$\exists x\in E\slash A(x)$, il faut soit construire un élément $x$ tel que $A(x)$ soit vrai, soit utiliser un théorème qui affirme l'existence d'un tel objet, ou qui affirme l'existence d'un objet à partir duquel on peut obtenir l'existence de $x$.\\
-\\
-Exemple 1 : soit $f$ une fonction croissante de $[0,1]$ dans $\R$. Montrer que $f$ est majorée, autrement dit montrer que $(\exists M\in\R\slash (\forall x\in[0,1],\;f(x)\leq M))$.\\
+Pour démontrer \og$\exists x\in E\slash A(x)$, il faut soit construire un élément $x$ tel que $A(x)$ soit vrai, soit utiliser un théorème qui affirme l'existence d'un tel objet, ou qui affirme l'existence d'un objet à partir duquel on peut obtenir l'existence de $x$.
+
+\begin{exemple}
+Soit $f$ une fonction croissante de $[0,1]$ dans $\R$. Montrer que $f$ est majorée, autrement dit montrer que $(\exists M\in\R\slash (\forall x\in[0,1],\;f(x)\leq M))$.
 \begin{red}
-Posons $M = f(1)$. On a bien $\forall x\in[0,1],\;f(x)\leq f(1)= M$, car $f$ est croissante.\end{red}\\
-\\
-Exemple 2 : Montrer qu'il existe deux irrationnels $a$ et $b$ tels que $a^b$ soit rationnel.\\
-\begin{red} Considérons le nombre réel $\sqrt{2}^{\sqrt{2}}$. Il est soit rationnel, soit irrationnel. Dans le premier cas, il suffit de poser $a=b=\sqrt{2}$ (irrationnels, voir exemple plus haut) et la preuve est terminée. Dans le second cas, il suffit de poser $a=\sqrt{2}^{\sqrt{2}}$ (qui est supposé irrationnel) et $b=\sqrt{2}$ On a alors $a^b = \left(\sqrt{2}^{\sqrt{2}}\right)^{\sqrt{2}} = \sqrt{2}^2 = 2 \in \Q$.\end{red}\\
-\\
-Ce deuxième exemple montre que parfois, on n'a pas besoin de construire explicitement l'objet, seulement de montrer que ça existe, soit par l'analyse de cas de figure complémentaires, soit en utiisant un théorème qui affirme l'existence d'un certain objet sans forcément l'expliciter. Cela dit, la plupart du temps, il faut construire l'objet.
+Posons $M = f(1)$. On a bien $\forall x\in[0,1],\;f(x)\leq f(1)= M$, car $f$ est croissante.
+\end{red}
+\end{exemple}
+
+\begin{exemple}
+Montrer qu'il existe deux irrationnels $a$ et $b$ tels que $a^b$ soit rationnel.
+\begin{red}
+Considérons le nombre réel $\sqrt{2}^{\sqrt{2}}$. Il est soit rationnel, soit irrationnel. Dans le premier cas, il suffit de poser $a=b=\sqrt{2}$ (irrationnels, voir exemple plus haut) et la preuve est terminée. Dans le second cas, il suffit de poser $a=\sqrt{2}^{\sqrt{2}}$ (qui est supposé irrationnel) et $b=\sqrt{2}$ On a alors $a^b = \left(\sqrt{2}^{\sqrt{2}}\right)^{\sqrt{2}} = \sqrt{2}^2 = 2 \in \Q$.
+\end{red}
+\end{exemple}
+
+Ce deuxième exemple montre que parfois, on n'a pas besoin de construire explicitement l'objet, seulement de montrer que ça existe, soit par l'analyse de cas de figure complémentaires, soit en utilisant un théorème qui affirme l'existence d'un certain objet sans forcément l'expliciter. Cela dit, la plupart du temps, il faut construire l'objet.
 
 
 \section{Résolution des équations}
@@ -175,14 +187,16 @@ Soit $A(x)$ une proposition portant sur $x\in E$. Résoudre $A(x)$, c'est déter
 \paragraph{Méthode par équivalence}$ $\\
 $A(x) \Leftrightarrow B(x) \Leftrightarrow ... \Leftrightarrow C(x)$ et on sait facilement résoudre $C(x)$. Cette méthode ne  s'applique que rarement, essentiellement qu'aux (systèmes d') équations linéaires.
 
-\begin{exemple}Résoudre $2x+3=5$, d'inconnue $x\in \R$.\\
-Exemple de rédaction:\\
+\begin{exemple}
+Résoudre $2x+3=5$, d'inconnue $x\in \R$.
+\begin{red}
 Soit $x\in \R$. On a 
 \begin{align*}
 2x+3=8
 &\iff 2x=5\\
 &\iff x=5/2.
 \end{align*}
+\end{red}
 \end{exemple}
 
 \paragraph{Méthode par conditions nécessaires et suffisantes}$ $\\
