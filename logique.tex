@@ -108,18 +108,22 @@ Exemple : soit $n \in Z$; montrer que \og $n$ pair $\Rightarrow n^2$ pair\fg.\\
 \\
 Principe : $(A\Rightarrow B)$ est équivalente à $(\text{non-}B \Rightarrow \text{non-}A)$.\\
 Preuve du principe: $(\text{non-}B \Rightarrow \text{non-}A)\Leftrightarrow (\text{non-}A \text{ ou } non-non-B)\Leftrightarrow (B\text{ ou }non-A)\Box$.\\
-Exemple d'application : soit $n\in Z$; montrer que $n^2$ pair $\Rightarrow n$ pair.\\
-\begin{red} On va montrer la contraposée, autrement dit on va montrer 
+Exemple d'application : soit $n\in \Z$; montrer que $n^2$ pair $\Rightarrow n$ pair.
+\begin{red}
+On va montrer la contraposée, autrement dit on va montrer 
 \og $n$ impair $\Rightarrow n^2$ impair\fg, qui est équivalente, mais plus facile à montrer. Supposons donc $n$ impair. Alors il existe $k \in\Z$ tel que $n = 2k+1$. Mais alors $n^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$ est impair.\\
-En combinant avec le résultat précédent, on a donc prouvé : \og$n^2$ pair $\Leftrightarrow n$ pair\fg\end{red}
+En combinant avec le résultat précédent, on a donc prouvé : \og$n^2$ pair $\Leftrightarrow n$ pair\fg
+\end{red}
 
 \paragraph{Démonstration par l'absurde}$ $\\
 \\
 Principe : Si $F$ désigne n'importe quelle proposition fausse, on a $A \Leftrightarrow (\text{ non-}A \Rightarrow F)$.\\
 Preuve du principe: $(\text{ non-}A \Rightarrow F) \Leftrightarrow (F\text{ ou non-non-}A)\Leftrightarrow A$.\\
  Donc pour montrer $A$, il suffit de supposer $A$ faux et d'en déduire une contradiction (c'est-à-dire n'importe quelle proposition fausse).\\
-Exemple d'application : Montrer que $\sqrt{2}$ n'est pas rationnel.\\
-\begin{red} Par l'absurde, supposons $\sqrt{2}\in\Q$. Alors il existe deux entiers $p$ et $q$ premiers entre eux tels que $\sqrt{2} = p/q$. Donc $p = q\sqrt{2}$ et donc $p^2 = 2 q^2$, donc $p^2$ est pair, donc par l'exemple précédent $p$ est pair. Donc il existe $k\in Z$ tel que $p = 2k$, d'où en remplacant $4k^2 = 2 q^2$, donc en simplifiant $q^2$ est pair donc $q$ est pair. Donc $p$ et $q$ sont tous les deux pairs, contradiction car ils sont premiers entre eux. Finalement cette contradiction prouve que $\sqrt{2} \not\in \Q$.\end{red}
+Exemple d'application : Montrer que $\sqrt{2}$ n'est pas rationnel.
+\begin{red}
+Par l'absurde, supposons $\sqrt{2}\in\Q$. Alors il existe deux entiers $p$ et $q$ premiers entre eux tels que $\sqrt{2} = p/q$. Donc $p = q\sqrt{2}$ et donc $p^2 = 2 q^2$, donc $p^2$ est pair, donc par l'exemple précédent $p$ est pair. Donc il existe $k\in Z$ tel que $p = 2k$, d'où en remplacant $4k^2 = 2 q^2$, donc en simplifiant $q^2$ est pair donc $q$ est pair. Donc $p$ et $q$ sont tous les deux pairs, contradiction car ils sont premiers entre eux. Finalement cette contradiction prouve que $\sqrt{2} \not\in \Q$.
+\end{red}
 
 \paragraph{Démonstrations de propositions avec quantificateur universel}$ $\\
 
@@ -131,8 +135,7 @@ Puis, pour conclure, on écrit : \og $x$ étant pris quelconque dans $E$, la pro
 
 \begin{exemple}
 Montrer que $\forall x\in \R, x^2+x+1> 0$\fg.
-\begin{red}$ $\\
-
+\begin{red}
 \begin{tabular}{lr}
 Soit $x\in \R$. & (déclaration de $x$)\\
 On a $x^2+x+1 = (x+\frac12)^2+\frac34$. & (Début preuve de $A(x)$)\\
