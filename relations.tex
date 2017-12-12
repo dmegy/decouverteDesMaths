@@ -255,7 +255,7 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 
 \begin{exemples}
 \begin{enumerate}[label=\alph*)]
-\item Les relations $=$, $//$ (parallélisme), et toutes les congruences modulo un élément fixé dont des relations d'équivalence.
+\item Les relations $=$, $//$ (parallélisme), sont des relations d'équivalence.
 \item La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
 \item Sur $\R$, la relation $x\mathcal R y \iff \left(x=y\text{ ou }x=-y\right)$ est une relation d'équivalence.
 \item Sur $\R$, la relation $x\mathcal R y \iff \sin(x)=\sin(y)$ est une relation d'équivalence.
@@ -265,7 +265,63 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \end{enumerate}
 \end{exemples}
 
+D'autres exemples importants de relations d'équivalence sont les congruences. Commençons par rappeler les définitions.
 
+\begin{propdef}
+Soit $a\in \R^*$ et $x,y\in\R$. On a :
+\[
+\frac{x-y}{a}\in \Z 
+\iff
+x-y \in a\Z
+\iff 
+(\exists k\in \Z\:\mid\: x=y+ka).
+\]
+Si ces conditions équivalentes sont vérifiées, on dit que $x$ et $y$ sont \emph{congrus modulo $a$} et on note 
+\[ x\equiv y\quad [a].\]
+La relation de congruence modulo $a$ entre deux réels $x$ et $y$ est une relation d'équivalence.
+\end{propdef}
+\begin{proof}
+Exercice.
+\end{proof}
+
+De toutes ces formulations, la plus efficace pour rédiger des preuves est en général la première.
+
+Les relations de congruence les plus courantes sont celles modulo des entiers, ou bien modulo $\pi$ ou $2\pi$ etc.
+
+
+\begin{exemples}
+\begin{enumerate}[label=\alph*)]
+\item $1 \equiv 5 \: [2]$, car $1-5 = -4$ est un multiple de $2$.
+\item $4\equiv -9\sqrt{3}+4 \: [\sqrt{3}]$, car $4 - (-9\sqrt{3}+4) = 9\sqrt{3}$ est un multiple de $\sqrt{3}$.
+\item $\pi/3 \equiv 7\pi/3 \: [2\pi]$, car $\pi/3 - 13\pi/3 = -12\pi/3 = -4\pi$ est un multiple de $2\pi$.
+\end{enumerate}
+\end{exemples}
+
+Les congruences se comportent relativement bien par rapport aux opération algébriques, comme le montre la proposition suivante (avec un bémol pour la multiplication, voir l'énoncé et la remarque qui suit).
+
+\begin{proposition} Soit $a\neq 0$ et $b\neq 0$ des réels non nuls, et $x$, $y$, $x'$, $y'$ des réels tels que $x \equiv y\: [a]$ et $x' \equiv y'\: [a]$. Alors:
+\begin{itemize}
+\item[i)]{$x+x' \equiv y+y'\: [a]$.}
+\item[ii)]{$bx\equiv by \: [ba]$.}
+\end{itemize}
+\end{proposition}
+\begin{proof}
+\begin{itemize}
+\item[i)]{Si $\frac{x-y}{a} \in \Z$ et $\frac{x'-y'}{a} \in \Z$, alors $\frac{x-y}{a}+\frac{x'-y'}{a} \in \Z$.
+
+On a donc $\frac{(x+x')-(y+y')}{a} \in \Z$, c'est-à-dire $x+x' \equiv y+y'\: [a]$.}
+\item[ii)]{On a:
+\[\left(x\equiv y \: [a]\right) \Leftrightarrow  \left(\frac{x-y}{a} \in \Z\right) \Leftrightarrow \left(\frac{bx-by}{ba} \in \Z\right) \Leftrightarrow \left(bx\equiv by \: [ba]\right).\]}
+\end{itemize}
+\end{proof}
+
+\begin{remarque}
+Attention au second point, multiplier une congruence par $b$ change la base de congruence, qui est également multipliée par $b$.
+\end{remarque}
+
+\begin{definition}
+Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\Z$ induit une relation d'équivalence sur $\Z$, également appelée la relation de congruence modulo $a$ sur $\Z$, et notée de la même façon.
+\end{definition}
 
 \subsection{Classes d'équivalence}
 \begin{definition}
@@ -297,13 +353,14 @@ L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$
 L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}.
 \end{definition}
 
-\begin{exemple}Pour l'ensemble $E$ des droites du plan muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan.
+\begin{exemple}
+Pour l'ensemble $E$ des droites du plan muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan.
 \end{exemple}
 
 \subsection{Partition en classes d'équivalence}
 
 \begin{definition}[Partition d'un ensemble]
-Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ ue famille de parties de $E$. On dit que c'est une \emph{partition de $E$} si :
+Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ une famille de parties de $E$. On dit que c'est une \emph{partition de $E$} si :
 \begin{enumerate}
 \item Les $A_i$ sont toutes non vides.
 \item On a $\bigcup_{i\in I} A_i = E$.
@@ -324,3 +381,9 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \end{enumerate}
 \end{proof}
 
+\begin{corollaire}[Application à la combinatoire]
+Si $\mathcal R$ est une relation d'équivalence sur un ensemble fini $E$, alors $|E| = \sum_{A\in E/\mathcal R} |A|$.
+\end{corollaire}
+\begin{proof}
+On a  $E= \bigcup_{A\in E/\mathcal R} A$ et l'union est disjointe, donc on obtient le résultat en prenant le cardinal des deux membres.
+\end{proof}
