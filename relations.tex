@@ -26,22 +26,23 @@ Une relation est une \emph{relation d'ordre} ssi elle est réflexive, transitive
 \begin{exemples}
 La relation $\leq$ est une relation d'ordre sur $\N$, ou sur $\Z$, $\Q$, $\R$. (Mais pas sur $\C$ : la relation $\leq$ n'est même pas \emph{définie} sur $\C$.)
 La relation $\subseteq$ est une relation d'ordre sur $\mathcal P(E)$.
-La relation $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$
+La relation $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$, ainsi que sur l'ensemble $\N$. Attention: dans $\N$, tout entier divise $0$! 
 \end{exemples}
 
-Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et la relation de divisibilité $|$ n'est pas une relation d'ordre sur $\Z^*$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
+Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et la relation de divisibilité $|$ n'est pas une relation d'ordre sur $\Z^*$ ni sur $\Z$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
+% C'est un préordre...
 
 \begin{definition}
 Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
 \end{definition}
 
-Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné. S'il n'y a pas de confusion possible sur la relation d'ordre, on peut simplement dire que $E$ est ordonné. (Cependant, il y a en général plusieurs relations d'ordre sur un ensemble.)
+Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné.
 
-Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales.
+Il faut systématiquement préciser l'ordre auquel on se réfère, même pour un ensemble \og connu\fg. Par exemple, $\N$ peut être muni de l'ordre usuel $\leq$ ou bien de la divisibilité $|$ et les deux ordres sont fréquemment utilisées.
+
+Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre générique sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales.
 
 Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict} qui lui est associée.
-
-% exos de base de vérification de définitions.
 
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si tous les éléments sont comparables, c'est-à-dire si:
@@ -101,7 +102,7 @@ Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
 \begin{exemple}
 \begin{enumerate}[label=\alph*)]
 \item Dans l'ensemble ordonné $(\R,\leq)$, la partie $[2,5]$ est majorée par $5$, mais aussi par $6$, $10$ etc. La partie $\R_+$ est minorée, mais pas majorée. La partie $\Z$ n'est ni minorée ni majorée.
-\item Toute partie non vide de $\N$ admet un plus petit élément (c'est la propriété fondamentale de $\N$), mais pas forcément de plus grand élément.
+\item Toute partie non vide de $\N$ admet un plus petit élément pour l'ordre usuel $\leq$ (c'est la propriété fondamentale de $\N$), mais pas forcément de plus grand élément.
 \item Dans un ensemble ordonné non vide $(E,\leq_E)$, la partie vide est majorée: tout élément $m$ est un majorant, car l'assertion $\forall x\in \varnothing, x\leq_E m$ est vraie. De la même façon, dans un ensemble non-vide, la partie vide est minorée par n'importe quel élément.
 \end{enumerate}
 \end{exemple}
@@ -125,6 +126,8 @@ On prouve le résultat pour le plus petit élément de la même manière.
 \item La partie $A=[0,1[$ de $\R$ est majorée. Par contre, elle n'a pas de plus grand élément. 
 \item La partie $B=\{x\in \Q\:\mid\: x^2\leq 2\}$ est majorée (par $\sqrt2$ par exemple), mais n'admet pas de plus grand élément (rappel : $\sqrt 2 \not\in\Q$).
 \item Si $E$ est un ensemble, alors $\mathcal P(E)$ muni de l'inclusion possède un plus grand élément : $E$, et un plus petit élément : $\varnothing$.
+\item Dans l'ensemble ordonné $(\N^*,|)$, la partie $\{2,3,4\}$ n'a pas de plus grand élément.
+\item Dans l'ensemble ordonné $(\N,|)$, il y a un plus petit élément au sens de la divisibilité, c'est $1$ (et non zéro). D'autre part, l'élément $0$ est en fait le plus grand élément au sens de la divisibilité: tout nombre entier $k$ divise $0$.
 \end{enumerate}
 \end{exemples}
 
@@ -196,7 +199,7 @@ Dans $(\R,\leq)$, toute partie non vide et majorée admet une borne supérieure.
 Admis provisoirement. Pour prouver ce théorème, il faut disposer d'une définition rigoureuse de l'ensemble $\R$. Voir le cours d'analyse de second semestre.
 \end{proof}
 
-Il existe des ensembles ordonnés ne possédant pas la propriété de la borne supérieure, c'est-à-dire possédant des parties non-vides, majorées, et sans borne supérieure. C'est le cas de $(\Q,\leq)$, si l'on considère la partie $\{x\in \Q\:\mid\: x^2\leq 2\}$ : il n'existe pas de borne supérieure \underline{dans $\Q$}.
+Il existe des ensembles ordonnés ne possédant pas la propriété de la borne supérieure, c'est-à-dire possédant des parties non-vides, majorées, et sans borne supérieure. C'est le cas de $(\Q,\leq)$, si l'on considère la partie $\{x\in \Q\:\mid\: x^2\leq 2\}$ : il n'existe pas de borne supérieure de cette partie \underline{dans $\Q$}.
 
 
 \subsection{Ordre produit et ordre lexicographique}
