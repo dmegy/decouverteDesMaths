@@ -210,4 +210,54 @@ L'essentiel est d'avoir une définition équivalente, mais surtout une définiti
 
 \section{Combinatoire (VIDE)}
 \subsection{Principes élémentaires de combinatoire}
+
+\begin{proposition}
+Soient $E$ et $F$ finis de cardinal $n$ et $p$. Alors $E\times F$ est de cardinal $np$.
+\end{proposition}
+\begin{proof}
+L'application 
+\[
+\phi : \llbracket 1,n\rrbracket \times \llbracket 1,p\rrbracket\to \llbracket 1,np\rrbracket,\quad
+(x,y)\mapsto (x-1)p+y
+\]
+est bijective.
+\end{proof}
+\begin{corollaire}
+Soit $E$ un ensemble fini. Alors pour tout $k\in \N^*$, $|E^k|=|E|^k$.
+\end{corollaire}
+\begin{proof}
+Par récurrence sur $k$. 
+\textbf{Initialisation. }Lorsque $k=1$, on a bien  $|E^1|=|E|=|E|^1$.\\
+\textbf{Hérédité.} Soit $k\in \N^*$ et supposons que $|E^k|=|E|^k$.
+On a $|E^{k+1}| = |E^k\times E|=|E^k|\cdot |E|$ par la proposition précédente, et d'autre part par hypothèse de récurrence, on a $|E^k|=|E|^k$. Finalement,  $|E^{k+1}|=|E|^{k+1}$. 
+\end{proof}
+
+\begin{corollaire}
+Soient $E\neq \varnothing$ et $F$ des ensembles finis de cardinal  $n$ et $p$. L'ensemble $\mathcal F(E,F)$ des fonctions de $E$ dans $F$ est de cardinal $p^n$. 
+\end{corollaire}
+\begin{proof}
+L'ensemble $\mathcal F(E,F)$ est en bijection avec $F^n$. (Une fonction correspond au choix d'un élément de $F$ pour chacun des $n$ éléments de $E$.) 
+\end{proof}
+
+\begin{remarque}
+\begin{enumerate}
+\item Si $E$ est vide, il existe une unique application de $E$ dans n'importe quel ensemble, fût-il vide : l'application vide. Donc $|\mathcal F(E,F)|=1$, ce qui permet d'étendre la formule lorsque $E$ est vide. Lorsque $E$ et $F$ sont tous deux vides, on pose $0^0=1$ (ou plutôt on démontre, si on a la \og bonne\fg{} définition de $a^b$) et la formule reste valable.
+\item L'ensemble $\mathcal F(E,F)$ est également noté $F^E$. Avec cette notation, on a la formule $\left| F^E\right| = |F|^{|E|}$.
+\end{enumerate}
+\end{remarque}
+
+\begin{proposition}Soient $n, p\in \N$ avec $p\leq n$.
+\begin{enumerate}
+\item Il y a $n(n-1)(n-2)...(n-p+1)=\frac{n!}{(n-p)!}$ injections de $\llbracket 1,p\rrbracket$ dans $\llbracket 1,n\rrbracket$.
+\item En particulier, il y a $n!$ bijections de $\llbracket 1,n\rrbracket$ dans lui-même.
+\end{enumerate}
+\end{proposition}
+
+Une bijection de $\llbracket 1,n\rrbracket$ dans lui-même s'appelle une \emph{permutation} $\llbracket 1,n\rrbracket$.
+
+\begin{proposition}Soit $E$ un ensemble fini. L'ensemble $\mathcal P(E)$ des parties de $E$ est fini, de cardinal $2^{|E|}$.
+\end{proposition}
+\begin{proof}
+Il y a une bijection entre $\mathcal P(E)$ et $\mathcal F(E,\{0,1\})$, donnée par $A\mapsto \mathbf{1}_A$, l'application qui à une partie $A$ associe sa fonction caractéristique. Or, on a $|\mathcal F(E,\{0,1\})| = |\{0,1\}|^{|E|} =2^{|E|} $.
+\end{proof}
 \subsection{Coefficients binomiaux}
