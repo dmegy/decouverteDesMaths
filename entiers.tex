@@ -1,7 +1,7 @@
 
 \section{L'ensemble $\N$ et la récurrence (VIDE)}
 
-\section{Ensembles finis(EN COURS)}
+\section{Ensembles finis}
 
 \subsection{Ensembles $\llbracket a,b\rrbracket$}
 
@@ -150,7 +150,7 @@ Soit $f : A\to B$ une application.
 \begin{proof}
 \begin{enumerate}
 \item Si $B$ est fini, alors $A$ s'injecte dans un ensemble fini donc est fini. De plus, on a $|A|=|f(A)|\leq |B|$.
-\item Soit $g:B\to A$ une \emph{section} de $f$, c'est-à-dire une application  qui à $y\in B$ associe une préimage quelconque de $y$. Par construction, on a $f\circ g=\Id_{B}$ donc $g$ est injective, et par le premier point $B$ est fini et $|B| \leq |A|$.
+\item Soit $g:B\to A$ une \emph{section} de $f$, c'est-à-dire une application  qui à $y\in B$ associe un antécédent quelconque de $y$. Par construction, on a $f\circ g=\Id_{B}$ donc $g$ est injective, et par le premier point $B$ est fini et $|B| \leq |A|$.
 \end{enumerate}
 \end{proof}
 
@@ -208,7 +208,7 @@ L'essentiel est d'avoir une définition équivalente, mais surtout une définiti
 
 
 
-\section{Combinatoire (VIDE)}
+\section{Combinatoire}
 \subsection{Principes élémentaires de combinatoire}
 
 \begin{proposition}
@@ -260,4 +260,74 @@ Une bijection de $\llbracket 1,n\rrbracket$ dans lui-même s'appelle une \emph{p
 \begin{proof}
 Il y a une bijection entre $\mathcal P(E)$ et $\mathcal F(E,\{0,1\})$, donnée par $A\mapsto \mathbf{1}_A$, l'application qui à une partie $A$ associe sa fonction caractéristique. Or, on a $|\mathcal F(E,\{0,1\})| = |\{0,1\}|^{|E|} =2^{|E|} $.
 \end{proof}
+
 \subsection{Coefficients binomiaux}
+
+\begin{definition}
+Soit $n\in\N$, et $k\in \Z$. 
+
+On note $\mathcal P_k(\llbracket 1,n\rrbracket)$ ou même $\mathcal P_k(n)$ l'ensemble des parties de $\llbracket 1,n\rrbracket$ qui sont de cardinal $k$.
+
+On note $\binom{n}{k}$ le nombre de parties de $\llbracket 1,n\rrbracket$ de cardinal $k$, c'est-à-dire $\binom{n}{k}=|\mathcal P_k(n)|$.
+\end{definition}
+
+Remarque : si $k<0$ ou si $k>n$, $\binom{n}{k}=0$ car il n'y a aucune partie de $\llbracket 1,n\rrbracket$ de cardinal $k$.
+
+\begin{proposition}
+On a $\binom{n}{k} = \binom{n}{n-k}$.
+\end{proposition}
+\begin{proof}
+L'application $\phi : \mathcal P_k(n) \to \mathcal P_{n-k}(n), \: A\mapsto  A^c$, est une bijection.
+\end{proof}
+
+\begin{proposition}
+Soit $n\i n\N$. On a $\sum_{k=0}^n \binom{n}{k} =2^n$.
+\end{proposition}
+\begin{proof}
+On classe les parties de $P(\llbracket 1,n\rrbracket)$ suivant leur cardinal $k$, c'est-à-dire qu'on écrit  $\mathcal P(\llbracket 1,n\rrbracket) = \bigcup_{k=0}^n \mathcal P_k(n)$, l'union étant disjointe. En prenant le cardinal des deux membres on obtient $2^n=|P(\llbracket 1,n\rrbracket)| = \sum_{k=0}^n |\mathcal P_k(n)| = \sum_{k=0}^n \binom{n}{k}$.
+\end{proof}
+
+\begin{proposition}[Relation de Pascal]
+Soient $k,n\in \N$. Alors $\binom{n}{k}+\binom{n}{k+1} = \binom{n+1}{k+1}$.
+\end{proposition}
+\begin{proof}
+On compte les parties à $k+1$ éléments de $\llbracket 1,n+1\rrbracket$ selon qu'elles contiennent ou non $n+1$. Celles qui ne contiennent pas $n+1$ sont en bijection avec $\mathcal P_{k+1}(n)$, et celles qui contiennent $n+1$ contiennent $k$ autres éléments de $\llbracket 1,n\rrbracket$ et sont donc en bijection avec $\mathcal P_k(n)$.
+\end{proof}
+
+\begin{proposition}[Formule du binôme de Newton]
+Soient $a, b\in \C$ et $n\in \N$. Alors $(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$.
+\end{proposition}
+\begin{proof}
+On développe le produit $(a+b)^n = (a+b)(a+b)...(a+b)$, ce qui donne $2^n$ termes tous de la forme $a^kb^{n-k}$, pour certains $0\leq k\leq n$.
+À chaque façon de choisir un terme ($a$ ou $b$) dans chaque parenthèse, on associe une partie $X \in \llbracket 1,n\rrbracket$ qui correspond aux parenthèses où on choisit $a$ au lieu de $b$. On peut alors écrire:
+\begin{align*}
+(a+b)^n
+&= \sum_{X \in \mathcal P(\llbracket 1,n\rrbracket)} a^{|X|}b^{n-|X|}\\
+&= \sum_{k=0}^n \left(\sum_{X\in\mathcal P_k(n)} a^{|X|}b^{n-|X|}\right)\\
+&= \sum_{k=0}^n \left( \sum_{X\in\mathcal P_k(n)} a^k b^{n-k}\right)\\
+&= \sum_{k=0}^n a^kb^{n-k} \left|\mathcal P_k(n)\right|\\
+&= \sum_{k=0}^n \binom{n}{k}a^kb^{n-k}\\
+\end{align*}
+\end{proof}
+
+Remarque : il existe aussi une preuve par récurrence sur $n$ qui utilise la formule de Pascal, qui est moins parlante du point de vue combinatoire.
+
+\begin{proposition}Soient $n, k\in \N$. Alors $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.
+\end{proposition}
+
+La preuve qui suit est la version rigoureuse de la phrase \og pour compter le nombre de parties de cardinal $k$ de $\llbracket 1,n\rrbracket$, on compte le nombre de  listes ordonnées de cardinal $k$, c'est-à-dire $\frac{n!}{(n-k)!}$, puis on divise par le nombre de façons de désordonner ces listes, c'est-à-dire $k!$, puisqu'on ne s'occupe pas de l'ordre\fg. (La fin de la phrase est floue et non justifiée : pourquoi est-il correct de \og diviser\fg{} lorsqu'on ne \og s'occupe pas\fg{} de quelque chose ?)
+
+\begin{proof} 
+
+Soit $I$ l'ensemble des injections de $\llbracket 1,k\rrbracket$ dans $\llbracket 1,n\rrbracket$ (en bijection avec les listes ordonnées de $k$ éléments de $\llbracket 1,k\rrbracket$). Il est de cardinal $\frac{n!}{(n-k)!}$. Montrer le résultat revient à montrer que $|I| = k! |\mathcal P_k(n)|$.
+
+Or, on peut écrire $|I| = \sum_{X\in \mathcal P_k(n)} \left| \{f\in I\:,\: f(\llbracket 1,k\rrbracket)=X\}\right|$. Mais si $X$ est de cardinal $k$, une injection $f\in I$ telle que  $f(\llbracket 1,k\rrbracket)=X$ est forcément une bijection, et on sait qu'il y a $k!$ telles bijections.
+
+Donc, $|I| = \sum_{X\in \mathcal P_k(n)} k! = k! |\mathcal P_k(n)|$, ce qu'il fallait démontrer.
+\end{proof}
+
+\begin{remarque} Le principe combinatoire général derrière cette preuve est le suivant : Si $\phi : A\to B$ entre ensembles finis, alors $|A| = \sum_{b\in B} \left|f^{-1}(\{b\})\right|$. Cela revient à compter le nombre d'éléments de $a$ en les classant d'abord selon leur image dans $B$, puis en sommant, pour chaque $b$, le nombre d'antécédents de $b$. Ici, ce principe serait appliqué avec $A=I$, $B=\mathcal P_k(n)$, et $\phi$ serait l'application qui à $f\in I$ associe son image, qui est un élément de $\mathcal P_k(n)$. Dans ce cas particulier, toutes les images réciproques ont le même cardinal $k!$.
+\end{remarque}
+
+\begin{remarque} On peut trouver d'autres preuves des résultats présentés ici : des preuves par récurrence, ou bien des preuves calculatoires utilisant la formule $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ qui doit alors être démontrée le plus tôt possible. Les preuves combinatoires sont souvent plus riches de sens.
+\end{remarque}
