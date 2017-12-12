@@ -125,13 +125,19 @@ En remplaçant $|B\setminus A|$ par $|B|-|B\cap A|$ dans la première égalité,
 \subsection{Applications et ensembles finis}
 
 \begin{proposition}
-Soit $A$ un ensemble fini et $f:A\to B$. 
-Si $f$ est injective, alors $|f(A)|=|A|$.
+Soit $f : A\to B$ une application.
+\begin{enumerate}
+\item Si $B$ est fini, alors $|f(A)|\leq |B|$ et si de plus $|f(A)|= |B|$ alors $f$ est surjective.
+\item Si $A$ est fini et $f$ est injective, alors $|f(A)|=|A|$.
+\end{enumerate}
 \end{proposition}
 \begin{proof}
-Sans hypothèses sur $A$, définissons $g : A\to f(A)$ l'application déduite de $f$ en remplaçant le codomaine $B$ par l'image de $A$ (note : cette application s'appelle la \emph{corestriction} de $f$ à $f(A)$). Cette application $g$ est surjective par construction.
+\begin{enumerate}
+\item On a $f(A)\subseteq B$ donc $f(A)$ est fini et $|f(A)|\leq |B|$. S'il y a égalité des cardinaux, alors on a $f(A)=B$ ce qui signifie que $f$ est surjective.
+\item Soit $g : A\to f(A)$ l'application déduite de $f$ en remplaçant le codomaine $B$ par $f(A)$. L'application $g$ est surjective par construction, que $A$ soit fini ou pas.
 
-D'autre part si $f$ est injective, $g$ l'est également. On en déduit que $A$ et $f(A)$ sont en bijection. Si $A$ est fini, ils ont donc le même cardinal.
+Si $f$ est injective, $g$ l'est également. On en déduit que $A$ et $f(A)$ sont en bijection. Si de plus $A$ est fini, ils ont donc le même cardinal.
+\end{enumerate}
 \end{proof}
 
 \begin{proposition}
@@ -187,6 +193,16 @@ Dans ce cas, on aurait commencé par prouver le lemme suivant : \og s'il existe 
 
 \begin{exercice} \'Etablir tous les résultats du cours en prenant  cette définition pour base, au lieu de celle avec les injections.
 \end{exercice}
+
+On peut aussi définir les ensembles finis en utilisant un ensemble \og infini\fg{} de référence, par exemple $\N$.
+
+\begin{exercice}
+Soit $E$ un ensemble.
+Prouver que $E$ est fini si et seulement si aucune application de $\N$ dans $E$ n'est injective.
+\'Etablir une formulation équivalente avec des surjections.
+\end{exercice}
+
+L'essentiel est d'avoir une définition équivalente, mais surtout une définition maniable et efficace pour prouver les résultats du cours.
 
 \section{Sommes et produits (VIDE)}
 
