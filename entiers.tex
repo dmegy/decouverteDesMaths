@@ -1,7 +1,9 @@
 
 \section{L'ensemble $\N$ et la récurrence (VIDE)}
 
-\section{Ensembles finis et cardinal (EN COURS)}
+\section{Ensembles finis(EN COURS)}
+
+\subsection{Ensembles $\llbracket a,b\rrbracket$}
 
 Si $a, b\in \Z$, on note $\llbracket a,b\rrbracket$ l'ensemble $\{n\in \Z\:\mid\: a\leq n \leq b\}$. Si $b<a$, cet ensemble est vide.
 
@@ -39,7 +41,7 @@ Par hypothèse de récurrence, on a donc $m\leq n-1$, et donc $m+1\leq n$, donc 
 \end{proof}
 
 \begin{lemme}
-Soient $m, n\in \N$. S'il existe une bijection entre $\llbracket 1,m\rrbracket$ et $\llbracket 1,n\rrbracket$, le lemme précédent entraîne que $m=n$
+Soient $m, n\in \N$. S'il existe une bijection entre $\llbracket 1,m\rrbracket$ et $\llbracket 1,n\rrbracket$, on a  $m=n$
 \end{lemme}
 \begin{proof}
 Soit $f$ une telle bijection. Comme elle est injective, on a $m\leq n$.
@@ -47,16 +49,19 @@ Soit $f$ une telle bijection. Comme elle est injective, on a $m\leq n$.
 Considérons alors la bijection réciproque $f^{-1} : \llbracket 1,n\rrbracket \to \llbracket 1,m\rrbracket$. Comme elle est également  injective, on a $n\leq m$. D'où $m=n$.
 \end{proof}
 
+\subsection{Ensembles finis et cardinal}
 
 \begin{definition}
-Un ensemble $E$ est fini s'il existe $n\in \N$ et une injection de $E$ dans $\llbracket 1,n\rrbracket$.
+Un ensemble $E$ est \emph{fini} s'il existe $n\in \N$ et une injection de $E$ dans $\llbracket 1,n\rrbracket$. Un ensemble qui n'est pas fini est \emph{infini}.
 \end{definition}
 
-À priori, l'entier $n$ de la définition n'est pas unique, car si $n$ convient, alors $n+1$ aussi.
-
-\begin{remarque}[Zérologie]
-L'ensemble vide est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
+\begin{remarque}
+\begin{enumerate}[label=\alph*)]
+\item On en déduit immédiatement qu'un ensemble qui s'injecte dans un ensemble fini est lui-même fini (la composée de deux injections est une injection).
+\item À priori, l'entier $n$ de la définition n'est pas unique, car si $n$ convient, alors $n+1$ aussi.
+\item [Zérologie] L'ensemble vide est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
 On vérifie ensuite que cette application est injective (en appliquant la définition).
+\end{enumerate}
 \end{remarque}
 
 
@@ -75,18 +80,32 @@ On itère ce processus tant que l'application n'est pas bijective, ce qui finit 
 \end{proof}
 
 
+
+
 \begin{proposition}
 \begin{enumerate}
+\item Un ensemble en bijection avec un ensemble fini de cardinal $n$ est également fini de cardinal $n$.
 \item L'ensemble vide est fini de cardinal zéro. Réciproquement, un ensemble fini de cardinal zéro est vide.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Soit $f:A\to B$ une bijection. Si $B$ est fini de cardinal $n$, alors il existe une bijection $\phi : B\to \llbracket 1,n\rrbracket$, et donc  $\phi\circ f : A\to \llbracket 1,n\rrbracket$ est une bijection.
+\item On a déjà vu qu'il existe une (unique) application entre $\varnothing$ et $\llbracket 1,0\rrbracket=\varnothing$ et qu'elle est injective. On peut vérifier qu'elle est surjective, toujours en appliquant la définition. Réciproquement, un ensemble de cardinal zéro est par définition en bijection avec $\llbracket 1,0\rrbracket = \varnothing$, donc est vide.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+\begin{enumerate}
 \item Si $A$ et $B$ sont disjoints et finis, alors $A\cup B$ est fini et $|A\cup B|=|A|+|B|$.
 \item  Si $A$ est fini et $B \subseteq A$, alors $B$ est fini et $|B| \leq |A|$.
 \item Si de plus $|B| = |A|$, alors $B=A$.
 \item Si $A$ et $B$ sont finis, alors $|A\cup B| = |A| + |B| - |A\cap B|$.
 \end{enumerate}
 \end{proposition}
+
 \begin{proof}
 \begin{enumerate}
-\item On a déjà vu qu'il existe une (unique) application entre $\varnothing$ et $\llbracket 1,0\rrbracket=\varnothing$ et qu'elle est injective. On peut vérifier qu'elle est surjective, toujours en appliquant la définition. Réciproquement, un ensemble de cardinal zéro est par définition en bijection avec $\llbracket 1,0\rrbracket = \varnothing$, donc est vide.
 \item Soient $n$ et $m$ des entiers et $f : A\to \llbracket 1,m\rrbracket$, $g : B\to \llbracket 1,n\rrbracket$ des bijections. L'application 
 \[
 \phi : A\cup B \to \llbracket 1,m+n\rrbracket, \quad x\mapsto
@@ -95,31 +114,38 @@ f(x) & \text{ si }x\in A\\
 m+g(x) & \text{ si }x\in B
 \end{cases}
 \]
-est bien définie, et c'est une bijection de $E\cup B$ dans $\llbracket 1,m+n\rrbracket$.
-\item Si $A$ est fini, il existe $n\in \N$ et une bijection $f : A\to \llbracket 1,n\rrbracket$. Comme $B\subseteq A$, l'inclusion de $B$ dans $A$ est une injection $i : B\to A$. Alors, l'application $f\circ i : B\to A\to \llbracket 1,n\rrbracket$ est une composée d'injections donc une injection, donc $B$ est fini. De même, la partie $A\setminus B$ de $A$ est également finie. On peut alors écrire $A$ comme l'union disjointe d'ensembles finis $A=B \cup (A\setminus B)$ et par ce qui précède, on a $|A|=|B|+|A\setminus B|$. On en déduit que $|B|\leq A$ et que s'il y a égalité, $A\setminus B$ est de cardinal $0$, donc vide, d'où $A=B$.
+est bien définie, et c'est une bijection de $A\cup B$ dans $\llbracket 1,m+n\rrbracket$.
+\item Si $A$ est fini, alors $B$ s'injecte dans un ensemble fini donc est fini. De même, la partie $A\setminus B$ de $A$ est également finie. On peut alors écrire $A$ comme l'union disjointe d'ensembles finis $A=B \cup (A\setminus B)$ et par ce qui précède, on a $|A|=|B|+|A\setminus B|$. On en déduit que $|B|\leq A$ et que s'il y a égalité, $A\setminus B$ est de cardinal $0$, donc vide, d'où $A=B$.
 \item On a l'union disjointe $A = A\cup (B\setminus A)$  donc $|A\cup B| = |A|+|B\setminus A|$.
 D'autre part, on a l'union disjointe $B = (B\cap A) \cup (B\setminus A)$, donc $|B| = |B\cap A|+|B\setminus A|$.
 En remplaçant $|B\setminus A|$ par $|B|-|B\cap A|$ dans la première égalité, on obtient le résultat.
 \end{enumerate}
 \end{proof}
 
+\subsection{Applications et ensembles finis}
 
 \begin{proposition}
-Si $f:A\to B$ est injective et $A$ est fini, alors $|f(A)|=|A|$.
+Soit $A$ un ensemble fini et $f:A\to B$. 
+Si $f$ est injective, alors $|f(A)|=|A|$.
 \end{proposition}
 \begin{proof}
-Sans hypothèses sur $A$, définissons $g : A\to f(A)$ l'application déduite de $f$ en remplaçant le codomaine $B$ par l'image de $EA$ (note : cette application s'appelle la \emph{corestriction} de $f$ à $f(A)$). Elle est injective car $f$ l'est, et elle est surjective par construction. On en déduit que $A$ et $f(A)$ sont en bijection. Ceci est vrai pour tout application $f : A\to B$.
+Sans hypothèses sur $A$, définissons $g : A\to f(A)$ l'application déduite de $f$ en remplaçant le codomaine $B$ par l'image de $A$ (note : cette application s'appelle la \emph{corestriction} de $f$ à $f(A)$). Cette application $g$ est surjective par construction.
 
-Si de plus $A$ est fini, alors $f(A)$ également et ils ont le même cardinal.
+D'autre part si $f$ est injective, $g$ l'est également. On en déduit que $A$ et $f(A)$ sont en bijection. Si $A$ est fini, ils ont donc le même cardinal.
 \end{proof}
 
-\begin{proposition}Soit $f : A\to B$ une application.
+\begin{proposition}
+Soit $f : A\to B$ une application.
 \begin{enumerate}
 \item Si $B$ est fini et $f$ est injective, alors $A$ est fini et $|A|\leq |B|$.
 \item Si $A$ est fini et $f$ est surjective, alors $B$ est fini et $|A|\geq |B|$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
+\begin{enumerate}
+\item Si $B$ est fini, alors $A$ s'injecte dans un ensemble fini donc est fini. De plus, on a $|A|=|f(A)|\leq |B|$.
+\item Soit $g:B\to A$ une \emph{section} de $f$, c'est-à-dire une application  qui à $y\in B$ associe une préimage quelconque de $y$. Par construction, on a $f\circ g=\Id_{B}$ donc $g$ est injective, et par le premier point $B$ est fini et $|B| \leq |A|$.
+\end{enumerate}
 \end{proof}
 
 \begin{theoreme}[IMPORTANT]
@@ -141,6 +167,26 @@ donc $f(A) \neq B$ et donc $f$ n'est pas surjective.
 \end{proof}
 
 Ce théorème est à retenir, il est indispensable dans tous les domaines des mathématiques. En particulier, il est crucial pour la théorie de la dimension des espaces vectoriels, au prochain semestre.
+
+\begin{corollaire}
+Soit $f : A\to B$ entre ensembles finis. Alors $f$ est injective si et seulement si $|f(A)|=|A|$.
+\end{corollaire}
+\begin{proof}On a déjà prouvé le sens \og seulement si\fg.
+
+Si $|f(A)|=|A|$, alors la corestriction $g : A\to f(A), x\mapsto f(x)$ qui est par définition surjective, est également injective par le précédent théorème. Donc $f$ est injective.
+\end{proof}
+
+
+
+\subsection{Remarque sur les définitions équivalentes}
+
+Il existe d'autres définitions (équivalentes) d'ensemble fini et de cardinal.
+Par exemple, on aurait pu donner comme définition  : un ensemble $E$ est fini s'il existe $n\in \N$ et une surjection de $\llbracket 1,n\rrbracket$ dans $E$.
+
+Dans ce cas, on aurait commencé par prouver le lemme suivant : \og s'il existe une surjection de $\llbracket 1,m\rrbracket$ dans $\llbracket 1,n\rrbracket$, alors $m\geq n$\fg, et l'ordre des résultats établis, ainsi que les preuves, auraient été différents.
+
+\begin{exercice} \'Etablir tous les résultats du cours en prenant  cette définition pour base, au lieu de celle avec les injections.
+\end{exercice}
 
 \section{Sommes et produits (VIDE)}
 
