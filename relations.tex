@@ -24,9 +24,11 @@ Une relation est une \emph{relation d'ordre} ssi elle est réflexive, transitive
 \end{definition}
 
 \begin{exemples}
-La relation $\leq$ est une relation d'ordre sur $\N$, ou sur $\Z$, $\Q$, $\R$. (Mais pas sur $\C$ : la relation $\leq$ n'est même pas \emph{définie} sur $\C$.)
-La relation $\subseteq$ est une relation d'ordre sur $\mathcal P(E)$.
-La relation $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$, ainsi que sur l'ensemble $\N$. Attention: dans $\N$, tout entier divise $0$! 
+\begin{enumerate}[label=\alph*)]
+\item La relation $\leq$ est une relation d'ordre sur $\N$, ou sur $\Z$, $\Q$, $\R$. (Mais pas sur $\C$ : la relation $\leq$ n'est même pas \emph{définie} sur $\C$.)
+\item La relation $\subseteq$ est une relation d'ordre sur $\mathcal P(E)$. L'antisymétrie est exactement le principe de double inclusion.
+\item La relation $|$ (\og divise\fg) est une relation d'ordre sur $\N^*$, ainsi que sur l'ensemble $\N$. Attention: dans $\N$, tout entier divise $0$! 
+\end{enumerate}
 \end{exemples}
 
 Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et la relation de divisibilité $|$ n'est pas une relation d'ordre sur $\Z^*$ ni sur $\Z$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
@@ -248,7 +250,7 @@ En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \
 Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d'équivalence} ssi elle est:
 \begin{enumerate}
 \item réflexive (rappel : $\forall x\in E, x{\mathcal R}x$);
-\item transitive (rappel : $forallx, y, z\in E, x{\mathcal R}y\text{ et } y{\mathcal R}z \implies x{\mathcal R}z$);
+\item transitive (rappel : $\forall x, y, z\in E, x{\mathcal R}y\text{ et } y{\mathcal R}z \implies x{\mathcal R}z$);
 \item symétrique : $\forall x, y\in E, x{\mathcal R}y \implies yRx$.
 \end{enumerate}
 \end{definition}
