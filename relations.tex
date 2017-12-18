@@ -259,13 +259,33 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \begin{enumerate}[label=\alph*)]
 \item Les relations $=$, $//$ (parallélisme), sont des relations d'équivalence.
 \item La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
+\item Tout ensemble possède la relation d'équivalence triviale : celle où tous les éléments sont équivalents.
 \item Sur $\R$, la relation $x\mathcal R y \iff \left(x=y\text{ ou }x=-y\right)$ est une relation d'équivalence.
 \item Sur $\R$, la relation $x\mathcal R y \iff \sin(x)=\sin(y)$ est une relation d'équivalence.
 \item Sur $\C$, la relation $z\mathcal R z' \iff |z|=|z'|$ est une relation d'équivalence.
-\item De façon plus générale, si $f : E\to F$ est une application, alors la relation $x\mathcal R y \iff f(x)=f(y)$ est une relation d'équivalence sur $E$.
-(En fait, \emph{toutes} les relations d'équivalence sont de ce type, pour un choix adéquat de $F$ et de $f$.)
+
+\item Un singleton, c'est-à-dire un ensemble contenant un unique élément, possède une seule relations d'équivalence (celle où l'unique élément est relié à lui-même).
+\item L'ensemble vide possède une seule relation d'équivalence, la relation vide (la seule fonction de $\varnothing \times \varnothing$ dans $\{\text{vrai,\: faux}\}$ à savoir la fonction vide : on vérifie qu'elle définit bien une relation d'équivalence).
+\item Un ensemble $\{a,b\}$ à deux éléments possède deux relations d'équivalence distinctes : la première est l'\emph{égalité}, la seconde est la \emph{relation d'équivalence triviale}, celle où $a$ et $b$ sont équivalents.
+\item De façon générale, on peut toujours définir, sur un ensemble non-vide, la \emph{relation triviale}, celle où tous les éléments sont équivalents. (Cette relation est peu utile.)
+\item Un ensemble à trois éléments possède cinq relations d'équivalence (exercice).
 \end{enumerate}
 \end{exemples}
+
+\begin{proposition}[Fibres d'une application]
+Si $f : E\to F$ est une application, alors la relation 
+\[
+x\mathcal R y \iff (x\text{ et }y \text{ sont dans la même fibre de }f)
+\]
+est une relation d'équivalence sur $E$.
+
+(Rappelons que par définition de ce que sont les fibres d'une application, on peut reformuler la définition de cette relation en: $x\mathcal R y \iff f(x)=f(y)$.)
+\end{proposition}
+\begin{proof}
+Soit $x \in E$. Alors on a bien $f(x)=f(x)$ donc $x\mathcal R x$, donc $\mathcal R$ est réflexive. Si $x, y\in E$, on a bien $x\mathcal R y \iff f(x)=f(y) \iff f(y)=f(x) \iff y\mathcal x$ donc $\mathcal R$ est symétrique. Et enfin, Si $x,y,z\in E$ et que $x\mathcal R y$ et $y\mathcal R z$, alors $f(x)=f(y)$ et $f(y)=f(z)$, donc $f(x)=f(z)$ et donc $x\mathcal R z$, donc $\mathcal R$ est transitive. Ceci montre que $\mathcal R$ est bien une relation d'équivalence.
+
+On verra dans la dernière section que toutes les relations d'équivalence sont de ce type, pour une application $f$ bien choisie : la \emph{surjection canonique sur le quotient}.
+\end{proof}
 
 D'autres exemples importants de relations d'équivalence sont les congruences. Commençons par rappeler les définitions.
 
@@ -350,7 +370,7 @@ Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\
 
 \begin{definition}
 Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$.
-L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $R$} et est noté $E/{\mathcal R}$.
+L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$} et est noté $E/{\mathcal R}$.
 
 L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}.
 \end{definition}
@@ -359,18 +379,63 @@ L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élémen
 Pour l'ensemble $E$ des droites du plan muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan.
 \end{exemple}
 
-\subsection{Partition en classes d'équivalence}
+\begin{proposition}
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E\to E/\mathcal R$ la projection sur le quotient. Alors 
+\begin{enumerate}
+\item $p$ est surjective.
+\item $x\mathcal R y \iff p(x)=p(y)$.
+\item Les fibres sont exactement les classes d'équivalence modulo la relation $\mathcal R$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Soit $A$ une classe d'équivalence. Par définition, il existe $x\in E$ tel que $A = \overline{x} = p(x)$. Donc $p$ est surjective.
+\item On a $x\mathcal R y \iff \overline{x} = \overline{y} \iff p(x)=p(y)$.
+\item C'est une relation du deuxième point, puisque par définition de la fibre d'une application quelconque $f$, deux éléments $x$ et $y$ sont dans la même fibre si et seulement $f(x)=f(y)$.
+\end{enumerate}
+\end{proof}
+
+
+
+
+\subsection{Partitions et classes d'équivalence}
 
 \begin{definition}[Partition d'un ensemble]
-Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ une famille de parties de $E$. On dit que c'est une \emph{partition de $E$} si :
+Soit $E$ un ensemble, et $\mathcal A$ un ensemble de parties de $E$, c'est-à-dire $\mathcal A\subset \mathcal P(E)$. L'ensemble $\mathcal A$ est une \emph{partition de $E$ en ensembles non vides}, ou simplement \emph{partition\footnote{Notation adoptée dans tout ce cours} de $E$}, si : 
 \begin{enumerate}
-\item Les $A_i$ sont toutes non vides.
-\item On a $\bigcup_{i\in I} A_i = E$.
-\item Les parties $A_i$ sont deux-à-deux disjointes : $\forall i, j\in I, i\neq j \implies A_i\cap A_j=\varnothing$.
+\item les parties sont non vides c'est-à-dire $\forall A\in \mathcal A, \: A\neq \varnothing$.
+\item les parties recouvrent $E$ c'est-à-dire que leur union égale $E$, autrement dit $\bigcup_{A\in \mathcal A} A = E$.
+\item Les parties sont deux à deux disjointes, c'est-à-dire $\forall A, A' \in \mathcal A, \: A\cap A' = \varnothing$.
 \end{enumerate}
 \end{definition}
 
-Exemple : $E = \Z$, $A_1 $ est l'ensemble des entiers pairs non nuls, $A_2=\{0\}$, et $A_3$ est l'ensemble des entiers impairs.
+\begin{proposition}[Partition définie par une famille]
+Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ une famille de parties de $E$. Cette famille définit une partition de $E$ si :
+\begin{enumerate}
+\item Les $A_i$ sont toutes non vides.
+\item On a $\bigcup_{i\in I} A_i = E$.
+\item Les parties $A_i$ sont deux à deux disjointes : $\forall i, j\in I, i\neq j \implies A_i\cap A_j=\varnothing$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Immédiat sur la définition.
+\end{proof}
+
+\begin{exemple}
+\begin{enumerate}
+\item L'ensemble vide possède une seule partition, la partition vide qui ne contient aucune partie (car les parties elles, doivent être non-vides).
+\item Un ensemble $\{a,b\}$ à deux éléments possède deux partitions : la partition triviale $\big\{\: \{a,b\} \:\big\}$ et la partition en deux singletons $\big\{\: \{a\},\{b\} \:\big\}$.
+\item Un ensemble à trois éléments possède cinq partitions distinctes (exercice).
+\item Tout ensemble possède la partition $\big\{\: \{x\}\:\mid\: x\in E \:\big\}$. (Si $E$ est vide, la partition est vide).
+\item Tout ensemble non-vide $E$ possède toujours au moins la partition triviale en une seule partie, l'ensemble lui-même. C'est bien une partition car $E$ est non-vide. Cette partition s'écrit donc $\big\{\: E \:\big\}$.
+\item L'ensemble $\Z$ possède la partition en deux parties suivante : $\big\{\: 2\Z, \: 2\Z+1\:\big\}$. C'est la partition en nombres pairs et nombres impairs.
+\end{enumerate}
+\end{exemple}
+
+\begin{exercice}[Raffinement d'une partition]
+\end{exercice}
+
+
 
 \begin{proposition}
 Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est une partition de $E$.
@@ -382,6 +447,24 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \item On a déjà montré que deux classes d'équivalence sont soit égales soit disjointes.
 \end{enumerate}
 \end{proof}
+
+\begin{remarque} (Zérologie) Le quotient de l'ensemble vide par son unique relation d'équivalence est bien l'ensemble vide.
+\end{remarque}
+
+Ce résultat admet une \og réciproque\fg : 
+
+\begin{proposition}
+Soit $\{A_i\:\mid i\in I\}$ une partition d'un ensemble $E$. Alors la relation
+\[
+x\mathcal R y \iff \left( \exists i\in I\:,\: x\in A_i\text{ et } y\in A_i\right)
+\]
+est une relation d'équivalence.
+\end{proposition}
+\begin{proof}
+Voir TD.
+\end{proof}
+
+Ces deux propositions permettent de montrer qu\og une relation d'équivalence sur $E$ est la même chose qu'une partition de $E$\fg : attention, à proprement parler ce ne sont pas les mêmes objets (pas le même type), mais le sens précis de cette phrase est qu'il existe une bijection entre d'une part l'ensemble des relations d'équivalence sur $E$, et d'autre part, l'ensemble des partitions de $E$.
 
 \begin{corollaire}[Application à la combinatoire]
 Si $\mathcal R$ est une relation d'équivalence sur un ensemble fini $E$, alors $|E| = \sum_{A\in E/\mathcal R} |A|$.
