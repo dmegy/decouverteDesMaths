@@ -427,13 +427,22 @@ Immédiat sur la définition.
 \item Un ensemble $\{a,b\}$ à deux éléments possède deux partitions : la partition triviale $\big\{\: \{a,b\} \:\big\}$ et la partition en deux singletons $\big\{\: \{a\},\{b\} \:\big\}$.
 \item Un ensemble à trois éléments possède cinq partitions distinctes (exercice).
 \item Tout ensemble possède la partition $\big\{\: \{x\}\:\mid\: x\in E \:\big\}$. (Si $E$ est vide, la partition est vide).
-\item Tout ensemble non-vide $E$ possède toujours au moins la partition triviale en une seule partie, l'ensemble lui-même. C'est bien une partition car $E$ est non-vide. Cette partition s'écrit donc $\big\{\: E \:\big\}$.
+\item Tout ensemble  $E$ possède toujours au moins la partition triviale en une seule partie, l'ensemble lui-même. C'est bien une partition car $E$ est non-vide. Cette partition s'écrit donc $\big\{\: E \:\big\}$.
 \item L'ensemble $\Z$ possède la partition en deux parties suivante : $\big\{\: 2\Z, \: 2\Z+1\:\big\}$. C'est la partition en nombres pairs et nombres impairs.
 \end{enumerate}
 \end{exemple}
 
 \begin{exercice}[Raffinement d'une partition]
+Soient $\mathcal A$ et $\mathcal B$ deux partitions de $E$. On dit que $\mathcal A$ est \emph{plus fine} que $\mathcal B$ (ou : qu'elle est un raffinement de $\mathcal B$) si les éléments de $\mathcal B$ sont des unions d'éléments de $\mathcal A$, autrement dit si $\mathcal A$ fractionne les éléments de $\mathcal B$ en sous-parties.
+
+Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
+
+Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
 \end{exercice}
+
+\begin{remarque}
+Le plus grand élément de cet ensemble ordonné est la partition la  plus fine : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine est la partition triviale (celle à une seule partie).  
+\end{remarque}
 
 
 
@@ -448,7 +457,7 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \end{enumerate}
 \end{proof}
 
-\begin{remarque} (Zérologie) Le quotient de l'ensemble vide par son unique relation d'équivalence est bien l'ensemble vide.
+\begin{remarque}[Zérologie] Le quotient de l'ensemble vide par son unique relation d'équivalence est l'ensemble des classes d'équivalence : comme il n'y a aucune classe d'équivalence, l'ensemble quotient est vide. La projection canonique est l'application $p : \varnothing \to \varnothing$ (dite application vide). Elle est bien surjective...
 \end{remarque}
 
 Ce résultat admet une \og réciproque\fg : 
