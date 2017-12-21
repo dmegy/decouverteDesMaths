@@ -1,7 +1,51 @@
+\chapter{Entiers, ensembles finis et combinatoire}
 
-\section{L'ensemble $\N$ et la récurrence (VIDE)}
+\section{L'ensemble $\N$ et la récurrence}
 \index{$\N$}
 
+L'ensemble $\N$ est supposé connu. Il vérifie les propriétés suivantes (les ensembles ordonnés sont traités dans un chapitre ultérieur mais le vocabulaire devrait être connu):
+\begin{enumerate}
+\item tout partie non vide majorée admet un plus grand élément;
+\item toute partie non vide admet un plus petit élément.
+\end{enumerate}
+
+C'est la deuxième propriété qui permet de distinguer $\N$ de $\Z$ et qui fonde le principe de récurrence.
+
+\subsection{Le principe de récurrence}
+
+\begin{definition}[Propriété héréditaire]
+Soit $A(n)$ une assertion dépendant d'un paramètre $n\in \N$. 
+On dit qu'elle est \emph{héréditaire} si:
+\[
+\forall n\in \N,\: A(n)\implies A(n+1).
+\]
+(On définit de manière similaire l'hérédité à partir d'un certain rang $n_0$, au lieu du rang $0$.)
+\end{definition}
+
+\begin{theoreme}[Principe de récurrence]
+\index{principe de récurrence}
+Soit $A(n)$ une propriété dépendant d'un paramètre $n\in \N$. 
+
+Si $A(0)$ est vraie et que la propriété est héréditaire, alors la propriété est vraie pour tout $n\in\N$, autrement dit:
+\[
+\big( A(0) \text{ et }(\forall n\in \N,\: A(n)\implies A(n+1))\big) \implies (\forall n\in \N, \: A(n)).
+\]
+\end{theoreme}
+\begin{proof}Supposons la propriété vraie au rang $0$ et héréditaire.
+
+Montrons que la partie $A = \{n\in \N\:\mid\: A(n)\text{ est fausse}\} \subseteq \N$ est vide.
+
+Si $A$ est non-vide, elle possède un plus petit élément $m$ avec $m\geq 1$ puisque $A(0)$ est vraie. Donc $m-1 \in \N$ et $A(m-1)$ est vraie par définition de $m$. Par hérédité, $A(m)=A((m-1)+1)$ est vraie, contradiction. Donc $A=\varnothing$ ce qui signifie exactement: $\forall \in\N,\:A(n)$.
+\end{proof}
+
+\begin{theoreme}[Récurrence forte]\index{principe de récurrence!forte}
+Soit $A(n)$ une propriété dépendant d'un paramètre $n\in \N$. 
+
+Si $A(0)$ est vraie et que $\forall n\in \N, (\forall k\leq n, A(k))\implies A(n+1)$, alors $A(n)$ est vraie pour tout $n\in N$.
+\end{theoreme}
+\begin{proof}
+Exercice. Appliquer le principe de  récurrence simple à la propriété $B(n)$ : \og $\big(\forall k\leq n,\: A(k)\big)$\fg.
+\end{proof}
 \section{Ensembles finis}
 
 \subsection{Ensembles $\llbracket a,b\rrbracket$}
@@ -62,7 +106,7 @@ Un ensemble $E$ est \emph{fini} s'il existe $n\in \N$ et une injection de $E$ da
 \begin{enumerate}[label=\alph*)]
 \item On en déduit immédiatement qu'un ensemble qui s'injecte dans un ensemble fini est lui-même fini (la composée de deux injections est une injection).
 \item À priori, l'entier $n$ de la définition n'est pas unique, car si $n$ convient, alors $n+1$ aussi.
-\item [Zérologie] L'ensemble vide\index{ensemble vide} est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
+\item (Zérologie) L'ensemble vide\index{ensemble vide} est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
 On vérifie ensuite que cette application est injective (en appliquant la définition).
 \end{enumerate}
 \end{remarque}
@@ -208,7 +252,87 @@ Prouver que $E$ est fini si et seulement si aucune application de $\N$ dans $E$ 
 
 L'essentiel est d'avoir une définition équivalente, mais surtout une définition maniable et efficace pour prouver les résultats du cours.
 
-\section{Sommes et produits (VIDE)}
+\section{Sommes et produits}
+
+\begin{definition}[Notation $\sum$ et $\prod$]
+\index{$\sum$}\index{$\prod$}
+Soit $E$ un ensemble fini, et $f : E\to \C$ (ou autre codomaine que $\C$, l'essentiel étant de pouvoir sommer et multiplier).
+
+On note $\sum_{x\in E} f(x)$ le nombre $0$ auquel on ajoute la somme des valeurs prises par $f(x)$ lorsque $x$ parcourt $E$.
+
+On note $\prod_{x\in E} f(x)$ le nombre $1$ que l'on multiplie par le produit des valeurs prises par $f(x)$ lorsque $x$ parcourt $E$.
+\end{definition}
+
+\begin{remarque}[\og Un produit vide vaut $1$, une somme vide vaut $0$\fg]
+Faire intervenir $0$ et $1$ sert à avoir les propriétés: $\sum_{x\in \varnothing} (...)=0$ et $\prod_{x\in \varnothing} (...) = 1$.
+\end{remarque}
+
+\begin{remarque} Dans la définition, si $E=A\cup B$ et $A\cap B = \varnothing$, alors $\sum_{x\in E}f(x) = \sum_{x\in A}f(x)+\sum_{x\in B}f(x)$.
+\end{remarque}
+
+Si $I$ est un ensemble fini et $(u_i)_{i\in I}$ est une famille de complexes, on note $\sum_{i\in I} u_i$ la somme de (zéro plus) tous ces complexes. 
+
+\begin{definition}
+La notation $\sum_{i=0}^n u_i$ signifie par définition $\sum_{i\in \llbracket 0,n\rrbracket} u_i$, et plus généralement,  $\sum_{i=a}^b u_i$ signifie par définition $\sum_{i\in \llbracket a,b\rrbracket} u_i$. 
+\end{definition}
+
+\begin{proposition}[Linéarité de la somme]
+\index{linéarité de $\sum$}
+Soit $A$ un ensemble fini, $f$, $g$ deux fonctions de $A$ dans $\C$ et $\lambda$, $\mu$ deux complexes. Alors :
+\[
+\sum_{x\in A}(\lambda f(x)+\mu g(x)) 
+= \lambda\sum_{x\in A}f(x)+ \mu\sum_{x\in A} g(x).
+\]
+\end{proposition}
+
+\begin{exemple}
+Soit $n\in N$. On peut écrire 
+\[
+\sum_{k=0}^n (2k+3) 
+= 2\sum_{k=0}^n k + 3\sum_{k=0}^n1 
+= 2\frac{n(n+1)}{2}+3(n+1) 
+= (n+1)(n+3).
+\]
+\end{exemple}
+
+\begin{theoreme}[Théorème de Fubini pour les sommes finies]
+\index{Fubini, théorème}
+Soient $A$ et $B$ des ensembles finis et $f : A\times B \to \C$. On a les égalités:
+\[
+\sum_{x\in A}\left(\sum_{y\in B} f(x,y)\right)
+=
+\sum_{(x,y)\in A\times B} f(x,y)
+=
+\sum_{y\in B}\left(\sum_{x\in A} f(x,y)\right)
+\]
+\end{theoreme}
+\begin{proof}
+Par récurrence sur $|B|$. 
+
+\noindent\textbf{Initialisation.} Si $|B|=0$, alors $B$ est vide, et les sommes indexées par $B$ sont nulles. D'autre part, $A\times B=\varnothing$, donc au final les trois sommes sont nulles.
+
+\noindent\textbf{Hérédité.} Soit $n\in \N$, et supposons que pour toute partie $B$ de cardinal $n$ et tout ensemble fini $A$, les égalités soient vraies. Soit $B$ un ensemble de cardinal $n+1$. Écrivons $B = B'\cup \{b\}$, avec $b\not\in B'$, et $B'$ de cardinal $n$. On a alors une union disjointe $A\times B = A\times B' \cup A\times\{b\}$ et donc
+\[ 
+\sum_{(x,y)\in A\times B}f(x,y)
+=
+\sum_{(x,y)\in A\times B'}f(x,y) + \sum_{(x,y)\in A\times \{b\}}f(x,y)
+=
+\sum_{(x,y)\in A\times B'}f(x,y) + \sum_{x\in A} f(x,b).
+\]
+D'autre part, on a 
+\begin{align*}
+\sum_{x\in A}\left(\sum_{y\in B}f(x,y)\right)
+&=
+\sum_{x\in A}\left(\sum_{y\in B'}f(x,y)+\sum_{y=b}f(x,y)\right)\\
+&=
+\sum_{x\in A}\sum_{y\in B'}f(x,y) + \sum_{x\in A}f(x,b)\\
+&=
+\sum_{(x,y)\in A\times B'}f(x,y) + \sum_{x\in A}f(x,b)\text{ par hypothèse de récurrence}\\
+&=
+\sum_{(x,y)\in A\times B} f(x,y) \text{ par la rémarque précédente}.
+\end{align*}
+La deuxième égalité se prouve de la même façon en échangeant les rôles de $A$ et $B$.
+\end{proof}
 
 \begin{definition}[Factorielle]
 \index{factorielle}
