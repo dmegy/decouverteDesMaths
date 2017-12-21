@@ -1,9 +1,11 @@
 
 \section{L'ensemble $\N$ et la récurrence (VIDE)}
+\index{$\N$}
 
 \section{Ensembles finis}
 
 \subsection{Ensembles $\llbracket a,b\rrbracket$}
+\index{$\llbracket a,b\rrbracket$}
 
 Si $a, b\in \Z$, on note $\llbracket a,b\rrbracket$ l'ensemble $\{n\in \Z\:\mid\: a\leq n \leq b\}$. Si $b<a$, cet ensemble est vide.
 
@@ -52,6 +54,7 @@ Considérons alors la bijection réciproque $f^{-1} : \llbracket 1,n\rrbracket \
 \subsection{Ensembles finis et cardinal}
 
 \begin{definition}
+\index{ensemble fini}
 Un ensemble $E$ est \emph{fini} s'il existe $n\in \N$ et une injection de $E$ dans $\llbracket 1,n\rrbracket$. Un ensemble qui n'est pas fini est \emph{infini}.
 \end{definition}
 
@@ -59,13 +62,14 @@ Un ensemble $E$ est \emph{fini} s'il existe $n\in \N$ et une injection de $E$ da
 \begin{enumerate}[label=\alph*)]
 \item On en déduit immédiatement qu'un ensemble qui s'injecte dans un ensemble fini est lui-même fini (la composée de deux injections est une injection).
 \item À priori, l'entier $n$ de la définition n'est pas unique, car si $n$ convient, alors $n+1$ aussi.
-\item [Zérologie] L'ensemble vide est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
+\item [Zérologie] L'ensemble vide\index{ensemble vide} est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
 On vérifie ensuite que cette application est injective (en appliquant la définition).
 \end{enumerate}
 \end{remarque}
 
 
 \begin{propdef}
+\index{cardinal!d'un ensemble fini}
 Soit $E$ un ensemble fini. Alors, il existe un unique $n\in \N$ tel que $E$ soit en bijection avec $\llbracket 1,n\rrbracket$.
 
 Cet entier $n$ est appelé le \emph{cardinal} de $E$. Il est noté $\Card(A)$, ou $|A|$ ou $\sharp A$.
@@ -95,12 +99,12 @@ On itère ce processus tant que l'application n'est pas bijective, ce qui finit 
 \end{enumerate}
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\index{cardinal!d'une union disjointe}
 \begin{enumerate}
 \item Si $A$ et $B$ sont disjoints et finis, alors $A\cup B$ est fini et $|A\cup B|=|A|+|B|$.
 \item  Si $A$ est fini et $B \subseteq A$, alors $B$ est fini et $|B| \leq |A|$.
 \item Si de plus $|B| = |A|$, alors $B=A$.
-\item Si $A$ et $B$ sont finis, alors $|A\cup B| = |A| + |B| - |A\cap B|$.
+\item Si $A$ et $B$ sont finis, alors $|A\cup B| = |A| + |B| - |A\cap B|$.\index{cardinal!d'une union}
 \end{enumerate}
 \end{proposition}
 
@@ -150,7 +154,7 @@ Soit $f : A\to B$ une application.
 \begin{proof}
 \begin{enumerate}
 \item Si $B$ est fini, alors $A$ s'injecte dans un ensemble fini donc est fini. De plus, on a $|A|=|f(A)|\leq |B|$.
-\item Soit $g:B\to A$ une \emph{section} de $f$, c'est-à-dire une application  qui à $y\in B$ associe un antécédent quelconque de $y$. Par construction, on a $f\circ g=\Id_{B}$ donc $g$ est injective, et par le premier point $B$ est fini et $|B| \leq |A|$.
+\item Soit $g:B\to A$ une \emph{section}\index{section} de $f$, c'est-à-dire une application  qui à $y\in B$ associe un antécédent quelconque de $y$. Par construction, on a $f\circ g=\Id_{B}$ donc $g$ est injective, et par le premier point $B$ est fini et $|B| \leq |A|$.
 \end{enumerate}
 \end{proof}
 
@@ -179,7 +183,7 @@ Soit $f : A\to B$ entre ensembles finis. Alors $f$ est injective si et seulement
 \end{corollaire}
 \begin{proof}On a déjà prouvé le sens \og seulement si\fg.
 
-Si $|f(A)|=|A|$, alors la corestriction $g : A\to f(A), x\mapsto f(x)$ qui est par définition surjective, est également injective par le précédent théorème. Donc $f$ est injective.
+Si $|f(A)|=|A|$, alors la corestriction\index{corestriction} $g : A\to f(A), x\mapsto f(x)$ qui est par définition surjective, est également injective par le précédent théorème. Donc $f$ est injective.
 \end{proof}
 
 
@@ -194,7 +198,7 @@ Dans ce cas, on aurait commencé par prouver le lemme suivant : \og s'il existe 
 \begin{exercice} \'Etablir tous les résultats du cours en prenant  cette définition pour base, au lieu de celle avec les injections.
 \end{exercice}
 
-On peut aussi définir les ensembles finis en utilisant un ensemble \og infini\fg{} de référence, par exemple $\N$.
+On peut aussi définir les ensembles finis en utilisant $\N$.
 
 \begin{exercice}
 Soit $E$ un ensemble.
@@ -206,12 +210,17 @@ L'essentiel est d'avoir une définition équivalente, mais surtout une définiti
 
 \section{Sommes et produits (VIDE)}
 
+\begin{definition}[Factorielle]
+\index{factorielle}
+Soit $n\in \N$. La factorielle de $n$, notée $n!$, est le produit de tous les entiers strictement positifs et inférieurs à $n$. Autrement dit, $n! = \prod_{k \in \llbracket 1,n\rrbracket} k$. En particulier, si $n=0$, le produit est vide et donc $0!=1$ par définition d'un produit vide. 
+\end{definition}
 
 
 \section{Combinatoire}
 \subsection{Principes élémentaires de combinatoire}
 
 \begin{proposition}
+\index{cardinal!d'un produit}
 Soient $E$ et $F$ finis de cardinal $n$ et $p$. Alors $E\times F$ est de cardinal $np$.
 \end{proposition}
 \begin{proof}
@@ -223,6 +232,7 @@ L'application
 est bijective.
 \end{proof}
 \begin{corollaire}
+\index{cardinal!d'une puissance}
 Soit $E$ un ensemble fini. Alors pour tout $k\in \N^*$, $|E^k|=|E|^k$.
 \end{corollaire}
 \begin{proof}
@@ -232,7 +242,7 @@ Par récurrence sur $k$.
 On a $|E^{k+1}| = |E^k\times E|=|E^k|\cdot |E|$ par la proposition précédente, et d'autre part par hypothèse de récurrence, on a $|E^k|=|E|^k$. Finalement,  $|E^{k+1}|=|E|^{k+1}$. 
 \end{proof}
 
-\begin{corollaire}
+\begin{corollaire}\index{cardinal!d'un ensemble de fonctions}
 Soient $E\neq \varnothing$ et $F$ des ensembles finis de cardinal  $n$ et $p$. L'ensemble $\mathcal F(E,F)$ des fonctions de $E$ dans $F$ est de cardinal $p^n$. 
 \end{corollaire}
 \begin{proof}
@@ -241,12 +251,13 @@ L'ensemble $\mathcal F(E,F)$ est en bijection avec $F^n$. (Une fonction correspo
 
 \begin{remarque}
 \begin{enumerate}
-\item Si $E$ est vide, il existe une unique application de $E$ dans n'importe quel ensemble, fût-il vide : l'application vide. Donc $|\mathcal F(E,F)|=1$, ce qui permet d'étendre la formule lorsque $E$ est vide. Lorsque $E$ et $F$ sont tous deux vides, on pose $0^0=1$ (ou plutôt on démontre, si on a la \og bonne\fg{} définition de $a^b$) et la formule reste valable.
+\item Si $E$ est vide, il existe une unique application de $E$ dans n'importe quel ensemble, fût-il vide : l'application vide\index{vide!application}\index{application!vide}. Donc $|\mathcal F(E,F)|=1$, ce qui permet d'étendre la formule lorsque $E$ est vide. Lorsque $E$ et $F$ sont tous deux vides, on pose $0^0=1$ (ou plutôt on démontre, si on a la \og bonne\fg{} définition de $a^b$) et la formule reste valable.
 \item L'ensemble $\mathcal F(E,F)$ est également noté $F^E$. Avec cette notation, on a la formule $\left| F^E\right| = |F|^{|E|}$.
 \end{enumerate}
 \end{remarque}
 
-\begin{proposition}Soient $n, p\in \N$ avec $p\leq n$.
+\begin{proposition}
+Soient $n, p\in \N$ avec $p\leq n$.
 \begin{enumerate}
 \item Il y a $n(n-1)(n-2)...(n-p+1)=\frac{n!}{(n-p)!}$ injections de $\llbracket 1,p\rrbracket$ dans $\llbracket 1,n\rrbracket$.
 \item En particulier, il y a $n!$ bijections de $\llbracket 1,n\rrbracket$ dans lui-même.
@@ -255,7 +266,9 @@ L'ensemble $\mathcal F(E,F)$ est en bijection avec $F^n$. (Une fonction correspo
 
 Une bijection de $\llbracket 1,n\rrbracket$ dans lui-même s'appelle une \emph{permutation} $\llbracket 1,n\rrbracket$.
 
-\begin{proposition}Soit $E$ un ensemble fini. L'ensemble $\mathcal P(E)$ des parties de $E$ est fini, de cardinal $2^{|E|}$.
+\begin{proposition}
+\index{cardinal!de $\mathcal P(E)$}
+Soit $E$ un ensemble fini. L'ensemble $\mathcal P(E)$ des parties de $E$ est fini, de cardinal $2^{|E|}$.
 \end{proposition}
 \begin{proof}
 Il y a une bijection entre $\mathcal P(E)$ et $\mathcal F(E,\{0,1\})$, donnée par $A\mapsto \mathbf{1}_A$, l'application qui à une partie $A$ associe sa fonction caractéristique. Or, on a $|\mathcal F(E,\{0,1\})| = |\{0,1\}|^{|E|} =2^{|E|} $.
@@ -264,6 +277,7 @@ Il y a une bijection entre $\mathcal P(E)$ et $\mathcal F(E,\{0,1\})$, donnée p
 \subsection{Coefficients binomiaux}
 
 \begin{definition}
+\index{coefficients binomiaux}
 Soit $n\in\N$, et $k\in \Z$. 
 
 On note $\mathcal P_k(\llbracket 1,n\rrbracket)$ ou même $\mathcal P_k(n)$ l'ensemble des parties de $\llbracket 1,n\rrbracket$ qui sont de cardinal $k$.
@@ -287,7 +301,8 @@ Soit $n\in\N$. On a $\sum_{k=0}^n \binom{n}{k} =2^n$.
 On classe les parties de $P(\llbracket 1,n\rrbracket)$ suivant leur cardinal $k$, c'est-à-dire qu'on écrit  $\mathcal P(\llbracket 1,n\rrbracket) = \bigcup_{k=0}^n \mathcal P_k(n)$, l'union étant disjointe. En prenant le cardinal des deux membres on obtient $2^n=|P(\llbracket 1,n\rrbracket)| = \sum_{k=0}^n |\mathcal P_k(n)| = \sum_{k=0}^n \binom{n}{k}$.
 \end{proof}
 
-\begin{proposition}[Relation de Pascal]
+\begin{proposition}[Formule!de Pascal]
+\index{formule de Pascal}
 Soient $k,n\in \N$. Alors $\binom{n}{k}+\binom{n}{k+1} = \binom{n+1}{k+1}$.
 \end{proposition}
 \begin{proof}
@@ -295,6 +310,7 @@ On compte les parties à $k+1$ éléments de $\llbracket 1,n+1\rrbracket$ selon 
 \end{proof}
 
 \begin{proposition}[Formule du binôme de Newton]
+\index{formule!du binôme de Newton}
 Soient $a, b\in \C$ et $n\in \N$. Alors $(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$.
 \end{proposition}
 \begin{proof}
@@ -326,8 +342,10 @@ Or, on peut écrire $|I| = \sum_{X\in \mathcal P_k(n)} \left| \{f\in I\:,\: f(\l
 Donc, $|I| = \sum_{X\in \mathcal P_k(n)} k! = k! |\mathcal P_k(n)|$, ce qu'il fallait démontrer.
 \end{proof}
 
-\begin{remarque} Le principe combinatoire général derrière cette preuve est le suivant : Si $\phi : A\to B$ entre ensembles finis, alors $|A| = \sum_{b\in B} \left|f^{-1}(\{b\})\right|$. Cela revient à compter le nombre d'éléments de $a$ en les classant d'abord selon leur image dans $B$, puis en sommant, pour chaque $b$, le nombre d'antécédents de $b$. Ici, ce principe serait appliqué avec $A=I$, $B=\mathcal P_k(n)$, et $\phi$ serait l'application qui à $f\in I$ associe son image, qui est un élément de $\mathcal P_k(n)$. Dans ce cas particulier, toutes les images réciproques ont le même cardinal $k!$.
+\begin{remarque}
+Le principe combinatoire général derrière cette preuve est le suivant : Si $\phi : A\to B$ entre ensembles finis, alors $|A| = \sum_{b\in B} \left|f^{-1}(\{b\})\right|$. Cela revient à compter le nombre d'éléments de $a$ en les classant d'abord selon leur image dans $B$, puis en sommant, pour chaque $b$, le nombre d'antécédents de $b$. Ici, ce principe serait appliqué avec $A=I$, $B=\mathcal P_k(n)$, et $\phi$ serait l'application qui à $f\in I$ associe son image, qui est un élément de $\mathcal P_k(n)$. Dans ce cas particulier, toutes les images réciproques ont le même cardinal $k!$.
 \end{remarque}
 
-\begin{remarque} On peut trouver d'autres preuves des résultats présentés ici : des preuves par récurrence, ou bien des preuves calculatoires utilisant la formule $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ qui doit alors être démontrée le plus tôt possible. Les preuves combinatoires sont souvent plus riches de sens.
+\begin{remarque}
+On peut trouver d'autres preuves des résultats présentés ici : des preuves par récurrence, ou bien des preuves calculatoires utilisant la formule $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ qui doit alors être démontrée le plus tôt possible. Les preuves combinatoires sont souvent plus riches de sens.
 \end{remarque}

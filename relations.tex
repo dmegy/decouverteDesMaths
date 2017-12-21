@@ -1,6 +1,6 @@
 \section{Relations binaires}
 
-\begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
+\begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
 \end{definition}
 
 Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$. On notera \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}{\mathcal R} y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{faux}$\fg{}
@@ -15,12 +15,12 @@ Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ cons
 \begin{definition}
 Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est
 \begin{enumerate}
-\item réflexive ssi $\forall x\in E, x{\mathcal R}x$;
-\item transitive ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
-\item antisymétrique ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
+\item réflexive\index{relation!réflexive} ssi $\forall x\in E, x{\mathcal R}x$;
+\item transitive\index{relation!symétrique} ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
+\item antisymétrique\index{relation!antisymétrique} ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
 \end{enumerate}
 
-Une relation est une \emph{relation d'ordre} ssi elle est réflexive, transitive et antisymétrique.
+Une relation est une \emph{relation d'ordre}\index{relation d'ordre} ssi elle est réflexive, transitive et antisymétrique.
 \end{definition}
 
 \begin{exemples}
@@ -35,21 +35,21 @@ Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\
 % C'est un préordre...
 
 \begin{definition}
-Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation \emph{d'ordre strict}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
+Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation d'\emph{\index{ordre strict}}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
 \end{definition}
 
-Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé ensemble ordonné. Par exemple, $(\R, \leq)$ est un ensemble ordonné.
+Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé \emph{\index{ensemble ordonné}}. Par exemple, $(\R, \leq)$ est un ensemble ordonné.
 
 Il faut systématiquement préciser l'ordre auquel on se réfère, même pour un ensemble \og connu\fg. Par exemple, $\N$ peut être muni de l'ordre usuel $\leq$ ou bien de la divisibilité $|$ et les deux ordres sont fréquemment utilisées.
 
 Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre générique sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales.
 
-Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict} qui lui est associée.
+Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict}\index{relation!d'ordre!strict} qui lui est associée.
 
 \begin{definition}
-Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale} si tous les éléments sont comparables, c'est-à-dire si:
+Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale}\index{relation!d'ordre!total} si tous les éléments sont comparables, c'est-à-dire si:
 \[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq_E x.\]
-Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné}. Une relation d'ordre qui n'est pas totale est dite d'ordre \emph{partiel}.
+Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné} \index{ensemble totalement ordonné}. Une relation d'ordre qui n'est pas totale est dite d'ordre \emph{partiel}\index{relation!d'ordre!partiel}.
 \end{definition}
 
 \begin{exemples}
@@ -60,9 +60,9 @@ La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par con
 
 
 \begin{definition}
-Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés, et $f : E\to F$. On dit que $f$ est \emph{croissante} si :
+Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés, et $f : E\to F$. On dit que $f$ est \emph{croissante}\index{application!croissante} si :
 \[ \forall x, y\in E, x\leq_E y \implies f(x) \leq_F f(y),\]
-et \emph{décroissante} si :
+et \emph{décroissante}\index{application!décroissante} si :
 \[\forall x, y\in E, x\leq_E y \implies f(y) \leq_F f(x).\]
 \end{definition}
 
@@ -94,10 +94,10 @@ Application directe de la définition.
 \begin{definition}
 Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
 \begin{enumerate}
-\item Un élément $m\in E$ est un \emph{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
+\item Un élément $m\in E$ est un \emph{majorant}\index{majorant} de $A$ si $\forall a\in A, a\leq_E m$.
 \item La partie $A$ est \emph{majorée} si elle possède des majorants.
-\item Un élément $m\in A$ qui est un majorant de $A$ est appelé un \emph{plus grand élément de $A$}, ou \emph{maximum} de $A$.
-\item On définit de même les minorants, les parties minorées et les plus petits éléments.
+\item Un élément $m\in A$ qui est un majorant de $A$ est appelé un \emph{plus grand élément de $A$}\index{plus grand élément}, ou \emph{maximum}\index{maximum} de $A$.
+\item On définit de même les \emph{minorants}\index{minorant}, les parties minorées et les plus petits éléments\index{plus petit élément}.
 \end{enumerate}
 \end{definition}
 
@@ -136,7 +136,7 @@ On prouve le résultat pour le plus petit élément de la même manière.
 \subsection{Borne supérieure, borne inférieure}
 
 \begin{definition}[Borne supérieure]
- La partie $A\subseteq E$ admet une borne supérieure $s\in E$ ssi:
+ La partie $A\subseteq E$ admet une borne supérieure\index{borne supérieure} $s\in E$ ssi:
 \begin{enumerate}
 \item $s$ est un majorant de $A$;
 \item tout majorant de $A$ majore $s$.
@@ -146,7 +146,7 @@ On prouve le résultat pour le plus petit élément de la même manière.
 
 Attention, contrairement à un plus grand élément, une  borne supérieure de $A$, s'il en existe, n'appartient pas forcément à $A$. 
 
-\begin{proposition}[Unicité de la borne sup, s'il en  existe une]
+\begin{proposition}[Unicité de la borne supérieure, s'il en  existe une]
 Soit $(E,\leq_E)$ un ensemble ordonné, et $A\subseteq E$. Si $A$ possède une borne supérieure, elle est unique et on la note $\sup(A)$.
 \end{proposition}
 \begin{proof}
@@ -190,7 +190,7 @@ Si $A$ admet un plus grand élément, c'est aussi sa borne supérieure.
 Exercice, appliquer les définitions.
 \end{proof}
 
-Enfin, on définit de même ce qu'est une \emph{borne inférieure}, et on montre que si une partie admet une borne inférieure, alors celle-ci est unique. On la note $\inf(A)$. 
+Enfin, on définit de même ce qu'est une \emph{borne inférieure}\index{borne inférieure}, et on montre que si une partie admet une borne inférieure, alors celle-ci est unique. On la note $\inf(A)$. 
 
 La borne inférieure d'une partie, même si elle existe, n'appartient pas forcément à la partie. Par exemple, $0$ est la borne inférieure de $]0,1]$.
 
@@ -208,7 +208,7 @@ Il existe des ensembles ordonnés ne possédant pas la propriété de la borne s
 
 \begin{propdef}
 Soient $(E\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés.
-L'ordre produit sur $E\times F$ est défini par :
+L'\emph{ordre produit}\index{relation!d'ordre!produit} sur $E\times F$ est défini par :
 \[
 (x,y) \leq_{E\times F} (x',y') \iff \left(x\leq_E x' \text{ et } y\leq_F y'\right).
 \]
@@ -221,7 +221,7 @@ Attention, même si $\leq_E$ et $\leq_F$ sont totales, l'ordre produit n'est pas
 
 \begin{propdef}
 Soient $(E\leq_E)$ et $F,\leq_F)$ des ensembles \textbf{totalement} ordonnés.
-L'ordre lexicographique sur $E\times F$ est défini par :
+L'ordre lexicographique\index{relation!d'ordre!lexicographique} sur $E\times F$ est défini par :
 \[
 (x,y) \leq_{E\times F} (x',y') \iff \left(x<_E x' \text{ ou } (x=x' \text{ et } y\leq_F y')\right).
 \]
@@ -247,11 +247,11 @@ En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \
 \subsection{Définitions}
 
 \begin{definition}[Relation d'équivalence]
-Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d'équivalence} ssi elle est:
+Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d'équivalence}\index{relation!d'équivalence} ssi elle est:
 \begin{enumerate}
 \item réflexive (rappel : $\forall x\in E, x{\mathcal R}x$);
 \item transitive (rappel : $\forall x, y, z\in E, x{\mathcal R}y\text{ et } y{\mathcal R}z \implies x{\mathcal R}z$);
-\item symétrique : $\forall x, y\in E, x{\mathcal R}y \implies yRx$.
+\item symétrique\index{relation!symétrique} : $\forall x, y\in E, x{\mathcal R}y \implies yRx$.
 \end{enumerate}
 \end{definition}
 
@@ -264,15 +264,15 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \item Sur $\R$, la relation $x\mathcal R y \iff \sin(x)=\sin(y)$ est une relation d'équivalence.
 \item Sur $\C$, la relation $z\mathcal R z' \iff |z|=|z'|$ est une relation d'équivalence.
 
-\item Un singleton, c'est-à-dire un ensemble contenant un unique élément, possède une seule relations d'équivalence (celle où l'unique élément est relié à lui-même).
-\item L'ensemble vide possède une seule relation d'équivalence, la relation vide (la seule fonction de $\varnothing \times \varnothing$ dans $\{\text{vrai,\: faux}\}$ à savoir la fonction vide : on vérifie qu'elle définit bien une relation d'équivalence).
+\item Un singleton\index{singleton}, c'est-à-dire un ensemble contenant un unique élément, possède une seule relations d'équivalence (celle où l'unique élément est relié à lui-même).
+\item L'ensemble vide\index{ensemble vide} possède une seule relation d'équivalence, la relation vide (la seule fonction de $\varnothing \times \varnothing$ dans $\{\text{vrai,\: faux}\}$ à savoir la fonction vide : on vérifie qu'elle définit bien une relation d'équivalence).
 \item Un ensemble $\{a,b\}$ à deux éléments possède deux relations d'équivalence distinctes : la première est l'\emph{égalité}, la seconde est la \emph{relation d'équivalence triviale}, celle où $a$ et $b$ sont équivalents.
 \item De façon générale, on peut toujours définir, sur un ensemble non-vide, la \emph{relation triviale}, celle où tous les éléments sont équivalents. (Cette relation est peu utile.)
 \item Un ensemble à trois éléments possède cinq relations d'équivalence (exercice).
 \end{enumerate}
 \end{exemples}
 
-\begin{proposition}[Fibres d'une application]
+\begin{proposition}[Fibres d'une application]\index{fibre}
 Si $f : E\to F$ est une application, alors la relation 
 \[
 x\mathcal R y \iff (x\text{ et }y \text{ sont dans la même fibre de }f)
@@ -300,7 +300,7 @@ x-y \in a\Z
 \]
 Si ces conditions équivalentes sont vérifiées, on dit que $x$ et $y$ sont \emph{congrus modulo $a$} et on note 
 \[ x\equiv y\quad [a].\]
-La relation de congruence modulo $a$ entre deux réels $x$ et $y$ est une relation d'équivalence.
+La relation de congruence\index{congruence!modulo un réel} modulo $a$ entre deux réels $x$ et $y$ est une relation d'équivalence.
 \end{propdef}
 \begin{proof}
 Exercice.
@@ -347,7 +347,7 @@ Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\Z$ induit une relatio
 
 \subsection{Classes d'équivalence}
 \begin{definition}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence} de $x$ l'ensemble $\left\{y\in E\:\mid\: y{\mathcal R}x\right\}$ des éléments qui sont équivalents à $x$.
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence\index{classe d'équivalence} de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble $\left\{y\in E\:\mid\: y{\mathcal R}x\right\}$ des éléments qui sont équivalents à $x$.
 \end{definition}
 
 Attention au type des objets : $x \in E$, mais $\overline{x} \subseteq E$.
@@ -370,13 +370,13 @@ Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\
 
 \begin{definition}
 Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$.
-L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$} et est noté $E/{\mathcal R}$.
+L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$}\index{ensemble quotient sous une relation d'équivalence} et est noté $E/{\mathcal R}$.
 
-L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}.
+L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}.
 \end{definition}
 
 \begin{exemple}
-Pour l'ensemble $E$ des droites du plan muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan.
+Pour l'ensemble $E$ des droites du plan $\R^2$ muni de la relation d'équivalence $//$, les classes d'équivalence sont appelées \emph{directions} : deux droites sont parallèles si et seulement si elles ont la même \emph{direction}. L'ensemble quotient de $E$ par la relation de parallélisme est l'ensemble des directions du plan. On le note $\P^1(\R)$ et on l'appelle la droite projective.
 \end{exemple}
 
 \begin{proposition}
@@ -384,7 +384,7 @@ Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E
 \begin{enumerate}
 \item $p$ est surjective.
 \item $x\mathcal R y \iff p(x)=p(y)$.
-\item Les fibres sont exactement les classes d'équivalence modulo la relation $\mathcal R$.
+\item Les fibres\index{fibre} sont exactement les classes d'équivalence modulo la relation $\mathcal R$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -401,7 +401,7 @@ Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E
 \subsection{Partitions et classes d'équivalence}
 
 \begin{definition}[Partition d'un ensemble]
-Soit $E$ un ensemble, et $\mathcal A$ un ensemble de parties de $E$, c'est-à-dire $\mathcal A\subset \mathcal P(E)$. L'ensemble $\mathcal A$ est une \emph{partition de $E$ en ensembles non vides}, ou simplement \emph{partition\footnote{Notation adoptée dans tout ce cours} de $E$}, si : 
+Soit $E$ un ensemble, et $\mathcal A$ un ensemble de parties de $E$, c'est-à-dire $\mathcal A\subset \mathcal P(E)$. L'ensemble $\mathcal A$ est une \emph{partition de $E$ en ensembles non vides}, ou simplement \emph{partition\footnote{Notation adoptée dans tout ce cours} de $E$}\index{partition}, si : 
 \begin{enumerate}
 \item les parties sont non vides c'est-à-dire $\forall A\in \mathcal A, \: A\neq \varnothing$.
 \item les parties recouvrent $E$ c'est-à-dire que leur union égale $E$, autrement dit $\bigcup_{A\in \mathcal A} A = E$.
@@ -423,16 +423,16 @@ Immédiat sur la définition.
 
 \begin{exemple}
 \begin{enumerate}
-\item L'ensemble vide possède une seule partition, la partition vide qui ne contient aucune partie (car les parties elles, doivent être non-vides).
+\item L'ensemble vide\index{ensemble vide} possède une seule partition, la partition vide qui ne contient aucune partie (car les parties elles, doivent être non-vides).
 \item Un ensemble $\{a,b\}$ à deux éléments possède deux partitions : la partition triviale $\big\{\: \{a,b\} \:\big\}$ et la partition en deux singletons $\big\{\: \{a\},\{b\} \:\big\}$.
 \item Un ensemble à trois éléments possède cinq partitions distinctes (exercice).
-\item Tout ensemble possède la partition $\big\{\: \{x\}\:\mid\: x\in E \:\big\}$. (Si $E$ est vide, la partition est vide).
-\item Tout ensemble  $E$ possède toujours au moins la partition triviale en une seule partie, l'ensemble lui-même. C'est bien une partition car $E$ est non-vide. Cette partition s'écrit donc $\big\{\: E \:\big\}$.
+\item Tout ensemble possède la partition $\big\{\: \{x\}\:\mid\: x\in E \:\big\}$ qui est la partition en singletons inclus dans $E$. (Si $E$ est vide, la partition est vide).\index{partition!en singletons}
+\item Tout ensemble  $E$ possède toujours au moins la partition triviale\index{partition!triviale} en une seule partie, l'ensemble lui-même. C'est bien une partition car $E$ est non-vide. Cette partition s'écrit donc $\big\{\: E \:\big\}$.
 \item L'ensemble $\Z$ possède la partition en deux parties suivante : $\big\{\: 2\Z, \: 2\Z+1\:\big\}$. C'est la partition en nombres pairs et nombres impairs.
 \end{enumerate}
 \end{exemple}
 
-\begin{exercice}[Raffinement d'une partition]
+\begin{exercice}[Raffinement d'une partition]\index{raffinement d'une partition}\index{partition!plus fine}
 Soient $\mathcal A$ et $\mathcal B$ deux partitions de $E$. On dit que $\mathcal A$ est \emph{plus fine} que $\mathcal B$ (ou : qu'elle est un raffinement de $\mathcal B$) si les éléments de $\mathcal B$ sont des unions d'éléments de $\mathcal A$, autrement dit si $\mathcal A$ fractionne les éléments de $\mathcal B$ en sous-parties.
 
 Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
@@ -441,12 +441,12 @@ Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions poss
 \end{exercice}
 
 \begin{remarque}
-Le plus grand élément de cet ensemble ordonné est la partition la  plus fine : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine est la partition triviale (celle à une seule partie).  
+Le plus grand élément de cet ensemble ordonné est la partition la  plus fine\index{partition!la plus fine} : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine\index{partition!la moins fine} est la partition triviale (celle à une seule partie).  
 \end{remarque}
 
 
 
-\begin{proposition}
+\begin{proposition}[Partition en classes d'équivalence]\index{partition!en classes d'équivalence}
 Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est une partition de $E$.
 \end{proposition}
 \begin{proof}
@@ -457,7 +457,7 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \end{enumerate}
 \end{proof}
 
-\begin{remarque}[Zérologie] Le quotient de l'ensemble vide par son unique relation d'équivalence est l'ensemble des classes d'équivalence : comme il n'y a aucune classe d'équivalence, l'ensemble quotient est vide. La projection canonique est l'application $p : \varnothing \to \varnothing$ (dite application vide). Elle est bien surjective...
+\begin{remarque}[Zérologie] Le quotient de l'ensemble vide\index{ensemble vide} par son unique relation d'équivalence est l'ensemble des classes d'équivalence : comme il n'y a aucune classe d'équivalence, l'ensemble quotient est vide. La projection canonique est l'application $p : \varnothing \to \varnothing$ (dite application vide). Elle est bien surjective...
 \end{remarque}
 
 Ce résultat admet une \og réciproque\fg : 
@@ -473,7 +473,7 @@ est une relation d'équivalence.
 Voir TD.
 \end{proof}
 
-Ces deux propositions permettent de montrer qu\og une relation d'équivalence sur $E$ est la même chose qu'une partition de $E$\fg : attention, à proprement parler ce ne sont pas les mêmes objets (pas le même type), mais le sens précis de cette phrase est qu'il existe une bijection entre d'une part l'ensemble des relations d'équivalence sur $E$, et d'autre part, l'ensemble des partitions de $E$.
+Ces deux propositions permettent de montrer qu'\og une relation d'équivalence sur $E$ est la même chose qu'une partition de $E$\fg : attention, à proprement parler ce ne sont pas les mêmes objets (pas le même type), mais le sens précis de cette phrase est qu'il existe une bijection entre d'une part l'ensemble des relations d'équivalence sur $E$, et d'autre part, l'ensemble des partitions de $E$.
 
 \begin{corollaire}[Application à la combinatoire]
 Si $\mathcal R$ est une relation d'équivalence sur un ensemble fini $E$, alors $|E| = \sum_{A\in E/\mathcal R} |A|$.

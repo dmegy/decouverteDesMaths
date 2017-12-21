@@ -25,6 +25,8 @@
    \shorthandoff{:;!?};}
 }}
 
+\usepackage{makeidx}% imakeidx ne met pas les liens?
+
 
 % - - - - - - -
 % Spécifique à ce document :
@@ -38,6 +40,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\K}{\mathbb{K}}
+\renewcommand{\P}{\mathbb{P}}
 \newcommand{\U}{\mathbb{U}}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
@@ -61,7 +64,8 @@
 \newtheorem{exemple}[theoreme]{Exemple}
 \newtheorem{exemples}[theoreme]{Exemples}
 
-
+\makeindex
+% et faire un "makeindex"
 \begin{document}
 
 \title{Découverte des mathématiques\\
@@ -97,5 +101,5 @@ L1, année 2017-2018\\
 \chapter{Relations d'ordre et d'équivalence (UTILISABLE)}
 \input{relations}
 
-
+\printindex
 \end{document}

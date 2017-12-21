@@ -17,14 +17,15 @@ Tout ceci sera revu en détail de toutes façons.
 \section{Propositions / assertions logiques}
 
 \begin{definition}
-Une proposition est une phrase à laquelle on peut attribuer le statut \og VRAI\fg{} ou \og FAUX \fg{}. La phrase peut en outre comporter des symboles qui désignent des objets mathématiques (comme des chiffres) et d'autres symboles qui désignent des relations mathématiques entre objets (par exemple l'égalité, inégalité, divisibilité, appartenance à un ensemble...)
+\index{assertion logique}
+Une proposition (logique), ou assertion (logique) est une phrase à laquelle on peut attribuer le statut \og VRAI\fg{} ou \og FAUX \fg{}. La phrase peut en outre comporter des symboles qui désignent des objets mathématiques (comme des chiffres) et d'autres symboles qui désignent des relations mathématiques entre objets (par exemple l'égalité, inégalité, divisibilité, appartenance à un ensemble...)
 \end{definition}
 
 Par exemple \og$2+2=3$\fg{} et \og $2+3=5$\fg{} sont des propositions (la première est fausse, la seconde vraie). La phrase \og le nombre complexe $i$ est positif\fg{} (ou encore \og quelle heure est-il?\fg) ne sont pas des propositions, on ne peut pas leur affecter de statut : la première n'a pas de sens (un nombre complexe n'a pas de signe), la seconde a un sens mais on ne peut pas lui affecter de statut VRAI ou FAUX.\\
  
  
 \paragraph{Variables, paramètres, assertions ouvertes et fermées}
-
+\index{paramètre}\index{variable!muette/liée/quantifiée}\index{variable!libre}
 
 Une proposition peut dépendre d'un ou plusieurs paramètres, ou variables. Un paramètre est un symbole qui désigne un élément (explicité ou pas) d'un ensemble.
 
@@ -34,6 +35,10 @@ Par exemple : Dans \og$x\geq 0$\fg, le symbole $x$ n'est pas défini, on ne peut
 
  D'autre part si $x$ est un nombre naturel, la phrase a un sens mais elle est trivialement vraie car tous les naturels sont positifs. Tout ceci montre qu'il est crucial de déclarer clairement les variables et leur type \emph{avant} de commencer à les utiliser.
 
+\index{assertion!fermée}\index{assertion!ouverte}
+Une assertion dont le statut ne dépend pas de la valeur d'un paramètre est dite \emph{fermée}. Dans le cas contraire, elle est dite \emph{ouverte}. Par exemple, \og $2+2=5$\fg{} est une assertion fermée, et $x^2+x+1\leq 5$, qui dépend du paramètre $x\in \R$, est une assertion ouverte, son statut dépend de la valeur de $x$ (par exemple, elle est fausse pour $x=2$ et vraie pour $x=1$).
+
+\index{déclaration d'un objet}
 On déclare des objets à l'aide de la locution \og Soit\fg. La phrase \og Soit $x$ un réel.\fg{} déclare un réel, que l'on note $x$. La phrase \og Soit $k\in \Z$.\fg{} déclare un entier relatif (l'usage de $\in$ comme abréviation pour \og appartenant à\fg est toléré dans ce cas-là, même si en général on interdit d'utiliser les symboles mathématiques comme des abréviations).
 
 La phrase \og Soit $x$.\fg{} n'est pas une déclaration correcte  d'objet mathématique : on doit préciser le type.
@@ -46,21 +51,23 @@ Si on précise que $x$ est un nombre réel, \og$x\geq 0$\fg devient une assertio
 
 Considérons deux propositions $A$ et $B$. Dans les exemples qui suivent, sauf précision, $x$ est un nombre réel.
 
-\paragraph{Conjonction : \og A et B\fg} 
+\paragraph{Conjonction : \og A et B\fg} \index{assertion!conjonction}
 
 La proposition \og A et B \fg{} est vraie si A et B sont vraies. Elle est fausse dès que l'une au moins des deux est fausse.
 
 Exemple : \og$x>2$ et $x<5$\fg{} est vraie si $x\in]2,5[$. Elle est fausse sinon.
 
-\paragraph{Disjonction : \og A ou B\fg} 
+\paragraph{Disjonction : \og A ou B\fg} \index{assertion!disjonction}
 
 La proposition  \og A ou B\fg{} est vraie dès que l'une des deux est vraie, elle est fausse si les deux sont fausses. Lorsqu'on affirme que \og A ou B\fg est vraie, l'un n'exclut pas l'autre.
 
 Exemple : \og $x>2$ ou $x<5$\fg{ est vraie pour tout nombre réel $x$.
 
-\paragraph{Négation : \og non A\fg} La proposition \og non A\fg{} est vraie si A est fausse et inversement.
+\paragraph{Négation : \og non A\fg}\index{assertion!négation}
 
-\paragraph{Implication logique : \og$A \Rightarrow B$\fg}
+ La proposition \og non A\fg{} est vraie si A est fausse et inversement.
+
+\paragraph{Implication logique : \og$A \Rightarrow B$\fg}\index{implication}
 
 La proposition \og $A \Rightarrow B$\fg signifie par définition \og B ou non-A\fg. Elle est vraie si $A$ est fausse ou si $B$ est vraie.\\
 Exemples :  $2+2=4 \Rightarrow 2\times2 = 4$ est vraie. $2+2=5 \Rightarrow 2\times2 = 4$ est vraie. $2+2=5 \Rightarrow 2\times2 = 5$ est vraie. $2+2=4 \Rightarrow 2\times2 = 5$ est fausse. Autre exemple:  si $x$ est un nombre réel, la proposition $x>3 \Rightarrow x>4$  est vraie pour $x\leq 3$ ou pour $x>4$. Elle est fausse si $3<x\leq 4$.
@@ -68,19 +75,23 @@ Exemples :  $2+2=4 \Rightarrow 2\times2 = 4$ est vraie. $2+2=5 \Rightarrow 2\tim
 Attention: le symbole $\Rightarrow$ n'est en aucun cas une abréviation pour \og donc\fg. La proposition $A \Rightarrow B$ ne veut pas dire \og  A est vraie donc B est vraie\fg !
 
 \paragraph{\'Equivalence logique : \og $A \Leftrightarrow B$\fg}
+\index{équivalence (logique)}
 
 La proposition \og$A \Leftrightarrow B$\fg{} signifie par définition \og $A \Rightarrow B$ et $B \Rightarrow A$\fg{}. Elle est  vraie si $A$ et $B$ ont même statut, que ce soit vrai ou faux. Elle est fausse si A et B ont des statuts différents.\\
 Exemples : $2+2=5 \Leftrightarrow 2\times 3 = 7$ est vraie. $1>0 \Leftrightarrow 2+2=4$ est vraie. Si $x$ est un nombre réel, la proposition $x>3 \Leftrightarrow x<4$ est vraie pour $x\in]3,4[$. Elle est fausse sinon.
 
-\section{Quantificateurs}
+\section{Quantificateurs}\index{quantificateur}
 Soit $A(x)$ une proposition dépendant d'un paramètre $x$ appartenant à un ensemble $E$ (exemple :  \og $x>3$\fg, où $x \in \Z$).
 
-\paragraph{Quantificateur universel : $\forall$ (quelque soit/pour tout)}$ $\\
+\paragraph{Quantificateur universel : $\forall$ (quelque soit/pour tout)}\index{quantificateur!universel}
+
 La proposition \og$\forall x\in E,\:A(x)$\fg{} se lit \og pour tout $x$ dans $E$, $A(x)$\fg. Elle est vraie si $A(x)$ est vraie pour toutes les valeurs que peut prendre $x$ dans l'ensemble $E$. Elle est fausse dès qu'il existe une valeur spéciale de $x$ pour laquelle $A(x)$ est fausse.
 Attention, contrairement à la proposition $A(x)$, la proposition $\forall x\in E,\:A(x)$ est une proposition qui ne dépend d'aucun paramètre : elle est soit vraie soit fausse : on dit que $x$ est une variable muette, ou interne.
 Exemples :  $\forall x\in R,\: x^2>1$ est fausse. La proposition $\forall x\in \Z^*,\: x^2\geq 1$ est vraie.
 
-\paragraph{Quantificateur existentiel : $\exists$ (il existe)}$ $\\
+\paragraph{Quantificateur existentiel : $\exists$ (il existe)}\index{quantificateur!existentiel}
+
+
 La proposition \og$\exists x\in E\slash A(x)$\fg{} se lit \og il existe $x$ dans $E$ tel que $A(x)$\fg. Elle est vraie s'il y a une valeur de $x$ dans l'ensemble $E$ telle que $A(x)$ soit vraie. Elle est fausse si $A(x)$ est fausse pour toutes les valeurs de $x$.
 
 
@@ -104,8 +115,9 @@ Démonstration : voir TD.
 Exemple : soit $n \in Z$; montrer que \og $n$ pair $\Rightarrow n^2$ pair\fg.\\
 \begin{red} Si $n$ est pair, il existe $k \in Z$ tel que $n = 2k$. Alors, $n^2 = 4k^2 = 2(2k^2)$ est pair. (et si $n$ est impair, l'implication est vraie par définition, il n'y a rien à prouver).\end{red}
 
-\paragraph{Démonstration par contraposée}$ $\\
-\\
+\paragraph{Démonstration par contraposée}
+\index{démonstration!par contraposée}
+
 Principe : $(A\Rightarrow B)$ est équivalente à $(\text{non-}B \Rightarrow \text{non-}A)$.\\
 Preuve du principe: $(\text{non-}B \Rightarrow \text{non-}A)\Leftrightarrow (\text{non-}A \text{ ou } non-non-B)\Leftrightarrow (B\text{ ou }non-A)\Box$.\\
 Exemple d'application : soit $n\in \Z$; montrer que $n^2$ pair $\Rightarrow n$ pair.
@@ -115,8 +127,9 @@ On va montrer la contraposée, autrement dit on va montrer
 En combinant avec le résultat précédent, on a donc prouvé : \og$n^2$ pair $\Leftrightarrow n$ pair\fg
 \end{red}
 
-\paragraph{Démonstration par l'absurde}$ $\\
-\\
+\paragraph{Démonstration par l'absurde}
+\index{démonstration!par l'absurde}
+
 Principe : Si $F$ désigne n'importe quelle proposition fausse, on a $A \Leftrightarrow (\text{ non-}A \Rightarrow F)$.\\
 Preuve du principe: $(\text{ non-}A \Rightarrow F) \Leftrightarrow (F\text{ ou non-non-}A)\Leftrightarrow A$.\\
  Donc pour montrer $A$, il suffit de supposer $A$ faux et d'en déduire une contradiction (c'est-à-dire n'importe quelle proposition fausse).\\
@@ -147,7 +160,7 @@ Ceci montre donc bien $\forall x\in \R, x^2+x+1>0$ & (Conclusion)\\
 \end{exemple}
 
 
-\begin{exemple}
+\begin{exemple}\index{démonstration!par disjonction de cas}
 Démontrer que $\forall x\in\R,\; x^2+\cos(x)>0$.
 \end{exemple}
 \begin{red}
@@ -158,12 +171,14 @@ Si  $\pi/2\leq|x|$, alors $x^2+\cos(x)\geq \pi^2/4-1>0$.\\
 Comme $x$ est quelconque, on a bien montré la propriété pour tout $x\in\R$.\end{red}
 
 \paragraph{Cas particulier : démonstrations par récurrence}
+\index{démonstration!par récurrence}
+
 Dans le cas particulier où le quantificateur universel porte sur l'ensemble $\N$, on peut utiliser une méthode de preuve spécifique, la récurrence. Cette méthode de démonstration s'appuie sur le fait que toute partie non vide de $\N$ admet un plus petit élément (ce qui est faux pour la plupart des autres ensembles classiques). Il suffit alors de montrer d'une part que $A(0)$ est vraie, ce qui est généralement facile, puis de montrer que pour tout $n \in\N$, on a $A(n) \Rightarrow A(n+1)$. La première étape est cruciale et le raisonnement est faux si on l'omet.
 
 
-\paragraph{Démonstrations de propositions avec quantificateur existentiel}$ $\\
+\paragraph{Démonstrations de propositions avec quantificateur existentiel}\index{démonstration!de l'existence d'un objet}
 
-Pour démontrer \og$\exists x\in E\slash A(x)$, il faut soit construire un élément $x$ tel que $A(x)$ soit vrai, soit utiliser un théorème qui affirme l'existence d'un tel objet, ou qui affirme l'existence d'un objet à partir duquel on peut obtenir l'existence de $x$.
+Pour démontrer \og$\exists x\in E\slash A(x)$, il faut soit construire un élément $x$ tel que $A(x)$ soit vrai, soit utiliser un théorème qui affirme dans sa conclusion l'existence d'un tel objet (ou qui affirme l'existence d'un objet à partir duquel on peut obtenir l'existence de $x$).
 
 \begin{exemple}
 Soit $f$ une fonction croissante de $[0,1]$ dans $\R$. Montrer que $f$ est majorée, autrement dit montrer que $(\exists M\in\R\slash (\forall x\in[0,1],\;f(x)\leq M))$.
@@ -172,7 +187,7 @@ Posons $M = f(1)$. On a bien $\forall x\in[0,1],\;f(x)\leq f(1)= M$, car $f$ est
 \end{red}
 \end{exemple}
 
-\begin{exemple}
+\begin{exemple}\index{démonstration!par principe du tiers-exclus}
 Montrer qu'il existe deux irrationnels $a$ et $b$ tels que $a^b$ soit rationnel.
 \begin{red}
 Considérons le nombre réel $\sqrt{2}^{\sqrt{2}}$. Il est soit rationnel, soit irrationnel. Dans le premier cas, il suffit de poser $a=b=\sqrt{2}$ (irrationnels, voir exemple plus haut) et la preuve est terminée. Dans le second cas, il suffit de poser $a=\sqrt{2}^{\sqrt{2}}$ (qui est supposé irrationnel) et $b=\sqrt{2}$ On a alors $a^b = \left(\sqrt{2}^{\sqrt{2}}\right)^{\sqrt{2}} = \sqrt{2}^2 = 2 \in \Q$.
@@ -183,6 +198,7 @@ Ce deuxième exemple montre que parfois, on n'a pas besoin de construire explici
 
 
 \section{Résolution des équations}
+\index{équation}
 
 Soit $A(x)$ une proposition portant sur $x\in E$. Résoudre $A(x)$, c'est déterminer exactement l'ensemble des $x$ tels que $A(x)$ soit vrai. Cet ensemble est un sous-ensemble de $E$, on l'appelle l'ensemble des solutions. Il peut parfois être vide (aucune solution) ou égal à $E$ (équation triviale).
 
@@ -202,10 +218,14 @@ Soit $x\in \R$. On a
 \end{red}
 \end{exemple}
 
-\paragraph{Méthode par conditions nécessaires et suffisantes}$ $\\
+\paragraph{Méthode par conditions nécessaires et suffisantes}
+\index{démonstration!par analyse-synthèse / par conditions nécessaires et suffisantes}
+
 Lorsque $A(x) \Rightarrow B(x)$, on dit que $B(x)$ est une condition nécessaire à $A(x)$, et $A(x)$ est une condition suffisante pour $B(x)$.\\
 Dans la pratique, on écrit $A(x)\Rightarrow B(x) \Rightarrow ... x\in\Omega$. Ensuite, parmi les éléments de $\Omega$, on détermine ceux qui sont solution.\\
 \\
 Exemple : résoudre $|x-1|=2x+3$, d'inconnue $x\in \R$.\\
-\begin{red} Soit $x\in\R$. On a la chaîne d'implications $|x-1|=2x+3 \Rightarrow |x-1|^2=(2x+3)^2 \Leftrightarrow x^2-2x+1=4x^2+12x+9 \Leftrightarrow 3x^2+14x+8=0 \Leftrightarrow (x\in \{-4;-2/3\})$. Réciproquement, on vérifie que $-4$ n'est pas solution mais que $-2/3$ est solution. Finalement, l'équation a une unique solution, $-2/3$.\end{red}
+\begin{red}
+Soit $x\in\R$. On a la chaîne d'implications $|x-1|=2x+3 \Rightarrow |x-1|^2=(2x+3)^2 \Leftrightarrow x^2-2x+1=4x^2+12x+9 \Leftrightarrow 3x^2+14x+8=0 \Leftrightarrow (x\in \{-4;-2/3\})$. Réciproquement, on vérifie que $-4$ n'est pas solution mais que $-2/3$ est solution. Finalement, l'équation a une unique solution, $-2/3$.
+\end{red}
 
