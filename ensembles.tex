@@ -1,4 +1,142 @@
 \chapter{Ensembles}
 
-\begin{definition}[Restriction d'un ensemble]\end{definition}
-\begin{definition}[Union, intersection et complémentaire de parties]\end{definition}
+\section{Définitions (ou pas)}
+
+En mathématiques, le sens du mot \emph{ensemble} est plus précis que celui donné par la langue française. Définir rigoureusement ce qu'est un ensemble (au sens mathématique du terme) est assez complexe et dans ce cours, on utilisera la définition intuitive suivante.
+
+\begin{definition}(Ensemble, définition intuitive)
+
+\begin{enumerate}
+\item Un \emph{ensemble} $E$ est une collection d'objets.
+\item Les objets dont est constitué la collection définissant $E$  sont les \emph{éléments} de $E$.
+\item On dit que $x$ appartient à $E$ et on note $x\in E$ si $x$ est un élément de $E$. On note $x\not\in E$ dans le cas contraire.
+\item Deux ensembles $E$ et $F$ sont dits \emph{égaux} s'ils ont les mêmes éléments. Dans ce cas on note $E=F$ (et $E\neq F$ dans le cas contraire).
+\end{enumerate}
+\end{definition}
+
+(La définition donnée est insuffisante car en réalité, toutes les collections ne sont pas autorisées (pour éviter certains paradoxes). Mais la plupart de celles auxquelles on peut penser forment bien des ensembles au sens mathématique du terme). 
+
+\begin{definition}(Manières de définir un ensemble)
+
+\index{définition!par énumération}\index{définition!par compréhension}
+\begin{enumerate}
+\item Une définition \emph{par énumération} d'un ensemble $E$ est la donnée explicite de tous les éléments de l'ensemble, sous forme de liste entre accolades. Par exemple : $E = \left\{1,3,\pi,5,\sqrt2\right\}$.
+\item Une définition \emph{par compréhension} d'un ensemble $E$ est la donnée d'une propriété qui caractérise les éléments de $E$ parmi un ensemble plus gros $F$. Par exemple : $E = \{x\in \R\:\mid\: x^2+x\leq 2\}$, qui se lit \og$E$ est l'ensemble des réels $x$ tels que $x^2+x\leq 2$\fg.
+\end{enumerate}
+\end{definition}
+
+Attention, dans une définition par énumération, il n'y a pas de notion d'ordre, ni de multiplicité (un élément ne peut pas appartenir \og plusieurs fois\fg{} à un ensemble). Donc  $\left\{1,3,\pi,5,\sqrt2\right\} = \left\{\sqrt 2, 3,5,1,\pi\right\}=\left\{\sqrt 2,2, 2, 3,  3,5,1,1,\pi\right\}$.
+
+
+\begin{definition}(Ensemble vide, singleton, paire)
+\index{ensemble vide}\index{singleton}
+\begin{enumerate}
+\item L'\emph{ensemble vide} est l'unique ensemble ne contenant aucun élément. On le note $\varnothing$ (la notation $\{\:\}$ est également correcte mais n'est pas utilisée). Une assertion du type \og $\forall x\in \varnothing, \: A(x)$\fg{} est toujours vraie par définition. L'ensemble vide est inclus dans tout ensemble, puisque l'assertion \og $\forall x\in \varnothing, \: x\in E$\fg{} est toujours vraie.
+\item Un \emph{singleton} est un ensemble contenant un unique élément. C'est donc un ensemble de la forme $\{x\}$.
+\item Une \emph{paire} est un ensemble de la forme $\{a,b\}$. Si $a=b$, alors il s'agit d'un singleton, mais la plupart des cas, les éléments sont différents et $\{a,b\}$ est donc un ensemble contenant deux éléments distincts.
+\end{enumerate}
+\end{definition}
+
+\section{Parties d'un ensemble}
+
+\begin{definition}[Sous-ensemble / partie]
+\index{ensemble!sous-ensemble}\index{ensemble!partie d'un ensemble}
+Soient $E$ et $F$ des ensembles. On dit que $E$ est inclus dans $F$, ou que $E$ est un sous-ensemble, ou une partie de $F$ si tous les éléments de $E$ sont des éléments de $F$, autrement dit si 
+\[
+\forall x\in E, \: x\in F.
+\]
+Dans ce cas on note $E\subset F$ (notation la plus répandue) ou $E\subseteq F$ (dans ce cours, les deux notations sont synonymes et on privilégie la seconde). On note $E\not\subset F$ ou $E\nsubseteq F$ si $E$ n'est pas un sous-ensemble de $F$, et $E\subsetneq F$  si c'est un sous-ensemble \emph{strict} de $F$, c'est-à-dire $E\subseteq F$ et $E\neq F$.
+\end{definition}
+
+\begin{remarque}[Principe de double-inclusion] Si $E$ et $F$ sont des ensembles, alors 
+$
+E=F \iff \left(E\subseteq F \text{ et } F \subseteq E\right).
+$
+\end{remarque}
+
+
+\begin{remarque}
+Attention, les objets $x$ et $\{x\}$ sont différents ! L'un est l'objet $x$, l'autre est un ensemble contenant un unique élément : $x$. Par exemple, $\varnothing$ et $\{\varnothing\}$ sont deux choses différentes le premier est l'ensemble vide, alors que $\{\varnothing\}$ est un ensemble non vide : c'est un ensemble contenant un élément (l'ensemble vide).
+\end{remarque}
+
+\begin{axiomedef}[Ensemble des parties]
+Soit $E$ un ensemble. La collection de toutes les parties de $E$ est un ensemble (au sens mathématique). On le note $\mathcal P(E)$. 
+
+Ainsi, si $F$ est un ensemble, alors on a $F\in \mathcal P(E) \iff F\subseteq E$.
+\end{axiomedef}
+
+Remarque : cet ensemble n'est jamais vide car il contient toujours au moins $\varnothing$, qui est une partie de  tout ensemble $E$.
+
+\begin{exemple}Un singleton $\{a\}$ contient deux parties : la partie vide $\varnothing$ et la partie $\{a\}$. 
+
+L'ensemble $\{1,2\}$ a pour ensemble de parties :  $\mathcal P(\{1,2\}) = \{\varnothing,\{1\},\{2\},\{1,2\}\}$.
+\end{exemple}
+
+
+\section{Opération sur les ensembles}
+
+\begin{definition}(Union, intersection, complémentaire)
+
+Soient $A$ et $B$ des ensembles. Leur \emph{union}, notée $A\cup B$, est la collection formée par les éléments de $A$ et de $B$. Leur \emph{intersection}, notée $A\cap B$, est l'ensemble des éléments de $A$ qui sont également des éléments de $B$ (ou encore : l'ensemble des éléments de $B$ qui sont aussi des éléments de $A$). 
+
+L'ensemble $A\setminus B$ est l'ensemble des éléments de $A$ qui n'appartiennent pas à $B$.
+
+Si $A$ est un sous-ensemble d'un ensemble $E$, le complémentaire de $A$ dans $E$ est $E\setminus A$, on le note aussi $\complement A$ s'il n'y a pas d'ambiguïté sur l'ensemble $E$ dans lequel on prend le complémentaire de $A$.
+\end{definition}
+
+
+\begin{proposition}
+Si $A$ et $B$ sont deux parties d'un ensemble $E$, on a :
+\[
+\complement(A\cup B) = \complement A \cap \complement B; \quad
+\complement(A\cap B) = \complement A \cup \complement B.
+\]
+\end{proposition}
+\begin{proof}
+Soit $x\in E$. Alors:
+\begin{align*}
+x\in \complement(A\cup B) 
+&\iff \text{non}(x \in A\cup B)\\
+&\iff \text{non}(x \in A \text{ ou } x\in B)\\
+&\iff \text{non}(x \in A) \text{ et } \text{non}(x\in B)\\
+&\iff \left(x\in\complement A\right) \text{ et } \left(x\in\complement B\right)\\
+&\iff x\in \complement A \cap \complement B.
+\end{align*}
+\end{proof}
+
+\begin{definition}[Ensembles disjoints, unions disjointes]
+Deux ensembles $A$ et $B$ sont \emph{disjoints} si leur intersection est vide : $A\cap B = \varnothing$. 
+\end{definition}
+
+
+\begin{definition}[Produit cartésien]
+Soient $E$ et $F$ deux ensembles. Le \emph{produit cartésien}, ou simplement \emph{produit}, noté $E\times F$, est la collection de tous les couples  de la forme $(x,y)$, avec $x\in E$ et $y\in F$. Si $E=F$, on note $E^2$ au lieu de $E\times E$. 
+
+On peut définir de même les produits finis du type $E_1\times E_2 \times ... E_n$ : leurs éléments sont les $n$-uplets de la forme $(x_1, x_2, ... x_n)$, avec $x_1\in E_1$, $x_2\in E_2$ etc. 
+\end{definition}
+
+\begin{remarque}
+$E\times F = \varnothing \iff \left( E=\varnothing\text{ ou }F=\varnothing\right)$.
+\end{remarque}
+
+\section{Familles indexées}
+
+\begin{definition}
+Soient $E$ et $I$ des ensembles. Une famille d'éléments de $E$  indexée par $I$  est un objet de la forme $(x_i)_{i\in I}$, c'est-à-dire la donnée, pour tout élément $i\in I$, d'un élément de $E$ noté $x_i$.
+\end{definition}
+
+\begin{exemple}
+Une suite réelle $(u_n)_{n\in \N}$ est une famille de réels indexée par $\N$.
+\end{exemple}
+
+L'ensemble $I$ qui sert à indexer la famille peut être fini ou infini, et s'il est infini, il peut être plus gros que $\N$ : il n'est pas nécessaire de pouvoir numéroter les éléments de la famille par des nombres : une famille peut être indexée par $\R$. Par exemple, si $a\in \R$, on peut définir la fonction $f_a : \R\to \R; x\mapsto e^{ax}$. Les fonctions $f_a$ forment la famille $(f_a)_{a\in \R}$.
+
+
+\begin{definition}[Unions et intersections indexées par un ensemble]
+Soit $E$ un ensemble, et $(E_i)_{i\in I}$ une famille de parties de $E$ indexée par un ensemble $I$.
+
+Leur \emph{union}, notée $\bigcup_{i\in I} E_i$, est l'ensemble $\{x\in E\:\mid\: \exists i\in I, x\in E_i\}$.
+
+Leur \emph{intersection}, notée $\bigcap_{i\in I} E_i$, est l'ensemble $\{x\in E\:\mid\: \forall i\in I, x\in E_i\}$.
+\end{definition}
+
