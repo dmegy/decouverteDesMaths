@@ -33,6 +33,7 @@ Une \emph{application} ou \emph{fonction} (dans ce cours, les deux mots sont syn
 Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément (unique) $y\in F$, appelé l'image de $x$ par $f$. Cet élément est noté $f(x)$.
 \end{definition}
 
+Deux fonctions sont égales si elles ont même domaine et codomaine, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
 
 \begin{remarque}
 \begin{enumerate}
@@ -76,10 +77,71 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 \]
 \end{definition}
 
+%----------------------------------
 \section{Composition des fonctions}
 
+\begin{definition}[Composition]
+\index{composition de deux applications}
+Soit $f : X\to Y$ et $g : Y\to Z$ deux fonctions. La fonction $g\circ f$ (\og $g$ rond $f$\fg) est la fonction de $X$ dans $Z$ qui à $x\in X$ associe $g(f(x)) \in Z$.
+\end{definition}
+
+Autrement dit, par définition, $(g\circ f)(x) = g(f(x))$.
+
+\begin{proposition}[\og La composition est associative\fg]
+\index{associative (composition)}
+Soient $f : X\to Y$, $g : Y\to Z$, $h  : Z\to T$ des fonctions. Alors $h\circ (g\circ f) = (h\circ g)\circ f$. Cette fonction est notée $h\circ g\circ f$.
+\end{proposition}
+\begin{proof}
+Les domaines et codomaines sont les mêmes ($X$ et $T$), et si $x\in X$, on a 
+\[ \left(h\circ (g\circ f)\right) (x) = h((g\circ f)(x)) = h(g(f(x)) \text{ et } \]
+\[ \left( (h\circ g)\circ f \right) (x) = (h \circ g)(f(x)) = h(g(f(x))\quad \]
+d'où l'égalité des deux fonctions.
+\end{proof}
+
+\begin{definition}[Fonction identité]
+Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\to E, x\mapsto x$.
+\end{definition}
+
+\begin{remarque}
+\begin{enumerate}
+\item Ne pas confondre la fonction identité avec une fonction constante.
+\item Si $\phi = E\to F$, alors $\phi = \phi\circ \Id_E = \Id_F\circ \phi$.
+\end{enumerate}
+\end{remarque}
+
+\begin{definition}[Fonction réciproque]
+\index{réciproque (fonction)}
+Soient $f : E\to F$ et $g = F\to E$ deux fonctions. On dit qu'elles sont réciproques l'une de l'autre (ou que $g$ est une réciproque de $f$, ou que $f$ est une réciproque de $g$) si $g\circ f = \Id_E$ \underline{et} $f\circ g = \Id_F$. 
+\end{definition}
+
+Attention, une fonction $f$ n'a pas toujours de fonction réciproque.
+
+\begin{proposition} Soit $f : E\to F$ une fonction. Si elle admet une (fonction) réciproque, alors celle-ci est unique.
+\end{proposition}
+\begin{proof}
+Soient en effet $g = F\to E$ et $h : F \to E$ deux réciproques de $f$. Alors
+\[
+g\circ  f \circ h = (g\circ f) \circ h = \Id_E \circ h = h, \text{ et}
+\]
+\[
+g\circ  f \circ h = g\circ (f \circ h) = g \circ \Id_F = g
+\]
+d'où $g=h$.
+\end{proof}
+
+\begin{exemple}
+Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
+\end{exemple}
+
+% autre exemple avec inverse à gauche / pas à droite ou l'inverse
+
+%---------------------------------
+\section{Restriction, corestriction, prolongement}
 
 
+
+
+%---------------------------------
 \section{Fonctions injectives et surjectives}
 
 
