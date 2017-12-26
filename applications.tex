@@ -136,10 +136,26 @@ Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln
 % autre exemple avec inverse à gauche / pas à droite ou l'inverse
 
 %---------------------------------
-\section{Restriction, corestriction, prolongement}
+\section{Restriction, prolongement}
+% corestriction plus tard, lorsqu'on aura vu l'image
 
+\begin{definition}[Restriction]
+\index{restriction d'une application}
+Soit $f : E\to F$ et $A \in \mathcal P(E)$ une partie de $E$. La \emph{restriction} de $f$ à $A$, notée $f|_A$, est l'application de $A$ dans $F$ suivante:
+\[
+f|_A : A\to F, \: x\mapsto f(x)
+\]
+Attention, les fonctions $f|_A$ et $f$ doivent être considérées comme distinctes car leurs domaines sont distincts ($A$ au lieu de $E$).
+\end{definition}
 
+\begin{definition}[Prolongement]
+Soient $E$ et $F$ des ensembles, $A\n \mathcal P(E)$ une partie de $E$ et $f : A\to F$ une fonction. On dit qu'une application $g : E\to F$ est un \emph{prolongement} de $f$ si $g|_A = f$.
+\end{definition}
 
+Attention, il existe en général plusieurs prolongements possibles d'une même fonction et même si la fonction $f$ est donnée par une formule, un prolongement n'a aucune raison d'être défini par la même formule hors du domaine originel de $f$. Par exemple, si $f : \R_+^* \to \R, x\mapsto e^x$, alors les fonctions suivantes  sont des prolongements de $f$ (à divers domaines):
+\[g : \R^* \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ \sin(x) \text{ sinon}\end{cases},\]
+\[h : \R_+ \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ 10 \text{ sinon}\end{cases}.\]
+(Un prolongement ne doit pas non plus être forcément continu ni dérivable, etc.)
 
 %---------------------------------
 \section{Fonctions injectives et surjectives}
@@ -171,5 +187,5 @@ On dit que $f$ est bijective si elle est injective et surjective.
 En général, la surjectivité est plus dure à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général ça se voit (éventuellement après un petit calcul / majoration / développement d'expression).
 \begin{remarque} Si $f : A\to B$ est injective, alors on peut \og identifier\fg $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. Cette identification n'est pas abusive grace à la propriété d'injectivité. La formulation correcte de cette identification est que $f$ induit une bijection de $A$ sur $f(A)$. Ceci n'est qu'une remarque.\end{remarque}
 
-\begin{definition}[Restriction et prolongement d'une application]\end{definition}
 
+\section{Images et images réciproques de parties}
