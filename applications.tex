@@ -39,6 +39,7 @@ Deux fonctions sont égales si elles ont même domaine et codomaine, et si les i
 \begin{enumerate}
 \item Si $f$ est une application de $\R$ dans $\R$, ce que l'on appelle souvent une \og représentation graphique de $f$\fg{} est en fait une représentation graphique de son graphe. La représentation graphique n'est pas unique (l'échelle peut varier, on ne représente en général pas le domaine ni le codomaine en entier mais seulement une partie, etc) mais le graphe, lui, est un objet mathématique abstrait et unique.
 \item Une fonction ne peut pas être uniquement définie par son graphe : la donnée du domaine et du codomaine sont nécessaires.
+\item \index{application vide}\index{zérologie} (Zérologie : application vide) Soit $E = \varnothing$ et $F$ un ensemble. Il existe une (unique) application de $E$ dans $F$, appelée \emph{application vide}, celle dont le graphe $\Gamma$ est la partie vide de $E\times F = \varnothing$. (Si $E=\varnothing$,  l'assertion \og $\forall x\in E, \exists! y\in F,\: (x,y)\in \Gamma$\fg{} est effectivement vraie même si $\Gamma$ est vide et donc $\Gamma$ est bien un graphe d'application.)
 \end{enumerate}
 \end{remarque}
 
@@ -114,10 +115,15 @@ Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\t
 Soient $f : E\to F$ et $g = F\to E$ deux fonctions. On dit qu'elles sont réciproques l'une de l'autre (ou que $g$ est une réciproque de $f$, ou que $f$ est une réciproque de $g$) si $g\circ f = \Id_E$ \underline{et} $f\circ g = \Id_F$. 
 \end{definition}
 
+
+
 Attention, une fonction $f$ n'a pas toujours de fonction réciproque.
 
-\begin{proposition} Soit $f : E\to F$ une fonction. Si elle admet une (fonction) réciproque, alors celle-ci est unique.
+\begin{proposition} Soit $f : E\to F$ une fonction. Si elle admet une (fonction) réciproque, alors celle-ci est unique. Elle est notée généralement $f^{-1}$.
 \end{proposition}
+
+\textbf{Attention}, on ne doit pas utiliser la notation $f^{-1}$ avant d'avoir démontré que la fonction admet effectivement une réciproque.
+
 \begin{proof}
 Soient en effet $g = F\to E$ et $h : F \to E$ deux réciproques de $f$. Alors
 \[
@@ -132,6 +138,18 @@ d'où $g=h$.
 \begin{exemple}
 Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
 \end{exemple}
+
+\begin{definition}[Rétraction/inverse à gauche, section/inverse à droite]
+Soit $f : E\to F$ une fonction.
+\begin{enumerate}
+\item Une \emph{rétraction}, ou encore \emph{inverse à gauche} de $f$, est une fonction $g:F\to E$ telle que $g\circ f = \Id_E$.
+\item Une \emph{section}, ou encore \emph{inverse à droite} de $f$, est une fonction $h:F\to E$ telle que $f \circ h = \Id_F$.
+\end{enumerate}
+\end{definition}
+
+\begin{remarque}
+Une reformulation de la définition de réciproque est donc qu'une application réciproque est à la fois une rétraction et une section (ou : à la fois un inverse à gauche et un inverse à droite).
+\end{remarque}
 
 % autre exemple avec inverse à gauche / pas à droite ou l'inverse
 
@@ -149,12 +167,12 @@ Attention, les fonctions $f|_A$ et $f$ doivent être considérées comme distinc
 \end{definition}
 
 \begin{definition}[Prolongement]
-Soient $E$ et $F$ des ensembles, $A\n \mathcal P(E)$ une partie de $E$ et $f : A\to F$ une fonction. On dit qu'une application $g : E\to F$ est un \emph{prolongement} de $f$ si $g|_A = f$.
+Soient $E$ et $F$ des ensembles, $A\in \mathcal P(E)$ une partie de $E$ et $f : A\to F$ une fonction. On dit qu'une application $g : E\to F$ est un \emph{prolongement} de $f$ si $g|_A = f$.
 \end{definition}
 
 Attention, il existe en général plusieurs prolongements possibles d'une même fonction et même si la fonction $f$ est donnée par une formule, un prolongement n'a aucune raison d'être défini par la même formule hors du domaine originel de $f$. Par exemple, si $f : \R_+^* \to \R, x\mapsto e^x$, alors les fonctions suivantes  sont des prolongements de $f$ (à divers domaines):
-\[g : \R^* \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ \sin(x) \text{ sinon}\end{cases},\]
-\[h : \R_+ \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ 10 \text{ sinon}\end{cases}.\]
+\[g : \R^* \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ \sin(x) \text{ si } x<0\end{cases},\]
+\[h : \R_+ \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ 10 \text{ si }x=0\end{cases}.\]
 (Un prolongement ne doit pas non plus être forcément continu ni dérivable, etc.)
 
 %---------------------------------
@@ -162,30 +180,104 @@ Attention, il existe en général plusieurs prolongements possibles d'une même 
 
 
 
-\begin{definition}Soient $A$ et $B$ deux ensembles, et $f : A \to B$ une application. On dit que $f$ est \underline{injective} si
+\begin{definition}[Fonction injective]
+\index{injection}
+Soient $A$ et $B$ deux ensembles, et $f : A \to B$ une application. On dit que $f$ est \emph{injective} (ou que c'est une \emph{injection}) si
 \[\forall (x,y) \in A^2,\quad f(x)=f(y) \Rightarrow  x=y,\]
 autrement dit si (contraposée) 
 \[\forall (x,y) \in A^2,\quad x\neq y \Rightarrow  f(x)\neq f(y),\]
-autrement dit si deux éléments distincts ont toujours des images distinctes. On dit aussi que $f$ \og sépare les points\fg.\end{definition}
-\begin{definition}
-On dit que $f$ est \underline{surjective} si
+autrement dit si deux éléments distincts ont toujours des images distinctes. On dit aussi que $f$ \og sépare les points\fg.
+\end{definition}
+
+\begin{definition}[Fonction surjective]
+\index{surjection}
+On dit que $f$ est \emph{surjective} (ou que c'est une \emph{surjection}) si
 \[\forall b \in B,\quad \exists a\in A / f(a)=b,\]
 autrement dit tout élément $b\in B$ a (au moins) un antécédent par $f$.
 \end{definition}
-\begin{definition}
+
+\begin{definition}[Fonction bijective]
+\index{bijection}
 On dit que $f$ est bijective si elle est injective et surjective.
 \end{definition}
 
-\begin{exemple}La fonction $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. Elle n'est pas injective car bien que $1$ soit différent de $-1$, ils ont la même image. Elle n'est pas surjective car $-2$ n'a pas d'antécédent dans $\R$ : on ne peut pas trouver de réel $x$ tel que $x^2 = -2$.\end{exemple}
-
-\begin{exemple} La fonction $g : \R \to \R_+, x\mapsto x^2$ n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : l'ensemble d'arrivée est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
+\begin{exemple}
+\begin{enumerate}
+\item La fonction identité (d'un ensemble $E$ dans lui-même) est bijective.
+\item La fonction $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. Elle n'est pas injective car bien que $1$ soit différent de $-1$, ils ont la même image. Elle n'est pas surjective car $-2$ n'a pas d'antécédent dans $\R$ : on ne peut pas trouver de réel $x$ tel que $x^2 = -2$.
+\item La fonction $g : \R \to \R_+, x\mapsto x^2$ n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : l'ensemble d'arrivée est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
+\item La fonction $h : \R_+ \to \R_+, x\mapsto x^2$ est injective et surjective, donc bijective. Elle est surjective pour la même raison que $g$, elle est injective, car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe).
+\item (Zérologie)\index{zérologie} L'unique fonction de $\varnothing$ dans $\varnothing$ est bijective. La fonction vide de $\varnothing$ dans n'importe quel ensemble est toujours injective.
+\end{enumerate}
 \end{exemple}
 
-\begin{exemple} La fonction $h : \R_+ \to \R_+, x\mapsto x^2$ est injective et surjective, donc bijective. Elle est surjective pour la même raison que $g$, elle est injective, car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe).
-\end{exemple}
+En général, la surjectivité est plus difficile à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général cela se voit (éventuellement après un petit calcul / majoration / développement d'expression).
 
-En général, la surjectivité est plus dure à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général ça se voit (éventuellement après un petit calcul / majoration / développement d'expression).
-\begin{remarque} Si $f : A\to B$ est injective, alors on peut \og identifier\fg $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. Cette identification n'est pas abusive grace à la propriété d'injectivité. La formulation correcte de cette identification est que $f$ induit une bijection de $A$ sur $f(A)$. Ceci n'est qu'une remarque.\end{remarque}
+\begin{remarque}
+Si $f : A\to B$ est injective, alors on peut \og identifier\fg $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. Cette identification n'est pas abusive grace à la propriété d'injectivité. La formulation correcte de cette identification est que $f$ induit une bijection de $A$ sur $f(A)$. Ceci n'est qu'une remarque.
+\end{remarque}
+
+\begin{proposition}
+Une fonction $f : E\to F$ bijective admet une réciproque.
+\end{proposition}
+\begin{proof}\index{section}
+Si $f$ est bijective, on peut construire une réciproque $g : F\to E$ comme suit.
+
+D'une part, comme $f$ est surjective, tout $y\in F$ admet un antécédent $y_x$. On pose $g(y)=x_y$. Par construction, on a $f\circ g = \Id_F$. Une telle application $g$ est appelée une \emph{section} $f$, voir plus bas.
+
+Il reste à montrer que $g\circ f = \Id_E$ en exploitant l'injectivité de $f$. Soit $x\in E$ et soit $a = (g\circ f)(x)$. Alors $f(a) = (f\circ g \circ f) (x) = (f\circ (g\circ f))(x) = f(x)$ et comme $f$ est injective, $a=x$ c'est-à-dire $(g\circ f)(x) = x$. Comme ceci vaut pour tout $x\in E$, on a bien $g\circ f = \Id_E$.
+\end{proof}
+
+\begin{proposition}[Stabilité à la composition de l'injectivité et de la surjectivité]
+Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
+\begin{enumerate}
+\item Si $f$ et $g$ sont injectives, alors $g\circ f$ l'est également.
+\item Si $f$ et $g$ sont surjectives, alors $g\circ f$ l'est également.
+\item Si $f$ et $g$ sont bijectives, alors $g\circ f$ l'est également.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Soient $x, y \in E$ tels que $(g\circ f)(x) = (g\circ f)(y) $, c'est-à-dire tels que $g(f(x))=g(f(y))$. Comme $g$ est injective, on a $f(x)=f(y)$. Comme $f$ est injective, on a alors $x=y$, ce qu'il fallait démontrer.
+\item Soit $z\in G$. Comme $g$ est surjective, $z$ possède un antécédent par $g$ c'est-à-dire qu'il existe $y\in F$ tel que $g(y)=z$. Ensuite, comme $f$ est surjective, $y$ possède un antécédent par $f$, c'est-à-dire qu'il existe $x\in E$ tel que $f(x)=y$. On a alors $g(f(x)) = g(y)=z$, donc $x$ est un antécédent de $z$ par $g\circ f$. Ceci montre que tout élément de $G$ possède un antécédent par $g\circ f$, donc que $g\circ f$ est surjective.
+\item Il suffit d'appliquer les deux premiers points.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}[réciproques partielles]
+Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
+\begin{enumerate}
+\item Si $g\circ f$ est injective, alors $f$ l'est également.
+\item Si $g\circ f$ est surjective, alors $g$ l'est également.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Soient $x, y\in E$ tels que $f(x)=f(y)$. En appliquant $g$, il vient $g(f(x))=g(f(y))$. Comme $g\circ f$ est injective, $x=y$.
+\item Soit $z\in G$. Comme $g\circ f$ est surjective, il existe $x\in E$ tel que $g(f(x))=z$. Posons $y = f(x)$. On a $g(y)=z$ donc $y$ est un antécédent de $z$ par $g$.
+\end{enumerate}
+\end{proof}
+
+\begin{corollaire}
+Si une fonction $f : E\to F$ admet une fonction réciproque, alors elle est bijective.
+\end{corollaire}
+\begin{proof}
+On applique la proposition précédente.
+Par définition d'une fonction réciproque on a $f\circ f^{-1} = \Id_F$. Or $\Id_F$ est surjective, donc par la proposition $f$ également.
+D'autre part, toujours par définition on a $f^{-1}\circ f = \Id_E$. Or $\Id_E$ est  injective, donc par la proposition $f$ également.
+\end{proof}
+
+\begin{remarque}
+\textbf{Attention}, on peut avoir $g\circ f$ injective et $g$ non injective, et on peut aussi avoir $g\circ f$ surjective et $f$ non surjective. Considérons par exemple:
+\[
+f : \N\to \N, n\mapsto 2n
+\quad \text{ et }\quad
+g : \N\to \N, n\mapsto \lfloor n/2\rfloor.
+\]
+Alors $g\circ f = \Id_\N$ donc est bijective, mais $f$ n'est pas surjective et $g$ n'est pas injective.
+\end{remarque}
 
 
+
+%--------------------------------------
 \section{Images et images réciproques de parties}
