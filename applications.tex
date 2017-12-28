@@ -23,17 +23,19 @@ L'ensemble $\Gamma'' = \{(1,1),(2,1),(2,4),(3,4)\} \subseteq E\times F$ non plus
 \end{exemple}
 
 \begin{definition}[Applications/fonction entre ensembles]
-\index{application}\index{fonction}\index{domaine}\index{codomaine}\index{graphe}
+\index{application}\index{fonction}\index{domaine}\index{codomaine}\index{graphe}\index{image!d'un élément}
 Une \emph{application} ou \emph{fonction} (dans ce cours, les deux mots sont synonymes) $f$ est la donnée de trois objets:
 \begin{enumerate}
 \item un ensemble $E$, appelé le \emph{domaine} de $f$;
 \item un ensemble $F$, appelé le \emph{codomaine} de $f$;
 \item une partie $\Gamma_f \subseteq E\times F$, appelée le \emph{graphe de $f$} qui est un \emph{graphe d'application} au sens de la définition précédente. 
 \end{enumerate}
-Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément (unique) $y\in F$, appelé l'image de $x$ par $f$. Cet élément est noté $f(x)$.
+Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément (unique) $y\in F$, appelé l'\emph{image de $x$ par $f$}. Cet élément est noté $f(x)$.
 \end{definition}
 
 Deux fonctions sont égales si elles ont même domaine et codomaine, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
+
+
 
 \begin{remarque}
 \begin{enumerate}
@@ -71,6 +73,13 @@ x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{c
 %Une fonction n'a pas de raison d'être continue, dérivable etc.
 \end{remarque}
 
+\begin{definition}[Antécédents d'un élément]
+Soit $f : E\to F$ une fonction, et $y\in F$. On dit qu'un élément $x\in E$ est un \emph{antécédent} de $y$ si $f(x)=y$. En reformulant, l'ensemble des antécédents de $y$ est donc l'ensemble des solutions de l'équation $f(x)=y$, d'inconnue $x\in E$.
+\end{definition}
+
+\begin{exemple} Un élément du codomaine peut ne pas avoir d'antécédents, ou en avoir plusieurs. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$.
+\end{exemple}
+
 \begin{definition}[Fonction caractéristique]
 Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonction caractéristique} de $A$ (sous-entendu, dans $E$) est la fonction 
 \[
@@ -79,7 +88,7 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 \end{definition}
 
 %----------------------------------
-\section{Composition des fonctions}
+\section{Composition, réciproques, sections et rétractions}
 
 \begin{definition}[Composition]
 \index{composition de deux applications}
@@ -142,13 +151,25 @@ Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln
 \begin{definition}[Rétraction/inverse à gauche, section/inverse à droite]
 Soit $f : E\to F$ une fonction.
 \begin{enumerate}
-\item Une \emph{rétraction}, ou encore \emph{inverse à gauche} de $f$, est une fonction $g:F\to E$ telle que $g\circ f = \Id_E$.
-\item Une \emph{section}, ou encore \emph{inverse à droite} de $f$, est une fonction $h:F\to E$ telle que $f \circ h = \Id_F$.
+\item Une \emph{rétraction} (ou \emph{inverse à gauche}) de $f$, est une fonction $r:F\to E$ telle que $r\circ f = \Id_E$.
+\item Une \emph{section} (ou \emph{inverse à droite}) de $f$, est une fonction $s:F\to E$ telle que $f \circ s = \Id_F$.
 \end{enumerate}
 \end{definition}
 
+\begin{exemple}
+Soit $f = \R\to \R_+, x\mapsto x^2$. Alors les fonctions $s_1 : \R_+\to \R, x\mapsto \sqrt x$ et $s_2 : \R_+\to \R, x\mapsto -\sqrt x$ sont deux sections (inverses à droite) distinctes de $f$ (on a bien $f\circ s_1 = \Id_{\R^+}$ et $f\circ s_2 = \Id_{\R^+}$). 
+Par ailleurs, $f$ est une rétraction de $s_1$ et de $s_2$. (Voir remarque ci-dessous.)
+%Soit $f : \{1,2\} \to \{3,4,5\}$ définie par $f(1)=3$ et $f(2)=5$. La fonction $g : \{3,4,5\}\to\{1,2\}$ telle que $g(3)=1$, $g(4)=2$ et $g(5)=2$ est une rétraction de $f$.  Par ailleurs, la fonction $f$ est une section de $g$ (voir remarque plus bas).
+
+\end{exemple}
+
 \begin{remarque}
-Une reformulation de la définition de réciproque est donc qu'une application réciproque est à la fois une rétraction et une section (ou : à la fois un inverse à gauche et un inverse à droite).
+\begin{enumerate}
+\item Une fonction $g$ est une rétraction de $f$ si et seulement si $f$ est une section de $g$ puisque les deux assertions signifient $g\circ f = \Id_E$ : les deux notions sont \og duales\fg.
+\item Les sections et rétractions, lorsqu'elles existent, ne sont en général pas uniques (voir exemple plus haut).
+\item Une fonction réciproque est à la fois une rétraction et une section (ou : à la fois un inverse à gauche et un inverse à droite).
+\item De même que toutes les fonctions n'ont pas forcément de réciproque, toutes les fonctions n'admettent pas forcément une section ou une rétraction. Par exemple, $f : \R\to \R, x\mapsto x^2$ n'admet ni section ni rétraction. 
+\end{enumerate}
 \end{remarque}
 
 % autre exemple avec inverse à gauche / pas à droite ou l'inverse
@@ -214,18 +235,26 @@ On dit que $f$ est bijective si elle est injective et surjective.
 En général, la surjectivité est plus difficile à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général cela se voit (éventuellement après un petit calcul / majoration / développement d'expression).
 
 \begin{remarque}
-Si $f : A\to B$ est injective, alors on peut \og identifier\fg $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. Cette identification n'est pas abusive grace à la propriété d'injectivité. La formulation correcte de cette identification est que $f$ induit une bijection de $A$ sur $f(A)$. Ceci n'est qu'une remarque.
+Si $f : A\to B$ est injective, alors on peut parfois \og identifier\fg{} $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. \textbf{Attention}, cette façon d'identifier $A$ à une partie de $B$ dépend de $f$ et il existe en général plusieurs injections de $A$ dans $B$, donc le choix de l'injection n'est pas anodin, ni canonique en général.
 \end{remarque}
 
 \begin{proposition}
-Une fonction $f : E\to F$ bijective admet une réciproque.
+\label{bijective_admet_reciproque}
+Soit $f : E\to F$.
+\begin{enumerate}
+\item Si elle est surjective, elle admet une section.
+\item Si elle est injective, elle admet une rétraction.
+\item Si elle est bijective, elle admet une réciproque.
+\end{enumerate}
 \end{proposition}
 \begin{proof}\index{section}
-Si $f$ est bijective, on peut construire une réciproque $g : F\to E$ comme suit.
-
-D'une part, comme $f$ est surjective, tout $y\in F$ admet un antécédent $y_x$. On pose $g(y)=x_y$. Par construction, on a $f\circ g = \Id_F$. Une telle application $g$ est appelée une \emph{section} $f$, voir plus bas.
+\begin{enumerate}
+\item  Pour tout $y\in F$, on choisit un antécédent de $y$ par $f$, que l'on note $x_y$. On définit alors une fonction $g : F\to E$ par $g(y)=x_y$. Par construction, on a $f\circ g = \Id_F$ donc $g$ est une section de $f$.
+\item À tout $y\in F$ on associe soit son unique antécédent s'il en existe un, soit un élément de $E$ arbitraire dans le cas contraire. Ceci définit une fonction $g : F\to E$ et par construction on a $g\circ f=\Id_E$.
+\item D'une part, comme $f$ est surjective, elle admet une section $g$, c'est-à-dire une application $g : F\to E$ telle que $f\circ g = \Id_F$.
 
 Il reste à montrer que $g\circ f = \Id_E$ en exploitant l'injectivité de $f$. Soit $x\in E$ et soit $a = (g\circ f)(x)$. Alors $f(a) = (f\circ g \circ f) (x) = (f\circ (g\circ f))(x) = f(x)$ et comme $f$ est injective, $a=x$ c'est-à-dire $(g\circ f)(x) = x$. Comme ceci vaut pour tout $x\in E$, on a bien $g\circ f = \Id_E$.
+\end{enumerate}
 \end{proof}
 
 \begin{proposition}[Stabilité à la composition de l'injectivité et de la surjectivité]
@@ -259,12 +288,20 @@ Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
 \end{proof}
 
 \begin{corollaire}
-Si une fonction $f : E\to F$ admet une fonction réciproque, alors elle est bijective.
+Soit $f : E\to F$ une application.
+\begin{enumerate}
+\item Elle admet une rétraction (inverse à gauche) ssi elle est injective.
+\item Elle admet une section (inverse à droite) ssi elle est surjective.
+\item Elle admet une fonction réciproque ssi elle est bijective.
+\end{enumerate}
 \end{corollaire}
 \begin{proof}
-On applique la proposition précédente.
-Par définition d'une fonction réciproque on a $f\circ f^{-1} = \Id_F$. Or $\Id_F$ est surjective, donc par la proposition $f$ également.
-D'autre part, toujours par définition on a $f^{-1}\circ f = \Id_E$. Or $\Id_E$ est  injective, donc par la proposition $f$ également.
+Le sens \og si\fg{} a déjà été prouvé plus haut (prop. \ref{bijective_admet_reciproque}). Montrons le sens \og seulement si\fg.
+\begin{enumerate}
+\item Soit $r$ une rétraction de $f$. La composée $r\circ f = \Id_E$ est injective donc par la proposition précédente, $f$ est injective.
+\item Soit $s$ une section de $f$. La composée $f \circ s= \Id_F$ est surjective donc par la proposition précédente, $f$ est surjective.
+\item Une réciproque étant à la fois une section et une rétraction, on applique les deux points précédents.
+\end{enumerate}
 \end{proof}
 
 \begin{remarque}
