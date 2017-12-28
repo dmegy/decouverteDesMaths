@@ -251,9 +251,8 @@ Soit $f : E\to F$.
 \begin{enumerate}
 \item  Pour tout $y\in F$, on choisit un antécédent de $y$ par $f$, que l'on note $x_y$. On définit alors une fonction $g : F\to E$ par $g(y)=x_y$. Par construction, on a $f\circ g = \Id_F$ donc $g$ est une section de $f$.
 \item À tout $y\in F$ on associe soit son unique antécédent s'il en existe un, soit un élément de $E$ arbitraire dans le cas contraire. Ceci définit une fonction $g : F\to E$ et par construction on a $g\circ f=\Id_E$.
-\item D'une part, comme $f$ est surjective, elle admet une section $g$, c'est-à-dire une application $g : F\to E$ telle que $f\circ g = \Id_F$.
-
-Il reste à montrer que $g\circ f = \Id_E$ en exploitant l'injectivité de $f$. Soit $x\in E$ et soit $a = (g\circ f)(x)$. Alors $f(a) = (f\circ g \circ f) (x) = (f\circ (g\circ f))(x) = f(x)$ et comme $f$ est injective, $a=x$ c'est-à-dire $(g\circ f)(x) = x$. Comme ceci vaut pour tout $x\in E$, on a bien $g\circ f = \Id_E$.
+\item D'une part, comme $f$ est surjective, elle admet (d'après le premier point) une section $s$, qui vérifie donc $f\circ s = \Id_F$. Montrons  que $s\circ f = \Id_E$. Soit $x\in E$ et soit $a = (s\circ f)(x)$. Alors $f(a) = (f\circ s \circ f) (x) = ((f\circ s)\circ f)(x) = f(x)$ et comme $f$ est injective, $a=x$ c'est-à-dire $(s\circ f)(x) = x$. Donc $s\circ f=\Id_E$ et donc $s$ est la réciproque de $f$.
+\item \emph{Preuve alternative du dernier point, en suivant le cheminement inverse.} D'une part, comme $f$ est injective, elle admet (d'après le second point) une rétraction $r$, qui vérifie donc $r\circ f=\Id_E$. Montrons  que $f\circ r = \Id_F$. Soit $y\in F$. Comme $f$ est surjective, considérons $x$ un antécédent de $y$. Alors, $(f\circ r)(y) = (f\circ r)(f(x)) =(f\circ (r \circ f)(x) = (f\circ \Id_E)(x) = f(x) = y$. D'où $f\circ r = \Id_F$ et donc $r$ est la réciproque de $f$.
 \end{enumerate}
 \end{proof}
 
