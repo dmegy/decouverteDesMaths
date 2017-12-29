@@ -316,4 +316,99 @@ Alors $g\circ f = \Id_\N$ donc est bijective, mais $f$ n'est pas surjective et $
 
 
 %--------------------------------------
-\section{Images et images réciproques de parties}
+\section{Images directes et réciproques de parties}
+
+\begin{definition}[Image directe d'une partie]
+\index{image!directe d'une partie}
+Soit $f : E\to F$ et $A\subseteq E$. On appelle image directe de $A$ l'ensemble des images des éléments de $A$ :
+\[f(A) = \{f(x)\:\mid\: x\in A\} = \{y\in F \:\mid\: \exists x\in A, y=f(x)\}.\]
+Autrement dit, pour un élément $y\in F$, on a $y\in f(A) \iff \left(\exists x\in A, y=f(x)\right)$.
+\end{definition}
+\begin{definition}[Image réciproque d'une partie]
+\index{image!réciproque d'une partie}
+Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensemble de tous les antécédents d'éléments de $B$ :
+\[f^{<-1>}(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
+Autrement dit, pour un élément $x\in E$, on a $x\in f^{<-1>}(B) \iff f(x)\in B$.
+
+\textbf{Attention}, on voit très souvent la notation $f^{-1}(B)$ au lieu de $f^{<-1>}(B)$ mais cela peut prêter à confusion, la fonction $f$ n'ayant pas forcément de réciproque. Dans ce chapitre, on utilise la notation $f^{<-1>}(B)$, puis on utilisera progressivement la première.
+\end{definition}
+
+\begin{proposition}
+Soit $f : E\to F$.
+\begin{enumerate}
+\item $f(\varnothing)=\varnothing$.
+\item $f(E)\subseteq F$ avec égalité si et seulement si $f$ est surjective. En général, $f(E)\neq F$.
+\item Si $(A_i)_{i\in I}$ est une famille de parties de $E$, alors $f\left(\bigcup_{i\in I}A_i\right) = \bigcup_{i\in I} f(A_i)$.
+\item Par contre, on a en général $f\left(\bigcap_{i\in I}A_i\right) \subseteq \bigcap_{i\in I} f\left(A_i\right)$ mais pas forcément égalité.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item Clair.
+\item On a $f(E)=F \iff (\forall y\in F, y\in f(E))$ ce qui signifie par définition que tout élément $y\in F$ admet au moins un antécédent, et donc que $f$ est surjective.  
+\item Soit $y\in F$. On a 
+\begin{align*}
+y\in f\left( \bigcup_{i\in I} A_i \right)
+&\iff \exists x\in  \bigcup_{i\in I} A_i,   y=f(x) \\
+&\iff \exists x\in E, \left( x\in \bigcup_{i\in I} A_i\text{ et }  y=f(x)\right)\\
+&\iff \exists x\in E, \exists i\in I,  (x\in A_i\text{ et } y=f(x)) \\
+&\boxed{\iff \exists i\in I, \exists x\in E}\:, (x\in A_i\text{ et } y=f(x))\\
+&\iff \exists i\in I, \exists x\in A_i, y=f(x)\\
+&\iff \exists i\in I, y\in f(A_i)\\
+&\iff y\in \bigcup_{i\in I} f(A_i)
+\end{align*}
+L'interversion de quantificateur signalée est licite car ce sont deux quantificateurs existentiels.
+\item On a:
+\begin{align*}
+y\in f\left( \bigcap_{i\in I} A_i \right)
+&\iff \exists x\in  \bigcap_{i\in I} A_i,   y=f(x) \\
+&\iff \exists x\in E, \left( x\in \bigcap_{i\in I} A_i\text{ et }  y=f(x)\right)\\
+&\iff \exists x\in E, \forall i\in I,  (x\in A_i\text{ et } y=f(x)) \\
+&\boxed{\implies \forall i\in I, \exists x\in E}\:, (x\in A_i\text{ et } y=f(x)) \quad(*)\\
+&\implies \forall i\in I, \exists x\in A_i, y=f(x)\\
+&\implies \forall i\in I, y\in f(A_i)\\
+&\implies y\in \bigcap_{i\in I} f(A_i)
+\end{align*}
+L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulement : $\exists x \forall i ... \implies \forall i \exists x ...$}, et l'équivalence devient une implication. Ceci prouve l'inclusion. Pour montrer qu'il n'y a pas forcément égalité, il suffit de donner un contre-exemple, par exemple $\sin(\R_-^* \cap \R_+^*) = \sin(\varnothing) = \varnothing \subsetneq \sin(\R_+^*) \cap \sin(\R_-^*)=[-1,1]$.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Soit $f : E\to F$.
+\begin{enumerate}
+\item $f^{<-1>}(\varnothing)=\varnothing$.
+\item $f^{<-1>}(F)=E$.
+\item Si $(B_i)_{i\in I}$ est une famille de parties de $F$, alors $f^{<-1>}\left(\bigcup_{i\in I}B_i\right) = \bigcup_{i\in I} f^{<-1>}(B_i)$, ainsi que $f^{<-1>}\left(\bigcap_{i\in I}B_i\right) = \bigcap_{i\in I} f^{<-1>}(B_i)$.
+\end{enumerate}
+\end{proposition}
+\begin{proof} Exercice.
+\end{proof}
+
+En conclusion, l'image réciproque se comporte un peu mieux que l'image directe.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
