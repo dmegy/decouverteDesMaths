@@ -63,11 +63,11 @@ Soient $E$ et $F$ des ensembles. L'ensemble des fonctions de $E$ dans $F$ est no
 \end{definition}
 
 \begin{remarque} Un graphe de fonction n'est pas forcément défini par une formule simple du type $y=\sin(x)$, ou $y=x^2+e^x$. Par exemple, on peut utiliser plusieurs formules suivant l'endroit du domaine où se trouve la variable :
-\[ f: 
+\[ f: 
 \R \to \R, 
 x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{cases}\]
 %Il existe des fonctions pouvant paraître encore plus inhabituelles, par exemple:
-%\[ f: 
+%\[ f: 
 %\R \to \R, 
 %x\mapsto \begin{cases}e^x\text{ si } x\not\in\Q}\\ \text{si $x \in \Q$, le dénominateur (positif) $q$ de la fraction irréductible $\frac{p}{q}$ représentant $x$}\end{cases}\]
 %Une fonction n'a pas de raison d'être continue, dérivable etc.
@@ -88,18 +88,33 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 \end{definition}
 
 %----------------------------------
-\section{Composition, réciproques, sections et rétractions}
+\section{Composition}
 
 \begin{definition}[Composition]
 \index{composition de deux applications}
-Soit $f : X\to Y$ et $g : Y\to Z$ deux fonctions. La fonction $g\circ f$ (\og $g$ rond $f$\fg) est la fonction de $X$ dans $Z$ qui à $x\in X$ associe $g(f(x)) \in Z$.
+Soit $f : X\to Y$ et $g : Y\to Z$ deux fonctions. La fonction $g\circ f$ (\og $g$ rond $f$\fg) est la fonction de $X$ dans $Z$ qui à $x\in X$ associe $g(f(x)) \in Z$. Autrement dit, par définition, $(g\circ f)(x) = g(f(x))$.
+
+Une composition d'applications se visualise à l'aide du diagramme suivant (attention à l'ordre : appliquer la fonction $g\circ f$ consiste à appliquer $f$ \emph{suivie} de $g$):
+\[
+\xymatrix{
+X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f}& Y \ar[r]_{g}& Z
+}
+\]
 \end{definition}
 
-Autrement dit, par définition, $(g\circ f)(x) = g(f(x))$.
+
 
 \begin{proposition}[\og La composition est associative\fg]
 \index{associative (composition)}
 Soient $f : X\to Y$, $g : Y\to Z$, $h  : Z\to T$ des fonctions. Alors $h\circ (g\circ f) = (h\circ g)\circ f$. Cette fonction est notée $h\circ g\circ f$.
+
+Ce résultat se visualise à l'aide du diagramme:
+\[
+\xymatrix{
+X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f} \ar[r]_{f} \ar@/^3pc/[rrr]^{h\circ (g\circ f)} \ar@/_3pc/[rrr]_{(h\circ g) \circ f}& Y \ar[r]_{g} \ar@/_1.2pc/[rr]_{h\circ g} & Z \ar[r]^{h} & T
+}
+\]
+
 \end{proposition}
 \begin{proof}
 Les domaines et codomaines sont les mêmes ($X$ et $T$), et si $x\in X$, on a 
@@ -118,6 +133,8 @@ Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\t
 \item Si $\phi = E\to F$, alors $\phi = \phi\circ \Id_E = \Id_F\circ \phi$.
 \end{enumerate}
 \end{remarque}
+
+\section{Réciproques, sections et rétractions}
 
 \begin{definition}[Fonction réciproque]
 \index{réciproque (fonction)}
