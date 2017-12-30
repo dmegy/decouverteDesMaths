@@ -94,7 +94,7 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 \index{composition de deux applications}
 Soit $f : X\to Y$ et $g : Y\to Z$ deux fonctions. La fonction $g\circ f$ (\og $g$ rond $f$\fg) est la fonction de $X$ dans $Z$ qui à $x\in X$ associe $g(f(x)) \in Z$. Autrement dit, par définition, $(g\circ f)(x) = g(f(x))$.
 
-Une composition d'applications se visualise à l'aide du diagramme suivant (attention à l'ordre : appliquer la fonction $g\circ f$ consiste à appliquer $f$ \emph{suivie} de $g$):
+Une composition d'applications se visualise à l'aide du diagramme\index{diagramme} suivant (attention à l'ordre : appliquer la fonction $g\circ f$ consiste à appliquer $f$ \emph{suivie} de $g$):
 \[
 \xymatrix{
 X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f}& Y \ar[r]_{g}& Z
@@ -108,7 +108,7 @@ X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f}& Y \ar[r]_{g}& Z
 \index{associative (composition)}
 Soient $f : X\to Y$, $g : Y\to Z$, $h  : Z\to T$ des fonctions. Alors $h\circ (g\circ f) = (h\circ g)\circ f$. Cette fonction est notée $h\circ g\circ f$.
 
-Ce résultat se visualise à l'aide du diagramme:
+Ce résultat se visualise à l'aide du diagramme\index{diagramme}:
 \[
 \xymatrix{
 X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f} \ar[r]_{f} \ar@/^3pc/[rrr]^{h\circ (g\circ f)} \ar@/_3pc/[rrr]_{(h\circ g) \circ f}& Y \ar[r]_{g} \ar@/_1.2pc/[rr]_{h\circ g} & Z \ar[r]^{h} & T
@@ -134,11 +134,31 @@ Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\t
 \end{enumerate}
 \end{remarque}
 
-\section{Réciproques, sections et rétractions}
+\begin{definition}[diagramme]
+\index{diagramme}
+Lorsque l'on est en présence de plusieurs ensembles et de plusieurs applications entre ces ensembles, il est classique de visualiser la situation à l'aide d'un diagramme. Un diagramme (d'applications entre ensembles) est un graphe dont chaque sommet représente un ensemble et chaque arête (orientée) représente une application.
+
+Par exemple, étant donnés des ensembles $A$, $B$, $C$ et $D$ et des applications $f : A\to B$, $g : A\to C$, $h : D\to A$, $\phi : D\to C$, $\psi : B\to A$, on peut représenter la situation à l'aide du diagramme suivant:
+\[
+\xymatrix{
+A \ar@/^1pc/[r]^{f} \ar[d]_{g} & B \ar@/^/[l]_{\psi}\\
+C & D \ar[ul]^{h} \ar[l]^{\phi}
+}
+\]
+\end{definition}
+
+\section{Applications réciproques, sections et rétractions}
 
 \begin{definition}[Fonction réciproque]
 \index{réciproque (fonction)}
 Soient $f : E\to F$ et $g = F\to E$ deux fonctions. On dit qu'elles sont réciproques l'une de l'autre (ou que $g$ est une réciproque de $f$, ou que $f$ est une réciproque de $g$) si $g\circ f = \Id_E$ \underline{et} $f\circ g = \Id_F$. 
+\[
+\xymatrix{
+ E \ar@(dl,ul)^{\Id_E} \ar@/^2pc/[rrr]^{f} \ar@(ur,dr)^{g\circ f} 
+& & & 
+\ar@/^2pc/[lll]^{g} \ar@(dl,ul)^{f\circ g} F \ar@(ur,dr)^{\Id_F}
+}
+\]
 \end{definition}
 
 
@@ -165,6 +185,18 @@ d'où $g=h$.
 Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
 \end{exemple}
 
+\begin{remarque}
+Dans la définition de réciproque, les conditions $g\circ f = \Id_E$ et  $f\circ g = \Id_F$ sont toutes les deux nécessaires : il est en effet possible que l'une soit vérifiée et pas l'autre. Par exemple, les fonctions 
+\[
+f : \R_+\to \R, x\mapsto \sqrt x
+\quad \text{ et }\quad
+g : \R\to \R_+, x\mapsto x^2
+\]
+vérifient $g\circ f=\Id_{\R_+}$, mais $f\circ g \neq \Id_{\R}$ : en effet, on a $(f\circ g)(x)=\sqrt{x^2}=|x|\neq x$.
+
+Dans ce type de cas, on n'est pas en présence de fonctions réciproques mais la situation porte tout de même un nom. C'est l'objet de la définition suivante.
+\end{remarque}
+
 \begin{definition}[Rétraction/inverse à gauche, section/inverse à droite]
 Soit $f : E\to F$ une fonction.
 \begin{enumerate}
@@ -183,7 +215,7 @@ Par ailleurs, $f$ est une rétraction de $s_1$ et de $s_2$. (Voir remarque ci-de
 \begin{remarque}
 \begin{enumerate}
 \item Une fonction $g$ est une rétraction de $f$ si et seulement si $f$ est une section de $g$ puisque les deux assertions signifient $g\circ f = \Id_E$ : les deux notions sont \og duales\fg.
-\item Les sections et rétractions, lorsqu'elles existent, ne sont en général pas uniques (voir exemple plus haut).
+\item Les sections et rétractions, lorsqu'elles existent, ne sont en général pas uniques (contrairement à la fonction réciproque qui est unique si elle existe).
 \item Une fonction réciproque est à la fois une rétraction et une section (ou : à la fois un inverse à gauche et un inverse à droite).
 \item De même que toutes les fonctions n'ont pas forcément de réciproque, toutes les fonctions n'admettent pas forcément une section ou une rétraction. Par exemple, $f : \R\to \R, x\mapsto x^2$ n'admet ni section ni rétraction. 
 \end{enumerate}
@@ -328,6 +360,14 @@ f : \N\to \N, n\mapsto 2n
 g : \N\to \N, n\mapsto \lfloor n/2\rfloor.
 \]
 Alors $g\circ f = \Id_\N$ donc est bijective, mais $f$ n'est pas surjective et $g$ n'est pas injective.
+
+On peut également considérer les fonctions
+\[
+f : \R_+\to \R, x\mapsto \sqrt x
+\quad \text{ et }\quad
+g : \R\to \R_+, x\mapsto x^2
+\]
+qui vérifient également $g\circ f=\Id_{\R_+}$ sans que $f$ soit surjective ni $g$ injective.
 \end{remarque}
 
 
