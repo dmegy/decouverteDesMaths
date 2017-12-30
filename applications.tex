@@ -35,7 +35,12 @@ Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément 
 
 Deux fonctions sont égales si elles ont même domaine et codomaine, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
 
-
+\begin{definition}[Image d'une application]\index{image!d'une application}
+Soit $f : E\to F$. L'\emph{image} de $f$ est l'ensemble de toutes les images des éléments de $E$ par $f$:
+\[
+\{f(x)\:\mid\: x\in E\}
+\]
+\end{definition}
 
 \begin{remarque}
 \begin{enumerate}
@@ -147,7 +152,12 @@ C & D \ar[ul]^{h} \ar[l]^{\phi}
 \]
 \end{definition}
 
+
+
+%---------------------------------
 \section{Applications réciproques, sections et rétractions}
+
+
 
 \begin{definition}[Fonction réciproque]
 \index{réciproque (fonction)}
@@ -223,8 +233,10 @@ Par ailleurs, $f$ est une rétraction de $s_1$ et de $s_2$. (Voir remarque ci-de
 
 % autre exemple avec inverse à gauche / pas à droite ou l'inverse
 
+
+
 %---------------------------------
-\section{Restriction, prolongement}
+\section{Restriction, prolongement, corestriction}
 % corestriction plus tard, lorsqu'on aura vu l'image
 
 \begin{definition}[Restriction]
@@ -244,6 +256,20 @@ Attention, il existe en général plusieurs prolongements possibles d'une même 
 \[g : \R^* \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ \sin(x) \text{ si } x<0\end{cases},\]
 \[h : \R_+ \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ 10 \text{ si }x=0\end{cases}.\]
 (Un prolongement ne doit pas non plus être forcément continu ni dérivable, etc.)
+
+
+\begin{definition}[Corestriction]\index{corestriction}
+Soit $f : E\to F$, et $B$ une partie de $F$ contenant toutes les images des éléments de $E$ (autrement dit, $\forall x\in E, f(x)\in B$).
+La \emph{corestriction} de $f$ à $B$ est l'application de domaine $E$, codomaine $B$ et de même graphe que $f$, autrement dit c'est l'application 
+\[ g : E\to B, x\mapsto f(x).\]
+\end{definition}
+
+\begin{exemple}
+Soit $f : \R\to \R, x\mapsto x^2$. On peut la corestrindre à $[-3,+\infty[$ car cette partie de $\R$ contient toutes les images de $f$. La corestriction de $f$ à $[-3,+\infty[$ est $g : \R\to [-3,+\infty[, x\mapsto x^2$.
+\end{exemple}
+
+
+
 
 %---------------------------------
 \section{Fonctions injectives et surjectives}
@@ -275,8 +301,8 @@ On dit que $f$ est bijective si elle est injective et surjective.
 \begin{enumerate}
 \item La fonction identité (d'un ensemble $E$ dans lui-même) est bijective.
 \item La fonction $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. Elle n'est pas injective car bien que $1$ soit différent de $-1$, ils ont la même image. Elle n'est pas surjective car $-2$ n'a pas d'antécédent dans $\R$ : on ne peut pas trouver de réel $x$ tel que $x^2 = -2$.
-\item La fonction $g : \R \to \R_+, x\mapsto x^2$ n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : l'ensemble d'arrivée est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
-\item La fonction $h : \R_+ \to \R_+, x\mapsto x^2$ est injective et surjective, donc bijective. Elle est surjective pour la même raison que $g$, elle est injective, car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe).
+\item La corestriction de $f$ à $\R_+$ est $g : \R \to \R_+, x\mapsto x^2$. Elle n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : le codomaine est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
+\item La restriction de $g$ à $\R_+$ est $h : \R_+ \to \R_+, x\mapsto x^2$. Elle est injective et surjective, donc bijective. Elle est injective car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe). Sa surjectivité ne découle pas de celle de $g$ car le domaine a été restreint : elle est surjective car tout nombre réel positif $y\geq 0$ a au moins un antécédent \emph{dans $\R_+$}, à savoir $\sqrt{y}$.
 \item (Zérologie)\index{zérologie} L'unique fonction de $\varnothing$ dans $\varnothing$ est bijective. La fonction vide de $\varnothing$ dans n'importe quel ensemble est toujours injective.
 \end{enumerate}
 \end{exemple}
@@ -286,6 +312,8 @@ En général, la surjectivité est plus difficile à montrer que l'injectivité,
 \begin{remarque}
 Si $f : A\to B$ est injective, alors on peut parfois \og identifier\fg{} $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. \textbf{Attention}, cette façon d'identifier $A$ à une partie de $B$ dépend de $f$ et il existe en général plusieurs injections de $A$ dans $B$, donc le choix de l'injection n'est pas anodin, ni canonique en général.
 \end{remarque}
+
+
 
 \begin{proposition}
 \label{bijective_admet_reciproque}
@@ -443,6 +471,27 @@ Soit $f : E\to F$.
 
 En conclusion, l'image réciproque se comporte un peu mieux que l'image directe.
 
+\begin{exercice}[Factorisation en surjection puis injection]
+Montrer que toute application se factorise en une surjection suivie d'une injection. Autrement dit, montrer que pour toute fonction $f : E\to F$, il existe un ensemble $G$, et des fonctions $\phi : E\to G$ et $\psi : G\to F$ telles que $f = \psi\circ \phi$, avec $\phi$ surjective et $\psi$ injective.
+\end{exercice}
+
+\begin{exercice}[propriété du relèvement]
+Soient $e : A\to B$ et $m : C\to D$ deux applications. On dit que $e$ est orthogonale (à gauche) à $m$ (ou que $m$ est orthogonale à droite à $e$), et on note $e\perp m$, si pour tout diagramme commutatif
+\[
+\xymatrix{
+A \ar[r] \ar[d]_{e}& C\ar[d]^{m}\\
+B \ar[r]& D 
+},
+\]
+il existe un relèvement c'est-à-dire une application $r : B\to C$ faisant commuter le diagramme :
+\[
+\xymatrix{
+A \ar[r] \ar[d]_{e}& C\ar[d]^{m}\\
+B \ar[r]\ar[ur]^{r}& D 
+}
+\]
+Montrer que si $e$ est surjective et $m$ est injective, alors $e\perp m$.
+\end{exercice}
 
 
 
