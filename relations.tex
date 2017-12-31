@@ -483,3 +483,22 @@ Si $\mathcal R$ est une relation d'équivalence sur un ensemble fini $E$, alors 
 \begin{proof}
 On a  $E= \bigcup_{A\in E/\mathcal R} A$ et l'union est disjointe, donc on obtient le résultat en prenant le cardinal des deux membres.
 \end{proof}
+
+\begin{definition}[Passage au/factorisation par le quotient]
+Soit $f : E\to F$ une application, et $\mathcal R$ une relation d'équivalence sur $E$, avec $Q=E/\mathcal R$ l'ensemble quotient et $p : E\to Q$ la projection canonique sur le quotient.
+On dit que $f$ \emph{passe au quotient}, si elle se factorise à droite par $p$, autrement dit s'il existe une application $\overline f : Q\to F$ telle que $f = \overline{f} \circ p$, autrement dit telle que le diagramme suivant commute:
+\[
+\xymatrix{
+E \ar[r]^f \ar[d]^p & F\\
+Q \ar[ur]^{\overline f}& 
+}
+\] 
+\end{definition}
+
+\begin{proposition}[CNS de passage au quotient]
+Soit $f : E\to F$ une application, et $\mathcal R$ une relation d'équivalence sur $E$, avec $Q=E/\mathcal R$ l'ensemble quotient et $p : E\to Q$ la projection canonique sur le quotient.
+
+Alors, $f$ passe au quotient ssi elle est constante sur les classes d'équivalence.
+\end{proposition}
+
+% puis lemmes de factorisation généraux ?
