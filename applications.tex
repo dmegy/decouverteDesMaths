@@ -97,7 +97,7 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 
 \begin{definition}[Composition]
 \index{composition de deux applications}
-Soit $f : X\to Y$ et $g : Y\to Z$ deux fonctions. La fonction $g\circ f$ (\og $g$ rond $f$\fg) est la fonction de $X$ dans $Z$ qui à $x\in X$ associe $g(f(x)) \in Z$. Autrement dit, par définition, $(g\circ f)(x) = g(f(x))$.
+Soit $f : X\to Y$ et $g : Y\to Z$ deux fonctions. La composée de $g$ et de $f$ est la fonction $g\circ f$ (se lit \og $g$ rond $f$\fg) de $X$ dans $Z$ qui à $x\in X$ associe $g(f(x)) \in Z$. Autrement dit, par définition, $(g\circ f)(x) = g(f(x))$.
 
 Une composition d'applications se visualise à l'aide du diagramme\index{diagramme} suivant (attention à l'ordre : appliquer la fonction $g\circ f$ consiste à appliquer $f$ \emph{suivie} de $g$):
 \[
@@ -107,6 +107,24 @@ X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f}& Y \ar[r]_{g}& Z
 \]
 \end{definition}
 
+Plus généralement, pour pouvoir composer deux fonctions il est suffisant que le codomaine de la première fonction (dans l'ordre de la composition) soit inclus dans le domaine de la seconde. (Cette condition est bien sûr également nécessaire, autrement l'écriture $g(f(x))$ n'a pas de sens. Deux fonctions quelconques ne sont donc en général pas composables.)
+
+\begin{remarque}[Factorisation d'une application comme composée d'autres applications]
+\'Ecrire une application $f$ sous la forme d'une composition $f = g\circ h$, c'est la \emph{factoriser}. Plusieurs factorisations sont possibles. Par exemple, si $f : \R\to \R, x\mapsto x^2+1$, on peut écrire $f : g\circ h$, avec
+\[
+h : \R\to \R, x\mapsto x^2 
+\text{ et }
+g : \R\to \R, x\mapsto x+1.
+\]
+\end{remarque}
+
+\begin{remarque} Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général disctinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
+$ et $g : \R\to \R, x\mapsto x+1$,  on peut composer dans les deux sens mais on a :
+\begin{align*}
+g\circ f : \R\to \R, & x\mapsto g(f(x)) = g(x^2) = x^2+1,\\
+f\circ g : \R\to \R, & x\mapsto f(g(x)) = f(x+1) = (x+1)^2 = x^2+2x+1.
+\end{align*}
+\end{remarque}
 
 
 \begin{proposition}[\og La composition est associative\fg]
