@@ -7,6 +7,10 @@
 \usepackage{amssymb,mathtools,amsthm}
 \usepackage{stmaryrd,mathrsfs} % polices et symboles supplémentaires
 \usepackage{fancybox,graphicx}
+\usepackage[francais]{minitoc} % sommaires en début de chapitre
+\setcounter{minitocdepth}{2} % profondeur des sommaires (1 = sections)
+\setcounter{tocdepth}{1} % profondeur de la table des matières
+
 \usepackage{fontawesome}
 \usepackage{xypic,multicol,comment,variations,enumitem,datetime}
 
@@ -35,6 +39,8 @@
 \usepackage{fourier} % police de caractères : Adobe Utopia + Fourier math
 \everymath{\displaystyle} % plus lisible mais casse l'homogénéité de la mise en page
 
+\newcommand{\retourTOC}{Retour à la table des matières principale}
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -49,7 +55,7 @@
 \DeclareMathOperator{\Card}{Card} % cardinal
 
 % Environnements : 
-
+\swapnumbers
 \theoremstyle{definition}
 \newtheorem{theoreme}{Th\'eor\`eme}[section]
 \newtheorem{proposition}[theoreme]{Proposition}
@@ -61,13 +67,19 @@
 \newtheorem{propdef}[theoreme]{Proposition et Définition}
 \newtheorem{axiomedef}[theoreme]{Axiome et Définition}
 \newtheorem{definition}[theoreme]{D\'efinition}
-\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{vocabulaire}[theoreme]{Vocabulaire}
 \newtheorem{exercice}[theoreme]{Exercice}
 \newtheorem{exemple}[theoreme]{Exemple}
 \newtheorem{exemples}[theoreme]{Exemples}
+\theoremstyle{plain}
+\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{methode}[theoreme]{Méthode}
+
+
 
 \makeindex
 % et faire un "makeindex"
+\dominitoc
 \begin{document}
 
 \title{Découverte des mathématiques\\
@@ -80,7 +92,9 @@ L1, année 2017-2018\\
 \maketitle
 
 
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
 \tableofcontents
+
 
 
 

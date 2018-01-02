@@ -1,4 +1,6 @@
 \chapter{Arithmétique}
+\minitoc
+\hyperlink{toc}{\retourTOC}
 
 Attention, la présentation qui suit diffère sans doute beaucoup de celle vue en terminale : il faut faire l'effort de l'étudier en détail même si l'ordre dans lequel les notions sont introduites semble \og mauvais\fg : en fait, c'est plutôt le \og bon\fg{} ordre (si tant est qu'il en existe un).
 
@@ -393,9 +395,10 @@ Si $n$ est composé, alors $n=ab$ avec $a, b \in \llbracket 2,n-1 \rrbracket$, d
 \subsection{Décomposition en produit de nombres premiers}
 Soit $\mathcal P$ l'ensemble des nombres premiers.
 
-\begin{proposition}\index{nombres premiers!décomposition en facteurs premiers}
+\begin{proposition}
+\index{nombres premiers!décomposition en facteurs premiers}\index{factorisation!en produit de nombres premiers}
 \[
-\forall n\geq 1, \: \exists !  (\alpha_p)_{p\in \mathcal P}, \: n : \prod_{p\in \mathcal P} p^{\alpha_p}.
+\forall n\geq 1, \: \exists !  (\alpha_p)_{p\in \mathcal P}, \: n = \prod_{p\in \mathcal P} p^{\alpha_p}.
 \]
 En fait, seul un nombre fini des $\alpha_p$ sont non nuls.
 \end{proposition}

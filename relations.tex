@@ -1,4 +1,6 @@
 \chapter{Relations d'ordre, relations d'équivalence}
+\minitoc
+\hyperlink{toc}{\retourTOC}
 
 \section{Relations binaires}
 
@@ -484,21 +486,61 @@ Si $\mathcal R$ est une relation d'équivalence sur un ensemble fini $E$, alors 
 On a  $E= \bigcup_{A\in E/\mathcal R} A$ et l'union est disjointe, donc on obtient le résultat en prenant le cardinal des deux membres.
 \end{proof}
 
-\begin{definition}[Passage au/factorisation par le quotient]
-Soit $f : E\to F$ une application, et $\mathcal R$ une relation d'équivalence sur $E$, avec $Q=E/\mathcal R$ l'ensemble quotient et $p : E\to Q$ la projection canonique sur le quotient.
-On dit que $f$ \emph{passe au quotient}, si elle se factorise à droite par $p$, autrement dit s'il existe une application $\overline f : Q\to F$ telle que $f = \overline{f} \circ p$, autrement dit telle que le diagramme suivant commute:
+% chercher un exo d'application avec des bijections : nombres de points fixes
+
+\begin{exercice}
+\index{involution}\index{point fixe}
+Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifiant $f\circ f = \Id_E$.
+\begin{enumerate}
+\item Montrer que si $f$ n'a pas de point fixes, alors $|E|$ est pair.
+\item Plus généralement, montrer que $|E|$ a la même parité que le nombre de points fixes de $f$.
+\end{enumerate}
+\end{exercice}
+
+\section{Compléments sur les quotients}
+
+\begin{propdef}[Passage au/factorisation par le quotient]
+Soit $f : E\to F$ une application, $\mathcal R$ une relation d'équivalence sur $E$  et $p : E\to E/\mathcal R$ la projection canonique sur le quotient.
+On dit que $f$ \emph{passe (ou descend) au quotient} si elle se factorise à droite par $p$, autrement dit s'il existe une application $\overline f : E/\mathcal R\to F$ telle que $f = \overline{f} \circ p$, autrement dit telle que le diagramme suivant commute:
 \[
 \xymatrix{
 E \ar[r]^f \ar[d]^p & F\\
-Q \ar[ur]^{\overline f}& 
+E/\mathcal R \ar[ur]_{\overline f}& 
 }
 \] 
-\end{definition}
+Si une telle application $\overline{f}$ existe, elle est unique.
+\end{propdef}
+\begin{proof}(de l'unicité). Soit $\alpha \in E/\mathcal R$. Comme la projection canonique $p : E\to E/\mathcal R$ est surjective, il existe $x\in E$ tel que $\alpha=p(x)$. Or par hypothèse, on a $f = \overline{f} \circ p$, donc $\overline f(\alpha) =\overline f(p(x))= f(x)$. Ceci montre que les valeurs de $\overline f$ sont déterminées par la fonction $f$.
+\end{proof}
 
-\begin{proposition}[CNS de passage au quotient]
-Soit $f : E\to F$ une application, et $\mathcal R$ une relation d'équivalence sur $E$, avec $Q=E/\mathcal R$ l'ensemble quotient et $p : E\to Q$ la projection canonique sur le quotient.
 
-Alors, $f$ passe au quotient ssi elle est constante sur les classes d'équivalence.
+\begin{proposition}[Condition nécessaire et suffisante de passage au quotient]
+Soit $f : E\to F$ une application, et $\mathcal R$ une relation d'équivalence sur $E$.
+
+Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \to F$ si et seulement si elle est constante sur les classes d'équivalence, c'est-à-dire si et seulement si:
+\[
+\forall x,y\in E, x\mathcal R y \implies f(x)=f(y).
+\]
 \end{proposition}
 
-% puis lemmes de factorisation généraux ?
+% référer aux lemmes de factorisation généraux dans "applications"
+
+\begin{exercice}[Produits de quotients, quotients de produits]
+Soient $E$ et $F$ deux ensembles munis chacune d'une relation d'équivalence (notées $\mathcal R$ et $\mathcal S$.
+\begin{enumerate}
+\item Montrer que la relation binaire sur $E\times F$ définie par 
+\[
+(x,y) \mathcal T (x',y') \iff \left( x\mathcal R x' \text{ et } y\mathcal S y'\right)
+\]
+est une relation d'équivalence.
+\item Montrer que l'application
+\[ \psi : 
+\begin{cases}
+(E/\mathcal R) \times (F/\mathcal S) \to (E\times F)/\mathcal T\\
+(\overline{x}^\mathcal R,\overline{y}^\mathcal S) \mapsto \overline{(x,y)}^\mathcal T
+\end{cases}
+\]
+est une bijection.
+\end{enumerate} 
+
+\end{exercice}

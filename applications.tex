@@ -1,9 +1,10 @@
 \chapter{Applications}
-
-
-%Mettre plutôt trop de vocabulaire que pas assez : sections, rétractions, fibres etc.
+\minitoc
+\hyperlink{toc}{\retourTOC}
 
 \section{Applications, graphes}
+
+\emph{Résumé : applications, graphes, source, but, images, antécédents, ensemble des fonctions de $E$ dans $F$, fonction caractéristique, point fixe d'une application}
 
 \begin{definition}[Graphe d'application]
 Soient $E$ et $F$ deux ensembles, et $\Gamma \subseteq E\times F$. On dit que $\Gamma$ est un \emph{graphe d'application de $E$ dans $F$} si la condition suivante est vérifiée:
@@ -23,17 +24,17 @@ L'ensemble $\Gamma'' = \{(1,1),(2,1),(2,4),(3,4)\} \subseteq E\times F$ non plus
 \end{exemple}
 
 \begin{definition}[Applications/fonction entre ensembles]
-\index{application}\index{fonction}\index{domaine}\index{codomaine}\index{graphe}\index{image!d'un élément}
+\index{application}\index{fonction}\index{domaine}\index{source}\index{codomaine}\index{but}\index{graphe}\index{image!d'un élément}
 Une \emph{application} ou \emph{fonction} (dans ce cours, les deux mots sont synonymes) $f$ est la donnée de trois objets:
 \begin{enumerate}
-\item un ensemble $E$, appelé le \emph{domaine} de $f$;
-\item un ensemble $F$, appelé le \emph{codomaine} de $f$;
+\item un ensemble $E$, appelé le \emph{domaine} ou la \emph{source}, ou encore l'\emph{ensemble de départ} de $f$;
+\item un ensemble $F$, appelé le \emph{codomaine} ou le \emph{but} ou encore l'\emph{ensemble d'arrivée} de $f$;
 \item une partie $\Gamma_f \subseteq E\times F$, appelée le \emph{graphe de $f$} qui est un \emph{graphe d'application} au sens de la définition précédente. 
 \end{enumerate}
 Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément (unique) $y\in F$, appelé l'\emph{image de $x$ par $f$}. Cet élément est noté $f(x)$.
 \end{definition}
 
-Deux fonctions sont égales si elles ont même domaine et codomaine, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
+Deux fonctions sont égales si elles ont même source et but, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
 
 \begin{definition}[Image d'une application]\index{image!d'une application}
 Soit $f : E\to F$. L'\emph{image} de $f$ est l'ensemble de toutes les images des éléments de $E$ par $f$:
@@ -50,7 +51,7 @@ Soit $f : E\to F$. L'\emph{image} de $f$ est l'ensemble de toutes les images des
 \end{enumerate}
 \end{remarque}
 
-Pour définir une fonction de $E$ dans $F$, on écrit \og Soit $f : E\to F$ une fonction\fg. Pour définir une fonction particuière, plutôt que donner son graphe comme le demanderait la définition, on utilise le symbole \og$\mapsto$\fg{} qui se lit \og est envoyé sur / s'envoie sur / est associé à \fg{} comme dans l'exemple suivant:
+Pour définir une fonction de $E$ dans $F$, on écrit \og Soit $f : E\to F$ une fonction\fg. Pour définir une fonction particulière, plutôt que donner son graphe comme le demanderait la définition, on utilise le symbole \og$\mapsto$\fg{} qui se lit \og est envoyé sur / s'envoie sur / est associé à \fg{} comme dans l'exemple suivant:
 \[
 \text{ Soit } f :\Z \to \R,\: n\mapsto \sqrt{n^2+n+1}.
 \]
@@ -92,8 +93,23 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 \]
 \end{definition}
 
+\begin{definition}[Point fixe]
+\index{point fixe}
+Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{fixe par $f$} (ou simplement \emph{fixe} s'il n'y a pas d'ambiguité sur la fonction), si $f(x)=x$. On dit aussi que $x$ est un \emph{point fixe} de $f$.
+\end{definition}
+
+
+
+
+
 %----------------------------------
 \section{Composition}
+%----------------------------------
+
+\emph{Résumé : composition, factorisation, la composition est associative, fonction identité, diagramme (commutatif ou pas), }
+
+
+
 
 \begin{definition}[Composition]
 \index{composition de deux applications}
@@ -109,16 +125,17 @@ X \ar[r]_{f} \ar@/^1pc/[rr]^{g\circ f}& Y \ar[r]_{g}& Z
 
 Plus généralement, pour pouvoir composer deux fonctions il est suffisant que le codomaine de la première fonction (dans l'ordre de la composition) soit inclus dans le domaine de la seconde. (Cette condition est bien sûr également nécessaire, autrement l'écriture $g(f(x))$ n'a pas de sens. Deux fonctions quelconques ne sont donc en général pas composables.)
 
-\begin{remarque}[Factorisation d'une application comme composée d'autres applications]
+\begin{definition}[Factorisation d'une application comme composée d'autres applications]
+\index{factorisation!d'une application comme composée}
 \'Ecrire une application $f$ sous la forme d'une composition $f = g\circ h$, c'est la \emph{factoriser}. Plusieurs factorisations sont possibles. Par exemple, si $f : \R\to \R, x\mapsto x^2+1$, on peut écrire $f : g\circ h$, avec
 \[
 h : \R\to \R, x\mapsto x^2 
 \text{ et }
 g : \R\to \R, x\mapsto x+1.
 \]
-\end{remarque}
+\end{definition}
 
-\begin{remarque} Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général disctinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
+\begin{remarque} Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général distinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
 $ et $g : \R\to \R, x\mapsto x+1$,  on peut composer dans les deux sens mais on a :
 \begin{align*}
 g\circ f : \R\to \R, & x\mapsto g(f(x)) = g(x^2) = x^2+1,\\
@@ -147,7 +164,7 @@ d'où l'égalité des deux fonctions.
 \end{proof}
 
 \begin{definition}[Fonction identité]
-Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\to E, x\mapsto x$.
+Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\to E, x\mapsto x$. (En d'autres termes, la fonction identité de $E$ est la fonction de $E$ dans $E$ dont tous les points sont fixes.)
 \end{definition}
 
 \begin{remarque}
@@ -157,7 +174,7 @@ Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\t
 \end{enumerate}
 \end{remarque}
 
-\begin{definition}[diagramme]
+\begin{definition}[Diagramme]
 \index{diagramme}
 Lorsque l'on est en présence de plusieurs ensembles et de plusieurs applications entre ces ensembles, il est classique de visualiser la situation à l'aide d'un diagramme. Un diagramme (d'applications entre ensembles) est un graphe dont chaque sommet représente un ensemble et chaque arête (orientée) représente une application.
 
@@ -170,11 +187,46 @@ C & D \ar[ul]^{h} \ar[l]^{\phi}
 \]
 \end{definition}
 
+\begin{definition}[Diagramme commutatif]
+\index{diagramme!commutatif}
+Considérons un diagramme d'applications entre ensembles. En général, il y a plusieurs chemins entre deux sommets donnés, et ces chemins correspondent à différentes fonctions composées entre les deux ensembles.
+
+On dit que le diagramme \emph{est commutatif} (ou \emph{qu'il commute}) lorsque pour tout couple de sommets, les différentes applications composées reliant ces ensembles sont égales.
+\end{definition}
+
+\begin{exemple}
+\begin{enumerate}
+\item  Par exemple, dire que le diagramme
+$
+\xymatrix{
+X \ar[d]_{f} \ar[r]^{h}& Z \\
+Y \ar[ur]_{g}& 
+}
+$
+est commutatif revient à dire que $h = g\circ f$.
+\item Dire que le diagramme 
+$\xymatrix{
+A \ar[r]^{\phi} \ar[d]_{f} & B \ar[d]^{g}\\
+C \ar[r]^{\psi}& D 
+}$
+est commutatif revient à dire que $\psi\circ f = g \circ \phi$. Un tel diagramme est appelé \emph{carré commutatif}.
+\end{enumerate}
+\end{exemple}
+
+
+
+
+
+
+
+
 
 
 %---------------------------------
 \section{Applications réciproques, sections et rétractions}
+%---------------------------------
 
+\emph{Résumé : fonctions réciproque, unicité de la réciproque, sections et rétractions}
 
 
 \begin{definition}[Fonction réciproque]
@@ -229,7 +281,21 @@ Dans ce type de cas, on n'est pas en présence de fonctions réciproques mais la
 Soit $f : E\to F$ une fonction.
 \begin{enumerate}
 \item Une \emph{rétraction} (ou \emph{inverse à gauche}) de $f$, est une fonction $r:F\to E$ telle que $r\circ f = \Id_E$.
+\[
+\xymatrix{
+ E \ar@(dl,ul)^{\Id_E} \ar@/^1pc/[rrr]^{f}
+& & & 
+\ar@/^1pc/[lll]^{r}  F 
+}
+\]
 \item Une \emph{section} (ou \emph{inverse à droite}) de $f$, est une fonction $s:F\to E$ telle que $f \circ s = \Id_F$.
+\[
+\xymatrix{
+ E  \ar@/^1pc/[rrr]^{f} 
+& & & 
+\ar@/^1pc/[lll]^{s}  F \ar@(ur,dr)^{\Id_F}
+}
+\]
 \end{enumerate}
 \end{definition}
 
@@ -255,16 +321,25 @@ Par ailleurs, $f$ est une rétraction de $s_1$ et de $s_2$. (Voir remarque ci-de
 
 %---------------------------------
 \section{Restriction, prolongement, corestriction}
-% corestriction plus tard, lorsqu'on aura vu l'image
+%---------------------------------
+
+\emph{Résumé : restriction, prolongement, corestriction}
 
 \begin{definition}[Restriction]
 \index{restriction d'une application}
-Soit $f : E\to F$ et $A \in \mathcal P(E)$ une partie de $E$. La \emph{restriction} de $f$ à $A$, notée $f|_A$, est l'application de $A$ dans $F$ suivante:
+Soit $f : E\to F$ et $A \in \mathcal P(E)$ une partie de $E$. La \emph{restriction} de $f$ à $A$, notée $f|_{A}$, est l'application de $A$ dans $F$ suivante:
 \[
-f|_A : A\to F, \: x\mapsto f(x)
+f|_{A} : A\to F, \: x\mapsto f(x)
 \]
 Attention, les fonctions $f|_A$ et $f$ doivent être considérées comme distinctes car leurs domaines sont distincts ($A$ au lieu de $E$).
 \end{definition}
+
+\begin{remarque}
+Dans le contexte de la définition, si on note $i : A\to E, x\mapsto x$ l'inclusion de $A$ dans $E$, alors la restriction $f|_A$ est simplement la composition $f\circ i$.
+\[\xymatrix{
+A \ar[r]^{i} \ar@/_/[rr]_{f\circ i = f|_A} & E \ar[r]^f & F
+}\]
+\end{remarque}
 
 \begin{definition}[Prolongement]
 Soient $E$ et $F$ des ensembles, $A\in \mathcal P(E)$ une partie de $E$ et $f : A\to F$ une fonction. On dit qu'une application $g : E\to F$ est un \emph{prolongement} de $f$ si $g|_A = f$.
@@ -280,76 +355,95 @@ Attention, il existe en général plusieurs prolongements possibles d'une même 
 Soit $f : E\to F$, et $B$ une partie de $F$ contenant toutes les images des éléments de $E$ (autrement dit, $\forall x\in E, f(x)\in B$).
 La \emph{corestriction} de $f$ à $B$ est l'application de domaine $E$, codomaine $B$ et de même graphe que $f$, autrement dit c'est l'application 
 \[ g : E\to B, x\mapsto f(x).\]
+La corestriction de $f$ à $B$ se note $f|^{B}$ mais cette notation n'est pas aussi standard que celle pour la restriction
 \end{definition}
 
 \begin{exemple}
-Soit $f : \R\to \R, x\mapsto x^2$. On peut la corestrindre à $[-3,+\infty[$ car cette partie de $\R$ contient toutes les images de $f$. La corestriction de $f$ à $[-3,+\infty[$ est $g : \R\to [-3,+\infty[, x\mapsto x^2$.
+Soit $f : \R\to \R, x\mapsto x^2$. On peut la corestreindre à $[-3,+\infty[$ car cette partie de $\R$ contient toutes les images de $f$. La corestriction de $f$ à $[-3,+\infty[$ est $g : \R\to [-3,+\infty[, x\mapsto x^2$.
 \end{exemple}
+
+\begin{exercice}
+Dans le contexte de la définition, soit $i : B\to F$ l'inclusion de $B$ dans $F$, et soit $r : F\to B$ une fonction définie comme suit : pour $y\in F$, on définit $r(y)=y$ si $y\in B$, et sinon, $r(y)$ est un élément arbitraire de $B$. 
+\begin{enumerate}
+\item Vérifier que $r$ est une rétraction de $i$.
+\item Vérifier que la corestriction $f|^{B}$ est égale à la composée $r\circ f$.
+\end{enumerate}
+\end{exercice}
 
 
 
 
 %---------------------------------
 \section{Fonctions injectives et surjectives}
+%---------------------------------
+
+\emph{Résumé : fonctions injectives, surjectives, bijectives, stabilité par composition, réciproques partielles, injectivité ssi rétractions, surjectivité ssi  sections, bijectivité ssi réciproque}
 
 
 
 \begin{definition}[Fonction injective]
 \index{injection}
-Soient $A$ et $B$ deux ensembles, et $f : A \to B$ une application. On dit que $f$ est \emph{injective} (ou que c'est une \emph{injection}) si
-\[\forall (x,y) \in A^2,\quad f(x)=f(y) \Rightarrow  x=y,\]
-autrement dit si (contraposée) 
-\[\forall (x,y) \in A^2,\quad x\neq y \Rightarrow  f(x)\neq f(y),\]
-autrement dit si deux éléments distincts ont toujours des images distinctes. On dit aussi que $f$ \og sépare les points\fg.
+Soit $f : A \to B$ une application. On dit que $f$ est \emph{injective} (ou que c'est une \emph{injection}) si les conditions équivalentes suivantes sont vérifiées.
+\begin{enumerate}
+\item $\forall (x,y) \in A^2,\quad f(x)=f(y) \Rightarrow  x=y$.
+\item $\forall (x,y) \in A^2,\quad x\neq y \Rightarrow  f(x)\neq f(y)$. (La contraposée de la précédente.)
+\item Deux éléments distincts de $A$ ont des images distinctes. 
+\item Un élément de $B$ admet au plus un antécédent par $f$.
+\end{enumerate}
+Une formulation moins précise mais parlante est qu'une fonction injective \og sépare les points\fg{}.
 \end{definition}
+
+\begin{exemple}
+$f : \R\to \R, x\mapsto x^2$ n'est \textbf{pas} injective puisque $f(1)=f(-1)$.
+\end{exemple}
+
+\begin{exercice}
+Montrer que  $\sin : \R\to \R, x\mapsto \sin(x)$ n'est pas injective.
+\end{exercice}
+
+% méthode : pour rédiger une preuve, on utilise en général la première formulation, ou la seconde. Les autres formulations servent plutôt à assimiler la notion.
+% méthode : pour montrer qu'une fonction n'est pas injective, il suffit de trouver deux éléments distincts qui ont même image.
+% mettre un petit exo avec exemple et contre-exemple ?
 
 \begin{definition}[Fonction surjective]
 \index{surjection}
-On dit que $f$ est \emph{surjective} (ou que c'est une \emph{surjection}) si
+Soit $f : A \to B$ une application. On dit que $f$ est \emph{surjective} (ou que c'est une \emph{surjection}) si
 \[\forall b \in B,\quad \exists a\in A / f(a)=b,\]
 autrement dit tout élément $b\in B$ a (au moins) un antécédent par $f$.
+Une formulation moins précise mais parlante est  qu'une fonction surjective \og recouvre son codomaine\fg{}.
 \end{definition}
+
+\begin{exemple}
+$f : \R\to \R, x\mapsto x^2$ n'est \textbf{pas} surjective puisque $-1$ n'a pas d'antécédent par $f$.
+\end{exemple}
+
+\begin{exercice}
+Montrer que  $\exp: \R\to \R, x\mapsto e^x$ n'est pas surjective.
+\end{exercice}
 
 \begin{definition}[Fonction bijective]
 \index{bijection}
-On dit que $f$ est bijective si elle est injective et surjective.
+On dit que $f : A\to B$ est \emph{bijective} (ou que c'est une \emph{bijection}) si elle est injective et surjective. Autrement dit, $f$ est bijective si tout élément $y\in B$ admet \emph{exactement} un antécédent par $f$.
 \end{definition}
 
 \begin{exemple}
 \begin{enumerate}
 \item La fonction identité (d'un ensemble $E$ dans lui-même) est bijective.
-\item La fonction $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. Elle n'est pas injective car bien que $1$ soit différent de $-1$, ils ont la même image. Elle n'est pas surjective car $-2$ n'a pas d'antécédent dans $\R$ : on ne peut pas trouver de réel $x$ tel que $x^2 = -2$.
-\item La corestriction de $f$ à $\R_+$ est $g : \R \to \R_+, x\mapsto x^2$. Elle n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : le codomaine est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
-\item La restriction de $g$ à $\R_+$ est $h : \R_+ \to \R_+, x\mapsto x^2$. Elle est injective et surjective, donc bijective. Elle est injective car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe). Sa surjectivité ne découle pas de celle de $g$ car le domaine a été restreint : elle est surjective car tout nombre réel positif $y\geq 0$ a au moins un antécédent \emph{dans $\R_+$}, à savoir $\sqrt{y}$.
+\item Si $A\subseteq B$, la fonction $i : A\to B, x\mapsto x$, appelée \emph{l'inclusion de $A$ dans $B$}, est injective. De même que les fonctions identité, les fonctions d'inclusion jouent souvent un rôle important malgré leur apparence anodine.
+\item On a déjà vu que $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. La corestriction de $f$ à $\R_+$ est $g : \R \to \R_+, x\mapsto x^2$. Elle n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : le codomaine est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
+\item La restriction de $g$ à $\R_+$ est $h : \R_+ \to \R_+, x\mapsto x^2$. Elle est injective et surjective, donc bijective. Elle est injective car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe). Sa surjectivité ne découle pas directement de celle de $g$ car le domaine a été restreint : elle est surjective car tout nombre réel positif $y\geq 0$ a au moins un antécédent \emph{dans $\R_+$}, à savoir $\sqrt{y}$.
 \item (Zérologie)\index{zérologie} L'unique fonction de $\varnothing$ dans $\varnothing$ est bijective. La fonction vide de $\varnothing$ dans n'importe quel ensemble est toujours injective.
 \end{enumerate}
 \end{exemple}
 
+\begin{remarque}
 En général, la surjectivité est plus difficile à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général cela se voit (éventuellement après un petit calcul / majoration / développement d'expression).
+\end{remarque}
 
 \begin{remarque}
 Si $f : A\to B$ est injective, alors on peut parfois \og identifier\fg{} $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. \textbf{Attention}, cette façon d'identifier $A$ à une partie de $B$ dépend de $f$ et il existe en général plusieurs injections de $A$ dans $B$, donc le choix de l'injection n'est pas anodin, ni canonique en général.
 \end{remarque}
 
-
-
-\begin{proposition}
-\label{bijective_admet_reciproque}
-Soit $f : E\to F$.
-\begin{enumerate}
-\item Si elle est surjective, elle admet une section.
-\item Si elle est injective, elle admet une rétraction.
-\item Si elle est bijective, elle admet une réciproque.
-\end{enumerate}
-\end{proposition}
-\begin{proof}\index{section}
-\begin{enumerate}
-\item  Pour tout $y\in F$, on choisit un antécédent de $y$ par $f$, que l'on note $x_y$. On définit alors une fonction $g : F\to E$ par $g(y)=x_y$. Par construction, on a $f\circ g = \Id_F$ donc $g$ est une section de $f$.
-\item À tout $y\in F$ on associe soit son unique antécédent s'il en existe un, soit un élément de $E$ arbitraire dans le cas contraire. Ceci définit une fonction $g : F\to E$ et par construction on a $g\circ f=\Id_E$.
-\item D'une part, comme $f$ est surjective, elle admet (d'après le premier point) une section $s$, qui vérifie donc $f\circ s = \Id_F$. Montrons  que $s\circ f = \Id_E$. Soit $x\in E$ et soit $a = (s\circ f)(x)$. Alors $f(a) = (f\circ s \circ f) (x) = ((f\circ s)\circ f)(x) = f(x)$ et comme $f$ est injective, $a=x$ c'est-à-dire $(s\circ f)(x) = x$. Donc $s\circ f=\Id_E$ et donc $s$ est la réciproque de $f$.
-\item \emph{Preuve alternative du dernier point, en suivant le cheminement inverse.} D'une part, comme $f$ est injective, elle admet (d'après le second point) une rétraction $r$, qui vérifie donc $r\circ f=\Id_E$. Montrons  que $f\circ r = \Id_F$. Soit $y\in F$. Comme $f$ est surjective, considérons $x$ un antécédent de $y$. Alors, $(f\circ r)(y) = (f\circ r)(f(x)) =(f\circ (r \circ f)(x) = (f\circ \Id_E)(x) = f(x) = y$. D'où $f\circ r = \Id_F$ et donc $r$ est la réciproque de $f$.
-\end{enumerate}
-\end{proof}
 
 \begin{proposition}[Stabilité à la composition de l'injectivité et de la surjectivité]
 Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
@@ -381,22 +475,25 @@ Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
 \end{enumerate}
 \end{proof}
 
-\begin{corollaire}
+
+
+
+\begin{corollaire}[de la proposition]\label{bijective-si-reciproque}
 Soit $f : E\to F$ une application.
 \begin{enumerate}
-\item Elle admet une rétraction (inverse à gauche) ssi elle est injective.
-\item Elle admet une section (inverse à droite) ssi elle est surjective.
-\item Elle admet une fonction réciproque ssi elle est bijective.
+\item Si elle admet une rétraction (inverse à gauche), alors elle est injective.
+\item Si elle admet une section (inverse à droite), alorselle est surjective.
+\item Si elle admet une fonction réciproque, alors elle est bijective.
 \end{enumerate}
 \end{corollaire}
 \begin{proof}
-Le sens \og si\fg{} a déjà été prouvé plus haut (prop. \ref{bijective_admet_reciproque}). Montrons le sens \og seulement si\fg.
 \begin{enumerate}
 \item Soit $r$ une rétraction de $f$. La composée $r\circ f = \Id_E$ est injective donc par la proposition précédente, $f$ est injective.
 \item Soit $s$ une section de $f$. La composée $f \circ s= \Id_F$ est surjective donc par la proposition précédente, $f$ est surjective.
 \item Une réciproque étant à la fois une section et une rétraction, on applique les deux points précédents.
 \end{enumerate}
 \end{proof}
+
 
 \begin{remarque}
 \textbf{Attention}, on peut avoir $g\circ f$ injective et $g$ non injective, et on peut aussi avoir $g\circ f$ surjective et $f$ non surjective. Considérons par exemple:
@@ -418,8 +515,35 @@ qui vérifient également $g\circ f=\Id_{\R_+}$ sans que $f$ soit surjective ni 
 
 
 
+On termine la section par la réciproque du corollaire précédent, qui établit entre autres l'équivalence entre bijectivité et existence d'une réciproque.
+
+\begin{proposition}
+\label{bijective_ssi_reciproque}
+Soit $f : E\to F$.
+\begin{enumerate}
+\item Elle est surjective ssi elle admet une section.
+\item Elle est injective ssi elle admet une rétraction.
+\item Elle est bijective ssi elle admet une réciproque.
+\end{enumerate}
+\end{proposition}
+\begin{proof}\index{section}
+Le sens \og si\fg{} a été démontré dans le corollaire \ref{bijective-si-reciproque}. Montrons le sens \og seulement si\fg.
+\begin{enumerate}
+\item  Pour tout $y\in F$, on choisit un antécédent de $y$ par $f$, que l'on note $x_y$. On définit alors une fonction $g : F\to E$ par $g(y)=x_y$. Par construction, on a $f\circ g = \Id_F$ donc $g$ est une section de $f$.
+\item À tout $y\in F$ on associe soit son unique antécédent s'il en existe un, soit un élément de $E$ arbitraire dans le cas contraire. Ceci définit une fonction $g : F\to E$ et par construction on a $g\circ f=\Id_E$.
+\item D'une part, comme $f$ est surjective, elle admet (d'après le premier point) une section $s$, qui vérifie donc $f\circ s = \Id_F$. Montrons  que $s\circ f = \Id_E$. Soit $x\in E$ et soit $a = (s\circ f)(x)$. Alors $f(a) = (f\circ s \circ f) (x) = ((f\circ s)\circ f)(x) = f(x)$ et comme $f$ est injective, $a=x$ c'est-à-dire $(s\circ f)(x) = x$. Donc $s\circ f=\Id_E$ et donc $s$ est la réciproque de $f$.
+\item \emph{Preuve alternative du dernier point, en suivant le cheminement inverse.} D'une part, comme $f$ est injective, elle admet (d'après le second point) une rétraction $r$, qui vérifie donc $r\circ f=\Id_E$. Montrons  que $f\circ r = \Id_F$. Soit $y\in F$. Comme $f$ est surjective, considérons $x$ un antécédent de $y$. Alors, $(f\circ r)(y) = (f\circ r)(f(x)) =(f\circ (r \circ f)(x) = (f\circ \Id_E)(x) = f(x) = y$. D'où $f\circ r = \Id_F$ et donc $r$ est la réciproque de $f$.
+\end{enumerate}
+\end{proof}
+
+
+
 %--------------------------------------
 \section{Images directes et réciproques de parties}
+%--------------------------------------
+
+\emph{Résumé : images directes et réciproques de parties, fibres d'une application, union et intersections d'images directes et réciproques.}
+
 
 \begin{definition}[Image directe d'une partie]
 \index{image!directe d'une partie}
@@ -434,6 +558,11 @@ Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensem
 Autrement dit, pour un élément $x\in E$, on a $x\in f^{<-1>}(B) \iff f(x)\in B$.
 
 \textbf{Attention}, on voit très souvent la notation $f^{-1}(B)$ au lieu de $f^{<-1>}(B)$ mais cela peut prêter à confusion, la fonction $f$ n'ayant pas forcément de réciproque. Dans ce chapitre, on utilise la notation $f^{<-1>}(B)$, puis on utilisera progressivement la première.
+\end{definition}
+
+\begin{definition}[Fibres d'une application]
+\index{fibre}
+Soit $f : A\to B$ et $b\in B$. La \emph{fibre de $f$ (au-dessus) de $b$} est l'ensemble des antécédents de $b$, c'est-à-dire $f^{<-1>}(\{b\}) = \{a\in A \:\mid\: f(a)=b\}$. De façon générale, les \emph{fibres} de l'application $f$ sont les images réciproques de singletons de $B$.
 \end{definition}
 
 \begin{proposition}
@@ -489,11 +618,79 @@ Soit $f : E\to F$.
 
 En conclusion, l'image réciproque se comporte un peu mieux que l'image directe.
 
+
+
+
+%- - - - - -
+% factorisations
+
+\section{Compléments : principes de factorisation}
+
+Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins fondamentales.
+
+
+
+
+\begin{proposition}[Principe de factorisation à droite]
+\index{factorisation!à droite}
+\label{factorisation-droite}
+Soient $f : A\to B$ et $g : A\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
+\begin{enumerate}
+\item  $g$ se factorise à droite par $f$;
+\item il existe une application $h : B\to C$ telle que $g = h\circ f$;
+\item il existe une application $h : B\to C$ faisant commuter  le diagramme \index{diagramme!commutatif} 
+$\xymatrix{
+A \ar[r]^g \ar[d]_{f}& C\\
+B \ar@{-->}[ur]_{\exists h}& 
+}$.
+\end{enumerate}
+Ces assertions sont vraies si et seulement si :
+\[\forall x, y \in A, f(x)=f(y) \implies g(x)=g(y).\]
+\end{proposition}
+\begin{proof}
+\textbf{Sens \og seulement si\fg.} Supposons que $g$ se factorise en $g = h\circ f$. Soient $x, y\in E$ tels que $f(x)=f(y)$. En composant à gauche par $h$, on obtient $h(f(x)) = h(f(y))$, c'est-à-dire $g(x)=g(y)$.\\
+\textbf{Sens \og si\fg.} Supposons que $\forall x, y \in A, f(x)=f(y) \implies g(x)=g(y)$. Construisons une fonction $h$ vérifiant les conditions demandées. Soit $b\in B$. S'il existe $a\in A$ tel que $f(a)=b$, on définit $h(b)$ comme étant égal à $g(a)$. Sinon, on définit $h(b)$ comme étant un élément quelconque de $C$. En définissant ainsi un élément $h(b)\in C$ pour tout élément $b\in B$, on définit donc une fonction $h : B\to C$ et par construction, on a $g = h\circ f$.
+\end{proof}
+
+\begin{remarque} Si $A=C$ et $g=\Id_A$, cette proposition devient l'équivalence entre injectivité et existence d'une rétraction $h$ (inverse à gauche).
+\end{remarque}
+
+\begin{exercice}
+Dans le contexte de la proposition précédente, montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
+\end{exercice}
+
+
+\begin{proposition}[Principe de factorisation à gauche]
+\index{factorisation!à gauche}
+\label{factorisation-gauche}
+Soient $f : A\to C$ et $g : B\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
+\begin{enumerate}
+\item  $f$ se factorise à gauche par $g$;
+\item il existe une application $h : A\to B$ telle que $f = g\circ h$;
+\item il existe une application $h : A\to B$ faisant commuter le diagramme \index{diagramme!commutatif} 
+$\xymatrix{
+&B \ar[d]^{g} \\
+A \ar[r]_f \ar@{-->}[ur]^{\exists h}& C
+}$.
+\end{enumerate}
+Ces assertions sont vraies si et seulement si $f(A)\subseteq g(B)$.
+\end{proposition}
+\begin{proof}
+\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g(B)$. Ceci prouve que $f(A)\subseteq g(B)$.\\
+\textbf{Sens \og si\fg.} Supposons $f(A)\subseteq g(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f(A) \subseteq g(B)$, $f(a) \in g(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
+\end{proof}
+
+\begin{remarque}
+Si $A = C$ et que $f = \Id_C$, on retombe sur l'équivalence entre surjectivité et existence d'une section (inverse à droite).
+\end{remarque}
+
+Les deux exercices suivants montrent que l'ensemble des surjections et l'ensemble des injections forment ce qui est parfois appelé un \emph{système orthogonal de factorisation}, une notion que l'on recroise dans plusieurs contextes en mathématiques.
+
 \begin{exercice}[Factorisation en surjection puis injection]
 Montrer que toute application se factorise en une surjection suivie d'une injection. Autrement dit, montrer que pour toute fonction $f : E\to F$, il existe un ensemble $G$, et des fonctions $\phi : E\to G$ et $\psi : G\to F$ telles que $f = \psi\circ \phi$, avec $\phi$ surjective et $\psi$ injective.
 \end{exercice}
 
-\begin{exercice}[propriété du relèvement]
+\begin{exercice}[Propriété du relèvement]
 Soient $e : A\to B$ et $m : C\to D$ deux applications. On dit que $e$ est orthogonale (à gauche) à $m$ (ou que $m$ est orthogonale à droite à $e$), et on note $e\perp m$, si pour tout diagramme commutatif
 \[
 \xymatrix{
