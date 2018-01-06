@@ -50,11 +50,19 @@ Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une rel
 
 Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict}\index{relation!d'ordre!strict} qui lui est associée.
 
+Enfin, les notations $x\geq_E y$ et $x >_E y$ sont synonymes de $y \leq_E x$ et $y <_E x$.
+
+
+
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale}\index{relation!d'ordre!total} si tous les éléments sont comparables, c'est-à-dire si:
 \[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq_E x.\]
 Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné} \index{ensemble totalement ordonné}. Une relation d'ordre qui n'est pas totale est dite d'ordre \emph{partiel}\index{relation!d'ordre!partiel}.
 \end{definition}
+
+\begin{remarque}
+Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq)$, alors le contraire de $x\leq_E y$ est $x>_E y$. Ceci est faux si l'ordre n'est pas total, justement à cause d'éventuels éléments non comparables.
+\end{remarque}
 
 \begin{exemples}
 La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par contre, $\subseteq$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
@@ -112,6 +120,10 @@ Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
 \item Dans un ensemble ordonné non vide $(E,\leq_E)$, la partie vide est majorée: tout élément $m$ est un majorant, car l'assertion $\forall x\in \varnothing, x\leq_E m$ est vraie. De la même façon, dans un ensemble non-vide, la partie vide est minorée par n'importe quel élément.
 \end{enumerate}
 \end{exemple}
+
+\begin{remarque}
+Attention aux reformulations hâtives. Si $x\in E$ est un élément qui ne possède aucun majorant strict, on ne peut pas pour autant en conclure que $x$ est un plus grand élément de $E$. Par exemple, dans l'ensemble ordonné $\{2,3,4\}$ muni de la divisibilité, l'élément $4$ ne possède aucun majorant strict, pourtant il ne majore pas $3$ : encore une fois, cela est dû au fait que l'ordre n'est pas forcément total, et que le contraire de $x\geq y$ n'est pas $x<y$.
+\end{remarque}
 
 
 
