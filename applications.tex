@@ -217,11 +217,6 @@ est commutatif revient à dire que $\psi\circ f = g \circ \phi$. Un tel diagramm
 
 
 
-
-
-
-
-
 %---------------------------------
 \section{Applications réciproques, sections et rétractions}
 %---------------------------------
@@ -624,7 +619,7 @@ En conclusion, l'image réciproque se comporte un peu mieux que l'image directe.
 %- - - - - -
 % factorisations
 
-\section{Compléments : principes de factorisation}
+\section{Compléments : principes de factorisation et exercices}
 
 Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins fondamentales.
 
@@ -708,20 +703,38 @@ B \ar[r]\ar[ur]^{r}& D
 Montrer que si $e$ est surjective et $m$ est injective, alors $e\perp m$.
 \end{exercice}
 
+Les deux exercices qui suivent donnent un éclairage alternatif sur le produit cartésien et sa contrepartie, l' \og union disjointe\fg.
+
+\begin{exercice}[Propriété universelle du produit]
+Soient $A$ et $B$ des ensembles, et $ A\times B$ leur produit (cartésien). On note $\operatorname{pr}_A : A\times B \to A, (a,b)\mapsto a$ et $\operatorname{pr}_B : A\times B \to B, (a,b)\mapsto b$. Ces deux applications sont appelées les \emph{projections canoniques sur les facteurs du produit}.
+
+Montrer que l'ensemble $A\times B$ ainsi que les deux projections vérifient la propriété suivante: pour tout ensemble $D$ muni d'applications $f$ et $g$ vers (respectivement) $A$ et $B$, il existe une unique application $h : D\to A\times B$ telle que $f =\operatorname{pr}_A \circ  h$ et $g =\operatorname{pr}_B \circ  h$, c'est-à-dire qu'il existe une unique application $h : D\to A\times B$ faisant commuter le diagramme suivant:
+\[ 
+\xymatrix{
+& & & A\\
+D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times B \ar[ur]_{pr_A} \ar[dr]^{pr_B}& \\
+& & & B
+}\]
+\end{exercice}
+
+\begin{exercice}[Union disjointe/coproduit/somme cartésienne]
+Soient $A$ et $B$ deux ensembles. On appelle \emph{union disjointe de $A$ et $B$} l'ensemble
+\[
+A\biguplus B = (\{0\}\times A) \bigcup (\{1\}\times B)
+\]
+Cet ensemble est muni de deux applications $i_A : A\to A\biguplus B, a\mapsto (0,a)$ et  $i_B : B\to A\biguplus B, b\mapsto (1,b)$.
+
+Montrer que $A\biguplus B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante: pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\biguplus B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application h faisant commuter le diagramme  suivant:
+\[ 
+\xymatrix{
+A \ar[dr]_{i_A} \ar[drrr]^{f}& & & \\
+&  A\biguplus B \ar@{-->}[rr]^{\exists !h}  & & C\\
+B \ar[ur]^{i_B} \ar[urrr]_{g}& & &
+}\]
+\end{exercice}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+% exercices sur les égalisateurs et coégalisateurs
 
 
 
