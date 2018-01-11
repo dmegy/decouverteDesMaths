@@ -98,9 +98,33 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{fixe par $f$} (ou simplement \emph{fixe} s'il n'y a pas d'ambiguité sur la fonction), si $f(x)=x$. On dit aussi que $x$ est un \emph{point fixe} de $f$.
 \end{definition}
 
+Pour terminer ce paragraphe, on introduit un outil indispensable pour visualiser plusieurs ensembles et applications d'un seul coup : les diagrammes.
 
+\begin{definition}[Diagramme]
+\index{diagramme}
+Lorsque l'on est en présence de plusieurs ensembles et de plusieurs applications entre ces ensembles, il est classique de visualiser la situation à l'aide d'un diagramme. Un diagramme (d'applications entre ensembles) est un graphe dont chaque sommet représente un ensemble et chaque arête (orientée) représente une application.
+\end{definition}
 
+Attention, un tel graphe n'est pas simple, autrement dit il peut avoir des boucles (s'il y a des applications d'un ensemble dans lui-même) ou des arêtes multiples (s'il y a plusieurs applications distinctes entre deux ensembles donnés).
 
+\begin{exemple}
+\begin{enumerate}
+\item \'Etant donnés des ensembles $A$, $B$, $C$ et $D$ et des applications $f : A\to B$, $g : A\to C$, $h : D\to A$, $\phi : D\to C$, $\psi : B\to A$, on peut représenter la situation en donnant simplement diagramme suivant:
+\[
+\xymatrix{
+A \ar@/^1pc/[r]^{f} \ar[d]_{g} & B \ar@/^/[l]_{\psi}\\
+C & D \ar[ul]^{h} \ar[l]^{\phi}
+}
+\]
+\item \'Etant donnés des ensembles $E$ et $F$ et des applications $f : E\to E$, $g : E\to F$ et $h : E\to F$, on peut représenter la situation par le diagramme:
+\[
+\xymatrix{
+ E \ar@(dl,ul)^{f} \ar@/^1pc/[rrr]^{g} \ar@/_1pc/[rrr]^{h}
+& & &  F 
+}
+\]
+\end{enumerate}
+\end{exemple}
 
 %----------------------------------
 \section{Composition}
@@ -174,18 +198,6 @@ Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\t
 \end{enumerate}
 \end{remarque}
 
-\begin{definition}[Diagramme]
-\index{diagramme}
-Lorsque l'on est en présence de plusieurs ensembles et de plusieurs applications entre ces ensembles, il est classique de visualiser la situation à l'aide d'un diagramme. Un diagramme (d'applications entre ensembles) est un graphe dont chaque sommet représente un ensemble et chaque arête (orientée) représente une application.
-
-Par exemple, étant donnés des ensembles $A$, $B$, $C$ et $D$ et des applications $f : A\to B$, $g : A\to C$, $h : D\to A$, $\phi : D\to C$, $\psi : B\to A$, on peut représenter la situation à l'aide du diagramme suivant:
-\[
-\xymatrix{
-A \ar@/^1pc/[r]^{f} \ar[d]_{g} & B \ar@/^/[l]_{\psi}\\
-C & D \ar[ul]^{h} \ar[l]^{\phi}
-}
-\]
-\end{definition}
 
 \begin{definition}[Diagramme commutatif]
 \index{diagramme!commutatif}
@@ -613,8 +625,23 @@ Soit $f : E\to F$.
 
 En conclusion, l'image réciproque se comporte un peu mieux que l'image directe.
 
+\begin{definition}[Saturation, partie saturée]
+\index{partie!saturée}\index{saturation d'une partie}
+Soit $f : E\to F$ une fonction et $A\in \mathcal P(E)$ une partie de la source de $f$. La \emph{saturation} de $A$ (relativement à la fonction $f$) est la partie $f^{<-1>}(f(A))$.
 
+On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
+\end{definition}
 
+\begin{exemple}
+\begin{enumerate}
+\item La saturation $\operatorname{Sat}_f(A)$ d'une partie $A$ contient toujours $A$.
+\item La saturation d'une partie $A$ est saturée, autrement dit avec la notation plus haut  on a  $\operatorname{Sat}_f(\operatorname{Sat}_f(A)) = \operatorname{Sat}_f(A)$.
+\item Soit $f : \R\to \R_+, x\mapsto x^2$, et soit $A=\{2\} \subseteq \R$. La saturation de $A$ est 
+\[f^{<-1>}(f(A)) = f^{<-1>}(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
+\]
+La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée. Par contre, les parties $B = \{0\}$ et $C=\{-2,2\}$ sont saturées (relativement à $f$, toujours).
+\end{enumerate}
+\end{exemple}
 
 %- - - - - -
 % factorisations
