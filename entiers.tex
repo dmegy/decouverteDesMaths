@@ -124,7 +124,7 @@ L'unicité découle des lemmes précédents.
 
 Pour l'existence, Soit $n\in \N$ et soit $f : E\to \llbracket 1,n\rrbracket$ une injection.
 Si $f(E) = \llbracket 1,n\rrbracket$, l'application est surjective donc bijective.
-Sinon, il existe $a\in \llbracket 1,n\rrbracket \setminus f(E)$, donc en composant $f$ avec une injection $\phi \llbracket 1,n\rrbracket \setminus \{a\} \to \llbracket 1,n-1\rrbracket$, on obtient une injection $\phi\circ f : E \to \llbracket 1,n-1\rrbracket$.
+Sinon, il existe $a\in \llbracket 1,n\rrbracket \setminus f(E)$, donc en composant $f$ avec une injection $\phi  : \llbracket 1,n\rrbracket \setminus \{a\} \to \llbracket 1,n-1\rrbracket$, on obtient une injection $\phi\circ f : E \to \llbracket 1,n-1\rrbracket$.
 On itère ce processus tant que l'application n'est pas bijective, ce qui finit par se produire puisque l'ensemble d'arrivée des injections diminue strictement à chaque étape.
 \end{proof}
 
@@ -426,7 +426,7 @@ Soit $n\in\N$. On a $\sum_{k=0}^n \binom{n}{k} =2^n$.
 On classe les parties de $P(\llbracket 1,n\rrbracket)$ suivant leur cardinal $k$, c'est-à-dire qu'on écrit  $\mathcal P(\llbracket 1,n\rrbracket) = \bigcup_{k=0}^n \mathcal P_k(n)$, l'union étant disjointe. En prenant le cardinal des deux membres on obtient $2^n=|P(\llbracket 1,n\rrbracket)| = \sum_{k=0}^n |\mathcal P_k(n)| = \sum_{k=0}^n \binom{n}{k}$.
 \end{proof}
 
-\begin{proposition}[Formule!de Pascal]
+\begin{proposition}[Formule de Pascal]
 \index{formule de Pascal}
 Soient $k,n\in \N$. Alors $\binom{n}{k}+\binom{n}{k+1} = \binom{n+1}{k+1}$.
 \end{proposition}
