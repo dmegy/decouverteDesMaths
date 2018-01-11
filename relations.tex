@@ -9,21 +9,48 @@
 
 Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$. On notera \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}{\mathcal R} y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{faux}$\fg{}
 
-\begin{exemples} Les symboles $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires entre ensembles.
+\begin{exemples} Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ correspond à la partie diagonale de $E\to E$, c'est-à-dire à la partie 
+\[ \Delta_E = \{(x,x)\:|\: x\in E\}\]
+\index{partie!diagonale}
 \end{exemples}
+
+\begin{exemple}[Zérologie] La relation vide est celle qui correspond à la partie vide de $E\times E$ : pour cette relation, aucun élément n'est relié à aucun autre : $x\mathcal R y$ est toujours faux. À l'autre extrême, la partie plein de $E\times E$ est une relation binaire, pour laquelle tout élément est relié à tout autre élément : $x\mathcal R y$ est toujours vrai. 
+\end{exemple}
+
+\begin{definition}
+Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est : 
+\begin{enumerate}
+\item réflexive\index{relation!réflexive} ssi $\forall x\in E, x{\mathcal R}x$;
+\item transitive\index{relation!symétrique} ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
+\item antisymétrique\index{relation!antisymétrique} ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
+\item symétrique\index{relation!symétrique} ssi $\forall x, y\in E, x\mathcal R y \implies y\mathcal R x$.
+\end{enumerate}
+\end{definition}
+
+Attention, contrairement à ce qu'on peut croire, une relation peut être à la fois symétrique et antisymétrique (exemple : l'égalité), même si c'est assez rare.
+
+Le tableau suivant résume quelques propriétés des relations classiques. (Certains points seront repris par la suite.)\\
+
+\begin{tabular}{|l|c|c|c|c|}\hline
+relation & réflexive & transitive & symétrique & antisymétrique \\ \hline
+$=$ & oui & oui & oui & oui \\ \hline
+$\neq$ & non & non & oui & non \\ \hline
+$\leq$ sur $\R$ & oui & oui & non & oui \\ \hline
+$<$ sur $\R$ & non & oui & non & oui\footnote{L'implication est vraie car la prémisse est fausse.} \\ \hline
+$|$ sur $\N$ & oui & oui & non & oui \\ \hline
+$\not |$ sur $\N$ & non & non & non & non \\ \hline
+$|$ sur $\Z$ & oui & oui & non & non \\ \hline
+$\subseteq$ sur $\mathcal P(E)$ & oui & oui & non & oui \\ \hline
+$//$ sur les droites du plan & oui & oui & oui & non \\ \hline
+$\perp$ sur les droites du plan & non & non & oui & non \\ \hline
+\end{tabular}
 
 \section{Relations d'ordre}
 
 \subsection{Définitions et vocabulaire}
 
-\begin{definition}
-Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est
-\begin{enumerate}
-\item réflexive\index{relation!réflexive} ssi $\forall x\in E, x{\mathcal R}x$;
-\item transitive\index{relation!symétrique} ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
-\item antisymétrique\index{relation!antisymétrique} ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
-\end{enumerate}
 
+\begin{definition}
 Une relation est une \emph{relation d'ordre}\index{relation d'ordre} ssi elle est réflexive, transitive et antisymétrique.
 \end{definition}
 
@@ -39,10 +66,10 @@ Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\
 % C'est un préordre...
 
 \begin{definition}
-Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation d'\emph{\index{ordre strict}}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
+Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation d'\emph{ordre strict}\index{ordre strict}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
 \end{definition}
 
-Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé \emph{\index{ensemble ordonné}}. Par exemple, $(\R, \leq)$ est un ensemble ordonné.
+Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé \emph{ensemble ordonné}\index{ensemble ordonné}. Par exemple, $(\R, \leq)$ est un ensemble ordonné.
 
 Il faut systématiquement préciser l'ordre auquel on se réfère, même pour un ensemble \og connu\fg. Par exemple, $\N$ peut être muni de l'ordre usuel $\leq$ ou bien de la divisibilité $|$ et les deux ordres sont fréquemment utilisées.
 
@@ -52,8 +79,6 @@ Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emp
 
 Enfin, les notations $x\geq_E y$ et $x >_E y$ sont synonymes de $y \leq_E x$ et $y <_E x$.
 
-
-
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale}\index{relation!d'ordre!total} si tous les éléments sont comparables, c'est-à-dire si:
 \[ \forall x, y\in E, x\leq_Ey\text{ ou } y\leq_E x.\]
@@ -61,7 +86,7 @@ Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné
 \end{definition}
 
 \begin{remarque}
-Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq)$, alors le contraire de $x\leq_E y$ est $x>_E y$. Ceci est faux si l'ordre n'est pas total, justement à cause d'éventuels éléments non comparables.
+Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq)$, alors le contraire de $x\leq_E y$ est $x>_E y$. Ceci est \textbf{faux} si l'ordre n'est pas total, justement à cause d'éventuels éléments non comparables. Par exemple, le contraire de $2|n$ n'est pas que $n$ divise strictement $2$.
 \end{remarque}
 
 \begin{exemples}
@@ -362,17 +387,23 @@ Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\Z$ induit une relatio
 \end{definition}
 
 \subsection{Classes d'équivalence}
-\begin{definition}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ et on appelle la \emph{classe d'équivalence\index{classe d'équivalence} de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble $\left\{y\in E\:\mid\: y{\mathcal R}x\right\}$ des éléments qui sont équivalents à $x$.
+\begin{definition}[Classe d'équivalence]\index{classe d'équivalence}
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ (ou parfois $Cl(x)$) et on appelle la \emph{classe d'équivalence de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble  de tous les éléments qui sont équivalents à $x$, c'est-à-dire l'ensemble:
+\[
+\overline x = \left\{y\in E\:\mid\: y{\mathcal R}x\right\}
+\]
+
+
+Soit $A\in \mathcal P(E)$ une partie de $E$. On dit que $A$ est une \emph{classe d'équivalence modulo $\mathcal R$} si c'est la classe d'équivalence d'un certain élément, c'est-à-dire si : $\exists x\in E, \: A=\overline x$.
 \end{definition}
 
 Attention au type des objets : $x \in E$, mais $\overline{x} \subseteq E$.
 
 \begin{proposition}
 \begin{enumerate}
-\item $\forall x\in E, x\in \overline{x}$.
+\item $\forall x\in E, x\in \overline{x}$ (en particulier une classe d'équivalence n'est jamais vide).
 \item $\forall x, y\in E, x{\mathcal R}y \iff \overline{x}=\overline{y}$.
-\item $\forall x, y\in E, \overline{x} = \overline{y} \text{ ou } \overline{x}\cap \overline{y}=\varnothing$.
+\item $\forall x, y\in E, \overline{x} = \overline{y} \text{ ou } \overline{x}\cap \overline{y}=\varnothing$. (Deux classes sont égales ou disjointes.)
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -380,15 +411,37 @@ Attention au type des objets : $x \in E$, mais $\overline{x} \subseteq E$.
 \item Découle de la réflexivité.
 \item Sens $\impliedby$ : Supposons $\overline{x}=\overline{y}$. Comme $y\in \overline{y}$, on a $y\in \overline{x}$, donc $y{\mathcal R}x$.\\
 Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\mathcal R}y$, on a $z{\mathcal R}y$ par transitivité, et donc $z\in \overline{y}$. Ceci montre $\overline{x}\subseteq \overline{y}$. Pour montrer l'inclusion réciproque, on a $y{\mathcal R}x$ par symétrie de $R$ puis on termine de la même manière.
-\item Soient $x$ et $y$, et supposons $\overline{x}\cap \overline{y} \neq \varnothing$. Soit $z\in \overline{x}\cap \overline{y}$. Alors $z\mathcal R x$ et $z\mathcal R y$, donc par symétrie et transitivité, $x\mathcal R y$, d'où $\overline{x}=\overline{y}$. On en déduit que deux classes sont soit égales soit disjointes.
+\item Soient $x$ et $y$, et supposons $\overline{x}\cap \overline{y} \neq \varnothing$. Soit $z\in \overline{x}\cap \overline{y}$. Alors $z\mathcal R x$ et $z\mathcal R y$, donc par symétrie et transitivité, $x\mathcal R y$, d'où $\overline{x}=\overline{y}$.
 \end{enumerate}
 \end{proof}
 
+\begin{definition}[Partie saturée]
+\index{partie saturée!sous une relation d'équivalence}
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et soit $A\in \mathcal P(E)$. La \emph{saturation} de $A$ relativement à la relation $\mathcal R$ est la partie
+\[
+\{y\in E\:|\: \exists x\in A, y\mathcal R x\} 
+\]
+On dit qu'une partie est \emph{saturée} (relativement à $\mathcal R$), si elle est égale à sa saturation.
+\end{definition}
+
+\begin{remarque} La saturation de $A$ est égale à $\bigcup_{x\in A} \overline x$. En effet, si $y\in E$, alors 
+\[
+\exists x\in A, y\mathcal R x
+\iff \exists x\in A, y\in \overline x
+\iff y\in \bigcup_{x\in A} \overline x 
+\]
+\end{remarque}
+
+\begin{exercice} Montrer qu'une classe d'équivalence est saturée, mais que la réciproque est fausse en général. Montrer que les classes d'équivalence sont exactement les parties saturées minimales pour l'inclusion.
+\end{exercice}
+
+L'outil principal pour manipuler les classes d'équivalence est l'\emph{ensemble quotient}, que l'on définit maintenant.
+
 \begin{definition}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$.
+
 L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$}\index{ensemble quotient sous une relation d'équivalence} et est noté $E/{\mathcal R}$.
 
-L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}.
+L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
 \end{definition}
 
 \begin{exemple}
