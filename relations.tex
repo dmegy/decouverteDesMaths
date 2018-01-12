@@ -9,6 +9,10 @@
 
 Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$. On notera \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}{\mathcal R} y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{faux}$\fg{}
 
+\begin{exemple}
+Sur un ensemble fini $E$  de cardinal $n$, il existe $2^{(n^2)}$ relations binaires différentes.
+\end{exemple} 
+
 \begin{exemples} Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ correspond à la partie diagonale de $E\to E$, c'est-à-dire à la partie 
 \[ \Delta_E = \{(x,x)\:|\: x\in E\}\]
 \index{partie!diagonale}
@@ -44,6 +48,21 @@ $\subseteq$ sur $\mathcal P(E)$ & oui & oui & non & oui \\ \hline
 $//$ sur les droites du plan & oui & oui & oui & non \\ \hline
 $\perp$ sur les droites du plan & non & non & oui & non \\ \hline
 \end{tabular}
+
+\begin{definition}[Raffinement d'une relation]
+\index{raffinement!d'une relation}\index{relation!plus fine}
+Soient $\mathcal R$ et $\mathcal S$ des relations binaires sur $E$. On dit que $\mathcal R$ est plus fine que $\mathcal S$, ou encore que c'est est un raffinement, si $\forall x, y\in E, x\mathcal R y \implies x\mathcal S y$. 
+\end{definition}
+
+\begin{definition}
+Soit $E$ un ensemble muni d'une relation binaire $\mathcal R$. La relation \emph{opposée}, ou \emph{transposée}, notée ${}^t\mathcal R$ ou $\mathcal R^{op}$, est définie par : $x{}^t\mathcal R y \iff y\mathcal R x$. 
+\end{definition}
+
+\begin{exercice}
+Montrer que si une relation $\mathcal R$ est réflexive (resp. symétrique, transitive), alors ${}^t\mathcal R$ aussi.
+
+Montrer que $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
+\end{exercice}
 
 \section{Relations d'ordre}
 
@@ -92,6 +111,10 @@ Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq)$,
 \begin{exemples}
 La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par contre, $\subseteq$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
 \end{exemples}
+
+\begin{exercice}
+Soit $E$ un ensemble. Montrer que \og est plus fine que\fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
+\end{exercice}
 
 \subsection{Applications croissantes}
 
@@ -478,17 +501,14 @@ Soit $E$ un ensemble, et $\mathcal A$ un ensemble de parties de $E$, c'est-à-di
 \end{enumerate}
 \end{definition}
 
-\begin{proposition}[Partition définie par une famille]
+\begin{exemple}[Partition définie par une famille]
 Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ une famille de parties de $E$. Cette famille définit une partition de $E$ si :
 \begin{enumerate}
 \item Les $A_i$ sont toutes non vides.
 \item On a $\bigcup_{i\in I} A_i = E$.
 \item Les parties $A_i$ sont deux à deux disjointes : $\forall i, j\in I, i\neq j \implies A_i\cap A_j=\varnothing$.
 \end{enumerate}
-\end{proposition}
-\begin{proof}
-Immédiat sur la définition.
-\end{proof}
+\end{exemple}
 
 \begin{exemple}
 \begin{enumerate}
@@ -501,13 +521,23 @@ Immédiat sur la définition.
 \end{enumerate}
 \end{exemple}
 
-\begin{exercice}[Raffinement d'une partition]\index{raffinement d'une partition}\index{partition!plus fine}
+\begin{definition}[Raffinement d'une partition]
+\index{raffinement!d'une partition}\index{partition!plus fine}
 Soient $\mathcal A$ et $\mathcal B$ deux partitions de $E$. On dit que $\mathcal A$ est \emph{plus fine} que $\mathcal B$ (ou : qu'elle est un raffinement de $\mathcal B$) si les éléments de $\mathcal B$ sont des unions d'éléments de $\mathcal A$, autrement dit si $\mathcal A$ fractionne les éléments de $\mathcal B$ en sous-parties.
+\end{definition}
 
+\begin{exercice}
+Soient $\mathcal R$ et $\mathcal S$ deux relations d'équivalence sur $E$. Montrer que $\mathcal R$ est plus fine que $\mathcal S$ si et seulement si la partition en classes d'équivalence modulo $\mathcal R$ est plus fine que la partition en classe d'équivalence modulo $\mathcal S$.
+\end{exercice}
+
+\begin{exercice}
 Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
 
 Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
 \end{exercice}
+
+% raffinement d'une relation d'équivalence : relation d'ordre sur les relations d'équivalence
+% "relation d'ordre la moins fine qui" ...
 
 \begin{remarque}
 Le plus grand élément de cet ensemble ordonné est la partition la  plus fine\index{partition!la plus fine} : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine\index{partition!la moins fine} est la partition triviale (celle à une seule partie).  
@@ -609,3 +639,8 @@ est une bijection.
 \end{enumerate} 
 
 \end{exercice}
+
+% coégalisateurs
+
+% (co) produits cofibrés
+
