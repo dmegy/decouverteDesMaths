@@ -344,7 +344,7 @@ Soit $n\in \N$. La factorielle de $n$, notée $n!$, est le produit de tous les e
 \section{Combinatoire}
 \subsection{Principes élémentaires de combinatoire}
 
-\begin{proposition}
+\begin{proposition}\label{prop-cardinal-produit}
 \index{cardinal!d'un produit}
 Soient $E$ et $F$ finis de cardinal $n$ et $p$. Alors $E\times F$ est de cardinal $np$.
 \end{proposition}
@@ -356,7 +356,7 @@ L'application
 \]
 est bijective.
 \end{proof}
-\begin{corollaire}
+\begin{corollaire}\label{prop-cardinal-puissance}
 \index{cardinal!d'une puissance}
 Soit $E$ un ensemble fini. Alors pour tout $k\in \N^*$, $|E^k|=|E|^k$.
 \end{corollaire}
@@ -367,7 +367,8 @@ Par récurrence sur $k$.
 On a $|E^{k+1}| = |E^k\times E|=|E^k|\cdot |E|$ par la proposition précédente, et d'autre part par hypothèse de récurrence, on a $|E^k|=|E|^k$. Finalement,  $|E^{k+1}|=|E|^{k+1}$. 
 \end{proof}
 
-\begin{corollaire}\index{cardinal!d'un ensemble de fonctions}
+\begin{corollaire}\label{prop-cardinal-fonctions}
+\index{cardinal!d'un ensemble de fonctions}
 Soient $E\neq \varnothing$ et $F$ des ensembles finis de cardinal  $n$ et $p$. L'ensemble $\mathcal F(E,F)$ des fonctions de $E$ dans $F$ est de cardinal $p^n$. 
 \end{corollaire}
 \begin{proof}
@@ -381,7 +382,7 @@ L'ensemble $\mathcal F(E,F)$ est en bijection avec $F^n$. (Une fonction correspo
 \end{enumerate}
 \end{remarque}
 
-\begin{proposition}
+\begin{proposition}\label{prop-card-injections}
 Soient $n, p\in \N$ avec $p\leq n$.
 \begin{enumerate}
 \item Il y a $n(n-1)(n-2)...(n-p+1)=\frac{n!}{(n-p)!}$ injections de $\llbracket 1,p\rrbracket$ dans $\llbracket 1,n\rrbracket$.
@@ -392,7 +393,7 @@ Soient $n, p\in \N$ avec $p\leq n$.
 Une bijection de $\llbracket 1,n\rrbracket$ dans lui-même s'appelle une \emph{permutation} $\llbracket 1,n\rrbracket$.
 
 \begin{proposition}
-\index{cardinal!de $\mathcal P(E)$}
+\index{cardinal!de $\mathcal P(E)$}\label{prop-cardinal-parties}
 Soit $E$ un ensemble fini. L'ensemble $\mathcal P(E)$ des parties de $E$ est fini, de cardinal $2^{|E|}$.
 \end{proposition}
 \begin{proof}

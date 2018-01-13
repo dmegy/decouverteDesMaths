@@ -42,7 +42,7 @@ Attention, dans une définition par énumération, il n'y a pas de notion d'ordr
 \section{Parties d'un ensemble}
 
 \begin{definition}[Sous-ensemble / partie]
-\index{ensemble!sous-ensemble}\index{ensemble!partie d'un ensemble}
+\index{ensemble!sous-ensemble}\index{ensemble!partie d'un ensemble}\index{partie!d'une ensemble}
 Soient $E$ et $F$ des ensembles. On dit que $E$ est inclus dans $F$, ou que $E$ est un sous-ensemble, ou une partie de $F$ si tous les éléments de $E$ sont des éléments de $F$, autrement dit si 
 \[
 \forall x\in E, \: x\in F.
@@ -58,7 +58,7 @@ $
 
 
 \begin{remarque}
-Attention, les objets $x$ et $\{x\}$ sont différents ! L'un est l'objet $x$, l'autre est un ensemble contenant un unique élément : $x$. Par exemple, $\varnothing$ et $\{\varnothing\}$ sont deux choses différentes le premier est l'ensemble vide, alors que $\{\varnothing\}$ est un ensemble non vide : c'est un ensemble contenant un élément (l'ensemble vide).
+Attention, les objets $x$ et $\{x\}$ sont différents !  Par exemple, $\varnothing$ et $\{\varnothing\}$ sont deux ensembles différents:  le premier est l'ensemble vide, alors que $\{\varnothing\}$ est un ensemble non vide : c'est un ensemble contenant un élément (l'ensemble vide).
 \end{remarque}
 
 \begin{axiomedef}[Ensemble des parties]
@@ -69,7 +69,8 @@ Ainsi, si $F$ est un ensemble, alors on a $F\in \mathcal P(E) \iff F\subseteq E$
 
 Remarque : cet ensemble n'est jamais vide car il contient toujours au moins $\varnothing$, qui est une partie de  tout ensemble $E$.
 
-\begin{exemple}Un singleton $\{a\}$ contient deux parties : la partie vide $\varnothing$ et la partie $\{a\}$. 
+\begin{exemple}
+Un singleton $\{a\}$ contient deux parties : la partie vide $\varnothing$ et la partie $\{a\}$. 
 
 L'ensemble $\{1,2\}$ a pour ensemble de parties :  $\mathcal P(\{1,2\}) = \{\varnothing,\{1\},\{2\},\{1,2\}\}$.
 \end{exemple}
@@ -112,6 +113,7 @@ Deux ensembles $A$ et $B$ sont \emph{disjoints} si leur intersection est vide : 
 
 
 \begin{definition}[Produit cartésien]
+\index{produit cartésien d'ensembles}
 Soient $E$ et $F$ deux ensembles. Le \emph{produit cartésien}, ou simplement \emph{produit}, noté $E\times F$, est la collection de tous les couples  de la forme $(x,y)$, avec $x\in E$ et $y\in F$. Si $E=F$, on note $E^2$ au lieu de $E\times E$. 
 
 On peut définir de même les produits finis du type $E_1\times E_2 \times ... E_n$ : leurs éléments sont les $n$-uplets de la forme $(x_1, x_2, ... x_n)$, avec $x_1\in E_1$, $x_2\in E_2$ etc. 
@@ -120,6 +122,14 @@ On peut définir de même les produits finis du type $E_1\times E_2 \times ... E
 \begin{remarque}
 $E\times F = \varnothing \iff \left( E=\varnothing\text{ ou }F=\varnothing\right)$.
 \end{remarque}
+
+\begin{definition}[Diagonale]
+\index{diagonale!d'un produit de deux ensembles}
+Soit $E$ un ensemble. La \emph{diagonale} de $E\times E$ est l'ensemble des couples d'éléments identiques, c'est-à-dire l'ensemble
+\[
+\Delta_E = \{(x,x)\:|\: x\in E\}
+\]
+\end{definition}
 
 \section{Familles indexées}
 

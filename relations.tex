@@ -10,7 +10,7 @@
 Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$. On notera \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}{\mathcal R} y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{faux}$\fg{}
 
 \begin{exemple}
-Sur un ensemble fini $E$  de cardinal $n$, il existe $2^{(n^2)}$ relations binaires différentes.
+Si $E$ est fini de cardinal $n$, il existe $2^{n^2}$ relations binaires sur $E$. En effet, d'après \ref{prop-cardinal-produit} on a $|E\times E|=n^2$ et donc d'après \ref{prop-cardinal-parties} on obtient $\left|\mathcal P(E\times E)\right|=2^{n^2}$.
 \end{exemple} 
 
 \begin{exemples} Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ correspond à la partie diagonale de $E\to E$, c'est-à-dire à la partie 
@@ -31,9 +31,9 @@ Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est :
 \end{enumerate}
 \end{definition}
 
-Attention, contrairement à ce qu'on peut croire, une relation peut être à la fois symétrique et antisymétrique (exemple : l'égalité), même si c'est assez rare.
+Attention, contrairement à ce qu'on peut croire, une relation peut être à la fois symétrique et antisymétrique, comme par exemple la relation $=$. (Si la relation est de plus supposée réflexive, c'est le seul exemple.)
 
-Le tableau suivant résume quelques propriétés des relations classiques. (Certains points seront repris par la suite.)\\
+Le tableau suivant résume sans preuve quelques propriétés des relations classiques. (Certains points seront détaillés par la suite.)\\
 
 \begin{tabular}{|l|c|c|c|c|}\hline
 relation & réflexive & transitive & symétrique & antisymétrique \\ \hline
@@ -59,9 +59,10 @@ Soit $E$ un ensemble muni d'une relation binaire $\mathcal R$. La relation \emph
 \end{definition}
 
 \begin{exercice}
-Montrer que si une relation $\mathcal R$ est réflexive (resp. symétrique, transitive), alors ${}^t\mathcal R$ aussi.
-
-Montrer que $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
+Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
+\end{exercice}
+\begin{exercice}
+Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
 \end{exercice}
 
 \section{Relations d'ordre}
@@ -96,7 +97,7 @@ Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une rel
 
 Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict}\index{relation!d'ordre!strict} qui lui est associée.
 
-Enfin, les notations $x\geq_E y$ et $x >_E y$ sont synonymes de $y \leq_E x$ et $y <_E x$.
+Enfin, les notations $\geq_E$ et $>_E$ désignent les relations transposées de $\leq_E$ et $<_E$. Autrement dit  $x \geq_E y$ et $x >_E y$ sont synonymes de $y \leq_E x$ et $y <_E x$.
 
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale}\index{relation!d'ordre!total} si tous les éléments sont comparables, c'est-à-dire si:
@@ -116,14 +117,22 @@ La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par con
 Soit $E$ un ensemble. Montrer que \og est plus fine que\fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
 \end{exercice}
 
-\subsection{Applications croissantes}
+\subsection{Applications croissantes, décroissantes, monotones}
 
 
 \begin{definition}
-Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés, et $f : E\to F$. On dit que $f$ est \emph{croissante}\index{application!croissante} si :
-\[ \forall x, y\in E, x\leq_E y \implies f(x) \leq_F f(y),\]
-et \emph{décroissante}\index{application!décroissante} si :
-\[\forall x, y\in E, x\leq_E y \implies f(y) \leq_F f(x).\]
+\index{application!croissante}\index{application!strictement croissante}
+\index{application!décroissante}\index{application!strictement décroissante}
+\index{application!monotone}\index{application!strictement monotone}
+Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés et $f : E\to F$. On dit que $f$ est 
+\begin{enumerate}
+\item \emph{croissante} si $\forall x, y\in E, x\leq_E y \implies f(x) \leq_F f(y)$;
+\item \emph{décroissante} si $\forall x, y\in E, x\leq_E y \implies f(x) \geq_F f(y)$;
+\item \emph{monotone} si elle est croissante ou décroissante;
+\item \emph{strictement croissante} si $\forall x, y\in E, x<_E y \implies f(x) <_F f(y)$;
+\item \emph{strictement décroissante} si $\forall x, y\in E, x<_E y \implies f(x) >_F f(y)$;
+\item \emph{strictement monotone} si elle est strictement croissante ou strictement décroissante.
+\end{enumerate}
 \end{definition}
 
 (Remarque : dans cette situation, il est important de distinguer les relations d'ordre sur $E$ et sur $F$.)
@@ -133,10 +142,14 @@ et \emph{décroissante}\index{application!décroissante} si :
 \item L'application $f : \R\to \R, x\mapsto x+e^x$ est croissante pour l'ordre usuel $\leq $ sur $\R$.
 \item Si $E$ est fini, l'application $f : \mathcal P(E) \to \N, \: A\mapsto \operatorname{Card}(A)$ est croissante entre les ensembles ordonnés $(\mathcal P(E), \subseteq)$ et $(\N, \leq)$.
 \item L'application $f : \mathcal P(E) \to \mathcal P(E), \: A\mapsto A^c$ est décroissante pour l'inclusion, car $A\subseteq B \implies B^c\subseteq A^c$.
+\item Une application \emph{décroissante} entre $(E,\leq_E)$ et $(F,\leq_F)$ est la même chose qu'une application \emph{croissante} entre $(E,\leq_E)$ et $(F,\geq_F)$.
 \end{enumerate}
 \end{exemple}
 
-Comme d'habitude, après les définitions viennent les propositions et théorèmes.
+\begin{exercice}
+Montrer qu'une application strictement croissante est injective.
+\end{exercice}
+
 
 \begin{proposition}
 \begin{enumerate}
@@ -224,7 +237,10 @@ La partie $A=[0,1[ \subseteq \R$ n'a pas de plus grand élément, mais possède 
 \begin{proof} Pour le premier point, la partie n'a même pas de majorant donc c'est clair. 
 D'une part, il est clair que $1$ est un majorant de $[0,1[$, c'est-à-dire que $\forall x\in [0,1[, \: x\leq 1$.
 
-Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$ et supposons par l'absurde que $m < 1$. On doit forcément avoir $0\leq m$ puisque $0\in [0,1[$. Donc $m+\frac{1-m}{2}=1+\frac{m}{2} \in [0,1[$.
+Vérifions la seconde partie de la définition.  Il s'agit de montrer qu'un élément $m$ de $[0,1[$ ne peut pas être un majorant de $[0,1[$. Mais si $m \in [0,1[$, alors on peut considérer le réel $m'=m+\frac{1-m}{2}$. Comme $0\leq m< 1$, on a l'encadrement $0< \frac{1-m}{2} < 1-m$ et donc en sommant $m$ on obtient
+\[
+m< m' < 1
+\]
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-0.5,-1.5) rectangle (10.5,1);
@@ -234,13 +250,12 @@ Vérifions la seconde partie de la définition.  Soit $m$ un majorant de $[0,1[$
 \draw [fill=black] (6,0) circle (2pt);
 \draw[color=black] (6.0,-0.5) node {$m$};
 \draw [fill=black] (8,0) circle (2pt);
-\draw[color=black] (8.0,-0.5) node {$m+\frac{1-m}{2}$};
+\draw[color=black] (8.0,-0.5) node {$m'=m+\frac{1-m}{2}$};
 \draw[color=black] (10.0,-0.5) node {$1$};
 \end{scriptsize}
 \end{tikzpicture}
 \end{center}
-
- Comme $m$ est un majorant, on doit avoir $1+\frac{m}{2}\leq m$, donc $1+m\leq 2m$ donc $m\geq 1$, absurde.
+Ceci montre que $m$ ne majore pas $m'$, qui est dans $[0,1[$. Donc $m$ n'est pas un majorant de $[0,1[$.
 \end{proof}
 
 Autre exemple important de borne supérieure qui n'est pas un plus grand élément: la partie $\{x\in \Q, x^2<2\}$ de $\R$ est majorée et admet une borne supérieure égale à $\sqrt 2$ et qui n'appartient pas à $A$ car $\sqrt2\not\in \Q$. 
@@ -306,6 +321,17 @@ En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \
 
 
 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
 \section{Relations d'équivalence}
 
 \subsection{Définitions}
@@ -315,7 +341,7 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \begin{enumerate}
 \item réflexive (rappel : $\forall x\in E, x{\mathcal R}x$);
 \item transitive (rappel : $\forall x, y, z\in E, x{\mathcal R}y\text{ et } y{\mathcal R}z \implies x{\mathcal R}z$);
-\item symétrique\index{relation!symétrique} : $\forall x, y\in E, x{\mathcal R}y \implies yRx$.
+\item symétrique (rappel : $\forall x, y\in E, x{\mathcal R}y \implies yRx$).
 \end{enumerate}
 \end{definition}
 
@@ -325,18 +351,14 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \item La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
 \item Tout ensemble possède la relation d'équivalence triviale : celle où tous les éléments sont équivalents.
 \item Sur $\R$, la relation $x\mathcal R y \iff \left(x=y\text{ ou }x=-y\right)$ est une relation d'équivalence.
-\item Sur $\R$, la relation $x\mathcal R y \iff \sin(x)=\sin(y)$ est une relation d'équivalence.
-\item Sur $\C$, la relation $z\mathcal R z' \iff |z|=|z'|$ est une relation d'équivalence.
-
-\item Un singleton\index{singleton}, c'est-à-dire un ensemble contenant un unique élément, possède une seule relation d'équivalence (celle où l'unique élément est relié à lui-même).
 \item L'ensemble vide\index{ensemble vide} possède une seule relation d'équivalence, la relation vide (la seule fonction de $\varnothing \times \varnothing$ dans $\{\text{vrai,\: faux}\}$ à savoir la fonction vide : on vérifie qu'elle définit bien une relation d'équivalence).
+\item Un singleton\index{singleton}, c'est-à-dire un ensemble contenant un unique élément, possède une seule relation d'équivalence (celle où l'unique élément est relié à lui-même).
 \item Un ensemble $\{a,b\}$ à deux éléments possède deux relations d'équivalence distinctes : la première est l'\emph{égalité}, la seconde est la \emph{relation d'équivalence triviale}, celle où $a$ et $b$ sont équivalents.
-\item De façon générale, on peut toujours définir, sur un ensemble non-vide, la \emph{relation triviale}, celle où tous les éléments sont équivalents. (Cette relation est peu utile.)
 \item Un ensemble à trois éléments possède cinq relations d'équivalence (exercice).
 \end{enumerate}
 \end{exemples}
 
-\begin{proposition}[Fibres d'une application]\index{fibre}
+\begin{proposition}[Relation donnée par les fibres d'une application]\index{fibre}
 Si $f : E\to F$ est une application, alors la relation 
 \[
 x\mathcal R y \iff (x\text{ et }y \text{ sont dans la même fibre de }f)
@@ -350,6 +372,14 @@ Soit $x \in E$. Alors on a bien $f(x)=f(x)$ donc $x\mathcal R x$, donc $\mathcal
 
 On verra dans la dernière section que toutes les relations d'équivalence sont de ce type, pour une application $f$ bien choisie : la \emph{surjection canonique sur le quotient}.
 \end{proof}
+
+\begin{exemple} La proposition précédente implique que les relations suivantes sont des relations d'équivalence:
+\begin{enumerate}
+\item Sur $\R$, la relation définie par $x\mathcal R y \iff \sin(x)=\sin(y)$;
+\item Sur $\C$, la relation définie par $z\mathcal R z' \iff |z|=|z'|$.
+\item Sur $\R$, la relation définie par $x\mathcal R y \iff xe^y=ye^x$. (Dans ce cas, la fonction est $f :\R\to \R, t\mapsto te^{-t}$.)
+\end{enumerate}
+\end{exemple}
 
 D'autres exemples importants de relations d'équivalence sont les congruences. Commençons par rappeler les définitions.
 
@@ -439,7 +469,7 @@ Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\
 \end{proof}
 
 \begin{definition}[Partie saturée]
-\index{partie saturée!sous une relation d'équivalence}
+\index{partie!saturée sous une relation d'équivalence}\index{saturation!relativement à une relation d'équivalence}
 Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et soit $A\in \mathcal P(E)$. La \emph{saturation} de $A$ relativement à la relation $\mathcal R$ est la partie
 \[
 \{y\in E\:|\: \exists x\in A, y\mathcal R x\} 
@@ -536,8 +566,6 @@ Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'
 Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
 \end{exercice}
 
-% raffinement d'une relation d'équivalence : relation d'ordre sur les relations d'équivalence
-% "relation d'ordre la moins fine qui" ...
 
 \begin{remarque}
 Le plus grand élément de cet ensemble ordonné est la partition la  plus fine\index{partition!la plus fine} : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine\index{partition!la moins fine} est la partition triviale (celle à une seule partie).  
@@ -619,26 +647,6 @@ Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \t
 \end{proposition}
 
 % référer aux lemmes de factorisation généraux dans "applications"
-
-\begin{exercice}[Produits de quotients, quotients de produits]
-Soient $E$ et $F$ deux ensembles munis chacune d'une relation d'équivalence (notées $\mathcal R$ et $\mathcal S$.
-\begin{enumerate}
-\item Montrer que la relation binaire sur $E\times F$ définie par 
-\[
-(x,y) \mathcal T (x',y') \iff \left( x\mathcal R x' \text{ et } y\mathcal S y'\right)
-\]
-est une relation d'équivalence.
-\item Montrer que l'application
-\[ \psi : 
-\begin{cases}
-(E/\mathcal R) \times (F/\mathcal S) \to (E\times F)/\mathcal T\\
-(\overline{x}^\mathcal R,\overline{y}^\mathcal S) \mapsto \overline{(x,y)}^\mathcal T
-\end{cases}
-\]
-est une bijection.
-\end{enumerate} 
-
-\end{exercice}
 
 % coégalisateurs
 
