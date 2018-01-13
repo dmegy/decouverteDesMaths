@@ -1,12 +1,14 @@
 \documentclass[11pt,a4paper]{book}
 
-\usepackage{geometry}% gestion des marges etc
+\usepackage[margin=3cm]{geometry}% gestion des marges etc
 \usepackage[utf8]{inputenc} % caractères utf8 dans le fichier source
 \usepackage[T1]{fontenc} % encodage en sortie
 \usepackage[francais]{babel} % paramètres de langue : guillemets etc
 \usepackage{amssymb,mathtools,amsthm}
 \usepackage{stmaryrd,mathrsfs} % polices et symboles supplémentaires
 \usepackage{fancybox,graphicx}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{preuve}{rgb}{0,0.2,0.5}
 \usepackage[francais]{minitoc} % sommaires en début de chapitre
 \setcounter{minitocdepth}{2} % profondeur des sommaires (1 = sections)
 \setcounter{tocdepth}{1} % profondeur de la table des matières
@@ -17,9 +19,9 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=[rgb]{0,0.2,0.6},          % color of internal links
-    citecolor=[rgb]{0,0.2,0.6},        % color of links to bibliography
-    filecolor=[rgb]{0,0.2,0.6},      % color of file links
+    linkcolor=[rgb]{0.7,0.2,0.2},          % color of internal links
+    citecolor=[rgb]{0.7,0.2,0.2},        % color of links to bibliography
+    filecolor=[rgb]{0.7,0.2,0.2},      % color of file links
     urlcolor=[rgb]{0.7,0.2,0.2}           % color of external links
 }
 
@@ -61,7 +63,7 @@
 \newtheorem{proposition}[theoreme]{Proposition}
 \newtheorem{corollaire}[theoreme]{Corollaire}
 \newtheorem{lemme}[theoreme]{Lemme}
-\newenvironment{preuve}{{\bf Preuve. }}{$\Box$}
+\renewenvironment{proof}{\color{preuve}\emph{Démonstration.~}}{\qed}
 \newenvironment{red}{\begin{quote}\emph{Exemple de rédaction:}\\}{\end{quote}}
 
 \newtheorem{propdef}[theoreme]{Proposition et Définition}
