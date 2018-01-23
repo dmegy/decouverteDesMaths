@@ -113,40 +113,90 @@ Démonstration : voir TD.
 \section{Méthodes de démonstration}
 
 
-\paragraph{Démonstration directe}$ $\\
-\\
-Exemple : soit $n \in Z$; montrer que \og $n$ pair $\Rightarrow n^2$ pair\fg.\\
-\begin{red} Si $n$ est pair, il existe $k \in Z$ tel que $n = 2k$. Alors, $n^2 = 4k^2 = 2(2k^2)$ est pair. (et si $n$ est impair, l'implication est vraie par définition, il n'y a rien à prouver).\end{red}
+\subsection{Démonstration directe}
 
-\paragraph{Démonstration par contraposée}
+Principe : pour montrer $A\implies B$, on suppose $A$ vraie, et on montre que $B$ est vraie.
+
+\begin{proof}
+En effet, si $A$ est fausse, l'implication est vraie par définition donc il n'y a rien à prouver dans ce cas.
+\end{proof}
+
+\begin{exemple}
+Soit $n \in \Z$; montrer que \og $n$ pair $\implies n^2$ pair\fg.
+\begin{red}
+Si $n$ est pair, il existe $k \in Z$ tel que $n = 2k$. Alors, $n^2 = 4k^2 = 2(2k^2)$ est pair.
+\end{red}
+\end{exemple}
+
+\subsection{Démonstration par contraposée}
 \index{démonstration!par contraposée}
 
-Principe : $(A\Rightarrow B)$ est équivalente à $(\text{non-}B \Rightarrow \text{non-}A)$.\\
-Preuve du principe: $(\text{non-}B \Rightarrow \text{non-}A)\Leftrightarrow (\text{non-}A \text{ ou } non-non-B)\Leftrightarrow (B\text{ ou }non-A)\Box$.\\
-Exemple d'application : soit $n\in \Z$; montrer que $n^2$ pair $\Rightarrow n$ pair.
+Principe : $(A\implies B)$ est équivalente à $(\text{non-}B \implies \text{non-}A)$
+
+\begin{proof}
+$(\text{non-}B \implies \text{non-}A)\iff (\text{non-}A \text{ ou } non-non-B)\iff (B\text{ ou }non-A)$.
+\end{proof}
+
+\begin{exemple}
+Soit $n\in \Z$; montrer que $n^2$ pair $\implies$ $n$ pair.
 \begin{red}
 On va montrer la contraposée, autrement dit on va montrer 
 \og $n$ impair $\Rightarrow n^2$ impair\fg, qui est équivalente, mais plus facile à montrer. Supposons donc $n$ impair. Alors il existe $k \in\Z$ tel que $n = 2k+1$. Mais alors $n^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$ est impair.\\
-En combinant avec le résultat précédent, on a donc prouvé : \og$n^2$ pair $\Leftrightarrow n$ pair\fg
 \end{red}
+\end{exemple}
 
-\paragraph{Démonstration par l'absurde}
+Note : en combinant avec le résultat précédent, on a donc prouvé, pour $n$ un entier : \og$n^2$ pair $\iff n$ pair.\fg
+
+\subsection{Démonstration par l'absurde}
 \index{démonstration!par l'absurde}
 
-Principe : Si $F$ désigne n'importe quelle proposition fausse, on a $A \Leftrightarrow (\text{ non-}A \Rightarrow F)$.\\
-Preuve du principe: $(\text{ non-}A \Rightarrow F) \Leftrightarrow (F\text{ ou non-non-}A)\Leftrightarrow A$.\\
- Donc pour montrer $A$, il suffit de supposer $A$ faux et d'en déduire une contradiction (c'est-à-dire n'importe quelle proposition fausse).\\
-Exemple d'application : Montrer que $\sqrt{2}$ n'est pas rationnel.
+Principe : Si $F$ désigne n'importe quelle proposition fausse, on a $A \iff (\text{ non-}A \implies F)$.
+
+\begin{proof}
+$(\text{ non-}A \implies F) \iff (F\text{ ou non-non-}A)
+\iff (F \text{ ou } A) \iff A$.
+\end{proof}
+
+Donc pour montrer $A$, il suffit de supposer $A$ faux et d'en déduire une contradiction (c'est-à-dire n'importe quelle proposition fausse).\\
+\begin{exemple}
+Montrer que $\sqrt{2}$ n'est pas rationnel.
 \begin{red}
 Par l'absurde, supposons $\sqrt{2}\in\Q$. Alors il existe deux entiers $p$ et $q$ premiers entre eux tels que $\sqrt{2} = p/q$. Donc $p = q\sqrt{2}$ et donc $p^2 = 2 q^2$, donc $p^2$ est pair, donc par l'exemple précédent $p$ est pair. Donc il existe $k\in Z$ tel que $p = 2k$, d'où en remplacant $4k^2 = 2 q^2$, donc en simplifiant $q^2$ est pair donc $q$ est pair. Donc $p$ et $q$ sont tous les deux pairs, contradiction car ils sont premiers entre eux. Finalement cette contradiction prouve que $\sqrt{2} \not\in \Q$.
 \end{red}
+\end{exemple}
 
-\paragraph{Démonstrations de propositions avec quantificateur universel}$ $\\
+
+\subsection{Démonstrations par disjonction de cas}
+Principe : Pour démontrer $A\implies B$, on écrit $A$ sous forme d'une disjonction : $A\iff A'\text{ ou }A''$, et on montre les deux implications $A'\implies B$ et $A''\implies B$.
+
+\begin{proof}
+\begin{align*}
+(A\implies B )
+&\iff (B \text{ ou non-}A)\\
+&\iff   (B \text{ ou non-}(A' \text{ ou } A''))\\
+&\iff (B \text{ ou } (non-A' et \: non-A''))\\
+&\iff (B \text{ ou } non-A') \text{ et } (B \text{ ou } non-A'')\\
+&\iff (A'\implies B \text{ et } A''\implies B)
+\end{align*}
+\end{proof}
+
+\begin{exemple}\index{démonstration!par disjonction de cas}
+Soit $x\in \R$. Démontrer que $x^2+\cos(x)>0$.
+\begin{red}
+Soit $x\in\R$.\\
+On distingue deux cas possibles suivant la valeur de $x$.\\
+--- Si $0\leq |x|< \pi/2$, alors $x^2\geq 0$ et $\cos(x)> 0$ donc $x^2+\cos(x)>0$.\\
+--- Si  $\pi/2\leq|x|$, alors $x^2+\cos(x)\geq \pi^2/4-1>0$.\\
+Finalement, dans tous les cas on a bien $x^2+\cos(x)>0$.
+\end{red}
+\end{exemple}
+
+\subsection{Démonstrations de propositions avec quantificateur universel}$ $\\
 
 Pour démontrer $\forall x\in E,\:A(x)$, on écrit:\\
 \og Soit $x\in E$ un élément quelconque\fg.\\
 Puis, on démontre $A(x)$.\\
-Puis, pour conclure, on écrit : \og $x$ étant pris quelconque dans $E$, la propriété est bien démontrée\fg.\\
+Éventuellement, on écrit une phrase de conclusion, par exemple: \og $x$ étant pris quelconque dans $E$, la propriété est bien démontrée\fg.\\
 
 
 \begin{exemple}
@@ -154,32 +204,22 @@ Montrer que $\forall x\in \R, x^2+x+1> 0$\fg.
 \begin{red}
 \begin{tabular}{lr}
 Soit $x\in \R$. & (déclaration de $x$)\\
-On a $x^2+x+1 = (x+\frac12)^2+\frac34$. & (Début preuve de $A(x)$)\\
-Comme un carré est toujours positif, on a $(x+\frac12)^2 \geq 0$ & \\
- et donc  $x^2+x+1>0$. & (fin preuve de $A(x)$)\\
+\hspace{1cm} On a $x^2+x+1 = (x+\frac12)^2+\frac34$. & (Début preuve de $A(x)$)\\
+\hspace{1cm}Comme un carré est toujours positif, on a $(x+\frac12)^2 \geq 0$ & \\
+\hspace{1cm} et donc  $x^2+x+1>0$. & (fin preuve de $A(x)$)\\
 Ceci montre donc bien $\forall x\in \R, x^2+x+1>0$ & (Conclusion)\\
 \end{tabular}
 \end{red}
 \end{exemple}
 
 
-\begin{exemple}\index{démonstration!par disjonction de cas}
-Démontrer que $\forall x\in\R,\; x^2+\cos(x)>0$.
-\end{exemple}
-\begin{red}
-Soit $x\in\R$.\\
-On distingue deux cas possibles suivant la valeur de $x$.\\
-Si $0\leq |x|< \pi/2$, alors $x^2\geq 0$ et $\cos(x)> 0$ donc $x^2+\cos(x)>0$.\\
-Si  $\pi/2\leq|x|$, alors $x^2+\cos(x)\geq \pi^2/4-1>0$.\\
-Comme $x$ est quelconque, on a bien montré la propriété pour tout $x\in\R$.\end{red}
-
-\paragraph{Cas particulier : démonstrations par récurrence}
+\subsection{Cas particulier : démonstrations par récurrence}
 \index{démonstration!par récurrence}
 
 Dans le cas particulier où le quantificateur universel porte sur l'ensemble $\N$, on peut utiliser une méthode de preuve spécifique, la récurrence. Cette méthode de démonstration s'appuie sur le fait que toute partie non vide de $\N$ admet un plus petit élément (ce qui est faux pour la plupart des autres ensembles classiques). Il suffit alors de montrer d'une part que $A(0)$ est vraie, ce qui est généralement facile, puis de montrer que pour tout $n \in\N$, on a $A(n) \Rightarrow A(n+1)$. La première étape est cruciale et le raisonnement est faux si on l'omet.
 
 
-\paragraph{Démonstrations de propositions avec quantificateur existentiel}\index{démonstration!de l'existence d'un objet}
+\subsection{Démonstrations de propositions avec quantificateur existentiel}\index{démonstration!de l'existence d'un objet}
 
 Pour démontrer \og$\exists x\in E\slash A(x)$, il faut soit construire un élément $x$ tel que $A(x)$ soit vrai, soit utiliser un théorème qui affirme dans sa conclusion l'existence d'un tel objet (ou qui affirme l'existence d'un objet à partir duquel on peut obtenir l'existence de $x$).
 
@@ -207,7 +247,7 @@ Soit $A(x)$ une proposition portant sur $x\in E$. Résoudre $A(x)$, c'est déter
 
 
 \paragraph{Méthode par équivalence}$ $\\
-$A(x) \Leftrightarrow B(x) \Leftrightarrow ... \Leftrightarrow C(x)$ et on sait facilement résoudre $C(x)$. Cette méthode ne  s'applique que rarement, essentiellement qu'aux (systèmes d') équations linéaires.
+$A(x) \iff B(x) \iff ... \iff C(x)$ et on sait facilement résoudre $C(x)$. Cette méthode ne  s'applique que rarement, essentiellement qu'aux (systèmes d') équations linéaires.
 
 \begin{exemple}
 Résoudre $2x+3=5$, d'inconnue $x\in \R$.
@@ -216,19 +256,20 @@ Soit $x\in \R$. On a
 \begin{align*}
 2x+3=8
 &\iff 2x=5\\
-&\iff x=5/2.
+&\iff x=\frac52.
 \end{align*}
+L'ensemble des solutions de cette équation est donc $\left\{\frac52\right\}$.
 \end{red}
 \end{exemple}
 
 \paragraph{Méthode par conditions nécessaires et suffisantes}
 \index{démonstration!par analyse-synthèse / par conditions nécessaires et suffisantes}
 
-Lorsque $A(x) \Rightarrow B(x)$, on dit que $B(x)$ est une condition nécessaire à $A(x)$, et $A(x)$ est une condition suffisante pour $B(x)$.\\
-Dans la pratique, on écrit $A(x)\Rightarrow B(x) \Rightarrow ... x\in\Omega$. Ensuite, parmi les éléments de $\Omega$, on détermine ceux qui sont solution.\\
+Lorsque $A(x) \implies B(x)$, on dit que $B(x)$ est une condition nécessaire à $A(x)$, et $A(x)$ est une condition suffisante pour $B(x)$.\\
+Dans la pratique, on écrit $A(x)\implies B(x) \implies ... x\in\Omega$. Ensuite, parmi les éléments de $\Omega$, on détermine ceux qui sont effectivement solution.\\
 \\
 Exemple : résoudre $|x-1|=2x+3$, d'inconnue $x\in \R$.\\
 \begin{red}
-Soit $x\in\R$. On a la chaîne d'implications $|x-1|=2x+3 \Rightarrow |x-1|^2=(2x+3)^2 \Leftrightarrow x^2-2x+1=4x^2+12x+9 \Leftrightarrow 3x^2+14x+8=0 \Leftrightarrow (x\in \{-4;-2/3\})$. Réciproquement, on vérifie que $-4$ n'est pas solution mais que $-2/3$ est solution. Finalement, l'équation a une unique solution, $-2/3$.
+Soit $x\in\R$. On a la chaîne d'implications $|x-1|=2x+3 \Rightarrow |x-1|^2=(2x+3)^2 \Leftrightarrow x^2-2x+1=4x^2+12x+9 \iff 3x^2+14x+8=0 \iff (x\in \{-4;-2/3\})$. Réciproquement, on vérifie que $-4$ n'est pas solution mais que $-2/3$ est solution. Finalement, l'équation a une unique solution, $-2/3$.
 \end{red}
 

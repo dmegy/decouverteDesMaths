@@ -68,7 +68,8 @@ On rencontre également la mise en forme du type suivant:
 Soient $E$ et $F$ des ensembles. L'ensemble des fonctions de $E$ dans $F$ est noté $\mathcal F(E,F)$ ou bien $F^E$ (attention à l'ordre dans la seconde notation).
 \end{definition}
 
-\begin{remarque} Un graphe de fonction n'est pas forcément défini par une formule simple du type $y=\sin(x)$, ou $y=x^2+e^x$. Par exemple, on peut utiliser plusieurs formules suivant l'endroit du domaine où se trouve la variable :
+\begin{remarque}
+Un graphe de fonction n'est pas forcément défini par une formule simple du type $y=\sin(x)$, ou $y=x^2+e^x$. Par exemple, on peut utiliser plusieurs formules suivant l'endroit du domaine où se trouve la variable :
 \[ f: 
 \R \to \R, 
 x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{cases}\]
@@ -83,7 +84,8 @@ x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{c
 Soit $f : E\to F$ une fonction, et $y\in F$. On dit qu'un élément $x\in E$ est un \emph{antécédent} de $y$ si $f(x)=y$. En reformulant, l'ensemble des antécédents de $y$ est donc l'ensemble des solutions de l'équation $f(x)=y$, d'inconnue $x\in E$.
 \end{definition}
 
-\begin{exemple} Un élément du codomaine peut ne pas avoir d'antécédents, ou en avoir plusieurs. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$.
+\begin{exemple}
+Un élément du codomaine peut ne pas avoir d'antécédents, ou en avoir plusieurs. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$.
 \end{exemple}
 
 \begin{definition}[Fonction caractéristique]
@@ -98,11 +100,11 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{fixe par $f$} (ou simplement \emph{fixe} s'il n'y a pas d'ambiguïté sur la fonction), si $f(x)=x$. On dit aussi que $x$ est un \emph{point fixe} de $f$.
 \end{definition}
 
-Pour terminer ce paragraphe, on introduit un outil indispensable pour visualiser plusieurs ensembles et applications d'un seul coup : les diagrammes.
+Pour terminer ce paragraphe, on introduit un outil indispensable pour visualiser efficacement plusieurs ensembles et applications d'un seul coup : les diagrammes.
 
 \begin{definition}[Diagramme]
 \index{diagramme}
-Lorsque l'on est en présence de plusieurs ensembles et de plusieurs applications entre ces ensembles, il est classique de visualiser la situation à l'aide d'un diagramme. Un diagramme (d'applications entre ensembles) est un graphe dont chaque sommet représente un ensemble et chaque arête (orientée) représente une application.
+Lorsque l'on est en présence de plusieurs ensembles et de plusieurs applications entre ces ensembles, il est classique de visualiser la situation à l'aide d'un diagramme. Un diagramme (d'applications entre ensembles) est un graphe orienté dont chaque sommet représente un ensemble et chaque arête (orientée) représente une application.
 \end{definition}
 
 Attention, un tel graphe n'est pas simple, autrement dit il peut avoir des boucles (s'il y a des applications d'un ensemble dans lui-même) ou des arêtes multiples (s'il y a plusieurs applications distinctes entre deux ensembles donnés).
@@ -159,13 +161,14 @@ g : \R\to \R, x\mapsto x+1.
 \]
 \end{definition}
 
-\begin{remarque} Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général distinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
+\begin{attention}[La composition n'est pas commutative]
+Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général distinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
 $ et $g : \R\to \R, x\mapsto x+1$,  on peut composer dans les deux sens mais on a :
 \begin{align*}
 g\circ f : \R\to \R, & x\mapsto g(f(x)) = g(x^2) = x^2+1,\\
 f\circ g : \R\to \R, & x\mapsto f(g(x)) = f(x+1) = (x+1)^2 = x^2+2x+1.
 \end{align*}
-\end{remarque}
+\end{attention}
 
 
 \begin{proposition}[\og La composition est associative\fg]
@@ -187,16 +190,18 @@ Les domaines et codomaines sont les mêmes ($X$ et $T$), et si $x\in X$, on a
 d'où l'égalité des deux fonctions.
 \end{proof}
 
+Cette proposition permet de ne pas avoir à noter les parenthèses lors de compositions successives, puisque toutes les possibilités de parenthésage donnent la même fonction.
+
 \begin{definition}[Fonction identité]
 Soit $E$ un ensemble. La fonction identité sur $E$ est la fonction $\Id_E : E\to E, x\mapsto x$. (En d'autres termes, la fonction identité de $E$ est la fonction de $E$ dans $E$ dont tous les points sont fixes.)
 \end{definition}
 
-\begin{remarque}
+\begin{attention}
 \begin{enumerate}
-\item Ne pas confondre la fonction identité avec une fonction constante.
+\item Ne pas confondre la fonction identité avec une fonction constante (ou avec fonction nulle si le but est $\R$).
 \item Si $\phi = E\to F$, alors $\phi = \phi\circ \Id_E = \Id_F\circ \phi$.
 \end{enumerate}
-\end{remarque}
+\end{attention}
 
 
 \begin{definition}[Diagramme commutatif]
@@ -225,7 +230,13 @@ est commutatif revient à dire que $\psi\circ f = g \circ \phi$. Un tel diagramm
 \end{enumerate}
 \end{exemple}
 
+\begin{definition}[Fonction involutive/involution]\index{application!involutive}\index{involution}
+Soit $f : E\to E$ une fonction ayant même source et but. On dit que $f$ est \emph{involutive}, ou que c'est une \emph{involution}, si $f\circ f=\Id_E$.
+\end{definition}
 
+\begin{exemple}
+La fonction $f : \R\to \R, x\mapsto 1-x$ est involutive.
+\end{exemple}
 
 
 
@@ -250,13 +261,10 @@ Soient $f : E\to F$ et $g = F\to E$ deux fonctions. On dit qu'elles sont récipr
 
 
 
-Attention, une fonction $f$ n'a pas toujours de fonction réciproque.
+Attention, une fonction $f$ n'a pas toujours de fonction réciproque!
 
 \begin{proposition} Soit $f : E\to F$ une fonction. Si elle admet une (fonction) réciproque, alors celle-ci est unique. Elle est notée généralement $f^{-1}$.
 \end{proposition}
-
-\textbf{Attention}, on ne doit pas utiliser la notation $f^{-1}$ avant d'avoir démontré que la fonction admet effectivement une réciproque.
-
 \begin{proof}
 Soient en effet $g = F\to E$ et $h : F \to E$ deux réciproques de $f$. Alors
 \[
@@ -268,11 +276,18 @@ g\circ  f \circ h = g\circ (f \circ h) = g \circ \Id_F = g
 d'où $g=h$.
 \end{proof}
 
+\begin{attention}
+\begin{enumerate}
+\item On ne doit pas utiliser la notation $f^{-1}$ avant d'avoir démontré que la fonction admet effectivement une réciproque.
+\item Ne pas confondre fonction réciproque $f^{-1}$ et fonction \emph{inverse} $\frac{1}{f}$. La notion de fonction inverse  concerne les fonctions à valeurs réelles qui ne s'annulent pas et n'a rien à voir avec la notion de réciproque.
+\end{enumerate}
+\end{attention}
+
 \begin{exemple}
 Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
 \end{exemple}
 
-\begin{remarque}
+\begin{attention}
 Dans la définition de réciproque, les conditions $g\circ f = \Id_E$ et  $f\circ g = \Id_F$ sont toutes les deux nécessaires : il est en effet possible que l'une soit vérifiée et pas l'autre. Par exemple, les fonctions 
 \[
 f : \R_+\to \R, x\mapsto \sqrt x
@@ -282,7 +297,7 @@ g : \R\to \R_+, x\mapsto x^2
 vérifient $g\circ f=\Id_{\R_+}$, mais $f\circ g \neq \Id_{\R}$ : en effet, on a $(f\circ g)(x)=\sqrt{x^2}=|x|\neq x$.
 
 Dans ce type de cas, on n'est pas en présence de fonctions réciproques mais la situation porte tout de même un nom. C'est l'objet de la définition suivante.
-\end{remarque}
+\end{attention}
 
 \begin{definition}[Rétraction/inverse à gauche, section/inverse à droite]
 Soit $f : E\to F$ une fonction.
@@ -310,7 +325,6 @@ Soit $f : E\to F$ une fonction.
 Soit $f = \R\to \R_+, x\mapsto x^2$. Alors les fonctions $s_1 : \R_+\to \R, x\mapsto \sqrt x$ et $s_2 : \R_+\to \R, x\mapsto -\sqrt x$ sont deux sections (inverses à droite) distinctes de $f$ (on a bien $f\circ s_1 = \Id_{\R^+}$ et $f\circ s_2 = \Id_{\R^+}$). 
 Par ailleurs, $f$ est une rétraction de $s_1$ et de $s_2$. (Voir remarque ci-dessous.)
 %Soit $f : \{1,2\} \to \{3,4,5\}$ définie par $f(1)=3$ et $f(2)=5$. La fonction $g : \{3,4,5\}\to\{1,2\}$ telle que $g(3)=1$, $g(4)=2$ et $g(5)=2$ est une rétraction de $f$.  Par ailleurs, la fonction $f$ est une section de $g$ (voir remarque plus bas).
-
 \end{exemple}
 
 \begin{remarque}
@@ -352,10 +366,12 @@ A \ar[r]^{i} \ar@/_/[rr]_{f\circ i = f|_A} & E \ar[r]^f & F
 Soient $E$ et $F$ des ensembles, $A\in \mathcal P(E)$ une partie de $E$ et $f : A\to F$ une fonction. On dit qu'une application $g : E\to F$ est un \emph{prolongement} de $f$ si $g|_A = f$.
 \end{definition}
 
-Attention, il existe en général plusieurs prolongements possibles d'une même fonction et même si la fonction $f$ est donnée par une formule, un prolongement n'a aucune raison d'être défini par la même formule hors du domaine originel de $f$. Par exemple, si $f : \R_+^* \to \R, x\mapsto e^x$, alors les fonctions suivantes  sont des prolongements de $f$ (à divers domaines):
+\begin{attention}
+Il existe en général plusieurs prolongements possibles d'une même fonction et même si la fonction $f$ est donnée par une formule, un prolongement n'a aucune raison d'être défini par la même formule hors du domaine originel de $f$. Par exemple, si $f : \R_+^* \to \R, x\mapsto e^x$, alors les fonctions suivantes  sont des prolongements de $f$ (à divers domaines):
 \[g : \R^* \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ \sin(x) \text{ si } x<0\end{cases},\]
 \[h : \R_+ \to \R, x\mapsto \begin{cases}e^x\text{ si } x>0\\ 10 \text{ si }x=0\end{cases}.\]
 (Un prolongement ne doit pas non plus être forcément continu ni dérivable, etc.)
+\end{attention}
 
 
 \begin{definition}[Corestriction]\index{corestriction}
@@ -437,6 +453,7 @@ On dit que $f : A\to B$ est \emph{bijective} (ou que c'est une \emph{bijection})
 \begin{enumerate}
 \item La fonction identité (d'un ensemble $E$ dans lui-même) est bijective.
 \item Si $A\subseteq B$, la fonction $i : A\to B, x\mapsto x$, appelée \emph{l'inclusion de $A$ dans $B$}, est injective. De même que les fonctions identité, les fonctions d'inclusion jouent souvent un rôle important malgré leur apparence anodine.
+\item Si $f : E\to F$ est injective, sa restriction $f|_A$ à toute partie $A\subseteq E$ est injective.
 \item On a déjà vu que $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. La corestriction de $f$ à $\R_+$ est $g : \R \to \R_+, x\mapsto x^2$. Elle n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : le codomaine est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
 \item La restriction de $g$ à $\R_+$ est $h : \R_+ \to \R_+, x\mapsto x^2$. Elle est injective et surjective, donc bijective. Elle est injective car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe). Sa surjectivité ne découle pas directement de celle de $g$ car le domaine a été restreint : elle est surjective car tout nombre réel positif $y\geq 0$ a au moins un antécédent \emph{dans $\R_+$}, à savoir $\sqrt{y}$.
 \item (Zérologie)\index{zérologie} L'unique fonction de $\varnothing$ dans $\varnothing$ est bijective. La fonction vide de $\varnothing$ dans n'importe quel ensemble est toujours injective.
@@ -489,7 +506,7 @@ Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
 Soit $f : E\to F$ une application.
 \begin{enumerate}
 \item Si elle admet une rétraction (inverse à gauche), alors elle est injective.
-\item Si elle admet une section (inverse à droite), alorselle est surjective.
+\item Si elle admet une section (inverse à droite), alors elle est surjective.
 \item Si elle admet une fonction réciproque, alors elle est bijective.
 \end{enumerate}
 \end{corollaire}
@@ -564,7 +581,7 @@ Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensem
 \[f^{<-1>}(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
 Autrement dit, pour un élément $x\in E$, on a $x\in f^{<-1>}(B) \iff f(x)\in B$.
 
-\textbf{Attention}, on voit très souvent la notation $f^{-1}(B)$ au lieu de $f^{<-1>}(B)$ mais cela peut prêter à confusion, la fonction $f$ n'ayant pas forcément de réciproque. Dans ce chapitre, on utilise la notation $f^{<-1>}(B)$, puis on utilisera progressivement la première.
+\textbf{Attention}, on voit très souvent la notation $f^{-1}(B)$ au lieu de $f^{<-1>}(B)$ mais cela peut prêter à confusion, la fonction $f$ n'ayant pas forcément de réciproque. Dans ce chapitre, on utilise pour commencer la notation $f^{<-1>}(B)$. La notation $f^{-1}(B)$ sera adoptée progressivement dans les chapitres suivants.
 \end{definition}
 
 \begin{definition}[Fibres d'une application]
@@ -648,9 +665,7 @@ La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée.
 
 \section{Compléments : principes de factorisation et exercices}
 
-Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins fondamentales.
-
-
+Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
 
 
 \begin{proposition}[Principe de factorisation à droite]
@@ -677,8 +692,18 @@ Ces assertions sont vraies si et seulement si :
 \begin{remarque} Si $A=C$ et $g=\Id_A$, cette proposition devient l'équivalence entre injectivité et existence d'une rétraction $h$ (inverse à gauche).
 \end{remarque}
 
+Cette proposition peut paraître abstraite mais en pratique elle est très facile à utiliser, comme le montre l'exemple suivant.
+\begin{exemple}
+Montrer que $g : \R\to\R, x\mapsto |x|$ se factorise à droite par $f : \R\to \R, x\mapsto x^2$.
+\end{exemple}
+\begin{red}
+Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$ ou $x=-y$, et donc on en déduit que $|x|=|y|$ c'est-à-dire $g(x)=g(y)$. D'après la proposition \ref{factorisation-droite}, il existe $h : \R\to \R$ telle que $g =h\circ f$, ou encore : $\forall x\in \R, |x|=h(x^2)$. 
+\end{red}
+
+(Attention, dans l'exemple précédent $h$ n'est pas exactement la racine carrée : en effet $h$ doit être définie sur $\R$. D'ailleurs $h$ n'est pas unique.)
+
 \begin{exercice}
-Dans le contexte de la proposition précédente, montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
+Dans le contexte de la proposition \ref{factorisation-droite}, montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
 \end{exercice}
 
 

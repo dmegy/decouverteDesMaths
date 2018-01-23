@@ -31,7 +31,9 @@ Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est :
 \end{enumerate}
 \end{definition}
 
-Attention, contrairement à ce qu'on peut croire, une relation peut être à la fois symétrique et antisymétrique, comme par exemple la relation $=$. (Si la relation est de plus supposée réflexive, c'est le seul exemple.)
+\begin{attention}
+Contrairement à ce qu'on peut croire, une relation peut être à la fois symétrique et antisymétrique, comme par exemple la relation $=$. (Si la relation est de plus supposée réflexive, c'est le seul exemple.)
+\end{attention}
 
 Le tableau suivant résume sans preuve quelques propriétés des relations classiques. (Certains points seront détaillés par la suite.)\\
 
@@ -55,8 +57,10 @@ Soient $\mathcal R$ et $\mathcal S$ des relations binaires sur $E$. On dit que $
 \end{definition}
 
 \begin{definition}
-Soit $E$ un ensemble muni d'une relation binaire $\mathcal R$. La relation \emph{opposée}, ou \emph{transposée}, notée ${}^t\mathcal R$ ou $\mathcal R^{op}$, est définie par : $x{}^t\mathcal R y \iff y\mathcal R x$. 
+Soit $E$ un ensemble muni d'une relation binaire $\mathcal R$. La relation \emph{réciproque} ou \emph{transposée}, notée ${}^t\mathcal R$, est définie par : $x{}^t\mathcal R y \iff y\mathcal R x$. 
 \end{definition}
+
+% ne pas confondre avec la relation complémentaire / complément logique
 
 \begin{exercice}
 Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
@@ -72,6 +76,8 @@ Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réfl
 
 \begin{definition}
 Une relation est une \emph{relation d'ordre}\index{relation d'ordre} ssi elle est réflexive, transitive et antisymétrique.
+
+Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé \emph{ensemble ordonné}\index{ensemble ordonné}.
 \end{definition}
 
 \begin{exemples}
@@ -82,22 +88,31 @@ Une relation est une \emph{relation d'ordre}\index{relation d'ordre} ssi elle es
 \end{enumerate}
 \end{exemples}
 
-Attention : $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et la relation de divisibilité $|$ n'est pas une relation d'ordre sur $\Z^*$ ni sur $\Z$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
+\begin{attention}
+\begin{enumerate}
+\item La relation $<$ n'est pas une relation d'ordre sur $\R$ (ni sur $\N$, $\Z$ ou $\Q$), car elle n'est pas réflexive, et la relation de divisibilité $|$ n'est pas une relation d'ordre sur $\Z^*$ ni sur $\Z$, car elle n'est pas antisymétrique : $1|-1$ et $-1|1$ et pourtant $1\neq -1$.
 % C'est un préordre...
+\item il faut systématiquement préciser l'ordre auquel on se réfère, même pour un ensemble \og connu\fg. Par exemple, il faut éviter de parler de \og l'ensemble ordonné $\N$\fg: en effet $\N$ peut être muni de l'ordre usuel $\leq$ ou bien de la divisibilité $|$ et les deux ordres sont fréquemment utilisés.
+\end{enumerate}
+\end{attention}
+
 
 \begin{definition}
 Si ${\mathcal R}$ est une relation d'ordre sur $E$, on peut lui associer une relation d'\emph{ordre strict}\index{ordre strict}, définie par \og$ x{\mathcal R}y\text{ et }x\neq y$\fg. (Remarque : une relation d'ordre strict n'est pas une relation d'ordre puisqu'elle n'est pas réflexive.)
 \end{definition}
 
-Un ensemble $E$ muni d'une relation d'ordre ${\mathcal R}$ est appelé \emph{ensemble ordonné}\index{ensemble ordonné}. Par exemple, $(\R, \leq)$ est un ensemble ordonné.
+\begin{exemple}
+Sur $\R$, l'ordre strict associé à la relation d'ordre $\leq$ est l'inégalité stricte $<$.
+\end{exemple}
 
-Il faut systématiquement préciser l'ordre auquel on se réfère, même pour un ensemble \og connu\fg. Par exemple, $\N$ peut être muni de l'ordre usuel $\leq$ ou bien de la divisibilité $|$ et les deux ordres sont fréquemment utilisées.
 
-Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre générique sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales.
-
-Si $\leq_E$ est une relation d'ordre sur $E$, on notera $<_E$ la relation d'\emph{ordre strict}\index{relation!d'ordre!strict} qui lui est associée.
+Dans ce cours, on notera en général $\leq_E$ au lieu de ${\mathcal R}$ une relation d'ordre générique sur $E$ (même si la relation n'a rien à voir avec l'inégalité $\leq$ sur $\R$), afin de distinguer les relations d'ordre des relations binaires générales. On notera $<_E$ la relation d'\emph{ordre strict}\index{relation!d'ordre!strict} qui lui est associée.
 
 Enfin, les notations $\geq_E$ et $>_E$ désignent les relations transposées de $\leq_E$ et $<_E$. Autrement dit  $x \geq_E y$ et $x >_E y$ sont synonymes de $y \leq_E x$ et $y <_E x$.
+
+\begin{attention}
+Contrairement au cas particulier de $(\R,\leq)$, dans un ensemble ordonné général $(E,\leq_E)$ la négation de \og $x\leq_E y$\fg{} n'est \textbf{pas} \og $y<_E x$\fg. Par exemple, le contraire de \og$2|n$\fg{} n'est pas \og$n$ divise strictement $2$.\fg{}
+\end{attention}
 
 \begin{definition}
 Une relation d'ordre $\leq_E$ sur un ensemble $E$ est \emph{totale}\index{relation!d'ordre!total} si tous les éléments sont comparables, c'est-à-dire si:
@@ -106,7 +121,7 @@ Un ensemble muni d'un ordre total est appelé \emph{ensemble totalement ordonné
 \end{definition}
 
 \begin{remarque}
-Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq)$, alors le contraire de $x\leq_E y$ est $x>_E y$. Ceci est \textbf{faux} si l'ordre n'est pas total, justement à cause d'éventuels éléments non comparables. Par exemple, le contraire de $2|n$ n'est pas que $n$ divise strictement $2$.
+Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq_E)$, alors le contraire de $x\leq_E y$ est $x>_E y$. Comme remarqué plus haut, ceci est \textbf{faux} si l'ordre n'est pas total, justement à cause d'éventuels éléments non comparables. 
 \end{remarque}
 
 \begin{exemples}
@@ -141,7 +156,7 @@ Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés et $f : E\to F$. On 
 \begin{enumerate}
 \item L'application $f : \R\to \R, x\mapsto x+e^x$ est croissante pour l'ordre usuel $\leq $ sur $\R$.
 \item Si $E$ est fini, l'application $f : \mathcal P(E) \to \N, \: A\mapsto \operatorname{Card}(A)$ est croissante entre les ensembles ordonnés $(\mathcal P(E), \subseteq)$ et $(\N, \leq)$.
-\item L'application $f : \mathcal P(E) \to \mathcal P(E), \: A\mapsto A^c$ est décroissante pour l'inclusion, car $A\subseteq B \implies B^c\subseteq A^c$.
+\item L'application $f : \mathcal P(E) \to \mathcal P(E), \: A\mapsto \complement A$ est décroissante pour l'inclusion, car $A\subseteq B \implies \complement B\subseteq \complement A$.
 \item Une application \emph{décroissante} entre $(E,\leq_E)$ et $(F,\leq_F)$ est la même chose qu'une application \emph{croissante} entre $(E,\leq_E)$ et $(F,\geq_F)$.
 \end{enumerate}
 \end{exemple}
