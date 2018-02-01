@@ -374,7 +374,7 @@ Il existe en général plusieurs prolongements possibles d'une même fonction et
 \end{attention}
 
 
-\begin{definition}[Corestriction]\index{corestriction}
+\begin{definition}[Corestriction]\index{corestriction}\label{def-corestriction}
 Soit $f : E\to F$, et $B$ une partie de $F$ contenant toutes les images des éléments de $E$ (autrement dit, $\forall x\in E, f(x)\in B$).
 La \emph{corestriction} de $f$ à $B$ est l'application de domaine $E$, codomaine $B$ et de même graphe que $f$, autrement dit c'est l'application 
 \[ g : E\to B, x\mapsto f(x).\]
@@ -385,13 +385,6 @@ La corestriction de $f$ à $B$ se note $f|^{B}$ mais cette notation n'est pas au
 Soit $f : \R\to \R, x\mapsto x^2$. On peut la corestreindre à $[-3,+\infty[$ car cette partie de $\R$ contient toutes les images de $f$. La corestriction de $f$ à $[-3,+\infty[$ est $g : \R\to [-3,+\infty[, x\mapsto x^2$.
 \end{exemple}
 
-\begin{exercice}
-Dans le contexte de la définition, soit $i : B\to F$ l'inclusion de $B$ dans $F$, et soit $r : F\to B$ une fonction définie comme suit : pour $y\in F$, on définit $r(y)=y$ si $y\in B$, et sinon, $r(y)$ est un élément arbitraire de $B$. 
-\begin{enumerate}
-\item Vérifier que $r$ est une rétraction de $i$.
-\item Vérifier que la corestriction $f|^{B}$ est égale à la composée $r\circ f$.
-\end{enumerate}
-\end{exercice}
 
 
 
@@ -420,9 +413,7 @@ Une formulation moins précise mais parlante est qu'une fonction injective \og s
 $f : \R\to \R, x\mapsto x^2$ n'est \textbf{pas} injective puisque $f(1)=f(-1)$.
 \end{exemple}
 
-\begin{exercice}
-Montrer que  $\sin : \R\to \R, x\mapsto \sin(x)$ n'est pas injective.
-\end{exercice}
+
 
 % méthode : pour rédiger une preuve, on utilise en général la première formulation, ou la seconde. Les autres formulations servent plutôt à assimiler la notion.
 % méthode : pour montrer qu'une fonction n'est pas injective, il suffit de trouver deux éléments distincts qui ont même image.
@@ -440,9 +431,7 @@ Une formulation moins précise mais parlante est  qu'une fonction surjective \og
 $f : \R\to \R, x\mapsto x^2$ n'est \textbf{pas} surjective puisque $-1$ n'a pas d'antécédent par $f$.
 \end{exemple}
 
-\begin{exercice}
-Montrer que  $\exp: \R\to \R, x\mapsto e^x$ n'est pas surjective.
-\end{exercice}
+
 
 \begin{definition}[Fonction bijective]
 \index{bijection}
@@ -663,7 +652,7 @@ La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée.
 %- - - - - -
 % factorisations
 
-\section{Compléments : principes de factorisation et exercices}
+\section{Compléments : principes de factorisation}
 
 Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
 
@@ -702,9 +691,7 @@ Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$
 
 (Attention, dans l'exemple précédent $h$ n'est pas exactement la racine carrée : en effet $h$ doit être définie sur $\R$. D'ailleurs $h$ n'est pas unique.)
 
-\begin{exercice}
-Dans le contexte de la proposition \ref{factorisation-droite}, montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
-\end{exercice}
+
 
 
 \begin{proposition}[Principe de factorisation à gauche]
@@ -730,6 +717,49 @@ Ces assertions sont vraies si et seulement si $f(A)\subseteq g(B)$.
 \begin{remarque}
 Si $A = C$ et que $f = \Id_C$, on retombe sur l'équivalence entre surjectivité et existence d'une section (inverse à droite).
 \end{remarque}
+
+\section{Exercices d'application directe}
+
+\begin{exercice}
+Montrer que  $\sin : \R\to \R, x\mapsto \sin(x)$ n'est pas injective.
+\end{exercice}
+
+\begin{exercice}
+Montrer que  $\exp: \R\to \R, x\mapsto e^x$ n'est pas surjective.
+\end{exercice}
+
+\begin{exercice}
+Montrer que  $f: \R\to \R, x\mapsto x^3$ est bijective.
+\end{exercice}
+
+\begin{exercice} 
+(Dans cet exercice les fonctions vont de $\R$ dans $\R$.) 
+Montrer l'application $x\mapsto x^2+6x+10$ se factorise à droite par $x\mapsto x+3$.
+% l'autre facteur est $x\mapsto x^2+1$
+ Montrer qu'elle se factorise à gauche par $x\mapsto x+5$.
+% l'autre facteur est $x\mapsto x^2+6x+5$.
+\end{exercice}
+
+
+
+\begin{exercice}
+Soient $f : A\to B$ et $g : A\to C$. On suppose que $g$ se factorise à droite par $f$.
+
+Montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
+\end{exercice}
+
+\section{Exercices d'approfondissement}
+
+% restriction, corestriction 
+\begin{exercice}
+Soit $f : E\to F$, et $B$ une partie de $F$ contenant toutes les images des éléments de $E$ (autrement dit, $\forall x\in E, f(x)\in B$).
+Soit $i : B\to F$ l'inclusion de $B$ dans $F$, et soit $r : F\to B$ une fonction définie comme suit : pour $y\in F$, on définit $r(y)=y$ si $y\in B$, et sinon, $r(y)$ est un élément arbitraire de $B$. 
+\begin{enumerate}
+\item Vérifier que $r$ est une rétraction de $i$.
+\item Vérifier que la corestriction $f|^{B}$ est égale à la composée $r\circ f$.
+\end{enumerate}
+\end{exercice}
+
 
 Les deux exercices suivants montrent que l'ensemble des surjections et l'ensemble des injections forment ce qui est parfois appelé un \emph{système orthogonal de factorisation}, une notion que l'on recroise dans plusieurs contextes en mathématiques.
 
@@ -757,38 +787,90 @@ Montrer que si $e$ est surjective et $m$ est injective, alors $e\perp m$.
 
 Les deux exercices qui suivent donnent un éclairage alternatif sur le produit cartésien et sa contrepartie, l' \og union disjointe\fg.
 
-\begin{exercice}[Propriété universelle du produit]
+\begin{exercice}[Propriété universelle du produit]\index{propriété universelle!du produit}
 Soient $A$ et $B$ des ensembles, et $ A\times B$ leur produit (cartésien). On note $\operatorname{pr}_A : A\times B \to A, (a,b)\mapsto a$ et $\operatorname{pr}_B : A\times B \to B, (a,b)\mapsto b$. Ces deux applications sont appelées les \emph{projections canoniques sur les facteurs du produit}.
 
-Montrer que l'ensemble $A\times B$ ainsi que les deux projections vérifient la propriété suivante: pour tout ensemble $D$ muni d'applications $f$ et $g$ vers (respectivement) $A$ et $B$, il existe une unique application $h : D\to A\times B$ telle que $f =\operatorname{pr}_A \circ  h$ et $g =\operatorname{pr}_B \circ  h$, c'est-à-dire qu'il existe une unique application $h : D\to A\times B$ faisant commuter le diagramme suivant:
+Montrer que l'ensemble $A\times B$ ainsi que les deux projections vérifient la propriété suivante (dite \emph{propriété universelle du produit}):
+\begin{quote}
+Pour tout ensemble $D$ muni d'applications $f$ et $g$ vers (respectivement) $A$ et $B$, il existe une unique application $h : D\to A\times B$ telle que $f =\operatorname{pr}_A \circ  h$ et $g =\operatorname{pr}_B \circ  h$, c'est-à-dire qu'il existe une unique application $h : D\to A\times B$ faisant commuter le diagramme suivant:
 \[ 
 \xymatrix{
 & & & A\\
 D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times B \ar[ur]_{pr_A} \ar[dr]^{pr_B}& \\
 & & & B
 }\]
+\end{quote}
 \end{exercice}
 
-\begin{exercice}[Union disjointe/coproduit/somme cartésienne]
+\begin{exercice}[Union disjointe/coproduit/somme cartésienne]\index{union disjointe}\index{propriété universelle!de l'union disjointe}
 Soient $A$ et $B$ deux ensembles. On appelle \emph{union disjointe de $A$ et $B$} l'ensemble
 \[
 A\biguplus B = (\{0\}\times A) \bigcup (\{1\}\times B)
 \]
 Cet ensemble est muni de deux applications $i_A : A\to A\biguplus B, a\mapsto (0,a)$ et  $i_B : B\to A\biguplus B, b\mapsto (1,b)$.
 
-Montrer que $A\biguplus B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante: pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\biguplus B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application h faisant commuter le diagramme  suivant:
+Montrer que $A\biguplus B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle du coproduit}): 
+\begin{quote}
+Pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\biguplus B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application h faisant commuter le diagramme  suivant:
 \[ 
 \xymatrix{
 A \ar[dr]_{i_A} \ar[drrr]^{f}& & & \\
 &  A\biguplus B \ar@{-->}[rr]^{\exists !h}  & & C\\
 B \ar[ur]^{i_B} \ar[urrr]_{g}& & &
 }\]
+\end{quote}
 \end{exercice}
 
 
-% exercices sur les égalisateurs
+\begin{exercice}[Égalisateurs]\index{égalisateur}\index{propriété universelle!de l'égalisateur}
+Soient $A$ et $B$ deux ensembles et $f$ et $g$ deux applications entre $A$ et $B$. Soit $E = \{x\in A\:|\: f(x)=g(x)\}$ le lieu d'égalité des deux fonctions. On appelle cette partie l'\emph{égalisateur de $f$ et $g$}. On note de plus $i_E : E\to A$ l'application d'inclusion de $E$ dans $A$. On a donc $f\circ i_E = g\circ i_E$, ce que l'on peut résumer par le fait que le diagramme suivant commute:
+\[
+\xymatrix{
+E \ar[r]_{i_E}& A\ar@/^/[r] ^{f} \ar@/_/[r]_{g} & B
+}
+\]
+Montrer que $E$ et $i_E$ vérifient la propriété suivante (dite \emph{propriété universelle de l'égalisateur}):
+\begin{quote}
+Pour tout ensemble $X$ et application $\phi : X\to A$ vérifiant $f\circ \phi = g\circ \phi$,  il existe une unique application $h : X\to E$ telle que $\phi = i_E\circ h $. Autrement dit, il existe une unique application $h : X\to E$ faisant commuter le diagramme 
+\[
+\xymatrix{
+& X \ar[d]^{\phi} \ar@{-->}_{\exists ! h}[dl]& \\
+E \ar[r]_{i_E}& A\ar@/^/[r] ^{f} \ar@/_/[r]_{g} & B
+}
+\]
+\end{quote}
+\end{exercice}
 
-% produits fibrés
+
+
+\begin{exercice}[Produit fibré]\index{propriété universelle!du produit fibré}\index{produit fibré d'ensembles}
+Soient $A$, $B$ et $C$ des ensembles et $\phi : A\to C$, $\psi : B\to C$ des applications.
+
+Le \emph{produit fibré de $A$ et $B$ au-dessus de $C$ (les applications $\phi$ et $\psi$ étant sous-entendues)} est l'ensemble:
+\[
+A\times_C B := \{(x,y)\in A\times B\:|\: \phi(x)=\psi(y)\}
+\]
+
+On note $\operatorname{pr}_A : A\times_C B \to A, (a,b)\mapsto a$ et $\operatorname{pr}_B : A\times_C B \to B, (a,b)\mapsto b$. Ces deux applications sont appelées les \emph{projections canoniques sur les facteurs du produit fibré}. Par construction, on a donc $\phi\circ \operatorname{pr}_A = \psi\circ \operatorname{pr}_B$, autrement dit le diagramme suivant commute:
+\[ 
+\xymatrix{
+ & A \ar[dr]^{\phi} &\\
+ A\times_C B \ar[ur]_{pr_A} \ar[dr]^{pr_B}& & C\\
+ & B \ar[ur]_{\psi}&
+}\]
+
+
+Montrer que l'ensemble $A\times_C B$ ainsi que les deux projections vérifient la propriété suivante (dite \emph{propriété universelle du produit fibré}):
+\begin{quote}
+Pour tout ensemble $D$ muni d'applications $f$ et $g$ vers (respectivement) $A$ et $B$ vérifiant $\phi \circ f =  \psi\circ g$, il existe une unique application $h : D\to A\times_C B$ telle que $f =\operatorname{pr}_A \circ  h$ et $g =\operatorname{pr}_B \circ  h$, c'est-à-dire qu'il existe une unique application $h : D\to A\times_C B$ faisant commuter le diagramme suivant:
+\[ 
+\xymatrix{
+& & & A \ar[dr]^{\phi} &\\
+D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times_C B \ar[ur]_{pr_A} \ar[dr]^{pr_B}& & C\\
+& & & B \ar[ur]_{\psi}&
+}\]
+\end{quote}
+\end{exercice}
 
 % produits cofibrés et coégalisateurs après les ensembles quotients
 
