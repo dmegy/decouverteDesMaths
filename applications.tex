@@ -802,27 +802,30 @@ D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times B \ar[ur]_{
 \end{quote}
 \end{exercice}
 
-\begin{exercice}[Union disjointe/coproduit/somme cartésienne]\index{union disjointe}\index{propriété universelle!de l'union disjointe}
-Soient $A$ et $B$ deux ensembles. On appelle \emph{union disjointe de $A$ et $B$} l'ensemble
+\begin{exercice}[Union disjointe/coproduit/somme cartésienne]\label{exo-coproduit}
+\index{union disjointe}\index{coproduit}\index{propriété universelle!de l'union disjointe/coproduit}
+Soient $A$ et $B$ deux ensembles. On appelle \emph{coproduit (ou union disjointe) de $A$ et $B$} l'ensemble
 \[
-A\biguplus B = (\{0\}\times A) \bigcup (\{1\}\times B)
+A\coprod B = (\{0\}\times A) \bigcup (\{1\}\times B)
 \]
-Cet ensemble est muni de deux applications $i_A : A\to A\biguplus B, a\mapsto (0,a)$ et  $i_B : B\to A\biguplus B, b\mapsto (1,b)$.
+Cet ensemble est muni de deux applications $i_A : A\to A\coprod B, a\mapsto (0,a)$ et  $i_B : B\to A\coprod B, b\mapsto (1,b)$.
 
-Montrer que $A\biguplus B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle du coproduit}): 
+Montrer que $A\coprod B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle du coproduit (ou de l'union disjointe)}): 
 \begin{quote}
-Pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\biguplus B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application h faisant commuter le diagramme  suivant:
+Pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\coprod B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application $h$ faisant commuter le diagramme  suivant:
 \[ 
 \xymatrix{
 A \ar[dr]_{i_A} \ar[drrr]^{f}& & & \\
-&  A\biguplus B \ar@{-->}[rr]^{\exists !h}  & & C\\
+&  A\coprod B \ar@{-->}[rr]^{\exists !h}  & & C\\
 B \ar[ur]^{i_B} \ar[urrr]_{g}& & &
 }\]
 \end{quote}
+% aussi noté $A\biguplus B$
 \end{exercice}
 
 
-\begin{exercice}[Égalisateurs]\index{égalisateur}\index{propriété universelle!de l'égalisateur}
+\begin{exercice}[Égalisateurs]\label{exo-egalisateur}
+\index{égalisateur}\index{propriété universelle!de l'égalisateur}
 Soient $A$ et $B$ deux ensembles et $f$ et $g$ deux applications entre $A$ et $B$. Soit $E = \{x\in A\:|\: f(x)=g(x)\}$ le lieu d'égalité des deux fonctions. On appelle cette partie l'\emph{égalisateur de $f$ et $g$}. On note de plus $i_E : E\to A$ l'application d'inclusion de $E$ dans $A$. On a donc $f\circ i_E = g\circ i_E$, ce que l'on peut résumer par le fait que le diagramme suivant commute:
 \[
 \xymatrix{
@@ -843,7 +846,8 @@ E \ar[r]_{i_E}& A\ar@/^/[r] ^{f} \ar@/_/[r]_{g} & B
 
 
 
-\begin{exercice}[Produit fibré]\index{propriété universelle!du produit fibré}\index{produit fibré d'ensembles}
+\begin{exercice}[Produit fibré]\label{exo-produit-fibre}
+\index{propriété universelle!du produit fibré}\index{produit fibré d'ensembles}
 Soient $A$, $B$ et $C$ des ensembles et $\phi : A\to C$, $\psi : B\to C$ des applications.
 
 Le \emph{produit fibré de $A$ et $B$ au-dessus de $C$ (les applications $\phi$ et $\psi$ étant sous-entendues)} est l'ensemble:
@@ -875,8 +879,12 @@ D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times_C B \ar[ur]
 % produits cofibrés et coégalisateurs après les ensembles quotients
 
 
+\begin{exercice}
+Soient $A$, $B$ et $C$ des ensembles et $\phi : A\to C$, $\psi : B\to C$ des applications. On note $\operatorname{p}_A$ et $\operatorname{p}_A$ les surjections canoniques de $A\times B$ vers ses deux facteurs $A$ et $B$. Soit $E$ l'égalisateur de $\phi \circ \operatorname{p}_A$ et $\psi \circ \operatorname{p}_B$.
 
-
+Montrer qu'il existe une bijection entre $E$ et $A\times_C B$ sans utiliser les définitions explicites de $E$ ni de $A\times_C B$, uniquement leur propriétés universelles.
+% en fait vu les définitions, on a égalité ensembliste.
+\end{exercice}
 
 
 

@@ -4,21 +4,71 @@
 
 \section{Relations binaires}
 
-\begin{definition} Soit $E$ un ensemble. Une \emph{relation binaire}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$.
+\begin{definition}[Relation binaire]
+Soit $E$ un ensemble. Une \emph{relation binaire}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$. On note en général \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{}.
 \end{definition}
 
-Une relation ${\mathcal R}$ est caractérisée par la partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$. On notera \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{} et \og$x\not \hspace{-.1cm}{\mathcal R} y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{faux}$\fg{}
+\begin{definition}[Graphe d'une relation binaire]
+Soit $\mathcal R$ une relation binaire sur $E$. La partie de $E\times E$ constituée des couples $(x,y)$ tels que ${\mathcal R}(x,y)=\text{vrai}$ est appelée le \emph{graphe} de la relation $\mathcal R$. Ce graphe est parfois noté $\Gamma_{\mathcal R}$.
+
+Réciproquement, si $E$ est un ensemble et $\Gamma \subseteq E\times E$, on obtient une relation binaire ${\mathcal R}_\Gamma$ qui est définie par $\forall x, y\in E, \: x{\mathcal R}_\Gamma y \iff (x,y)\in \Gamma$. Le graphe de cette relation binaire est exactement $\Gamma$.
+\end{definition}
+
+
+
+
+
+
+Si $E$ est un ensemble fini dont on note $x_1$, ... $x_n$ les éléments, on peut visualiser une relation binaire comme un tableau à double entrée dans les éléments de $E$, dont les valeurs sont \og vrai\fg{} ou \og faux\fg (ou \og oui\fg{} ou \og non\fg), du type suivant:
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}\hline
+		& $x_1$ & $x_2$ & $\dots$ & $x_n$ \\ \hline
+$x_1$ 	& oui & non & $\dots$ & oui \\ \hline
+$x_2$ 	& non & non & $\dots$ & non \\ \hline
+$\vdots$& $\vdots$ & $\vdots$ &  $\ddots$ & $\vdots$ \\ \hline
+$x_n$	& non & non & $\dots$ & oui \\ \hline
+\end{tabular}
+\end{center}
+
+Un tel tableau détermine si, étant donné deux éléments $x$ et $y$, on a $x\mathcal R y$ ou pas. 
 
 \begin{exemple}
-Si $E$ est fini de cardinal $n$, il existe $2^{n^2}$ relations binaires sur $E$. En effet, d'après \ref{prop-cardinal-produit} on a $|E\times E|=n^2$ et donc d'après \ref{prop-cardinal-parties} on obtient $\left|\mathcal P(E\times E)\right|=2^{n^2}$.
+Si $E$ est fini de cardinal $n$, il existe $2^{n^2}$ relations binaires sur $E$. En effet, d'après \ref{prop-cardinal-produit}, l'ensemble $E\times E$ est de cardinal $n^2$ et donc d'après \ref{prop-cardinal-parties} il admet $2^{n^2}$ parties.
 \end{exemple} 
 
-\begin{exemples} Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ correspond à la partie diagonale de $E\to E$, c'est-à-dire à la partie 
+\begin{exemples}
+Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ correspond à la partie diagonale de $E\times E$, c'est-à-dire à la partie 
 \[ \Delta_E = \{(x,x)\:|\: x\in E\}\]
 \index{partie!diagonale}
+Les deux tableaux suivants illustrent deux relations distinctes sur le même ensemble $\{1,2,3,4\}$: l'inégalité large $\leq$ et la divisibilité.
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}\hline
+$\leq$ & $1$ & $2$ & $3$ & $4$ \\ \hline
+$1$ 	& oui & oui & oui & oui \\ \hline
+$2$ 	& non & oui & oui & oui \\ \hline
+$3$ & non & non & oui & oui \\ \hline
+$4$	& non & non & non & oui \\ \hline
+\end{tabular}
+~~~
+\begin{tabular}{|l|c|c|c|c|}\hline
+divise & $1$ & $2$ & $3$ & $4$ \\ \hline
+$1$ 	& oui & oui & oui & oui \\ \hline
+$2$ 	& non & oui & non & oui \\ \hline
+$3$ & non & non & oui & non \\ \hline
+$4$	& non & non & non & oui \\ \hline
+\end{tabular}
+\end{center}
+
 \end{exemples}
 
-\begin{exemple}[Zérologie] La relation vide est celle qui correspond à la partie vide de $E\times E$ : pour cette relation, aucun élément n'est relié à aucun autre : $x\mathcal R y$ est toujours faux. À l'autre extrême, la partie plein de $E\times E$ est une relation binaire, pour laquelle tout élément est relié à tout autre élément : $x\mathcal R y$ est toujours vrai. 
+% visualisation d'une relation binaire avec un tableau, pour un ensemble fini
+
+\begin{exemple}[Zérologie]
+\begin{enumerate}
+\item La \emph{relation vide} est celle dont le graphe est la partie vide de $E\times E$. Pour cette relation, un élément n'est relié à aucun autre : $x\mathcal R y$ est toujours faux.
+\item À l'autre extrême, la partie pleine de $E\times E$ est la relation binaire pour laquelle tout élément est relié à tout autre élément : $x\mathcal R y$ est toujours vrai. Son graphe est la partie pleine $E\times E$.
+\end{enumerate}
 \end{exemple}
 
 \begin{definition}
@@ -54,20 +104,21 @@ $\perp$ sur les droites du plan & non & non & oui & non \\ \hline
 \begin{definition}[Raffinement d'une relation]
 \index{raffinement!d'une relation}\index{relation!plus fine}
 Soient $\mathcal R$ et $\mathcal S$ des relations binaires sur $E$. On dit que $\mathcal R$ est plus fine que $\mathcal S$, ou encore que c'est est un raffinement, si $\forall x, y\in E, x\mathcal R y \implies x\mathcal S y$. 
+
+De façon équivalente, $\mathcal R$ est plus fine que $\mathcal S$ si on a l'inclusion de graphes $\Gamma_{\mathcal R} \subseteq \Gamma_{\mathcal S}$.
 \end{definition}
 
+% exemples après, avec les relations d'ordre et d'équivalence
+% exemple (zérologie) la relation vide est plus fine que tout autre...
+
+
+% mettre dans l'exercice sur symétrique ss égal à la transposée ?
 \begin{definition}
 Soit $E$ un ensemble muni d'une relation binaire $\mathcal R$. La relation \emph{réciproque} ou \emph{transposée}, notée ${}^t\mathcal R$, est définie par : $x{}^t\mathcal R y \iff y\mathcal R x$. 
 \end{definition}
 
 % ne pas confondre avec la relation complémentaire / complément logique
 
-\begin{exercice}
-Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
-\end{exercice}
-\begin{exercice}
-Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
-\end{exercice}
 
 \section{Relations d'ordre}
 
@@ -331,20 +382,27 @@ Si $x=x'$, alors on a forcément $y\neq y'$ et comme $\leq_F$ est un ordre total
 En conclusion, on a bien soit $(x,y) \leq_{E\times F} (x',y')$, soit  $(x',y') \leq_{E\times F} (x,y)$.
 \end{proof}
 
-\begin{exemple}Avec l'ordre usuel sur l'alphabet, l'ordre lexicographique sur les mots est l'ordre dans lequel les mots sont classés dans un dictionnaire.
+\begin{exemple}
+Avec l'ordre usuel sur l'alphabet, l'ordre lexicographique sur les mots est l'ordre dans lequel les mots sont classés dans un dictionnaire.
 \end{exemple}
 
 
 
+\subsection{Exercices d'application directe}
 
 
-
+\begin{exercice}
+Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
+\end{exercice}
+\begin{exercice}
+Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
+\end{exercice}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Relations d'équivalence}
@@ -664,7 +722,7 @@ Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \t
 % référer aux lemmes de factorisation généraux dans "applications"
 
 
-\section{Exercices}
+\section{Exercices d'approfondissement}
 
 % cloture transitive, réflexive, façons de symétriser une relation etc etc. Relations asymétriques, pré-odres
 
@@ -678,17 +736,57 @@ Montrer que $\mathcal R$ est une relation d'équivalence sur $E$.
 
 % relation d'équivalence ou d'ordre associée à un préordre
 
-% coégalisateurs
+
+\begin{exercice}[Relation d'équivalence la plus/moins fine vérifiant une propriété]
+
+\end{exercice}
+
+\begin{exercice}[Coégalisateur]\index{coégalisateur}\index{propriété universelle!du coégalisateur}
+Soient $A$ et $B$ deux ensembles et $f$ et $g$ deux applications entre $A$ et $B$. On définit sur $B$ la relation binaire suivante : $\mathcal R$ est la relation d'équivalence la plus fine telle que $\forall a\in A, f(a)\mathcal g(a)$. Le \emph{coégalisateur de $f$ et $g$} est par définition l'ensemble quotient $C = B/\mathcal R$. On note $\pi : B \to C$ la surjection canonique sur le quotient. On a alors $\pi\circ f = \pi \circ g$, ce que l'on peut résumer par le fait que le diagramme suivant commute:
+\[
+\xymatrix{
+ A\ar@/^/[r] ^{f} \ar@/_/[r]_{g} & B \ar[r]^{\pi} & C
+}
+\]
+Montrer que $C$ et $\pi$ vérifient la propriété suivante (dite \emph{propriété universelle du coégalisateur}):
+\begin{quote}
+Pour tout ensemble $X$ et application $\phi : B \to X$ vérifiant $\phi\circ f = \phi\circ g$,  il existe une unique application $h : C\to X$ telle que $\phi = h \circ \pi $. Autrement dit, il existe une unique application $h : C\to X$ faisant commuter le diagramme 
+\[
+\xymatrix{
+ A\ar@/^/[r] ^{f} \ar@/_/[r]_{g} & B \ar[r]^{\pi} \ar[d]^{\phi}& C\ar@{-->}[dl]^{\exists!h}\\
+ & X & 
+}
+\]
+\end{quote}
+\end{exercice}
 
 
 
 % (co) produits cofibrés
 
 \begin{exercice}[coproduit fibré]
-Soient $A$,  $B$ et $C$  des ensembles et $f :  A\to C$, $g : B \to C$ des applications.
+Soient $A$,  $B$ et $C$  des ensembles et $f :  C\to A$, $g : C\to B$ des applications.
 
-Soit $X = A\biguplus B$ la somme disjointe de $A$ et $B$. On définit une relation d'équivalence sur $X$ comme suit:
-\[\forall x, y, \in X, x\mathcal R y \iff  
+Soit $X = A\coprod B$ le coproduit de $A$ et $B$ (aussi appelé somme disjointe, et défini dans l'exercice \ref{exo-coproduit}), et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $X$.
+
+
+
+Le \emph{coproduit fibré (ou somme amalgamée) de $A$ et $B$  sous $C$} est l'ensemble quotient $X/\mathcal R$. On le note $A\coprod_C B$ La surjection canonique de $X$ vers son quotient $A\coprod_C B$ est notée $\pi$.
+
+Montrer que $A\coprod_C B$ vérifie la propriété universelle suivante:
+\begin{quote}
+Pour tout ensemble  $D$ muni d'applications $\phi : A\to D$ et $\psi : B\to D$, il existe une unique application $h : A\coprod_C B \to D$ telle que $\phi = h\circ i_A$ et $\psi = h\circ i_B$, autrement dit il existe une unique application $h$ faisant commuter le diagramme  suivant:
+\[ 
+\xymatrix{
+&A \ar[dr]_{i_A} \ar[drrr]^{\phi}& & & \\
+C\ar[ur]^f\ar[dr]_g& &  A\coprod B \ar@{-->}[rr]^{\exists !h}  & & D\\
+& B \ar[ur]^{i_B} \ar[urrr]_{\psi}& & &
+}\]
+\end{quote}
+
+Soit $\mathcal R$ la relation d'équivalence la plus fine sur $X$ telle que 
+\[
+\forall c\in C, i_A(f(c))\mathcal R i_B(g(c))
 \]
 
 \end{exercice}
