@@ -33,12 +33,14 @@ $x_n$	& non & non & $\dots$ & oui \\ \hline
 
 Un tel tableau détermine si, étant donné deux éléments $x$ et $y$, on a $x\mathcal R y$ ou pas. 
 
+
+
 \begin{exemple}
 Si $E$ est fini de cardinal $n$, il existe $2^{n^2}$ relations binaires sur $E$. En effet, d'après \ref{prop-cardinal-produit}, l'ensemble $E\times E$ est de cardinal $n^2$ et donc d'après \ref{prop-cardinal-parties} il admet $2^{n^2}$ parties.
 \end{exemple} 
 
 \begin{exemples}
-Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ correspond à la partie diagonale de $E\times E$, c'est-à-dire à la partie 
+Les symboles $=$, $\leq$, $<$, $\geq$, $>$, $|$ (divise), $//$ (parallèle à), $\perp$ (perpendiculaire à), $\subseteq$ (inclus dans) désignent des relations binaires sur des ensembles. La relation d'égalité $=$ a pour graphe la \emph{diagonale} de $E\times E$, c'est-à-dire à la partie 
 \[ \Delta_E = \{(x,x)\:|\: x\in E\}\]
 \index{partie!diagonale}
 Les deux tableaux suivants illustrent deux relations distinctes sur le même ensemble $\{1,2,3,4\}$: l'inégalité large $\leq$ et la divisibilité.
@@ -59,15 +61,33 @@ $3$ & non & non & oui & non \\ \hline
 $4$	& non & non & non & oui \\ \hline
 \end{tabular}
 \end{center}
-
 \end{exemples}
 
-% visualisation d'une relation binaire avec un tableau, pour un ensemble fini
+On peut également représenter graphiquement une relation binaire sur un ensemble $E$ au moyen d'un \emph{graphe orienté} dont les sommets sont les éléments de l'ensemble $E$, et les flèches symbolisent la relation existante entre deux éléments. Les deux relations données en exemple plus haut peuvent se représenter par les graphes:
+\[
+\xymatrix{
+& & & \\
+1 \ar@(dl,dr) \ar[r] \ar@/^1pc/[rr] \ar@/^2pc/[rrr] 
+& 2 \ar@(dl,dr) \ar[r] \ar@/^1pc/[rr] 
+& 3 \ar@(dl,dr) \ar[r]
+& 4 \ar@(dl,dr)\\
+& & & 
+}
+\hspace{2cm}
+\xymatrix{
+& & & \\
+1 \ar@(dl,dr) \ar[r] \ar@/^1pc/[rr] \ar@/^2pc/[rrr] 
+& 2 \ar@(dl,dr)  \ar@/^1pc/[rr] 
+& 3 \ar@(dl,dr) 
+& 4 \ar@(dl,dr)\\
+& & & 
+}
+\]
 
 \begin{exemple}[Zérologie]
 \begin{enumerate}
 \item La \emph{relation vide} est celle dont le graphe est la partie vide de $E\times E$. Pour cette relation, un élément n'est relié à aucun autre : $x\mathcal R y$ est toujours faux.
-\item À l'autre extrême, la partie pleine de $E\times E$ est la relation binaire pour laquelle tout élément est relié à tout autre élément : $x\mathcal R y$ est toujours vrai. Son graphe est la partie pleine $E\times E$.
+\item À l'autre extrême, la partie pleine de $E\times E$ est le graphe d'une relation binaire $\mathcal R$ pour laquelle tout élément est relié à tout autre élément : $x\mathcal R y$ est toujours vrai.
 \end{enumerate}
 \end{exemple}
 
@@ -107,6 +127,21 @@ Soient $\mathcal R$ et $\mathcal S$ des relations binaires sur $E$. On dit que $
 
 De façon équivalente, $\mathcal R$ est plus fine que $\mathcal S$ si on a l'inclusion de graphes $\Gamma_{\mathcal R} \subseteq \Gamma_{\mathcal S}$.
 \end{definition}
+
+\begin{exemple}
+\begin{enumerate}
+\item Sur l'ensemble $\N$ des entiers naturels, la relation $<$ est plus fine que $\leq$. La relation d'égalité $=$ est également plus fine que $\leq$. La relation de divisibilité est plus fine que $\leq$ : en effet si $a$ divise $b$ alors forcément $a\leq b$.
+\item Toutes les relations ne sont pas forcément comparables : sur l'ensemble $\N$, aucune des deux relations $<$ et $=$  n'est plus fine que l'autre.
+\item (Zérologie) La relation vide est plus fine que toute autre relation.
+\end{enumerate}
+\end{exemple}
+
+\begin{remarque}
+\begin{enumerate}
+\item Si $\mathcal R$ et $\mathcal S$ sont deux relations, il existe forcément une relation binaire qui les raffine toutes les deux (aussi appelée un \emph{raffinement commun}) : par exemple, celle donc le graphe est l'intersection des deux graphes $\Gamma_\mathcal R$ et $\Gamma_\mathcal S$.
+\item Il en existe également une autre qui est simultanément moins fine que $\mathcal R$ et $\mathcal S$, par exemple celle dont le graphe est l'union des deux graphes.
+\end{enumerate}
+\end{remarque}
 
 % exemples après, avec les relations d'ordre et d'équivalence
 % exemple (zérologie) la relation vide est plus fine que tout autre...
@@ -179,9 +214,7 @@ Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq_E)
 La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par contre, $\subseteq$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
 \end{exemples}
 
-\begin{exercice}
-Soit $E$ un ensemble. Montrer que \og est plus fine que\fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
-\end{exercice}
+
 
 \subsection{Applications croissantes, décroissantes, monotones}
 
@@ -212,9 +245,7 @@ Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés et $f : E\to F$. On 
 \end{enumerate}
 \end{exemple}
 
-\begin{exercice}
-Montrer qu'une application strictement croissante entre ensembles totalement ordonnés est injective.
-\end{exercice}
+
 
 
 \begin{proposition}
@@ -388,15 +419,6 @@ Avec l'ordre usuel sur l'alphabet, l'ordre lexicographique sur les mots est l'or
 
 
 
-\subsection{Exercices d'application directe}
-
-
-\begin{exercice}
-Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
-\end{exercice}
-\begin{exercice}
-Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
-\end{exercice}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -558,8 +580,10 @@ On dit qu'une partie est \emph{saturée} (relativement à $\mathcal R$), si elle
 \]
 \end{remarque}
 
-\begin{exercice} Montrer qu'une classe d'équivalence est saturée, mais que la réciproque est fausse en général. Montrer que les classes d'équivalence sont exactement les parties saturées minimales pour l'inclusion.
-\end{exercice}
+\begin{exemple}
+Une classe d'équivalence est saturée, mais la réciproque est fausse en général (exercice).
+\end{exemple}
+
 
 L'outil principal pour manipuler les classes d'équivalence est l'\emph{ensemble quotient}, que l'on définit maintenant.
 
@@ -629,15 +653,7 @@ Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ une famille de parties de $E$. Ce
 Soient $\mathcal A$ et $\mathcal B$ deux partitions de $E$. On dit que $\mathcal A$ est \emph{plus fine} que $\mathcal B$ (ou : qu'elle est un raffinement de $\mathcal B$) si les éléments de $\mathcal B$ sont des unions d'éléments de $\mathcal A$, autrement dit si $\mathcal A$ fractionne les éléments de $\mathcal B$ en sous-parties.
 \end{definition}
 
-\begin{exercice}
-Soient $\mathcal R$ et $\mathcal S$ deux relations d'équivalence sur $E$. Montrer que $\mathcal R$ est plus fine que $\mathcal S$ si et seulement si la partition en classes d'équivalence modulo $\mathcal R$ est plus fine que la partition en classe d'équivalence modulo $\mathcal S$.
-\end{exercice}
 
-\begin{exercice}
-Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
-
-Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
-\end{exercice}
 
 
 \begin{remarque}
@@ -684,6 +700,45 @@ On a  $E= \bigcup_{A\in E/\mathcal R} A$ et l'union est disjointe, donc on obtie
 
 % chercher un exo d'application avec des bijections : nombres de points fixes
 
+
+
+
+
+
+
+\section{Exercices d'application directe}
+
+
+
+\begin{exercice}
+Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
+\end{exercice}
+\begin{exercice}
+Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
+\end{exercice}
+
+\begin{exercice}
+Soit $E$ un ensemble. Montrer que \og est plus fine que\fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
+\end{exercice}
+
+\begin{exercice}
+Montrer qu'une application strictement croissante entre ensembles totalement ordonnés est injective.
+\end{exercice}
+
+\begin{exercice}
+Soit $\mathcal R$ une relation d'équivalence sur $E$. Montrer que les classes d'équivalence sont exactement les parties saturées minimales pour l'inclusion.
+\end{exercice}
+
+\begin{exercice}
+Soient $\mathcal R$ et $\mathcal S$ deux relations d'équivalence sur $E$. Montrer que $\mathcal R$ est plus fine que $\mathcal S$ si et seulement si la partition en classes d'équivalence modulo $\mathcal R$ est plus fine que la partition en classe d'équivalence modulo $\mathcal S$.
+\end{exercice}
+
+\begin{exercice}
+Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
+
+Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
+\end{exercice}
+
 \begin{exercice}
 \index{involution}\index{point fixe}
 Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifiant $f\circ f = \Id_E$.
@@ -692,6 +747,14 @@ Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifia
 \item Plus généralement, montrer que $|E|$ a la même parité que le nombre de points fixes de $f$.
 \end{enumerate}
 \end{exercice}
+
+
+
+
+
+
+
+
 
 \section{Compléments sur le passage au quotient}
 
@@ -722,19 +785,74 @@ Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \t
 % référer aux lemmes de factorisation généraux dans "applications"
 
 
+
+
+
+
+
+
+
+
 \section{Exercices d'approfondissement}
 
 % cloture transitive, réflexive, façons de symétriser une relation etc etc. Relations asymétriques, pré-odres
+
+\begin{exercice}[Union et intersection de deux relations]\label{exo-union-intersection-relations}
+Soient $\mathcal R$ et $\mathcal S$ deux relation sur $E$. On définit la disjonction (ou union) de $\mathcal R \vee \mathcal S$ par:
+\[ x (\mathcal R \vee \mathcal S) y \iff (x \mathcal R y\text{ ou } x \mathcal S y)\]
+De façon équivalente, le graphe de $\mathcal R \vee \mathcal S$ est l'union des graphes de $\mathcal R$ et de $\mathcal S$.
+
+De même, on définit la conjonction (ou intersection) $\mathcal R \wedge \mathcal S$ comme la relation dont le graphe est l'intersection des deux graphes de $\mathcal R$ et $\mathcal S$.
+
+
+\begin{enumerate}
+\item Soient $\mathcal R$ et $\mathcal S$ deux relation sur $E$. Montrer que $\mathcal R \vee \mathcal S$ et $\mathcal R \wedge \mathcal S$ sont symétriques.
+\item Si $\mathcal R$ et $\mathcal S$ sont réflexives et transitives, montrer que $\mathcal R \wedge \mathcal S$ est une relation d'équivalence, mais pas forcément $\mathcal R \vee \mathcal S$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Clôture réflexive]
+\end{exercice}
+
+\begin{exercice}[Produit de deux relations]
+Soient $\mathcal R$ et $\mathcal S$ deux relations sur $E$. Leur \emph{produit}, noté $\mathcal R \mathcal S$, est la relation binaire définie par:
+\[ \forall x,y\in E, x \mathcal R \mathcal S y 
+\iff \exists a\in E, \: (x \mathcal R a \text{ et } a \mathcal S y)
+\]
+\begin{enumerate}
+\item Prouver par un exemple qu'en général, les relations $\mathcal R \mathcal S$ et $\mathcal S \mathcal R$ sont distinctes.
+\item Montrer que le produit de relations est néanmoins associatif, autrement dit si $\mathcal R$, $\mathcal S$ et $\mathcal T$ sont trois relations, on a 
+\[ (\mathcal R \mathcal S) \mathcal T = \mathcal R (\mathcal S \mathcal T)\]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Clôture transitive]
+Soit $\mathcal R$ une relation sur $E$. Pour $n\in \N$ et $\mathcal R$ est une relation sur $E$, on définit alors par récurrence la relation $\mathcal R^n$ (en définissant $\mathcal R^0$ comme l'égalité).
+
+Montrer que toutes les relations suivantes sont égales:
+\begin{enumerate}
+\item $\bigvee_{n\geq 0} \mathcal R^n$;
+\item la relation dont le graphe est $\bigcup_{n\geq 0} \Gamma_{\mathcal R^{n}}$;
+\item la relation dont le graphe est l'intersection de tous les graphes de relations transitives qui contiennent $\Gamma_{\mathcal R}$.
+\item la plus fine relation  parmi toutes les relations transitives moins fines que $\mathcal R$.
+\end{enumerate}
+
+Cette relation binaire (qui est donc transitive) est appelée \emph{clôture transitive} de $\mathcal R$.
+\end{exercice}
 
 \begin{exercice}[Pré-ordre]
 Une relation binaire est appelée un \emph{pré-ordre} si elle est réflexive et transitive. (Ainsi les relations d'ordre et d'équivalence sont donc toutes deux des cas particuliers de pré-ordres.) Un ensemble muni d'une telle relation est dit \emph{pré-ordonné}.
 
 Soit $(E,\leftarrow)$ un ensemble pré-ordonné. On définit la relation binaire $\mathcal R$ comme suit : 
 \[ \forall x, y \in E, \: x\mathcal R y \iff (x\leftarrow y \text{ et } y\leftarrow x)\]
+%c'est l'intersection de R et de sa transposée : la symétrisation
+
 Montrer que $\mathcal R$ est une relation d'équivalence sur $E$.
 \end{exercice}
 
 % relation d'équivalence ou d'ordre associée à un préordre
+
+
 
 
 \begin{exercice}[Relation d'équivalence la plus/moins fine vérifiant une propriété]
@@ -767,27 +885,33 @@ Pour tout ensemble $X$ et application $\phi : B \to X$ vérifiant $\phi\circ f =
 \begin{exercice}[coproduit fibré]
 Soient $A$,  $B$ et $C$  des ensembles et $f :  C\to A$, $g : C\to B$ des applications.
 
-Soit $X = A\coprod B$ le coproduit de $A$ et $B$ (aussi appelé somme disjointe, et défini dans l'exercice \ref{exo-coproduit}), et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $X$.
+Soit $A\coprod B$ le coproduit de $A$ et $B$ (aussi appelé somme disjointe, et défini dans l'exercice \ref{exo-coproduit}), et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $A\coprod B$. On peut considérer le diagramme suivant
+\[ 
+\xymatrix{
+&A \ar[dr]_{i_A} &   \\
+C\ar[ur]^f\ar[dr]_g& &  A\coprod B    \\
+& B \ar[ur]^{i_B} & 
+}\]
+Mais ce diagramme n'est \textbf{pas commutatif}. Le coproduit fibré (ou somme amalgamée) résout ce problème en \og identifiant les parties de $A$ et $B$ qui proviennent du même endroit dans $C$\fg{}.
 
 
-
-Le \emph{coproduit fibré (ou somme amalgamée) de $A$ et $B$  sous $C$} est l'ensemble quotient $X/\mathcal R$. On le note $A\coprod_C B$ La surjection canonique de $X$ vers son quotient $A\coprod_C B$ est notée $\pi$.
+Les deux applications $i_A \circ f$ et $i_B \circ g$ vont toutes deux de $C$ dans $A\coprod B$.  Leur coégalisateur est appelé le \emph{coproduit fibré (ou somme amalgamée) de $A$ et $B$  sous $C$}, est noté $A\coprod_C B$. La surjection canonique  $A\coprod B \to A\coprod_C B$ est notée $\pi$ et on note $j_A = \pi \circ i_A$ et $j_B = \pi \circ i_B$. On a donc un diagramme (qui est cette fois commutatif par définition d'un coégalisateur):
+\[ 
+\xymatrix{
+&A \ar[dr]_{j_A} &   \\
+C\ar[ur]^f\ar[dr]_g& &  A\coprod_C B    \\
+& B \ar[ur]^{j_B} & 
+}\]
 
 Montrer que $A\coprod_C B$ vérifie la propriété universelle suivante:
 \begin{quote}
-Pour tout ensemble  $D$ muni d'applications $\phi : A\to D$ et $\psi : B\to D$, il existe une unique application $h : A\coprod_C B \to D$ telle que $\phi = h\circ i_A$ et $\psi = h\circ i_B$, autrement dit il existe une unique application $h$ faisant commuter le diagramme  suivant:
+Pour tout ensemble  $D$ muni d'applications $\phi : A\to D$ et $\psi : B\to D$, il existe une unique application $h : A\coprod_C B \to D$ telle que $\phi = h\circ j_A$ et $\psi = h\circ j_B$, autrement dit il existe une unique application $h$ faisant commuter le diagramme  suivant:
 \[ 
 \xymatrix{
-&A \ar[dr]_{i_A} \ar[drrr]^{\phi}& & & \\
-C\ar[ur]^f\ar[dr]_g& &  A\coprod B \ar@{-->}[rr]^{\exists !h}  & & D\\
-& B \ar[ur]^{i_B} \ar[urrr]_{\psi}& & &
+&A \ar[dr]_{j_A} \ar[drrr]^{\phi}& & & \\
+C\ar[ur]^f\ar[dr]_g& &  A\coprod_C B \ar@{-->}[rr]^{\exists !h}  & & D\\
+& B \ar[ur]^{j_B} \ar[urrr]_{\psi}& & &
 }\]
 \end{quote}
-
-Soit $\mathcal R$ la relation d'équivalence la plus fine sur $X$ telle que 
-\[
-\forall c\in C, i_A(f(c))\mathcal R i_B(g(c))
-\]
-
 \end{exercice}
 
