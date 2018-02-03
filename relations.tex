@@ -5,7 +5,7 @@
 \section{Relations binaires}
 
 \begin{definition}[Relation binaire]
-Soit $E$ un ensemble. Une \emph{relation binaire}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$. On note en général \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{}.
+Soit $E$ un ensemble. Une \emph{relation (binaire)}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$. On note en général \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{}.
 \end{definition}
 
 \begin{definition}[Graphe d'une relation binaire]
@@ -259,6 +259,23 @@ Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés et $f : E\to F$. On 
 \begin{proof}
 Application directe de la définition.
 \end{proof}
+
+Dans beaucoup de cas, cette proposition remplace avantageusement un \og tableau de variations\fg{} qui n'est pas forcément indispensable pour déterminer les variations d'une fonction.
+
+\begin{exemple}
+L'application $f : R\to \R, x\mapsto -\frac{\ln(2/3)}{e^{x+e^x}}$ est décroissante.
+\end{exemple}
+\begin{red}
+Cette application peut s'écrire comme la composée
+\[\xymatrix{
+\R \ar[r]^{x\mapsto x+e^x}
+& \R \ar[r]^{x\mapsto e^x}
+& \R_+^* \ar[r]^{x\mapsto 1/x}
+& \R_+^* \ar[rr]^{x\mapsto -\ln(2/3)x}
+& & \R
+} \]
+Les deux premières sont croissantes, la troisième est décroissante (car on est sur $\R_+^*$, ce serait faux sur $\R^*$) et la dernière est croissante car $\ln(2/3)<0$. D'après la proposition, la composée des quatre est donc décroissante.
+\end{red}
 
 \subsection{Plus grand et plus petit élément}
 \begin{definition}
@@ -536,7 +553,7 @@ Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\Z$ induit une relatio
 
 \subsection{Classes d'équivalence}
 \begin{definition}[Classe d'équivalence]\index{classe d'équivalence}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ (ou parfois $Cl(x)$) et on appelle la \emph{classe d'équivalence de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble  de tous les éléments qui sont équivalents à $x$, c'est-à-dire l'ensemble:
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ (ou parfois $Cl(x)$, ou $[x]_{\mathcal R}$) et on appelle la \emph{classe d'équivalence de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble  de tous les éléments qui sont équivalents à $x$, c'est-à-dire l'ensemble:
 \[
 \overline x = \left\{y\in E\:\mid\: y{\mathcal R}x\right\}
 \]
@@ -713,8 +730,25 @@ On a  $E= \bigcup_{A\in E/\mathcal R} A$ et l'union est disjointe, donc on obtie
 \begin{exercice}
 Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
 \end{exercice}
+
+\begin{exercice}
+Montrer qu'une relation $\mathcal R$ sur $E$ est réflexive si et seulement si son graphe contient la diagonale $\Delta_E$ de $E\times E$.
+\end{exercice}
+
+\begin{exercice}\index{diagonale}
+Montrer qu'une relation $\mathcal R$ sur $E$ est antisymétrique si et seulement si $\Gamma_\mathcal R \cap \Gamma_{{}^t\mathcal R} \subseteq \Delta_E$.
+\end{exercice}
+
+\begin{exercice}
+Montrer qu'une relation d'ordre $\mathcal R$ sur $E$ est totale si $\Gamma_\mathcal R \cup \Gamma_{{}^t\mathcal R} = E\times E$.
+\end{exercice}
+
 \begin{exercice}
 Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
+\end{exercice}
+
+\begin{exercice}
+On munit l'ensemble $E$ des intervalles fermés de $\R_+^*$ de la relation d'inclusion $\subseteq$. Montrer que c'est une relation d'ordre. Existe-t-il un plus grand élément ?
 \end{exercice}
 
 \begin{exercice}
@@ -726,8 +760,16 @@ Montrer qu'une application strictement croissante entre ensembles totalement ord
 \end{exercice}
 
 \begin{exercice}
+Sur $\Z\times \N^*$, on définit la relation binaire $\mathcal R$ par
+\[(p,q)\mathcal (p',q') \iff pq'=p'q.\]
+Montrer que c'est une relation d'équivalence.
+\end{exercice}
+
+\begin{exercice}
 Soit $\mathcal R$ une relation d'équivalence sur $E$. Montrer que les classes d'équivalence sont exactement les parties saturées minimales pour l'inclusion.
 \end{exercice}
+
+
 
 \begin{exercice}
 Soient $\mathcal R$ et $\mathcal S$ deux relations d'équivalence sur $E$. Montrer que $\mathcal R$ est plus fine que $\mathcal S$ si et seulement si la partition en classes d'équivalence modulo $\mathcal R$ est plus fine que la partition en classe d'équivalence modulo $\mathcal S$.
@@ -758,13 +800,15 @@ Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifia
 
 \section{Compléments sur le passage au quotient}
 
+Le contenu de cette section n'est pas exigible à l'examen.
+
 \begin{propdef}[Passage au/factorisation par le quotient]
 Soit $f : E\to F$ une application, $\mathcal R$ une relation d'équivalence sur $E$  et $p : E\to E/\mathcal R$ la projection canonique sur le quotient.
 On dit que $f$ \emph{passe (ou descend) au quotient} si elle se factorise à droite par $p$, autrement dit s'il existe une application $\overline f : E/\mathcal R\to F$ telle que $f = \overline{f} \circ p$, autrement dit telle que le diagramme suivant commute:
 \[
 \xymatrix{
 E \ar[r]^f \ar[d]^p & F\\
-E/\mathcal R \ar[ur]_{\overline f}& 
+E/\mathcal R \ar@{-->}[ur]_{\overline f}& 
 }
 \] 
 Si une telle application $\overline{f}$ existe, elle est unique.
@@ -797,8 +841,10 @@ Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \t
 
 % cloture transitive, réflexive, façons de symétriser une relation etc etc. Relations asymétriques, pré-odres
 
+Les définitions introduites dans les exercices suivants ne sont pas exigibles à l'examen, mais la plupart sont très classiques : on les retrouve dans la plupart des cours sur le sujet (qui peuvent aussi être des cours d'informatique).
+
 \begin{exercice}[Union et intersection de deux relations]\label{exo-union-intersection-relations}
-Soient $\mathcal R$ et $\mathcal S$ deux relation sur $E$. On définit la disjonction (ou union) de $\mathcal R \vee \mathcal S$ par:
+Soient $\mathcal R$ et $\mathcal S$ deux relation sur $E$. On définit la disjonction (ou union), notée $\mathcal R \vee \mathcal S$, par:
 \[ x (\mathcal R \vee \mathcal S) y \iff (x \mathcal R y\text{ ou } x \mathcal S y)\]
 De façon équivalente, le graphe de $\mathcal R \vee \mathcal S$ est l'union des graphes de $\mathcal R$ et de $\mathcal S$.
 
@@ -811,8 +857,13 @@ De même, on définit la conjonction (ou intersection) $\mathcal R \wedge \mathc
 \end{enumerate}
 \end{exercice}
 
-\begin{exercice}[Clôture réflexive]
-\end{exercice}
+%\begin{exercice}[Clôture réflexive]
+%Soit $\mathcal R$ une relation sur $E$. Sa clôture réflexive est la relation dont le graphe est $\Gamma_\mathcal R \cup \Delta_E$. 
+%\end{exercice}
+
+%\begin{exercice}[Clôture symétrique]
+%Soit $\mathcal R$ une relation sur $E$. Sa clôture symétrique est la relation dont le graphe est $\Gamma_\mathcal R \cup \Gamma_{\mathcal R^t}$. 
+%\end{exercice}
 
 \begin{exercice}[Produit de deux relations]
 Soient $\mathcal R$ et $\mathcal S$ deux relations sur $E$. Leur \emph{produit}, noté $\mathcal R \mathcal S$, est la relation binaire définie par:
@@ -838,7 +889,20 @@ Montrer que toutes les relations suivantes sont égales:
 \end{enumerate}
 
 Cette relation binaire (qui est donc transitive) est appelée \emph{clôture transitive} de $\mathcal R$.
+Montrer que si $\mathcal R$ est symétrique (resp. réflexive), sa clôture transitive l'est également.
 \end{exercice}
+
+
+
+\begin{exercice}
+Soit $E$ l'ensemble des couples de la forme $(I,f)$, où $I$ est un intervalle de $\R$ et $f$ est une fonction de $I$ dans $\R$.
+
+La relation $\preceq$ sur $E$ est définie par 
+\[ (I,f)~\preceq~(J,g) ~\iff~ (I\subseteq J \text{ et } f=g|_I).\]
+Montrer qu'il s'agit d'une relation d'ordre.
+\end{exercice}
+
+\dotfill
 
 \begin{exercice}[Pré-ordre]
 Une relation binaire est appelée un \emph{pré-ordre} si elle est réflexive et transitive. (Ainsi les relations d'ordre et d'équivalence sont donc toutes deux des cas particuliers de pré-ordres.) Un ensemble muni d'une telle relation est dit \emph{pré-ordonné}.
@@ -850,17 +914,34 @@ Soit $(E,\leftarrow)$ un ensemble pré-ordonné. On définit la relation binaire
 Montrer que $\mathcal R$ est une relation d'équivalence sur $E$.
 \end{exercice}
 
-% relation d'équivalence ou d'ordre associée à un préordre
+\begin{exercice}[germes de fonctions]
+\newcommand\memegerme{\operatorname{\underset{{\scriptscriptstyle\mathcal V(0)}}{=}}}
+Soit $E=\R^\R$ l'ensemble des fonctions de $\R$ dans $\R$ et $f, g\in E$. On dit que $f$ et $g$ sont égales au voisinage de zéro, ou bien que $f$ et $g$ ont même germe en zéro, et on note $f \memegerme g$ si:
+\[  \exists \epsilon>0, f|_{]-\epsilon,\epsilon[} = g|_{]-\epsilon,\epsilon[} \]
+\begin{enumerate}
+\item Montrer que $\memegerme$ est une relation d'équivalence sur $E$.
+\item Montrer  que si $f \memegerme g$ alors $f(0)=g(0)$, mais que la réciproque est fausse.
+\item Montrer également que pour tout $a\in \R^*$, il existe deux fonctions $f$ et $g$ avec $f \memegerme g$ et $f(a)\neq g(a)$.
+\end{enumerate}
+
+La classe d'équivalence d'une fonction $f$ pour cette relation d'équivalence s'appelle le \emph{germe de $f$ en zéro}.
+
+Attention, cette relation d'équivalence n'est \textbf{pas} l'équivalence en zéro introduite dans le cours d'analyse (chapitre sur les relations de comparaison : domination, prépondérance, équivalence).
+\end{exercice}
 
 
+\begin{exercice}
+Soit $f : E\to F$ et $\equiv_f$ la relation d'équivalence sur $E$ dont les classes d'équivalence sont les fibres de $f$, et soit $Q = E/\equiv_f$ l'ensemble quotient. 
 
-
-\begin{exercice}[Relation d'équivalence la plus/moins fine vérifiant une propriété]
-
+\begin{enumerate}
+\item Montrer que $f$ passe au quotient en une application $\bar f : Q\to F$ qui est injective.
+\item Montrer qu'une relation d'équivalence $\mathcal R$ sur $E$ est plus fine que $\equiv_f$ si et seulement si $f$ passe au quotient par $\mathcal R$.
+\item En déduire quelles sont les relations d'équivalence les plus et moins fines telles que $f$ passe au quotient par $\mathcal R$.
+\end{enumerate}
 \end{exercice}
 
 \begin{exercice}[Coégalisateur]\index{coégalisateur}\index{propriété universelle!du coégalisateur}
-Soient $A$ et $B$ deux ensembles et $f$ et $g$ deux applications entre $A$ et $B$. On définit sur $B$ la relation binaire suivante : $\mathcal R$ est la relation d'équivalence la plus fine telle que $\forall a\in A, f(a)\mathcal g(a)$. Le \emph{coégalisateur de $f$ et $g$} est par définition l'ensemble quotient $C = B/\mathcal R$. On note $\pi : B \to C$ la surjection canonique sur le quotient. On a alors $\pi\circ f = \pi \circ g$, ce que l'on peut résumer par le fait que le diagramme suivant commute:
+Soient $A$ et $B$ deux ensembles et $f$ et $g$ deux applications entre $A$ et $B$. On définit sur $B$ la relation binaire suivante : $\mathcal R$ est la relation d'équivalence la plus fine telle que $\forall a\in A, f(a)\mathcal R g(a)$. Le \emph{coégalisateur de $f$ et $g$} est par définition l'ensemble quotient $C = B/\mathcal R$. On note $\pi : B \to C$ la surjection canonique sur le quotient. On a alors $\pi\circ f = \pi \circ g$, ce que l'on peut résumer par le fait que le diagramme suivant commute:
 \[
 \xymatrix{
  A\ar@/^/[r] ^{f} \ar@/_/[r]_{g} & B \ar[r]^{\pi} & C
@@ -882,7 +963,7 @@ Pour tout ensemble $X$ et application $\phi : B \to X$ vérifiant $\phi\circ f =
 
 % (co) produits cofibrés
 
-\begin{exercice}[coproduit fibré]
+\begin{exercice}[Somme amalgamée / coproduit fibré]
 Soient $A$,  $B$ et $C$  des ensembles et $f :  C\to A$, $g : C\to B$ des applications.
 
 Soit $A\coprod B$ le coproduit de $A$ et $B$ (aussi appelé somme disjointe, et défini dans l'exercice \ref{exo-coproduit}), et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $A\coprod B$. On peut considérer le diagramme suivant
