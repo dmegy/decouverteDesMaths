@@ -2,6 +2,10 @@
 \minitoc
 \hyperlink{toc}{\retourTOC}
 
+% TODO : mettre exemple dans le plan, par exemple x^2+y^2, antécédents, applications linéaires (montrer surjectivité, injectivité)
+% mettre des courbes paramétrées
+% images réciproques et fibres <-> courbes de niveau ?
+
 \section{Applications, graphes}
 
 \emph{Résumé : applications, graphes, source, but, images, antécédents, ensemble des fonctions de $E$ dans $F$, fonction caractéristique, point fixe d'une application}
@@ -37,9 +41,9 @@ Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément 
 Deux fonctions sont égales si elles ont même source et but, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
 
 \begin{definition}[Image d'une application]\index{image!d'une application}
-Soit $f : E\to F$. L'\emph{image} de $f$ est l'ensemble de toutes les images des éléments de $E$ par $f$:
+Soit $f : E\to F$. L'\emph{image} de $f$, notée $\Im(f)$, est l'ensemble de toutes les images des éléments de $E$ par $f$:
 \[
-\{f(x)\:\mid\: x\in E\}
+\Im(f) = \{f(x)\:\mid\: x\in E\}
 \]
 \end{definition}
 
@@ -81,11 +85,40 @@ x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{c
 \end{remarque}
 
 \begin{definition}[Antécédents d'un élément]
-Soit $f : E\to F$ une fonction, et $y\in F$. On dit qu'un élément $x\in E$ est un \emph{antécédent} de $y$ si $f(x)=y$. En reformulant, l'ensemble des antécédents de $y$ est donc l'ensemble des solutions de l'équation $f(x)=y$, d'inconnue $x\in E$.
+Soit $f : E\to F$ une fonction, et $y\in F$. On dit qu'un élément $x\in E$ est un \emph{antécédent} de $y$ si $f(x)=y$.
+\end{definition}
+
+\begin{attention}
+Un élément du codomaine peut n'avoir \textbf{aucun} antécédent, ou en avoir \textbf{plusieurs}. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$. Selon les fonctions, un élément peut même avoir une infinité d'antécédents.
+\end{attention}
+
+\begin{exemple}
+Soit $f : \R^2\to \R,\: (x,y)\mapsto \sqrt{x^2+y^2}$. C'est l'application qui à un point du plan lui associe sa distance à l'origine. L'élément $-3$ n'a aucun antécédent (une distance est positive). L'élément $0$ a un seul antécédent, l'origine $(0,0)$. Le réel $2$ a une infinité d'antécédents : tous les points du plan à distance $2$ de l'origine (donc un cercle).
+\end{exemple}
+
+
+
+\begin{definition}[Fibres d'une application]
+\index{fibre}
+Soit $f : E\to F$ et $y\in F$. La \emph{fibre de $f$ au-dessus de $y$} est par définition l'ensemble des antécédents de $y$, c'est-à-dire $\{x\in E \:\mid\: f(x)=y\}$.
+
+En reformulant, la fibre de $f$ au-dessus de $y$ est donc l'ensemble des solutions de l'équation $f(x)=y$, d'inconnue $x$ et de paramètre $y$. (Une fibre peut donc éventuellement être vide.)
 \end{definition}
 
 \begin{exemple}
-Un élément du codomaine peut ne pas avoir d'antécédents, ou en avoir plusieurs. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$.
+Soit $f : \R\to \R, x\mapsto x^2$. Soit $y\in \R$. La fibre de $f$ au-dessus de $y$ est l'ensemble 
+\[
+\{x\in \R\:|\: x^2=y\} = 
+\begin{cases}
+\varnothing &\quad\text{si}\quad y<0\\
+\{0\} & \quad\text{si}\quad y=0\\
+\{-\sqrt y, \sqrt y\}& \quad\text{si}\quad y>0.
+\end{cases}
+\]
+\end{exemple}
+
+\begin{exemple}
+Soit $f : \R^2\to \R,\: (x,y)\mapsto 2x-3y$. La fibre de $f$ au-dessus de $5$ est l'ensemble des points $(x,y) \in R^2$ tels que $2x-3y=5$. Autrement dit, la fibre au-dessus de $5$ est la droite de $\R^2$ d'équation cartésienne $2x-3y-5=0$. (Exercice : les autres fibres sont également des droites, toutes parallèles.)
 \end{exemple}
 
 \begin{definition}[Fonction caractéristique]
@@ -95,10 +128,7 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 \]
 \end{definition}
 
-\begin{definition}[Point fixe]
-\index{point fixe}
-Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{fixe par $f$} (ou simplement \emph{fixe} s'il n'y a pas d'ambiguïté sur la fonction), si $f(x)=x$. On dit aussi que $x$ est un \emph{point fixe} de $f$.
-\end{definition}
+
 
 Pour terminer ce paragraphe, on introduit un outil indispensable pour visualiser efficacement plusieurs ensembles et applications d'un seul coup : les diagrammes.
 
@@ -160,6 +190,15 @@ h : \R\to \R, x\mapsto x^2
 g : \R\to \R, x\mapsto x+1.
 \]
 \end{definition}
+
+\noindent\fbox{
+\begin{minipage}{.98\linewidth}
+La notion de composition d'applications est centrale dans ce cours (et en mathématiques). Une compétence attendue en fin de semestre est d'interpréter rapidement des fonctions comme des composées de fonctions plus simples, c'est-à-dire de factoriser de tête certaines applications. Par exemple, la fonction $f : \R\to \R, x\mapsto \ln\sqrt{1+e^x}$ peut naturellement s'écrire comme la composée de quatre applications simples:
+\[ \R \xrightarrow{x\mapsto e^x} \R_+^* \xrightarrow{x\mapsto x+1} \R_+^* \xrightarrow{x\mapsto \sqrt x} \R_+^* \xrightarrow{x\mapsto \ln x} \R.\]
+Une telle factorisation se voit instantanément avec un peu de pratique et  permet par exemple de montrer sans aucun calcul que $f$ est croissante.
+\end{minipage}
+}
+
 
 \begin{attention}[La composition n'est pas commutative]
 Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général distinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
@@ -414,6 +453,10 @@ $f : \R\to \R, x\mapsto x^2$ n'est \textbf{pas} injective puisque $f(1)=f(-1)$.
 \end{exemple}
 
 
+\begin{exercice}
+Montrer que  $\sin : \R\to \R, x\mapsto \sin(x)$ n'est pas injective, mais que $f:\R_+\to \R_+, x\mapsto \sqrt{x+1}$ l'est.
+\end{exercice}
+
 
 % méthode : pour rédiger une preuve, on utilise en général la première formulation, ou la seconde. Les autres formulations servent plutôt à assimiler la notion.
 % méthode : pour montrer qu'une fonction n'est pas injective, il suffit de trouver deux éléments distincts qui ont même image.
@@ -430,6 +473,12 @@ Une formulation moins précise mais parlante est  qu'une fonction surjective \og
 \begin{exemple}
 $f : \R\to \R, x\mapsto x^2$ n'est \textbf{pas} surjective puisque $-1$ n'a pas d'antécédent par $f$.
 \end{exemple}
+
+\begin{exercice}
+Montrer que  $\exp: \R\to \R, x\mapsto e^x$ n'est pas surjective.
+\end{exercice}
+
+
 
 
 
@@ -448,6 +497,10 @@ On dit que $f : A\to B$ est \emph{bijective} (ou que c'est une \emph{bijection})
 \item (Zérologie)\index{zérologie} L'unique fonction de $\varnothing$ dans $\varnothing$ est bijective. La fonction vide de $\varnothing$ dans n'importe quel ensemble est toujours injective.
 \end{enumerate}
 \end{exemple}
+
+\begin{exercice}
+Montrer que  $f: \R\to \R, x\mapsto x^3$ est bijective.
+\end{exercice}
 
 \begin{remarque}
 En général, la surjectivité est plus difficile à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général cela se voit (éventuellement après un petit calcul / majoration / développement d'expression).
@@ -473,6 +526,17 @@ Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
 \item Il suffit d'appliquer les deux premiers points.
 \end{enumerate}
 \end{proof}
+
+
+
+\begin{exemple}
+Cette proposition permet d'éviter des calculs parfois lourds. Par exemple, la fonction $f : \R\to \R, x\mapsto \left(\ln(e^x+2)\right)^3$ est injective car elle s'écrit comme la composée des fonctions injectives :
+\[ \R \xrightarrow{x\mapsto e^x} \R_+^* \xrightarrow{x\mapsto x+2} \R_+^* \xrightarrow{x\mapsto \ln(x)} \R \xrightarrow{x\mapsto x^3}\R\]
+La proposition est encore plus utile pour vérifier le caractère surjectif de fonctions.
+\end{exemple}
+
+
+
 
 \begin{proposition}[réciproques partielles]
 Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
@@ -564,19 +628,15 @@ Soit $f : E\to F$ et $A\subseteq E$. On appelle image directe de $A$ l'ensemble 
 \[f(A) = \{f(x)\:\mid\: x\in A\} = \{y\in F \:\mid\: \exists x\in A, y=f(x)\}.\]
 Autrement dit, pour un élément $y\in F$, on a $y\in f(A) \iff \left(\exists x\in A, y=f(x)\right)$.
 \end{definition}
-\begin{definition}[Image réciproque d'une partie]
-\index{image!réciproque d'une partie}
-Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensemble de tous les antécédents d'éléments de $B$ :
-\[f^{<-1>}(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
-Autrement dit, pour un élément $x\in E$, on a $x\in f^{<-1>}(B) \iff f(x)\in B$.
 
-\textbf{Attention}, on voit très souvent la notation $f^{-1}(B)$ au lieu de $f^{<-1>}(B)$ mais cela peut prêter à confusion, la fonction $f$ n'ayant pas forcément de réciproque. Dans ce chapitre, on utilise pour commencer la notation $f^{<-1>}(B)$. La notation $f^{-1}(B)$ sera adoptée progressivement dans les chapitres suivants.
-\end{definition}
+\begin{exemple}\index{image}
+Si $f : E\to F$, alors $f(E)$ est juste l'image de $f$, introduite plus haut et notée $\Im f$. La notion d'image directe d'une partie est donc une généralisation de celle d'image d'une application.
+\end{exemple}
 
-\begin{definition}[Fibres d'une application]
-\index{fibre}
-Soit $f : A\to B$ et $b\in B$. La \emph{fibre de $f$ (au-dessus) de $b$} est l'ensemble des antécédents de $b$, c'est-à-dire $f^{<-1>}(\{b\}) = \{a\in A \:\mid\: f(a)=b\}$. De façon générale, les \emph{fibres} de l'application $f$ sont les images réciproques de singletons de $B$.
-\end{definition}
+\begin{exercice}
+Soit $f : E\to F$. On fixe une partie $A\subseteq E$ et on note $i : A\to E$ l'inclusion de $A$ dans $E$. Vérifier que $f(A) = \Im f\circ i$.
+\end{exercice}
+
 
 \begin{proposition}
 Soit $f : E\to F$.
@@ -618,48 +678,133 @@ L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulemen
 \end{enumerate}
 \end{proof}
 
+
+
+\begin{definition}[Image réciproque d'une partie]
+\index{image!réciproque d'une partie}
+Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensemble de tous les antécédents d'éléments de $B$ :
+\[f^\leftarrow(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
+Autrement dit, pour un élément $x\in E$, on a $x\in f^\leftarrow(B) \iff f(x)\in B$.
+
+\textbf{Attention}, la notation $f^\leftarrow(B)$ n'est \textbf{pas  standard}. La notation standard est $f^{-1}(B)$ mais elle est assez mauvaise car elle empiète sur la notation pour la fonction réciproque (qui n'existe pas toujours). En particulier,  dans les cas où la fonction $f$ n'admet de fonction réciproque, utiliser la notation  $f^{-1}$ pour les images réciproques peut laisser croire que l'on manipule une fonction réciproque, ce qui est faux.
+
+Pour ces raisons, on utilise dans ce cours la notation $f^\leftarrow(B)$. La notation $f^{-1}(B)$ sera adoptée progressivement dans les chapitres (ou semestres) suivants, une fois que la notion sera bien assimilée.
+\end{definition}
+
+\begin{exemple}[Fibres et images réciproques]
+\index{fibre}
+Soit $f : A\to B$ et $b\in B$. On a vu que la \emph{fibre de $f$ (au-dessus) de $b$} est par définition l'ensemble des antécédents de $b$, c'est-à-dire $\{a\in A \:\mid\: f(a)=b\} $.
+
+En reformulant, la fibre de $f$ au-dessus de $b$ est donc l'ensemble $f^\leftarrow(\{b\})$. De façon générale, les \emph{fibres} de l'application $f$ sont les images réciproques de singletons de $B$.
+\end{exemple}
+
+\begin{exemple}
+Soient $f : A\to B$,  $g : B\to C$ et $C'\subseteq C$ une partie de $C$. Alors, on a 
+\[\Im g\circ f \subseteq C' \iff \Im f \subseteq g^\leftarrow(C').\]
+\end{exemple}
+
 \begin{proposition}
 Soit $f : E\to F$.
 \begin{enumerate}
-\item $f^{<-1>}(\varnothing)=\varnothing$.
-\item $f^{<-1>}(F)=E$.
-\item Si $(B_i)_{i\in I}$ est une famille de parties de $F$, alors $f^{<-1>}\left(\bigcup_{i\in I}B_i\right) = \bigcup_{i\in I} f^{<-1>}(B_i)$, ainsi que $f^{<-1>}\left(\bigcap_{i\in I}B_i\right) = \bigcap_{i\in I} f^{<-1>}(B_i)$.
+\item $f^\leftarrow(\varnothing)=\varnothing$.
+\item $f^\leftarrow(F)=E$.
+\item Si $(B_i)_{i\in I}$ est une famille de parties de $F$, alors 
+\[
+f^\leftarrow\left(\bigcup_{i\in I}B_i\right) 
+= \bigcup_{i\in I} f^\leftarrow(B_i)
+\quad \text{ et } \quad 
+f^\leftarrow\left(\bigcap_{i\in I}B_i\right) 
+= \bigcap_{i\in I} f^\leftarrow(B_i)/
+\]
 \end{enumerate}
 \end{proposition}
 \begin{proof} Exercice.
 \end{proof}
 
-En conclusion, l'image réciproque se comporte un peu mieux que l'image directe.
+\begin{quote}
+\emph{En conclusion, l'image réciproque se comporte mieux que l'image directe vis-à-vis des unions et intersections.}
+\end{quote}
 
-\begin{definition}[Saturation, partie saturée]
-\index{partie!saturée}\index{saturation!relativement à une fonction}
-Soit $f : E\to F$ une fonction et $A\in \mathcal P(E)$ une partie de la source de $f$. La \emph{saturation} de $A$ (relativement à la fonction $f$) est la partie $f^{<-1>}(f(A))$.
+%- - - - - -
+% factorisations
 
-On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
+\section{Compléments}
+
+Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
+
+\subsection{Itérées, points fixes, parties stables}
+
+% % % % % % % % 
+\begin{definition}[itérées successives]\index{itérée}\index{itération}
+Soit $f : E\to E$ une application d'un ensemble dans lui-même, et $n\in \N$. On  note $f^{\circ n}$ et on appelle \emph{$n$-ème itérée de $f$}  l'application définie par récurrence de la façon suivante :
+\[ f^{\circ 0} = \Id_E \text{ et } \forall n\in \N, f^{\circ n+1} = f\circ f^{\circ n}.\]
+Autrement dit, on a :
+\[ 
+f^{\circ n} = \begin{cases}
+\Id_E & \text{ si } n=0;\\
+\underbrace{f\circ \dots \circ f}_{n \text{ fois}} & \text{ si } n\geq 1.
+\end{cases}
+\]
+Il arrive que l'on écrive $f^n$ au lieu de $f^{\circ n}$ bien que ce soit déconseillé, pour éviter la confusion entre produit et composition.
+\end{definition}
+
+\begin{definition}[Point fixe et lieu fixe]
+\index{point fixe}\index{lieu fixe}
+Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{fixe par $f$} (ou simplement \emph{fixe} s'il n'y a pas d'ambiguïté sur la fonction), si $f(x)=x$. On dit aussi que $x$ est un \emph{point fixe} de $f$. Le \emph{lieu fixe} de $f$ est la partie de $E$ constituée de tous les points fixes : $\Fix(f) = \{x\in E\:|\: f(x)=x \}$.
 \end{definition}
 
 \begin{exemple}
 \begin{enumerate}
-\item La saturation $\operatorname{Sat}_f(A)$ d'une partie $A$ contient toujours $A$.
-\item La saturation d'une partie $A$ est saturée, autrement dit avec la notation plus haut  on a  $\operatorname{Sat}_f(\operatorname{Sat}_f(A)) = \operatorname{Sat}_f(A)$.
+\item Soit $f : \R\to \R, x\mapsto x^2-2$. Ses points fixes sont $-1$ et $2$ (ce sont les solutions de l'équation $f(x)=x$). Son lieu fixe est donc $\{-1,2\}$.
+\item L'application $\tau : \R^2\to \R^2, (x,y) \mapsto (x+2,y-3)$, n'a aucun point fixe. (C'est la translation de vecteur $\vec u = (2,-3)$.)
+\item Soit $\Delta$ une droite du plan $\R^2$. La symétrie axiale $\sigma$ d'axe $\Delta$ a pour lieu fixe $\Fix(\sigma)=\Delta$.
+\item De façon générale pour les transformations classiques du plan euclidien, une translation non triviale n'a aucun point fixe, une rotation non triviale a exactement un point fixe (le centre de la rotation), une symétrie axiale a une infinité de points fixes, dont l'union est l'axe de la symétrie.
+\end{enumerate}
+\end{exemple}
+
+\begin{exercice}
+Déterminer les points fixes de $f : \R\to \R, x\mapsto x^3$.
+\end{exercice}
+
+% a besoin des images directes.
+\begin{definition}[partie stable]\index{partie!stable}
+Soit $f : E\to E$ une application d'un ensemble dans lui-même. Une partie $A\subseteq E$ est \emph{stable par $f$}, (ou \emph{$f$-stable}, ou simplement \emph{stable} s'il n'y a pas d'ambiguïté pour la fonction), si $f(A)\subseteq A$.
+\end{definition}
+
+\begin{exercice}
+Soit $f : \R\to \R, x\mapsto x^3-x$. Montrer que $[-1,1]$ est stable.
+\end{exercice}
+
+\subsection{Saturation}
+
+
+\begin{propdef}[Saturation, partie saturée]
+\index{partie!saturée}\index{saturation!relativement à une fonction}
+Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f(B) \subset f(A)$ est égale à $f^\leftarrow(f(A))$.
+
+Cette partie est appelée la \emph{saturation} de $A$ (relativement à la fonction $f$). On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
+\end{propdef}
+\begin{proof}
+Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par définition d'une image réciproque, $B = f^\leftarrow(f(A))$.
+\end{proof}
+
+\begin{exemple}
+\begin{enumerate}
+\item La saturation $\operatorname{Sat}_f(A)$ d'une partie $A$ contient toujours $A$ mais elle peut être plus grande (voir ci-dessous).
+\item La saturation d'une partie $A$ est saturée, autrement dit avec la notation plus haut  on a  $\operatorname{Sat}_f(\operatorname{Sat}_f(A)) = \operatorname{Sat}_f(A)$. Reformulation : l'application $\operatorname{Sat}_f : \mathcal P(E) \to \mathcal P(E), A\mapsto \operatorname{Sat}_f(A)$ vérifie la propriété $\operatorname{Sat}_f \circ \operatorname{Sat}_f = \operatorname{Sat}_f$.
 \item Soit $f : \R\to \R_+, x\mapsto x^2$, et soit $A=\{2\} \subseteq \R$. La saturation de $A$ est 
-\[f^{<-1>}(f(A)) = f^{<-1>}(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
+\[f^\leftarrow(f(A)) = f^\leftarrow(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
 \]
 La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée. Par contre, les parties $B = \{0\}$ et $C=\{-2,2\}$ sont saturées (relativement à $f$, toujours).
 \end{enumerate}
 \end{exemple}
 
-%- - - - - -
-% factorisations
 
-\section{Compléments : principes de factorisation}
-
-Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
-
+\subsection{Principes de factorisation}
 
 \begin{proposition}[Principe de factorisation à droite]
 \index{factorisation!à droite}
-\label{factorisation-droite}
+\label{prop-CNS-factorisation-droite}
 Soient $f : A\to B$ et $g : A\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
 \begin{enumerate}
 \item  $g$ se factorise à droite par $f$;
@@ -686,7 +831,7 @@ Cette proposition peut paraître abstraite mais en pratique elle est très facil
 Montrer que $g : \R\to\R, x\mapsto |x|$ se factorise à droite par $f : \R\to \R, x\mapsto x^2$.
 \end{exemple}
 \begin{red}
-Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$ ou $x=-y$, et donc on en déduit que $|x|=|y|$ c'est-à-dire $g(x)=g(y)$. D'après la proposition \ref{factorisation-droite}, il existe $h : \R\to \R$ telle que $g =h\circ f$, ou encore : $\forall x\in \R, |x|=h(x^2)$. 
+Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$ ou $x=-y$, et donc on en déduit que $|x|=|y|$ c'est-à-dire $g(x)=g(y)$. D'après la proposition \ref{prop-CNS-factorisation-droite}, il existe $h : \R\to \R$ telle que $g =h\circ f$, ou encore : $\forall x\in \R, |x|=h(x^2)$. 
 \end{red}
 
 (Attention, dans l'exemple précédent $h$ n'est pas exactement la racine carrée : en effet $h$ doit être définie sur $\R$. D'ailleurs $h$ n'est pas unique.)
@@ -696,7 +841,7 @@ Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$
 
 \begin{proposition}[Principe de factorisation à gauche]
 \index{factorisation!à gauche}
-\label{factorisation-gauche}
+\label{prop-CNS-factorisation-gauche}
 Soient $f : A\to C$ et $g : B\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
 \begin{enumerate}
 \item  $f$ se factorise à gauche par $g$;
@@ -718,20 +863,6 @@ Ces assertions sont vraies si et seulement si $f(A)\subseteq g(B)$.
 Si $A = C$ et que $f = \Id_C$, on retombe sur l'équivalence entre surjectivité et existence d'une section (inverse à droite).
 \end{remarque}
 
-\section{Exercices d'application directe}
-
-\begin{exercice}
-Montrer que  $\sin : \R\to \R, x\mapsto \sin(x)$ n'est pas injective.
-\end{exercice}
-
-\begin{exercice}
-Montrer que  $\exp: \R\to \R, x\mapsto e^x$ n'est pas surjective.
-\end{exercice}
-
-\begin{exercice}
-Montrer que  $f: \R\to \R, x\mapsto x^3$ est bijective.
-\end{exercice}
-
 \begin{exercice} 
 (Dans cet exercice les fonctions vont de $\R$ dans $\R$.) 
 Montrer l'application $x\mapsto x^2+6x+10$ se factorise à droite par $x\mapsto x+3$.
@@ -742,11 +873,11 @@ Montrer l'application $x\mapsto x^2+6x+10$ se factorise à droite par $x\mapsto 
 
 
 
-\begin{exercice}
-Soient $f : A\to B$ et $g : A\to C$. On suppose que $g$ se factorise à droite par $f$.
 
-Montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
-\end{exercice}
+
+
+
+
 
 \section{Exercices d'approfondissement}
 
@@ -758,6 +889,12 @@ Soit $i : B\to F$ l'inclusion de $B$ dans $F$, et soit $r : F\to B$ une fonction
 \item Vérifier que $r$ est une rétraction de $i$.
 \item Vérifier que la corestriction $f|^{B}$ est égale à la composée $r\circ f$.
 \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soient $f : A\to B$ et $g : A\to C$. On suppose que $g$ se factorise à droite par $f$.
+
+Montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
 \end{exercice}
 
 
@@ -886,7 +1023,14 @@ Montrer qu'il existe une bijection entre $E$ et $A\times_C B$ sans utiliser les 
 % en fait vu les définitions, on a égalité ensembliste.
 \end{exercice}
 
-
+\begin{exercice}[Fibre et produit fibré]
+Soit $f : A\to C$.
+\begin{enumerate}
+\item Si $c\in C$, montrer que la fibre de $f$ au-dessus de $c$ est exactement le produit fibré $A\times_C \{c\}$, où les applications de $A$ et $\{c\}$ vers $C$ sont $f$ et l'inclusion.
+\item De manière plus générale, si $B\subseteq C$ est une partie, montrer que l'image réciproque de $B$ est exactement $A\times_C B$.
+\end{enumerate}
+Les notions de fibre et d'image réciproque sont donc des cas particuliers de la notion de produit fibré.
+\end{exercice}
 
 
 

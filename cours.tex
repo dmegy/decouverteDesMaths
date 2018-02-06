@@ -9,6 +9,7 @@
 \usepackage{fancybox,graphicx}
 \usepackage[dvipsnames]{xcolor}
 \definecolor{preuve}{rgb}{0,0.2,0.5}
+
 \usepackage[francais]{minitoc} % sommaires en début de chapitre
 \setcounter{minitocdepth}{2} % profondeur des sommaires (1 = sections)
 \setcounter{tocdepth}{1} % profondeur de la table des matières
@@ -37,7 +38,7 @@
 
 % - - - - - - -
 % Spécifique à ce document :
-
+%\usepackage{palatino, euler} % police : Palatino, et Euler pour les maths
 \usepackage{fourier} % police de caractères : Adobe Utopia + Fourier math
 \everymath{\displaystyle} % plus lisible mais casse l'homogénéité de la mise en page
 
@@ -54,7 +55,10 @@
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Fix}{Fix}
 \DeclareMathOperator{\Card}{Card} % cardinal
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\mid}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
 \newcommand\eqdef{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily déf}}}{=}}}
 % égal par définition
 
@@ -114,7 +118,7 @@ Année 2017-2018\\
 \tableofcontents
 
 
-
+% TODO : exemples géométriques : transformations classiques du plan etc
 
 \section{Mode d'emploi et introduction}
 
@@ -124,7 +128,9 @@ Chaque chapitre commence par une table des matières détaillée du contenu, et 
 
 Les remarques et les exemples de \og zérologie\fg{} sont très instructifs mais peuvent parfois provoquer des blocages. Si c'est le cas, ils peuvent éventuellement être sautés lors d'une première lecture. Les démonstrations, elles, ne doivent pas être ignorées même en première lecture.
 
-Ce document contient en outre des compléments de cours et des exercices d'approfondissement. Ceux-ci  sont en général plus abstraits que ceux traités en TD en L1. Ces compléments et exercices sont clairement signalés et séparés du reste du document, et pourront intéresser des étudiants de L1 ou L2 (ou plus) souhaitant augmenter leur maîtrise dans la manipulation des notions fondamentales (logique, ensembles, relations).
+Le cours contient des exercices d'application directe à la suite de certaines définitions ou propositions. Il est conseillé d'essayer de les faire au moment où on les rencontre, pour mieux assimiler le cours.
+
+Ce document contient en outre des compléments de cours et des exercices d'approfondissement. Ceux-ci  sont en général plus abstraits que ceux traités en TD en L1. Ces compléments et exercices sont clairement signalés et séparés du reste du document, et pourront intéresser des étudiants (de L1   ou plus) souhaitant augmenter leur maîtrise dans la manipulation des notions fondamentales (logique, ensembles, relations).
 
 \newpage
 \section{Alphabet grec}

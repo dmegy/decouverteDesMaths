@@ -2,7 +2,11 @@
 \minitoc
 \hyperlink{toc}{\retourTOC}
 
+% TODO : mettre des relations d'équivalence sur $\R^2$ ! 
+
 \section{Relations binaires}
+
+% mettre qq part une remarque sur les relations ternaires, ... n-aires ? ou pas
 
 \begin{definition}[Relation binaire]
 Soit $E$ un ensemble. Une \emph{relation (binaire)}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$. On note en général \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{}.
@@ -548,8 +552,10 @@ Attention au second point, multiplier une congruence par $b$ change la base de c
 \end{remarque}
 
 \begin{definition}
-Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\Z$ induit une relation d'équivalence sur $\Z$, également appelée la relation de congruence modulo $a$ sur $\Z$, et notée de la même façon.
+Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\R$ induit une relation d'équivalence sur $\Z$, appelée et notée de la même façon.
 \end{definition}
+
+Par exemple, la congruence modulo $3$ est une relation d'équivalence sur $\Z$.
 
 \subsection{Classes d'équivalence}
 \begin{definition}[Classe d'équivalence]\index{classe d'équivalence}
@@ -608,7 +614,7 @@ L'outil principal pour manipuler les classes d'équivalence est l'\emph{ensemble
 
 L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$}\index{ensemble quotient sous une relation d'équivalence} et est noté $E/{\mathcal R}$.
 
-L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
+L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective comme on le verra plus bas, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
 \end{definition}
 
 \begin{exemple}
@@ -616,7 +622,7 @@ Pour l'ensemble $E$ des droites du plan $\R^2$ muni de la relation d'équivalenc
 \end{exemple}
 
 \begin{proposition}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E\to E/\mathcal R$ la projection sur le quotient. Alors 
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E\to E/\mathcal R$ la projection canonique sur le quotient. Alors 
 \begin{enumerate}
 \item $p$ est surjective.
 \item $x\mathcal R y \iff p(x)=p(y)$.
@@ -631,6 +637,15 @@ Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E
 \end{enumerate}
 \end{proof}
 
+\begin{exercice}
+Soit $f : E\to F$ une application surjective, $\mathcal R$ la relation d'équivalence sur $E$ définie par $x\mathcal R y \iff f(x)=f(y)$, et soit $p : E\to E/\mathcal R$ la surjection canonique sur le quotient. 
+
+Soit $\phi :  F \to E/\mathcal R, y\mapsto f^\leftarrow(y)$. Montrer que  cette application $\phi$ est bien définie, bijective (déterminer son application réciproque) et fait commuter le diagramme
+\[\xymatrix{
+& E \ar[dl]_{f} \ar[dr]^p & \\
+F \ar[rr]_{\phi}& & E/\mathcal R
+}\]
+\end{exercice}
 
 
 
@@ -671,15 +686,14 @@ Soient $\mathcal A$ et $\mathcal B$ deux partitions de $E$. On dit que $\mathcal
 \end{definition}
 
 
-
-
 \begin{remarque}
 Le plus grand élément de cet ensemble ordonné est la partition la  plus fine\index{partition!la plus fine} : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine\index{partition!la moins fine} est la partition triviale (celle à une seule partie).  
 \end{remarque}
 
 
 
-\begin{proposition}[Partition en classes d'équivalence]\index{partition!en classes d'équivalence}
+\begin{proposition}[Partition en classes d'équivalence]\label{prop-classes-partition}
+\index{partition!en classes d'équivalence}
 Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est une partition de $E$.
 \end{proposition}
 \begin{proof}
@@ -689,6 +703,19 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \item On a déjà montré que deux classes d'équivalence sont soit égales soit disjointes.
 \end{enumerate}
 \end{proof}
+
+\begin{proposition}\label{prop-fibres-partition}\index{fibre}
+Soit $f : E\to F$. Les fibres non vides de $f$ forment une partition de l'ensemble $E$.
+\end{proposition}
+\begin{proof}
+Les fibres non vides de $f$ sont exactement les classes d'équivalence pour la relation d'équivalence $x\mathcal R y \iff f(x)=f(y)$. D'après la proposition précédente, elles forment donc une partition.
+\end{proof}
+
+\begin{remarque}
+Au lieu de démontrer la prop. \ref{prop-fibres-partition} à l'aide de la prop. \ref{prop-classes-partition}, on peut peut faire l'inverse : montrer directement la prop. \ref{prop-classes-partition} puis l'appliquer à la surjection canonique (dont les fibres sont les classes d'équivalence) pour prouver  la prop. \ref{prop-fibres-partition}.
+\end{remarque}
+
+% rédiger différemment ? les deux propositons avec preuve directe + preuve utilisant l'autre proposition ? Quel choix est le plus rapide ?
 
 \begin{remarque}[Zérologie] Le quotient de l'ensemble vide\index{ensemble vide} par son unique relation d'équivalence est l'ensemble des classes d'équivalence : comme il n'y a aucune classe d'équivalence, l'ensemble quotient est vide. La projection canonique est l'application $p : \varnothing \to \varnothing$ (dite application vide). Elle est bien surjective...
 \end{remarque}
@@ -826,6 +853,12 @@ Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \t
 \]
 \end{proposition}
 
+\begin{proof}
+Par définition, $f$ descend au quotient en une application $\overline f : E/\mathcal R \to F$ si et seulement si elle se factorise à droite par la surjection canonique sur le quotient $p$.
+D'après la proposition \ref{prop-CNS-factorisation-droite}, c'est le cas si et seulement si $f$ est constante sur les fibres de $p$.
+Or ces fibres sont exactement les classes d'équivalences de $\mathcal R$.
+\end{proof}
+
 % référer aux lemmes de factorisation généraux dans "applications"
 
 
@@ -914,6 +947,7 @@ Soit $(E,\leftarrow)$ un ensemble pré-ordonné. On définit la relation binaire
 Montrer que $\mathcal R$ est une relation d'équivalence sur $E$.
 \end{exercice}
 
+
 \begin{exercice}[germes de fonctions]
 \newcommand\memegerme{\operatorname{\underset{{\scriptscriptstyle\mathcal V(0)}}{=}}}
 Soit $E=\R^\R$ l'ensemble des fonctions de $\R$ dans $\R$ et $f, g\in E$. On dit que $f$ et $g$ sont égales au voisinage de zéro, ou bien que $f$ et $g$ ont même germe en zéro, et on note $f \memegerme g$ si:
@@ -930,8 +964,9 @@ Attention, cette relation d'équivalence n'est \textbf{pas} l'équivalence en z�
 \end{exercice}
 
 
+
 \begin{exercice}
-Soit $f : E\to F$ et $\equiv_f$ la relation d'équivalence sur $E$ dont les classes d'équivalence sont les fibres de $f$, et soit $Q = E/\equiv_f$ l'ensemble quotient. 
+Soit $f : E\to F$, soit $\equiv_f$ la relation d'équivalence sur $E$ dont les classes d'équivalence sont les fibres de $f$, et soit $Q = E/\equiv_f$ l'ensemble quotient. 
 
 \begin{enumerate}
 \item Montrer que $f$ passe au quotient en une application $\bar f : Q\to F$ qui est injective.
