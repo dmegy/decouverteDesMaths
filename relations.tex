@@ -155,9 +155,24 @@ De façon équivalente, $\mathcal R$ est plus fine que $\mathcal S$ si on a l'in
 \begin{definition}
 Soit $E$ un ensemble muni d'une relation binaire $\mathcal R$. La relation \emph{réciproque} ou \emph{transposée}, notée ${}^t\mathcal R$, est définie par : $x{}^t\mathcal R y \iff y\mathcal R x$. 
 \end{definition}
-
 % ne pas confondre avec la relation complémentaire / complément logique
 
+
+\begin{exercice}
+Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
+\end{exercice}
+
+\begin{exercice}\index{diagonale}
+Montrer qu'une relation $\mathcal R$ sur $E$ est réflexive si et seulement si son graphe contient la diagonale $\Delta_E$ de $E\times E$.
+\end{exercice}
+
+\begin{exercice}\index{diagonale}
+Montrer qu'une relation $\mathcal R$ sur $E$ est antisymétrique si et seulement si $\Gamma_\mathcal R \cap \Gamma_{{}^t\mathcal R} \subseteq \Delta_E$.
+\end{exercice}
+
+\begin{exercice}
+Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
+\end{exercice}
 
 \section{Relations d'ordre}
 
@@ -218,6 +233,17 @@ Si $x$ et $y$ sont deux éléments d'un ensemble totalement ordonné $(E,\leq_E)
 La relation d'ordre $\leq$ sur $\R$ (ou $\N$, $\Q$ ou  $\Z$) est totale. Par contre, $\subseteq$ et $|$ ne sont pas totales. Par exemple, dans $\mathcal P(\R)$, les parties $\R_+$ et $]-3,6]$ ne sont pas comparables pour l'inclusion. Dans $\N^*$, les éléments $2$ et $3$ ne sont pas comparables pour la divisibilité.
 \end{exemples}
 
+
+
+\begin{exercice}
+Montrer qu'une relation d'ordre $\mathcal R$ sur $E$ est totale si $\Gamma_\mathcal R \cup \Gamma_{{}^t\mathcal R} = E\times E$.
+\end{exercice}
+
+
+
+\begin{exercice}
+Soit $E$ un ensemble. Montrer que \og est plus fine que\fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
+\end{exercice}
 
 
 \subsection{Applications croissantes, décroissantes, monotones}
@@ -281,6 +307,15 @@ Cette application peut s'écrire comme la composée
 Les deux premières sont croissantes, la troisième est décroissante (car on est sur $\R_+^*$, ce serait faux sur $\R^*$) et la dernière est croissante car $\ln(2/3)<0$. D'après la proposition, la composée des quatre est donc décroissante.
 \end{red}
 
+
+
+\begin{exercice}
+Montrer qu'une application strictement croissante entre ensembles totalement ordonnés est injective.
+\end{exercice}
+
+
+
+
 \subsection{Plus grand et plus petit élément}
 \begin{definition}
 Soit $(E,\leq_E)$ un ensemble ordonné et $A\subseteq E$ une partie non vide.
@@ -327,6 +362,10 @@ On prouve le résultat pour le plus petit élément de la même manière.
 \item Dans l'ensemble ordonné $(\N,|)$, il y a un plus petit élément au sens de la divisibilité, c'est $1$ (et non zéro). D'autre part, l'élément $0$ est en fait le plus grand élément au sens de la divisibilité: tout nombre entier $k$ divise $0$.
 \end{enumerate}
 \end{exemples}
+
+\begin{exercice}
+On munit l'ensemble $E$ des intervalles fermés de $\R_+^*$ de la relation d'inclusion $\subseteq$. Montrer que c'est une relation d'ordre. Existe-t-il un plus grand élément ?
+\end{exercice}
 
 \subsection{Borne supérieure, borne inférieure}
 
@@ -474,6 +513,12 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \end{enumerate}
 \end{exemples}
 
+\begin{exercice}
+Sur $\Z\times \N^*$, on définit la relation binaire $\mathcal R$ par
+\[(p,q)\mathcal (p',q') \iff pq'=p'q.\]
+Montrer que c'est une relation d'équivalence.
+\end{exercice}
+
 \begin{proposition}[Relation donnée par les fibres d'une application]\index{fibre}
 Si $f : E\to F$ est une application, alors la relation 
 \[
@@ -607,6 +652,10 @@ On dit qu'une partie est \emph{saturée} (relativement à $\mathcal R$), si elle
 Une classe d'équivalence est saturée, mais la réciproque est fausse en général (exercice).
 \end{exemple}
 
+\begin{exercice}
+Soit $\mathcal R$ une relation d'équivalence sur $E$. Montrer que les classes d'équivalence sont exactement les parties saturées minimales pour l'inclusion.
+\end{exercice}
+
 
 L'outil principal pour manipuler les classes d'équivalence est l'\emph{ensemble quotient}, que l'on définit maintenant.
 
@@ -686,6 +735,13 @@ Soient $\mathcal A$ et $\mathcal B$ deux partitions de $E$. On dit que $\mathcal
 \end{definition}
 
 
+\begin{exercice}
+Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
+
+Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
+\end{exercice}
+
+
 \begin{remarque}
 Le plus grand élément de cet ensemble ordonné est la partition la  plus fine\index{partition!la plus fine} : c'est la partition en singletons, c'est-à-dire l'ensemble de tous les singletons inclus dans $E$. Cette partition est plus fine que toute autre. Si $E$ est non-vide, la partition la moins fine\index{partition!la moins fine} est la partition triviale (celle à une seule partie).  
 \end{remarque}
@@ -703,6 +759,10 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \item On a déjà montré que deux classes d'équivalence sont soit égales soit disjointes.
 \end{enumerate}
 \end{proof}
+
+\begin{exercice}
+Soient $\mathcal R$ et $\mathcal S$ deux relations d'équivalence sur $E$. Montrer que $\mathcal R$ est plus fine que $\mathcal S$ si et seulement si la partition en classes d'équivalence modulo $\mathcal R$ est plus fine que la partition en classe d'équivalence modulo $\mathcal S$.
+\end{exercice}
 
 \begin{proposition}\label{prop-fibres-partition}\index{fibre}
 Soit $f : E\to F$. Les fibres non vides de $f$ forment une partition de l'ensemble $E$.
@@ -739,74 +799,8 @@ Ces deux propositions permettent de montrer qu'\og une relation d'équivalence s
 Si $\mathcal R$ est une relation d'équivalence sur un ensemble fini $E$, alors $|E| = \sum_{A\in E/\mathcal R} |A|$.
 \end{corollaire}
 \begin{proof}
-On a  $E= \bigcup_{A\in E/\mathcal R} A$ et l'union est disjointe, donc on obtient le résultat en prenant le cardinal des deux membres.
+On a  $E= \bigcup_{A\in E/\mathcal R} A$ donc en prenant le cardinal des deux membres de l'égalité on obtient $|E| = \left| \bigcup_{A\in E/\mathcal R} A \right|$. D'autre part, l'union est disjointe donc $\left| \bigcup_{A\in E/\mathcal R} A \right| = \sum_{A\in E/\mathcal R} |A|$.
 \end{proof}
-
-% chercher un exo d'application avec des bijections : nombres de points fixes
-
-
-
-
-
-
-
-\section{Exercices d'application directe}
-
-
-
-\begin{exercice}
-Montrer qu'une relation $\mathcal R$ est symétrique si et seulement si $\mathcal R = {}^t\mathcal R$.
-\end{exercice}
-
-\begin{exercice}
-Montrer qu'une relation $\mathcal R$ sur $E$ est réflexive si et seulement si son graphe contient la diagonale $\Delta_E$ de $E\times E$.
-\end{exercice}
-
-\begin{exercice}\index{diagonale}
-Montrer qu'une relation $\mathcal R$ sur $E$ est antisymétrique si et seulement si $\Gamma_\mathcal R \cap \Gamma_{{}^t\mathcal R} \subseteq \Delta_E$.
-\end{exercice}
-
-\begin{exercice}
-Montrer qu'une relation d'ordre $\mathcal R$ sur $E$ est totale si $\Gamma_\mathcal R \cup \Gamma_{{}^t\mathcal R} = E\times E$.
-\end{exercice}
-
-\begin{exercice}
-Montrer qu'un ensemble fini de cardinal $n$ possède $2^{n^2-n}$ relations réflexives et $2^{n(n+1)/2}$ relations symétriques.
-\end{exercice}
-
-\begin{exercice}
-On munit l'ensemble $E$ des intervalles fermés de $\R_+^*$ de la relation d'inclusion $\subseteq$. Montrer que c'est une relation d'ordre. Existe-t-il un plus grand élément ?
-\end{exercice}
-
-\begin{exercice}
-Soit $E$ un ensemble. Montrer que \og est plus fine que\fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
-\end{exercice}
-
-\begin{exercice}
-Montrer qu'une application strictement croissante entre ensembles totalement ordonnés est injective.
-\end{exercice}
-
-\begin{exercice}
-Sur $\Z\times \N^*$, on définit la relation binaire $\mathcal R$ par
-\[(p,q)\mathcal (p',q') \iff pq'=p'q.\]
-Montrer que c'est une relation d'équivalence.
-\end{exercice}
-
-\begin{exercice}
-Soit $\mathcal R$ une relation d'équivalence sur $E$. Montrer que les classes d'équivalence sont exactement les parties saturées minimales pour l'inclusion.
-\end{exercice}
-
-
-
-\begin{exercice}
-Soient $\mathcal R$ et $\mathcal S$ deux relations d'équivalence sur $E$. Montrer que $\mathcal R$ est plus fine que $\mathcal S$ si et seulement si la partition en classes d'équivalence modulo $\mathcal R$ est plus fine que la partition en classe d'équivalence modulo $\mathcal S$.
-\end{exercice}
-
-\begin{exercice}
-Montrer que la relation binaire \og être plus fine que\fg{} est une relation d'ordre sur l'ensemble de toutes les partitions de $E$, et que l'ordre n'est en général pas total.
-
-Si $E$ est un ensemble à trois éléments, dire, parmi les cinq partitions possibles, lesquelles sont comparables.
-\end{exercice}
 
 \begin{exercice}
 \index{involution}\index{point fixe}
@@ -816,6 +810,22 @@ Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifia
 \item Plus généralement, montrer que $|E|$ a la même parité que le nombre de points fixes de $f$.
 \end{enumerate}
 \end{exercice}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
