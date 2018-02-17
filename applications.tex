@@ -8,7 +8,9 @@
 
 
 
-\section{Applications, graphes}
+\section{Applications}
+
+\subsection{Définitions, graphes}
 
 \emph{Résumé : applications, graphes, source, but, images, antécédents, ensemble des fonctions de $E$ dans $F$, fonction caractéristique, point fixe d'une application}
 
@@ -46,12 +48,7 @@ Il existe des ouvrages où le mot \og fonction\fg{} a un sens légèrement diff�
 
 Deux fonctions sont égales si elles ont même source et but, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
 
-\begin{definition}[Image d'une application]\index{image!d'une application}
-Soit $f : E\to F$. L'\emph{image} de $f$, notée $\Im(f)$, est l'ensemble de toutes les images des éléments de $E$ par $f$:
-\[
-\Im(f) = \{f(x)\:\mid\: x\in E\}
-\]
-\end{definition}
+
 
 \begin{remarque}
 \begin{enumerate}
@@ -90,13 +87,28 @@ x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{c
 %Une fonction n'a pas de raison d'être continue, dérivable etc.
 \end{remarque}
 
+\subsection{Images, antécédents}
+
+On a vu que si $f : E\to F$ est une application et $x\in E$, alors l'élément $f(x)\in F$ est appelé \emph{image de $x$ par $f$}. On peut alors considérer l'ensemble de toutes les images possibles.
+
+\begin{definition}[Image d'une application]\index{image!d'une application}
+Soit $f : E\to F$. L'\emph{image} de $f$, notée $\Im(f)$, est l'ensemble de toutes les images des éléments de $E$ par $f$:
+\[
+\Im(f) = \{f(x)\:\mid\: x\in E\}
+\]
+\end{definition}
+
 \begin{definition}[Antécédents d'un élément]
 Soit $f : E\to F$ une fonction, et $y\in F$. On dit qu'un élément $x\in E$ est un \emph{antécédent} de $y$ si $f(x)=y$.
 \end{definition}
 
 \begin{attention}
-Un élément du codomaine peut n'avoir \textbf{aucun} antécédent, ou en avoir \textbf{plusieurs}. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$. Selon les fonctions, un élément peut même avoir une infinité d'antécédents.
+Un élément du codomaine peut n'avoir \textbf{aucun} antécédent, ou en avoir \textbf{un, ou plusieurs}. Par exemple, si $f : \R\to \R, x\mapsto x^2$, alors l'élément $-1$ n'a aucun antécédent (il n'existe pas de $x\in \R$ tel que $f(x)=x^2=-1$). L'élément $0$ a exactement un antécédent ($0$), et l'élément $4$ a deux antécédents : $2$ et $-2$. Selon les fonctions, un élément peut même avoir une infinité d'antécédents.
 \end{attention}
+
+\begin{exercice}
+Soit $f : E\to F$. Montrer qu'un élément de $F$ appartient à $\Im f$ si et seulement s'il admet au moins un antécédent.
+\end{exercice}
 
 \begin{exemple}
 Soit $f : \R^2\to \R,\: (x,y)\mapsto \sqrt{x^2+y^2}$. C'est l'application qui à un point du plan lui associe sa distance à l'origine. L'élément $-3$ n'a aucun antécédent (une distance est positive). L'élément $0$ a un seul antécédent, l'origine $(0,0)$. Le réel $2$ a une infinité d'antécédents : tous les points du plan à distance $2$ de l'origine (donc un cercle).
@@ -136,7 +148,31 @@ Soit $E$ un ensemble et $A\in \mathcal P(E)$ une partie de $E$. La \emph{fonctio
 
 
 
-Pour terminer ce paragraphe, on introduit un outil indispensable pour visualiser efficacement plusieurs ensembles et applications d'un seul coup : les diagrammes.
+
+\subsection{Retour sur les familles et les paramétrages}
+\label{subsec-retour-parametrage-familles}
+
+On peut maintenant donner une nouvelle définition de ce qu'est une \emph{famille} :
+
+\begin{definition}
+Soient $I$ et $E$ deux ensembles. Une famille $(a_i)_{i\in I}$ d'éléments de $E$ indexée ou paramétrée par $I$ est une application
+\begin{align*}
+I&\to E\\ i&\mapsto a_i.
+\end{align*}
+\end{definition}
+
+Par exemple, une suite de réels, notée $(u_n)_{n\in \N}$, est  simplement une application de $\N$ dans $\R$, que l'on pourrait aussi noter  $u : \N\to \R$, $n\mapsto u(n)$. Pour diverses raisons, on utilise pour les suites la notation en famille plutôt que la notation fonctionnelle, mais les deux objets sont identiques. L'ensemble des suites réelles est donc $\R^\N$, celui des suites complexes est $\C^\N$ etc.
+
+En ce qui concerne les \textbf{écritures paramétrées} d'ensembles, il s'agit en fait de les écrire comme des \textbf{images par une application}. Par exemple, la droite du plan $\mathcal D$ d'équation $2x+3y=4$ admet l'écriture paramétrée $\{(2,0)+t(3,-2)\:\mid\: t\in \R\}$. Ceci revient à considérer l'application
+\[ \phi:\begin{cases} \R &\to \R^2\\ t &\mapsto (2+3t,-2t)\end{cases}
+,\]
+et à écrire que $\mathcal D = \Im \phi  = \{\phi(t)\:\mid\: t\in \R\}$.
+
+Ceci permet  de comprendre d'une autre façon que $\left(u_i\right)_{i\in I}$ est un objet d'une nature bien différente de $\left\{u_i\:\mid\: i\in I\right\}$ : le premier est une application, le second est son image. Une famille prend en compte les éventuelles \og répétitions\fg{} des éléments. La suite $((-1)^n)_{n\in \N}$ oscille indéfiniment entre $1$ et $-1$, alors que l'ensemble $\left\{(-1)^n\:\mid\: n\in \N\right\}$ est simplement l'ensemble image $\{1,-1\}$ qui ne contient que deux éléments.
+
+\subsection{Diagrammes}
+
+Pour terminer cette section, on introduit un outil indispensable pour visualiser efficacement plusieurs ensembles et applications d'un seul coup : les diagrammes.
 
 \begin{definition}[Diagramme]
 \index{diagramme}
@@ -163,6 +199,8 @@ C & D \ar[ul]^{h} \ar[l]^{\phi}
 \]
 \end{enumerate}
 \end{exemple}
+
+
 
 %----------------------------------
 \section{Composition}
@@ -275,13 +313,7 @@ est commutatif revient à dire que $\psi\circ f = g \circ \phi$. Un tel diagramm
 \end{enumerate}
 \end{exemple}
 
-\begin{definition}[Fonction involutive/involution]\index{application!involutive}\index{involution}
-Soit $f : E\to E$ une fonction ayant même source et but. On dit que $f$ est \emph{involutive}, ou que c'est une \emph{involution}, si $f\circ f=\Id_E$.
-\end{definition}
 
-\begin{exemple}
-La fonction $f : \R\to \R, x\mapsto 1-x$ est involutive.
-\end{exemple}
 
 
 
@@ -734,9 +766,31 @@ f^\leftarrow\left(\bigcap_{i\in I}B_i\right)
 %- - - - - -
 % factorisations
 
-\section{Compléments}
+\section{Compléments de vocabulaire}
 
 Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
+
+\subsection{Involutions}
+\begin{definition}[Fonction involutive/involution]\index{application!involutive}\index{involution}
+Soit $f : E\to E$ une fonction ayant même source et but. On dit que $f$ est \emph{involutive}, ou que c'est une \emph{involution}, si $f\circ f=\Id_E$.
+\end{definition}
+
+\begin{exemple}\label{ex-involution}
+La fonction $f : \R\to \R, x\mapsto 1-x$ est involutive.
+\end{exemple}
+
+\begin{exercice}
+Montrer que $f : \R\to \R, x\mapsto \frac{|x|-x\sqrt 5}{2}$ est involutive.
+\end{exercice}
+
+\begin{exercice}
+Dans cet exercice on note $\sqrt[3]{}$ la racine cubique définie sur $\R$.
+Montrer que les fonctions $g : \R\to \R, x\mapsto \sqrt[3]{1-x^3}$ est $h : \R\to \R, x\mapsto (1-\sqrt[3]{x})^3$ sont involutives . Quel est le rapport avec la fonction $f$ de l'exemple \ref{ex-involution} (écrire les fonctions sous forme de composées) ?\footnote{Ce procédé s'appelle une conjugaison. On rencontrera souvent ce type de situation, en particulier en algèbre linéaire.}
+% plus généralement, si $\phi$ est une bijection, mq la conjuguée d'une involution est une involution ?
+\end{exercice}
+
+% \subsection{Conjugaison par une bijection}
+% ici mettre des diagrammes, le fait que conjuguer par une bijection conserve le caractère involutif, bouge les points fixes, bouge les parties stables etc etc.
 
 \subsection{Itérées, points fixes, parties stables}
 
