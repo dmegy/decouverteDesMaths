@@ -1,12 +1,13 @@
+%TODO : description à la Yoneda des propriétés universelles ? Ou pas, vraiment trop abstrait
+
 \chapter{Relations d'ordre, relations d'équivalence}
 \minitoc
 \hyperlink{toc}{\retourTOC}
 
 % TODO : mettre des relations d'équivalence sur $\R^2$ ! 
 
-\section{Relations binaires}
+\section{Relations binaires}\footnote{Il existe une notion de relation ternaire, ou plus généralement, n-aire, mais ces notions ne sont pas abordées dans ce cours.}
 
-% mettre qq part une remarque sur les relations ternaires, ... n-aires ? ou pas
 
 \begin{definition}[Relation binaire]
 Soit $E$ un ensemble. Une \emph{relation (binaire)}\index{relation binaire} ${\mathcal R}$ sur $E$ est une application de $E\times E$ dans $\{\text{vrai, faux}\}$. On note en général \og$x{\mathcal R}y$\fg{} au lieu de \og${\mathcal R}(x,y)=\text{vrai}$\fg{}.
@@ -826,6 +827,83 @@ Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifia
 
 
 
+\section{Compléments: relation la plus fine vérifiant une propriété}
+
+(Le contenu de cette section n'est pas exigible à l'examen.)
+
+\noindent\fbox{
+\begin{minipage}{.95\linewidth}
+Définir une relation d'équivalence sur un ensemble peut être assez pénible, puisqu'il faut donner son graphe. On aimerait pouvoir définir simplement mais sans ambiguïté des relations vérifiant une propriété donnée. Par exemple, on aimerait pouvoir définir simplement la (une?) relation d'équivalence sur $\R$ qui relie $1$ à $2$, et ne fait \og rien d'autre (de non évident) \fg. 
+
+Or il n'est pas immédiatement clair qu'une telle relation existe, ou soit unique. Ce qui suit permet de donner un cadre rigoureux pour définir des relations de cette manière.
+\end{minipage}
+}
+
+\begin{proposition}
+Soit $E$ un ensemble muni de deux relations d'équivalence $\mathcal R$ et $\mathcal S$, de graphes $\Gamma_{\mathcal R}$ et $\Gamma_{\mathcal S}$. L'ensemble $\Gamma_{\mathcal R} \cap \Gamma_{\mathcal R}$ est le graphe d'une relation d'équivalence. 
+
+ Cette relation d'équivalence, notée $\mathcal R \wedge \mathcal S$, peut également être  définie par
+:
+\[x (\mathcal R \wedge \mathcal S) y \iff x\mathcal R y \text{ et } x\mathcal S y.
+\]
+On l'appelle l'intersection (ou conjonction) des deux relations d'équivalence. Elle est plus fine que $\mathcal R$ et que $\mathcal S$.
+\end{proposition}
+\begin{proof}
+On vérifie facilement la symétrie, transitivité et réflexivité. La relation obtenue raffine $\mathcal R$ et $\mathcal S$ puisque son graphe est contenu dans leurs graphes. (On rappelle qu'une relation est plus fine qu'une autre si et seulement si le graphe de la première est inclus dans le graphe de la seconde.)
+\end{proof}
+
+\begin{propdef}
+Soit $E$ un ensemble et $\Gamma\subseteq E\times E$ un ensemble de couples. Parmi toutes les relations d'équivalence $\mathcal R$ sur $E$ telles que $\forall (x,y)\in E\times E, (x,y)\in \Gamma \implies x\mathcal R y$, il en existe une qui est plus fine que toutes les autres : celle dont le graphe est l'intersection de tous les graphes de relations d'équivalence contenant $\Gamma$. On l'appelle la relation d'équivalence la plus fine vérifiant $\forall (x,y)\in E\times E, (x,y)\in \Gamma \implies x\mathcal R y$.
+\end{propdef}
+\begin{proof}
+
+
+
+
+D'après la proposition précédente, l'intersection de deux graphes de relation d'équivalence est un graphe de relation d'équivalence.
+
+Ensuite, remarquons que l'ensemble des relations d'équivalence $\mathcal R$ sur $E$ telles que $\forall (x,y)\in E\times E, (x,y)\in \Gamma \implies x\mathcal R y$ est non vide, car il contient au moins la relation d'équivalence grossière, celle dont le graphe est $E\times E$ tout entier.
+
+On en déduit que l'intersection de tous les graphes de relations d'équivalence qui contiennent $\Gamma$ est bien un graphe de relation d'équivalence.
+
+D'autre part, la relation d'équivalence obtenue est par construction la plus fine possible.
+\end{proof}
+
+On verra dans les exercices d'approfondissement une autre façon de décrire cette relation d'équivalence, en construisant son graphe à partir de $\Gamma$ par une succession d'unions (la clôture transitive), et non d'intersections.
+
+
+
+\begin{exemple}
+\begin{enumerate}
+\item Soit $E=\{0,1\}$. Soit $\mathcal R$ la relation d'équivalence la plus fine sur $E$ vérifiant $0\mathcal R 1$. Cette relation est la relation grossière : en effet, on doit forcément avoir (par réflexivité) $0\mathcal R 0$ et $1\mathcal R 1$, et la symétrie force $1\mathcal R 0$. Finalement, tous les éléments sont équivalents, la relation est la relation d'équivalence grossière.
+\item Soit $E=\{0,1,2\}$, et $\mathcal R$ la relation d'équivalence la plus fine vérifiant $0\mathcal R 1$. Alors, on a l'équivalence, pour tout $(x,y)\in E\times E$:
+\[ x\mathcal R y \iff \big(x=y \text{ ou } (x=0\text{ et }y=1) \text{ ou } (x=1\text{ et }y=0)\big).\]
+Le graphe de cette relation est:
+\[ \Gamma_{\mathcal R} = \ensemble{(0,0), (1,1), (2,2), (0,1), (1,0)}{}.\]
+\end{enumerate}
+\end{exemple}
+
+\begin{exercice}
+$E=\{0,1,2,3\}$. Déterminer  la relation d'équivalence $\mathcal R$ la plus fine vérifiant $0\mathcal R 1$ et $0\mathcal R 2$.
+\end{exercice}
+\begin{red}
+Par réflexivité, on doit avoir $x\mathcal R x$ pour tout $x\in E$, et la symétrie force $1\mathcal R 0$ et $2\mathcal R 0$. Enfin, on a $1\mathcal R 0$ et $0\mathcal 2$, donc par transitivité, on a $1 \mathcal R 2$.  À nouveau par symétrie, on a donc $2 \mathcal R 1$. 
+
+La relation binaire définie par ces conditions (qui sont nécessaires), a pour graphe:
+\begin{align*}
+\Gamma= \big\{ & (0,0), (1,1), (2,2),(3,3),\\
+&  (0,1), (1,0),  (0,2), (2,0),  (1,2), (2,1) \big\}
+ \end{align*}
+ Il est facile de vérifier que c'est le graphe d'une relation d'équivalence. C'est donc le graphe de $\mathcal R$.
+\end{red}
+
+\fbox{
+\begin{minipage}{.95\linewidth}
+L'intérêt est de pouvoir définir de façon courte mais précise des relations d'équivalence, sans devoir préciser l'intégralité de tous les couples qui sont reliés entre eux si ces informations sont superflues.
+
+Par exemple,  pour définir la relation d'équivalence $[-1,1]$ qui relie les extrémités $1$ et $-1$ et ne reliant aucun autre couple de points distincts, on peut simplement définir $\sim$ comme \textbf{\og la relation d'équivalence la plus fine sur $[-1,1]$ telle que  $-1\sim  1$\fg}, sans devoir  préciser les informations superflues à savoir $1\sim -1$ ainsi que $\forall x\in [-1,1]; x\sim x$.
+\end{minipage}
+}
 
 
 
@@ -835,9 +913,20 @@ Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifia
 
 
 
-\section{Compléments sur le passage au quotient}
 
-Le contenu de cette section n'est pas exigible à l'examen.
+
+
+\section{Compléments sur le passage d'applications au quotient}
+
+(Le contenu de cette section n'est pas exigible à l'examen.)
+
+\noindent\fbox{
+\begin{minipage}{.95\linewidth}
+Soit $f : E\to F$ une application et $\mathcal R$ une relation d'équivalence sur $E$. Une question que l'on peut se poser sur l'application est si elle arrive à distinguer (par les images qu'elle attribue aux éléments), deux éléments de $E$ qui sont $\mathcal R$-équivalents.
+
+Si l'application n'arrive pas à les distinguer, autrement dit si deux éléments $\mathcal R$-équivalents ont la même image, alors on dit que $f$ \og passe au quotient\fg : son domaine est certes $E$ mais au fond, comme elle ne voit pas la différence entre les éléments $\mathcal R$-équivalents, c'est presque comme si elle était définie sur le quotient $E/\mathcal R$.
+\end{minipage}
+}
 
 \begin{propdef}[Passage au/factorisation par le quotient]
 Soit $f : E\to F$ une application, $\mathcal R$ une relation d'équivalence sur $E$  et $p : E\to E/\mathcal R$ la projection canonique sur le quotient.
@@ -854,7 +943,7 @@ Si une telle application $\overline{f}$ existe, elle est unique.
 \end{proof}
 
 
-\begin{proposition}[Condition nécessaire et suffisante de passage au quotient]
+\begin{proposition}[Condition nécessaire et suffisante de passage au quotient]\label{prop-cns-passage-quotient}
 Soit $f : E\to F$ une application, et $\mathcal R$ une relation d'équivalence sur $E$.
 
 Alors, $f$ descend au quotient en une application $\overline f : E/\mathcal R \to F$ si et seulement si elle est constante sur les classes d'équivalence, c'est-à-dire si et seulement si:
@@ -871,10 +960,74 @@ Or ces fibres sont exactement les classes d'équivalences de $\mathcal R$.
 
 % référer aux lemmes de factorisation généraux dans "applications"
 
+L'exemple suivant est fondamental, il explique pourquoi l'ensemble $\R/2\pi\Z$ des classes de congruence modulo $2\pi$ doit être considéré comme un cercle.
+
+\begin{exemple}
+On considère la relation de congruence modulo $2\pi$ sur $\R$ et on note $\R/2\pi\Z$ l'ensemble quotient.
+Montrer que l'application $f : \R\to \U, t\mapsto e^{it}$ passe au quotient en une application $g : \R/2\pi\Z\to \U$ qui est bijective.
+\end{exemple}
+\begin{red}
+La fonction $f$ est bien définie à valeurs dans $\U$, et elle est surjective sur $\U$ : en effet tout $u\in \U$ peut s'écrire sous la forme $e^{it}$, avec un certain $t\in\R$ un argument quelconque de $u$.
+
+Les classes d'équivalence de $\R$ sous la relation de congruence sont des ensembles de la forme $[t]_{2\pi} = \ensemble{t+2k\pi}{k\in \Z}$. La fonction $f$ est constante sur ces ensembles, puisque pour tout $t\in \R$ et tout $k\in \Z$, on a $f(x)=e^{it} = e^{it+2ik\pi} = f(t+2k\pi)$. Par la proposition \ref{prop-cns-passage-quotient}, la fonction $f$ descend au quotient en une application $g : \R/2\pi\Z\to \U$, qui est toujours surjective puisque $f$ l'est.
+
+Montrons que $g$ est injective. Soient $\theta, \theta'$ deux classes de congruence telles que $g(\theta)=g(\theta')$. En prenant des représentants des classes de congruence, on peut écrire $\theta=[t]_{2\pi}$ et $\theta'=[t']_{2\pi}$. On a donc $f(t)=f(t')$, autrement dit $e^{it}=e^{it'}$, et on sait que ceci est équivalent à $t\equiv t'\:(mod 2\pi)$. Donc $[t]_{2\pi}=[t']_{2\pi}$ c'est-à-dire $\theta=\theta'$. Ceci montre que $g$ est injective.
+\end{red}
+
+L'exercice suivant donne une autre façon de visualiser le cercle.
+
+\begin{exercice}[\og En identifiant les extrémités d'un segment, on obtient un cercle\fg]
+Soit $\sim$ la relation d'équivalence la plus fine sur $[-1,1]$ vérifiant $-1 \sim 1$, et soit $Q = [-1,1]/\sim$ le quotient. Intuitivement, le quotient est le segment $[-1,1]$ dont on a identifié les points $1$ et $-1$ et, toujours intuitivement, ceci est un cercle. 
 
 
 
+Montrer que l'application $f : [-1,1] \to \U, t\mapsto e^{i\pi t}$ passe au quotient par $\sim$ en une application bijective de $[-1,1]/\sim$ dans $\U$.
+\end{exercice}
 
+L'exercice qui suit est très proche du précédent, mais avec un cylindre au lieu d'un cercle (donc avec une variable en plus, mais qui n'intervient pas vraiment dans les calculs).
+
+\begin{exercice}
+Soit $X=[-1,1]^2$ et $\mathcal R$ la relation binaire sur $X$ définie par:
+\[(x,y)\mathcal R (x',y') \iff (y=y'\text{ et } |x|=|x'|=1) \]
+\begin{enumerate}
+\item Montrer que c'est une relation d'équivalence sur $X$. Quelles sont les classes d'équivalence ?
+\begin{quote}
+\emph{Dans la suite on cherche à étudier l'ensemble quotient $X/\mathcal R$. L'idée est qu'on recollant (dans le même sens) deux bords opposés d'un carré, on obtient un cylindre. La suite formalise ceci, en utilisant le cylindre $\S^1\times [-1,1]$ de $\R^3$.}
+\end{quote}
+\item Montrer que l'application
+\[ f : X/\mathcal R \to \S^1\times [-1,1], \: (x,y) \mapsto ((\cos x, \sin x), y)\]
+est surjective, et passe au quotient en une bijection
+\[ g : X/\mathcal R \to \S^1\times [-1,1]\]
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}[Coordonnées polaires sur le plan]\index{coordonnées!polaires sur le plan}
+\begin{enumerate}
+\item Montrer que l'application
+\[ f : \begin{cases}\R_+\times [-\pi,\pi] \to \R^2,\\  (r,\theta) \mapsto (r\cos\theta,r\sin\theta)\end{cases}\]
+est surjective.
+\item Soit $\mathcal R$ la relation binaire sur $\R_+\times [-\pi,\pi]$ définie par :
+\[
+(r,\theta)\mathcal R (r',\theta') \iff \big( r=r'=0 \text{ ou } ( r=r'\text{ et } |\theta|=|\theta'|=\pi/2)\big)
+\]
+Montrer que c'est une relation d'équivalence et décrire les classes d'équivalence.
+\item Montrer que l'application $f$ passe au quotient en une bijection  de $(\R_+\times [-\pi,\pi]) / \mathcal R$ vers $\R^2$.
+\end{enumerate}
+\end{exercice}
+
+
+
+\begin{exercice}[\og En contractant un côté d'un carré, on obtient un triangle.\fg]
+Soit $\mathcal C$ le \og carré\fg{} $[0,1]^2$. On considère sur $\mathcal C$ la relation binaire suivante:
+\[ (x,y)\sim (x',y') \iff x=x'=0,\]
+qui consiste à identifier tous les points du bord gauche.
+\begin{enumerate}
+\item Montrer que c'est une relation d'équivalence. Quelles sont ses orbites ?
+\item Soit $\mathcal T=\ensemble{(x,y)\in [0,1]^2}{y\leq x}$. Dessiner $\mathcal T$. Montrer que l'application $f : \mathcal C\to \mathcal T, (x,y)\mapsto (x,xy) $ est bien définie. Est-elle injective ? Surjective ? 
+\item Montrer que $f$ passe au quotient en une application de $\mathcal C/\sim$ dans $\mathcal T$ qui est bijective.
+\end{enumerate}
+\end{exercice}
 
 
 
@@ -1011,7 +1164,7 @@ Pour tout ensemble $X$ et application $\phi : B \to X$ vérifiant $\phi\circ f =
 \begin{exercice}[Somme amalgamée (coproduit amalgamé)]
 Soient $A$,  $B$ et $C$  des ensembles et $f :  C\to A$, $g : C\to B$ des applications.
 
-Soit $A\coprod B$ le coproduit de $A$ et $B$ (aussi appelé somme disjointe, et défini dans l'exercice \ref{exo-coproduit}), et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $A\coprod B$. On peut considérer le diagramme suivant
+Soit $A\coprod B$ le coproduit de $A$ et $B$ (aussi appelé \emph{somme disjointe}, et défini dans l'exercice \ref{exo-coproduit}), et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $A\coprod B$. On peut considérer le diagramme suivant
 \[ 
 \xymatrix{
 &A \ar[dr]_{i_A} &   \\
@@ -1041,3 +1194,130 @@ C\ar[ur]^f\ar[dr]_g& &  A\coprod_C B \ar@{-->}[rr]^{\exists !h}  & & D\\
 \end{quote}
 \end{exercice}
 
+\begin{exercice}[Écrasement d'un sous-ensemble]%pincement?
+Soit $X$ un ensemble. Pour tout sous-ensemble $A\subseteq X$, on définit la relation binaire $\sim_A$ sur $X$ comme suit:
+\[ \forall (x,y)\in X^2, \: x\sim_A y \iff \left(x\in A\text{ et } y\in A\right).\]
+\begin{enumerate}
+\item Montrer que c'est une relation d'équivalence sur $X$. Quelles sont ses classes d'équivalence ?
+\item Montrer que pour tout ensemble $E$, l'application 
+$\phi : \ensemble{f\in \mathcal F(X,E)}{f\text{ est constante sur } A} \to \mathcal F(X/\sim_A, E), f\mapsto [f]$ est bien définie et est surjective.
+\item Identifier, parmi les relations d'équivalence étudiées dans les autres exercices du chapitre, celles qui sont des cas particuliers d'écrasements de parties.
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}(Utilise les notations de l'exercice précédent)
+Soit $\U$ le cercle unité de $\C$, c'est-à-dire l'ensemble des nombres complexes de module $1$, et soit $\mathcal C = \U\times \R_+$ (à visualiser comme un cylindre \og infini d'un côté\fg). Soit $A=\{(u,r) \in \mathcal C\:| \: r=0\} \subseteq \U\times \R_+$. 
+Montrer que l'application $f : \mathcal C \to \C, (u,r) \mapsto r\cdot u$ n'est pas bijective, mais passe au quotient par $\sim_A$ en une application $\mathcal C/\sim_A \to \C$ qui est une bijection.
+\end{exercice}
+
+
+
+%\begin{exercice}%cylindre recollé -> tore
+%mettre le tore avant
+%\end{exercice}
+
+
+\begin{exercice}[Ruban de Möbius et découpages]
+L'objectif de cet exercice est de formaliser mathématiquement le \og tour de magie\fg{} consistant à découper un ruban de Möbius le long d'un cercle, ce qui donne une unique ruban deux fois plus long.
+
+Soit $l>0$ un réel et $X=[0,l]\times [-1,1]$, que l'on munit de la relation d'équivalence $\sim$ la plus fine telle que $(0,y)\sim(l,-y)$ pour tout $y\in [-1,1]$. L'ensemble quotient $\mathcal M = X/\sim$ est donc l'ensemble obtenu en recollant le rectangle $X=[0,l]\times [-1,1]$ le long de deux bords opposés, en suivant une orientation opposée. On l'appelle le \emph{ruban de Möbius} (de longueur $l$). La surjection canonique $X\to \mathcal M$ est notée $\pi$.
+
+Soit $\mathcal M' = \mathcal M \setminus \pi\left(\ensemble{[0,l]\times \{0\}}{}\right)$. C'est le ruban de Möbius auquel on a enlevé le cercle central.
+
+
+
+
+\end{exercice}
+
+\begin{exercice}[La sphère, version 1]
+Soit $\Delta=\ensemble{z\in \C}{|z|\leq 1}$ le disque unité du plan complexe. Il contient $\U$, qui est son bord. 
+
+D'autre part, soit $\S_2=\ensemble{(x,y,z)\in\R^3}{x^2+y^2+z^2=1}$ la sphère unité de $\R^3$.
+\end{exercice}
+
+
+\begin{exercice}[Coordonnées sphériques sur $\R^3$]
+\begin{enumerate}
+\item Soit $\mathcal R$ la relation sur $\R_+ \times [-\pi,\pi] \times [-\pi/2;\pi/2] $ définie par :
+\[\]
+
+
+\item Soit 
+\[ f : 
+\begin{cases}
+\R_+ \times [-\pi,\pi] \times [-\pi/2,\pi/2] &\longrightarrow \R^3\\
+(r,\theta,\phi) &\mapsto (r\cos\phi\cos\theta,\: r\cos\phi\sin\theta, \: r\sin\phi)
+\end{cases}
+\]
+Montrer que $f$ est surjective. Ceci signifie que l'on peut écrire:
+\[ \R^3 = \ensemble{(r\cos\phi\cos\theta,\: r\cos\phi\sin\theta, \: r\sin\phi)}{r\in \R_+, \theta\in [-\pi,\pi], \phi\in [-\pi/2,\pi/2]}
+\]
+On dit que l'application $f$ est le paramétrage de $\R^3$ par coordonnées sphériques ( par opposition aux coordonnées cartésiennes). Les conventions utilisées ici sont celles des mathématiciens et géographes, pas celles des physiciens. Elles ont l'avantage d'être cohérentes avec les coordonnées polaires du plan, et les coordonnées cylindriques dans l'espace.
+\item Montrer que $f$ passe au quotient par $\mathcal R$ en une bijection sur $\R^3$.
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}[Cône sur un ensemble]\index{cercle}\index{boule}
+Soit $X$ un ensemble et $Y = X\times [0,1]$. Sur $Y$, on définit la relation binaire $\mathcal R$ par : $(x,t)\mathcal R (x',t') \iff t=t'=0$.
+\begin{enumerate}
+\item Montrer que $\mathcal R$ est une relation d'équivalence sur $Y$.
+\item Le cône sur $X$, noté $\operatorname{cône}(X)$, est par définition $Y/\mathcal R$. Montrer que le cône sur le cercle $\S^1$ est en bijection avec la boule  $\B^{2}$. On pourra utiliser les exercices précédents si nécessaire.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Suspension d'un ensemble]
+%mettre les sphères avant
+Soit $X$ un ensemble. Sur l'ensemble $X\times [1,1]$, on considère la relation binaire définie par:
+\[ (x,t)\mathcal R (x',t') \iff \big( t=t'=-1 \text{ ou } t=t'=1\big)\]
+\begin{enumerate}
+\item Montrer que c'est une relation d'équivalence. L'ensemble quotient est appelé \emph{suspension de $X$}, et est noté $S(X)$.
+\item Soit $X=\ensemble{-1,1}{}$. Montrer que l'application $f : X\times[-1,1] \to \R^2, \: (x,t) \mapsto (t,x\sqrt{1-t^2})$ est à valeurs dans $\S^1$, et passe au quotient en application injective de $S(X)$ vers $\R^2$ dont l'image est $\S^1$. Ceci formalise la phrase \og la suspension de deux points  est un cercle.\fg
+\end{enumerate}
+\begin{quote}
+\emph{Plus généralement, on peut montrer que pour tout $n\in\N$, la suspension de la sphère $\S^n$ est en bijection avec la sphère $\S^{n+1}$. Cet exercice traite le cas $n=0$.}
+\end{quote}
+\end{exercice}
+
+
+\begin{exercice}[La sphère comme suspension]
+On rappelle que $\S^1 = \ensemble{(x,y)\in\R^2}{x^2+y^2=1}$.
+% et que l'on peut le paramétrer de la forme $\ensemble{(\cos\phi,\sin\phi)}{\phi\in [-\pi,\pi[}$.
+Soit $\mathcal C=\S^1\times [-\pi/2,\pi/2] \subseteq \R^3$ (cylindre de rayon un et de hauteur $\pi$), et soit $\sim$ la relation définie par 
+\[ ((x,y),\theta)\sim ((x',y'),\theta') \iff (\theta=\theta'=\pi/2\text{ ou } \theta=\theta'=-\pi/2).\]
+
+\begin{enumerate}
+\item Montrer que $\sim$ est une relation d'équivalence sur $\mathcal C$.
+\begin{quote}
+\emph{On souhaite décrire l'ensemble quotient $\mathcal C/\sim$ et montrer qu'il est en bijection avec une sphère. De façon imagée, si l'on prend un cylindre de longueur finie et que l'on contracte chacun des deux bords, on obtient quelque chose qui ressemble à une sphère. Ce qui suit est une formulation précise de cette idée.}
+\end{quote}
+\item Montrer que l'application 
+\[ f : \mathcal C \to \R^3, ((x,y),\theta)\mapsto (x\cos\theta,y\cos\theta,\sin\theta) \]
+a une image égale à l'ensemble $\S^2$.
+\item Montrer qu'elle passe au quotient par $\sim$ en une application
+\[ g : \mathcal C/\sim \to \S^2\]
+qui est une bijection.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Joint entre deux ensembles]
+Soient $X$ et $Y$ deux ensembles. Le \emph{joint} entre $X$ et $Y$, noté habituellement $X\star Y$, est le quotient de $X\times Y\times [0,1]$ par la relation d'équivalence $\mathcal R$ définie par:
+\[ (x,y,t)\mathcal R (x',y',t') \iff \big( (x=x'\text{ et }t=t'=0) \text{ ou } (y=y'\text{ et }t=t'=1)\big).\]
+Montrer que c'est une relation d'équivalence.
+%Le joint avec le point définit le cône sur cet espace.
+%Le joint d'un espace X avec deux points définit la suspension de X.
+\end{exercice}
+
+\begin{exercice}[Cylindre d'une application]
+Soit $f : X\to Y$ une application. 
+
+Sur l'ensemble $Z = (X\times [0,1] )\amalg Y$, on définit la relation $\mathcal R$ par:
+\[ (x,1) \sim f(x).\]
+% https://en.wikipedia.org/wiki/Mapping_cylinder
+\end{exercice}
+
+%\begin{exercice}[Cône d'une application]
+%Soit $f : X\to Y$ une application.
+%https://en.wikipedia.org/wiki/Mapping_cone_(topology)
+%\end{exercice}

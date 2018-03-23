@@ -28,33 +28,9 @@ En mathématiques, le sens du mot \emph{ensemble} est plus précis que celui don
 \end{enumerate}
 \end{definition}
 
+
+
 Attention, dans une définition par énumération, il n'y a pas de notion d'ordre, ni de multiplicité (un élément ne peut pas appartenir \og plusieurs fois\fg{} à un ensemble). Donc  $\left\{1,3,\pi,5,\sqrt2\right\} = \left\{\sqrt 2, 3,5,1,\pi\right\}=\left\{\sqrt 2,2, 2, 3,  3,5,1,1,\pi\right\}$.
-
-
-\begin{exemple} (Fondamental)
-Soient $a$ et $b$ deux réels. L'intervalle fermé délimité par $a$ et $b$ peut être paramétré par:
-\[ \{a+t(b-a)\:\mid\: t\in [0,1]\}\]
-C'est paramétrage standard de cet intervalle. Lorsque $t=0$, le réel $a+t(b-a)$ vaut $a$, lorsque $t=1$, le réel $a+t(b-a)$ vaut $b$, et lorsque $t$ varie entre $0$ et $1$, le réel $a+t(b-a)v$, varie entre $a$ et $b$.
-
-On voit souvent $(1-t)a+tb$ au lieu de $a+t(b-a)$ : les deux écritures doivent être reconnues instantanément. Noter qu'on pourrait paramétrer l'intervalle de nombreuses autres manières, par exemple en \og partant de $b$\fg{} c'est-à-dire en échangeant $a$ et $b$ dans le paramétrage.
-\end{exemple}
-
-\begin{exemple}
-Il est crucial de savoir jongler entre définitions paramétrées et définitions en compréhension. Ainsi, on a par exemple les égalités suivantes :
-\begin{align*}
-\left\{2k+1 \:\mid\: k\in \N\right\}  &= \left\{ n\in \N\:\mid\: 2\not|\: n\right\} \\
-\left\{2k \:\mid\: k\in \N\right\} &=  \left\{ n\in \N\:\mid\: 2| n\right\}\\
-\{ (2,3)+t(6,-1)\:\mid\: t\in \R\} &= \{(x,y)\in \R^2\:\mid\: x+6y-20=0\}\\
-\R_+ = \{u^2\:\mid\: u\in \R\} & = \{x\in \R\:\mid\: x\geq 0\}\\
-\{(\cos\theta,\sin\theta)\:\mid\: \theta\in \R\} &= \{(x,y)\in \R^2\:\mid\: x^2+x^2=1\}  
-\end{align*}
-Noter que plusieurs valeurs du paramètre peuvent correspondre à un même élément de l'ensemble. L'important est que le paramétrage \og couvre\fg{} l'ensemble souhaité, il peut y avoir de la redondance.
-\end{exemple}
-
-\begin{remarque}
-En anticipant sur le chapitre suivant, paramétrer un ensemble revient à l'écrire comme \emph{image d'une application} (voir la section\ref{subsec-retour-parametrage-familles}).
-\end{remarque}
-
 
 \begin{definition}(Ensemble vide, singleton, paire)
 \index{ensemble vide}\index{singleton}
@@ -65,10 +41,46 @@ En anticipant sur le chapitre suivant, paramétrer un ensemble revient à l'écr
 \end{enumerate}
 \end{definition}
 
+\begin{exemple} (Paramétrage d'un segment) 
+Soient $a$ et $b$ deux réels. L'intervalle fermé de $\R$ délimité par $a$ et $b$ peut être paramétré par:
+\[ \{a+t(b-a)\:\mid\: t\in [0,1]\}\]
+C'est paramétrage standard de cet intervalle. Lorsque $t=0$, le réel $a+t(b-a)$ vaut $a$, lorsque $t=1$, le réel $a+t(b-a)$ vaut $b$, et lorsque $t$ varie entre $0$ et $1$, le réel $a+t(b-a)v$, varie entre $a$ et $b$.
+
+On voit souvent $(1-t)a+tb$ au lieu de $a+t(b-a)$ : les deux écritures doivent être reconnues instantanément. Noter qu'on pourrait paramétrer l'intervalle de nombreuses autres manières, par exemple en \og partant de $b$\fg{} c'est-à-dire en échangeant $a$ et $b$ dans le paramétrage.
+\end{exemple}
+
+\begin{exemple} (Nombres complexes de module un) \index{cercle!unité de $\C$}
+ On appelle \emph{ensemble des nombres complexes de module un} (ou encore \emph{cercle unité de $\C$}) et on note $\U$ l'ensemble 
+\[ \U = \ensemble{ z\in \C}{|z|=1}.\]
+ On montrera dans la suite que cet ensemble peut s'écrire sous forme paramétrée de la façon suivante :
+\[ \U = \ensemble{ e^{it}}{t \in \R}.\]
+\end{exemple}
+
+% mettre après les inclusions pour pouvoir justifier les égalités par double inclusion ?
+\begin{exemple}
+Il est crucial de savoir jongler entre définitions paramétrées et définitions en compréhension. Ainsi, on a par exemple les égalités suivantes :
+% en anticipant sur les ensembles produits
+\begin{align*}
+\left\{2k+1 \:\mid\: k\in \N\right\}  &= \left\{ n\in \N\:\mid\: 2\not|\: n\right\} \\
+\left\{2k \:\mid\: k\in \N\right\} &=  \left\{ n\in \N\:\mid\: 2| n\right\}\\
+\R_+ = \{u^2\:\mid\: u\in \R\} & = \{x\in \R\:\mid\: x\geq 0\}
+\end{align*}
+Noter que plusieurs valeurs du paramètre peuvent correspondre à un même élément de l'ensemble. L'important est que le paramétrage \og couvre\fg{} l'ensemble souhaité, il peut y avoir de la redondance.
+\end{exemple}
+
+
+
+\begin{remarque}
+En anticipant sur le chapitre suivant, paramétrer un ensemble revient à l'écrire comme \emph{image d'une application} (voir la section\ref{subsec-retour-parametrage-familles}).
+\end{remarque}
+
+
+
+
 \section{Parties d'un ensemble}
 
 \begin{definition}[Sous-ensemble / partie]
-\index{ensemble!sous-ensemble}\index{ensemble!partie d'un ensemble}\index{partie!d'une ensemble}
+\index{ensemble!sous-ensemble}\index{ensemble!partie d'un ensemble}\index{partie!d'un ensemble}
 Soient $E$ et $F$ des ensembles. On dit que $E$ est inclus dans $F$, ou que $E$ est un sous-ensemble, ou une partie de $F$ si tous les éléments de $E$ sont des éléments de $F$, autrement dit si 
 \[
 \forall x\in E, \: x\in F.
@@ -153,13 +165,28 @@ On peut définir de même les produits finis du type $E_1\times E_2 \times ... E
 $E\times F = \varnothing \iff \left( E=\varnothing\text{ ou }F=\varnothing\right)$.
 \end{remarque}
 
-\begin{definition}[Diagonale]
-\index{diagonale!d'un produit de deux ensembles}
-Soit $E$ un ensemble. La \emph{diagonale} de $E\times E$ est l'ensemble des couples d'éléments identiques, c'est-à-dire l'ensemble
-\[
-\Delta_E = \{(x,x)\:|\: x\in E\}
-\]
-\end{definition}
+
+
+Pour finir, on donne quelques exemples de sous-ensembles de $\R^2$ et $\R^3$, sous forme paramétrée ou définis par des équations.
+
+\begin{exemple}
+\begin{enumerate}
+\item L'ensemble $\mathcal D = \{(x,y)\in \R^2\:\mid\: x+6y-20=0\}$ est la droite de $\R^2$ d'équation cartésienne $x+6y-20=0$.
+
+On peut aussi l'écrire sous forme paramétrée $\mathcal D = \{ (2,3)+t(6,-1)\:\mid\: t\in \R\}$ (droite passant par le point $(2,3)$ et dirigée par le vecteur $(6,-1)$).
+\item \index{cercle!unité de $\R^2$} On appelle \emph{cercle unité de $\R^2$} et on note $\S^1$ le cercle centré sur l'origine et de rayon un, c'est-à-dire :
+\[ \S^1=\ensemble{(x,y)\in \R^2}{x^2+y^2=1}.\]
+Une de ses écritures paramétrées les plus courantes est  $\S^1=\ensemble{(\cos t,\sin t)}{t\in \R}$.
+\item (Un cylindre) \index{cylindre} L'ensemble $\ensemble{(x,y,z)\in \R^3}{x^2+y^2=1}$ peut être visualisé comme un  cylindre (\og creux, vertical et de longueur infinie\fg). On peut aussi l'écrire sous forme de produit $\S^1 \times \R$ (cercle par droite), qui est bien un sous-ensemble de $\R^2\times \R = \R^3$. Enfin, on peut aussi l'écrire sous la forme paramétrée $\ensemble{(\cos t,\sin t,z)}{(t,z)\in \R^2}$.
+\item \index{sphère!unité de $\R^3$} On appelle \emph{sphère unité de $\R^3$} et on note\footnote{Le \og $2$\fg{} dans la notation $\S^2$ désigne la \og dimension\fg{}: la sphère est une surface, donc de \og dimension\fg{} deux, même si elle est plongée dans un espace ambiant de dimension trois.} $\S^2$ l'ensemble
+\[ \ensemble{(x,y,z)\in \R^3}{x^2+y^2+z^2=1}.\]
+Cet ensemble est un peu plus difficile à paramétrer. En physique, on utilise en général le paramétrage donné par les coordonnées sphériques:
+\[ \S^2 = \ensemble{(\cos\theta\cos\phi, \cos\theta\sin\phi, \sin\theta)}{\theta\in[-\frac{\pi}{2},\frac{\pi}{2}], \: \phi \in [-\pi,\pi]}.\]
+On démontrera dans la suite du cours que ceci est bien un paramétrage de la sphère.
+\end{enumerate}
+\end{exemple}
+
+
 
 \section{Familles indexées}
 
@@ -184,5 +211,22 @@ Soit $E$ un ensemble, et $(E_i)_{i\in I}$ une famille de parties de $E$ indexée
 Leur \emph{union}, notée $\bigcup_{i\in I} E_i$, est l'ensemble $\{x\in E\:\mid\: \exists i\in I, x\in E_i\}$.
 
 Leur \emph{intersection}, notée $\bigcap_{i\in I} E_i$, est l'ensemble $\{x\in E\:\mid\: \forall i\in I, x\in E_i\}$.
+\end{definition}
+
+\section{Compléments de vocabulaire}
+
+\begin{definition}[Diagonale]
+\index{diagonale!d'un produit de deux ensembles}
+Soit $E$ un ensemble. La \emph{diagonale} de $E\times E$ est l'ensemble des couples d'éléments identiques, c'est-à-dire l'ensemble
+\[
+\Delta_E = \{(x,x)\:|\: x\in E\}
+\]
+\end{definition}
+
+\begin{definition}[Cylindre sur un ensemble]\index{cercle}\index{cylindre}
+\index{diagonale!d'un produit de deux ensembles}
+Soit $E$ un ensemble. Le \emph{cylindre sur $E$} est l'ensemble 
+\[ \operatorname{Cyl}(E) = E\times[0,1].\]
+Dans le cas particulier où l'ensemble $E$ est un cercle, son cylindre peut effectivement être vu comme un cylindre (de hauteur un). Le cas général est une abstraction de cet exemple. Dans le cas général, le cylindre peut être vu comme \og l'épaississement de $E$ dans une direction\fg.
 \end{definition}
 

@@ -51,6 +51,8 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\K}{\mathbb{K}}
 \renewcommand{\P}{\mathbb{P}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\B}{\mathbb{B}}
 \newcommand{\U}{\mathbb{U}}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
@@ -61,6 +63,14 @@
 \renewcommand{\mid}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
 \newcommand\eqdef{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily déf}}}{=}}}
 % égal par définition
+
+\newcommand{\ensemble}[2]{\left \{ #1  
+    \ifx&#2&%
+       %
+    \else%
+       \, \middle | \, #2%
+    \fi%
+\right \}}
 
 % Environnements : 
 \swapnumbers
@@ -108,7 +118,7 @@ Année 2017-2018\\
 \url{http://github.com/dmegy/decouverteDesMaths}}
 }
 
-\date{Version compilée le \today{}% à \currenttime{}
+\date{Version préliminaire, en cours de rédaction, compilée le \today{}% à \currenttime{}
 }
 
 
@@ -130,7 +140,7 @@ Les remarques et les exemples de \og zérologie\fg{} sont très instructifs mais
 
 Le cours contient des exercices d'application directe à la suite de certaines définitions ou propositions. Il est conseillé d'essayer de les faire au moment où on les rencontre, pour mieux assimiler le cours.
 
-Ce document contient en outre des compléments de cours et des exercices d'approfondissement. Ceux-ci  sont en général plus abstraits que ceux traités en TD en L1. Ces compléments et exercices sont clairement signalés et séparés du reste du document, et pourront intéresser des étudiants (de L1   ou plus) souhaitant augmenter leur maîtrise dans la manipulation des notions fondamentales (logique, ensembles, relations).
+Ce document contient en outre des compléments de cours et des exercices d'approfondissement. Ceux-ci  sont en général plus abstraits que ceux traités en TD en L1. Ces compléments et exercices sont clairement signalés et séparés du reste du document, et pourront intéresser des étudiants (de L1 ou plus) souhaitant augmenter leur maîtrise dans la manipulation des notions fondamentales (logique, ensembles, relations).
 
 \newpage
 \section{Alphabet grec}

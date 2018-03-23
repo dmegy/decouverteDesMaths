@@ -517,6 +517,39 @@ Montrer que  $\exp: \R\to \R, x\mapsto e^x$ n'est pas surjective.
 \end{exercice}
 
 
+\begin{exercice}[paramétrage standard du cercle]\index{cercle}\label{exo-param-cercle}
+Soit $\S^1 = \ensemble{(x,y)\in \R^2}{x^2+y^2=1}$ le cercle unité de $\R^2$. On considère la fonction $f : \R\to \R^2, \quad t\mapsto (\cos t, \sin t)$. Montrer que son image est le cercle $\S^1$. Autrement dit, montrer que
+\[ \S^1=\ensemble{(\cos t, \sin t)}{t\in \R}.\]
+D'autre part, $f$ est-elle injective ?
+\end{exercice}
+\begin{red}
+La fonction n'est pas injective puisque $f(0)=(\cos 0, \sin 0) = (\cos2\pi, \sin 2\pi) = f(2\pi)$. Son image est un sous-ensemble de $\S^1$ puisque si $t\in \R$, alors $\cos(t)^2+\sin(t)^2=1$, donc $f(t)=(\cos t,\sin t) \in \S^1$. Montrons maintenant que son image est exactement $\S^1$.
+
+Soit $(x,y)\in \S^1$. Le fait qu'il existe $t\in \R$ tel que $(x,y)=(\cos t,\sin t) $ résulte du cours sur l'exponentielle complexe, ou bien sur les fonctions trigonométriques. Si l'on connaît les fonctions trigonométriques inverses, on peut même expliciter un antécédent (parmi d'autres) : si $y\geq 0$, on peut choisir $t=\arccos(x)$, et si $y\leq 0$ on peut choisir $t=-\arccos(x)$. Ceci fournit un antécédent $t\in [-\pi,\pi]$, mais il y en a une infinité d'autres.
+\end{red}
+
+\begin{exercice}\label{exo-decomp-polaire}
+Montrer que $g : \R_+\times \S^1 \to \R^2, \quad (r,(x,y))\mapsto (rx,ry)$ est surjective.
+\end{exercice}
+\begin{red}
+Soit $(x',y')\in \R^2$. Montrons qu'il possède un $g$-antécédent en distinguant deux cas de figure:
+\begin{itemize}
+\item Si $(x',y')=(0,0)$, alors $(x',y')=g(0,(0,1))$, donc $(0,(0,1))$ est un $g$-antécédent de $(x',y')$. (En fait, tout élément de la forme $(0,(x,y))$ est un antécédent de $(0,0)$.)
+\item Si $(x',y')\neq (0,0)$, alors la quantité $r=\sqrt{x'^2+y'^2}$ est non nulle et donc on peut considérer l'élément\footnote{Il faut  voir $(x,y)$ comme la projection radiale de $(x',y')$ sur le cercle unité de $\R^2$.} $(x,y)=\left(\frac{x'}{r},\frac{y'}{r}\right)$.
+
+Par construction, on a $(x,y)\in \S^1$, et d'autre part $(x',y')=(rx,ry)=g\big(\:(r,(x,y))\:\big)$. Donc $(r,(x,y))$ est un $g$-antécédent de $(x',y')$. 
+\end{itemize}
+On en déduit finalement que $g$ est surjective. Remarquer que l'origine du plan a une infinité d'antécédents, mais que les autres points du plan n'ont qu'un seul antécédent.
+\end{red}
+
+\begin{exercice}[\og produit\fg{} de surjections]\label{exo-produit-surjections}
+Soient $f:X\to Y$ et $g:X'\to Y'$ deux surjections. Montrer que l'application
+\[ 
+\Phi : X\times X' \to Y\times Y', (x,x') \mapsto (f(x),g(x'))
+\]
+est surjective.
+\end{exercice}
+
 
 
 
@@ -540,6 +573,7 @@ On dit que $f : A\to B$ est \emph{bijective} (ou que c'est une \emph{bijection})
 Montrer que  $f: \R\to \R, x\mapsto x^3$ est bijective.
 \end{exercice}
 
+
 \begin{remarque}
 En général, la surjectivité est plus difficile à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général cela se voit (éventuellement après un petit calcul / majoration / développement d'expression).
 \end{remarque}
@@ -549,7 +583,7 @@ Si $f : A\to B$ est injective, alors on peut parfois \og identifier\fg{} $A$ à 
 \end{remarque}
 
 
-\begin{proposition}[Stabilité à la composition de l'injectivité et de la surjectivité]
+\begin{proposition}[Stabilité à la composition de l'injectivité et de la surjectivité]\label{prop-composition-inj-surj-bij}
 Soient $f : E\to F$ et $g : F\to G$ deux fonctions.
 \begin{enumerate}
 \item Si $f$ et $g$ sont injectives, alors $g\circ f$ l'est également.
@@ -572,6 +606,12 @@ Cette proposition permet d'éviter des calculs parfois lourds. Par exemple, la f
 \[ \R \xrightarrow{x\mapsto e^x} \R_+^* \xrightarrow{x\mapsto x+2} \R_+^* \xrightarrow{x\mapsto \ln(x)} \R \xrightarrow{x\mapsto x^3}\R\]
 La proposition est encore plus utile pour vérifier le caractère surjectif de fonctions.
 \end{exemple}
+
+\begin{exercice}[Coordonnées polaires sur le plan]
+Montrer que 
+\[\R^2 = \ensemble{(r\cos t, r\sin t)}{(r,t) \in \R_+\times \R}.\]
+Autrement dit, montrer que l'application $\Phi : \R_+\times \R \to \R^2, \quad (r,t) \mapsto (r\cos t, r\sin t)$ est surjective. Plutôt que d'utiliser un calcul direct, il est recommandé de l'écrire comme composée et d'utiliser la proposition \ref{prop-composition-inj-surj-bij}, ainsi que les exercices \ref{exo-param-cercle}, \ref{exo-decomp-polaire}  et \ref{exo-produit-surjections}.
+\end{exercice}
 
 
 
