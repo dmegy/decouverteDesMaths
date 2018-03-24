@@ -603,7 +603,7 @@ Si $a\in \Z^*$, la relation de congruence modulo $a$ sur $\R$ induit une relatio
 
 Par exemple, la congruence modulo $3$ est une relation d'équivalence sur $\Z$.
 
-\subsection{Classes d'équivalence}
+\subsection{Classes d'équivalence et quotient}
 \begin{definition}[Classe d'équivalence]\index{classe d'équivalence}
 Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ (ou parfois $Cl(x)$, ou $[x]_{\mathcal R}$) et on appelle la \emph{classe d'équivalence de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble  de tous les éléments qui sont équivalents à $x$, c'est-à-dire l'ensemble:
 \[
@@ -660,11 +660,11 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Montrer que les classes d
 
 L'outil principal pour manipuler les classes d'équivalence est l'\emph{ensemble quotient}, que l'on définit maintenant.
 
-\begin{definition}
+\begin{definition}[Quotient]
 
 L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$}\index{ensemble quotient sous une relation d'équivalence} et est noté $E/{\mathcal R}$.
 
-L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée \emph{application de passage au quotient}, ou \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective comme on le verra plus bas, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
+L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée  \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective comme on le verra plus bas, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
 \end{definition}
 
 \begin{exemple}
@@ -686,6 +686,13 @@ Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E
 \item C'est une relation du deuxième point, puisque par définition de la fibre d'une application quelconque $f$, deux éléments $x$ et $y$ sont dans la même fibre si et seulement $f(x)=f(y)$.
 \end{enumerate}
 \end{proof}
+
+
+\begin{mdframed}[linewidth=2]
+Si $E$ est muni d'une relation d'équivalence $\mathcal R$, alors $E/\mathcal R$ est en quelque sorte une version  \og simplifiée\fg{} de $E$ : c'est un ensemble ressemblant à $E$ mis à part que les éléments qui étaient $\mathcal R$-équivalents dans $E$ deviennent  égaux dans $E/\mathcal R$.
+
+Quotienter un ensemble par une relation d'équivalence, c'est donc identifier tous les éléments qui sont $\mathcal R$-équivalents. Une fois projetés dans le quotient, ces éléments sont un seul élément (leur classe d'équivalence).
+\end{mdframed}
 
 \begin{exercice}
 Soit $f : E\to F$ une application surjective, $\mathcal R$ la relation d'équivalence sur $E$ définie par $x\mathcal R y \iff f(x)=f(y)$, et soit $p : E\to E/\mathcal R$ la surjection canonique sur le quotient. 
@@ -831,13 +838,11 @@ Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire vérifia
 
 (Le contenu de cette section n'est pas exigible à l'examen.)
 
-\noindent\fbox{
-\begin{minipage}{.95\linewidth}
+\begin{mdframed}[linewidth=2]
 Définir une relation d'équivalence sur un ensemble peut être assez pénible, puisqu'il faut donner son graphe. On aimerait pouvoir définir simplement mais sans ambiguïté des relations vérifiant une propriété donnée. Par exemple, on aimerait pouvoir définir simplement la (une?) relation d'équivalence sur $\R$ qui relie $1$ à $2$, et ne fait \og rien d'autre (de non évident) \fg. 
 
 Or il n'est pas immédiatement clair qu'une telle relation existe, ou soit unique. Ce qui suit permet de donner un cadre rigoureux pour définir des relations de cette manière.
-\end{minipage}
-}
+\end{mdframed}
 
 \begin{proposition}
 Soit $E$ un ensemble muni de deux relations d'équivalence $\mathcal R$ et $\mathcal S$, de graphes $\Gamma_{\mathcal R}$ et $\Gamma_{\mathcal S}$. L'ensemble $\Gamma_{\mathcal R} \cap \Gamma_{\mathcal R}$ est le graphe d'une relation d'équivalence. 
@@ -897,13 +902,11 @@ La relation binaire définie par ces conditions (qui sont nécessaires), a pour 
  Il est facile de vérifier que c'est le graphe d'une relation d'équivalence. C'est donc le graphe de $\mathcal R$.
 \end{red}
 
-\fbox{
-\begin{minipage}{.95\linewidth}
+\begin{mdframed}[linewidth=2]
 L'intérêt est de pouvoir définir de façon courte mais précise des relations d'équivalence, sans devoir préciser l'intégralité de tous les couples qui sont reliés entre eux si ces informations sont superflues.
 
 Par exemple,  pour définir la relation d'équivalence $[-1,1]$ qui relie les extrémités $1$ et $-1$ et ne reliant aucun autre couple de points distincts, on peut simplement définir $\sim$ comme \textbf{\og la relation d'équivalence la plus fine sur $[-1,1]$ telle que  $-1\sim  1$\fg}, sans devoir  préciser les informations superflues à savoir $1\sim -1$ ainsi que $\forall x\in [-1,1]; x\sim x$.
-\end{minipage}
-}
+\end{mdframed}
 
 
 
@@ -920,15 +923,13 @@ Par exemple,  pour définir la relation d'équivalence $[-1,1]$ qui relie les ex
 
 (Le contenu de cette section n'est pas exigible à l'examen.)
 
-\noindent\fbox{
-\begin{minipage}{.95\linewidth}
-Soit $f : E\to F$ une application et $\mathcal R$ une relation d'équivalence sur $E$. Une question que l'on peut se poser sur l'application est si elle arrive à distinguer (par les images qu'elle attribue aux éléments), deux éléments de $E$ qui sont $\mathcal R$-équivalents.
+\begin{mdframed}[linewidth=2]
+Soit $f : E\to F$ une application et $\mathcal R$ une relation d'équivalence sur $E$. Une question que l'on peut se poser sur l'application est de savoir si elle arrive à distinguer (par les images qu'elle attribue aux éléments), deux éléments de $E$ qui sont $\mathcal R$-équivalents.
 
-Si l'application n'arrive pas à les distinguer, autrement dit si deux éléments $\mathcal R$-équivalents ont la même image, alors on dit que $f$ \og passe au quotient\fg : son domaine est certes $E$ mais au fond, comme elle ne voit pas la différence entre les éléments $\mathcal R$-équivalents, c'est presque comme si elle était définie sur le quotient $E/\mathcal R$.
-\end{minipage}
-}
+Si l'application n'arrive pas à les distinguer, autrement dit si deux éléments $\mathcal R$-équivalents ont la même image, alors on dit que $f$ \og passe au quotient\fg : son domaine est certes $E$ mais au fond, comme elle ne voit pas la différence entre deux éléments $\mathcal R$-équivalents, c'est presque comme si elle était définie sur le quotient $E/\mathcal R$.
+\end{mdframed}
 
-\begin{propdef}[Passage au/factorisation par le quotient]
+\begin{propdef}[Passage au quotient d'une application]
 Soit $f : E\to F$ une application, $\mathcal R$ une relation d'équivalence sur $E$  et $p : E\to E/\mathcal R$ la projection canonique sur le quotient.
 On dit que $f$ \emph{passe (ou descend) au quotient} si elle se factorise à droite par $p$, autrement dit s'il existe une application $\overline f : E/\mathcal R\to F$ telle que $f = \overline{f} \circ p$, autrement dit telle que le diagramme suivant commute:
 \[
@@ -958,9 +959,12 @@ D'après la proposition \ref{prop-CNS-factorisation-droite}, c'est le cas si et 
 Or ces fibres sont exactement les classes d'équivalences de $\mathcal R$.
 \end{proof}
 
-% référer aux lemmes de factorisation généraux dans "applications"
+\begin{mdframed}[linewidth=2]
+Lorsque l'on veut définir une application sur un ensemble quotient $E/\mathcal R$, on procède quasiment toujours de la même manière. On commence par définir une application sur  $E$, constante sur les classes d'équivalence, puis on la descend au quotient en utilisant la proposition \ref{prop-cns-passage-quotient}.
+\end{mdframed}
 
-L'exemple suivant est fondamental, il explique pourquoi l'ensemble $\R/2\pi\Z$ des classes de congruence modulo $2\pi$ doit être considéré comme un cercle.
+
+L'exemple suivant est fondamental, il explique pourquoi l'ensemble $\R/2\pi\Z$ des classes de congruence modulo $2\pi$ peut être considéré comme un cercle.
 
 \begin{exemple}
 On considère la relation de congruence modulo $2\pi$ sur $\R$ et on note $\R/2\pi\Z$ l'ensemble quotient.
@@ -976,9 +980,8 @@ Montrons que $g$ est injective. Soient $\theta, \theta'$ deux classes de congrue
 
 L'exercice suivant donne une autre façon de visualiser le cercle.
 
-\begin{exercice}[\og En identifiant les extrémités d'un segment, on obtient un cercle\fg]
-Soit $\sim$ la relation d'équivalence la plus fine sur $[-1,1]$ vérifiant $-1 \sim 1$, et soit $Q = [-1,1]/\sim$ le quotient. Intuitivement, le quotient est le segment $[-1,1]$ dont on a identifié les points $1$ et $-1$ et, toujours intuitivement, ceci est un cercle. 
-
+\begin{exercice}[\og En recollant les extrémités d'un segment, on obtient un cercle\fg]
+Soit $\sim$ la relation d'équivalence la plus fine sur $[-1,1]$ vérifiant $-1 \sim 1$, et soit $Q = [-1,1]/\sim$ le quotient. \emph{(Intuitivement, le quotient est le segment $[-1,1]$ dont on a identifié les points $1$ et $-1$ et, toujours intuitivement, ceci est un cercle. )}
 
 
 Montrer que l'application $f : [-1,1] \to \U, t\mapsto e^{i\pi t}$ passe au quotient par $\sim$ en une application bijective de $[-1,1]/\sim$ dans $\U$.
@@ -986,44 +989,39 @@ Montrer que l'application $f : [-1,1] \to \U, t\mapsto e^{i\pi t}$ passe au quot
 
 L'exercice qui suit est très proche du précédent, mais avec un cylindre au lieu d'un cercle (donc avec une variable en plus, mais qui n'intervient pas vraiment dans les calculs).
 
-\begin{exercice}
-Soit $X=[-1,1]^2$ et $\mathcal R$ la relation binaire sur $X$ définie par:
-\[(x,y)\mathcal R (x',y') \iff (y=y'\text{ et } |x|=|x'|=1) \]
-\begin{enumerate}
-\item Montrer que c'est une relation d'équivalence sur $X$. Quelles sont les classes d'équivalence ?
+\begin{exercice}[\og en recollant dans le même sens deux bords opposés d'un carré, on obtient un cylindre\fg]
+Soit $X=[-1,1]^2$ et $\mathcal R$ la relation d'équivalence la plus fine sur $X$ vérifiant:
+\[ \forall y\in [–1,1], \: (-1,y)\sim (1,y).\]
 \begin{quote}
 \emph{Dans la suite on cherche à étudier l'ensemble quotient $X/\mathcal R$. L'idée est qu'on recollant (dans le même sens) deux bords opposés d'un carré, on obtient un cylindre. La suite formalise ceci, en utilisant le cylindre $\S^1\times [-1,1]$ de $\R^3$.}
 \end{quote}
-\item Montrer que l'application
-\[ f : X/\mathcal R \to \S^1\times [-1,1], \: (x,y) \mapsto ((\cos x, \sin x), y)\]
+Montrer que l'application
+\[ f : X \to \S^1\times [-1,1], \: (x,y) \mapsto ((\cos(\pi x), \sin(\pi x)), y)\]
 est surjective, et passe au quotient en une bijection
 \[ g : X/\mathcal R \to \S^1\times [-1,1]\]
-\end{enumerate}
 \end{exercice}
 
 
 \begin{exercice}[Coordonnées polaires sur le plan]\index{coordonnées!polaires sur le plan}
 \begin{enumerate}
-\item Montrer que l'application
+\item Rappeler pourquoi l'application
 \[ f : \begin{cases}\R_+\times [-\pi,\pi] \to \R^2,\\  (r,\theta) \mapsto (r\cos\theta,r\sin\theta)\end{cases}\]
-est surjective.
-\item Soit $\mathcal R$ la relation binaire sur $\R_+\times [-\pi,\pi]$ définie par :
+est surjective, et n'est pas injective.
+\item Soit $\sim$ la relation d'équivalence la plus fine sur $\R_+\times [-\pi,\pi]$ vérifiant: 
 \[
-(r,\theta)\mathcal R (r',\theta') \iff \big( r=r'=0 \text{ ou } ( r=r'\text{ et } |\theta|=|\theta'|=\pi/2)\big)
+\forall \theta,\theta'\in [-\pi,\pi], (0,\theta)\sim (0,\theta')  \text{ et  } \forall r\in \R_+^*, (r,-\pi)\sim (r,\pi).
 \]
-Montrer que c'est une relation d'équivalence et décrire les classes d'équivalence.
-\item Montrer que l'application $f$ passe au quotient en une bijection  de $(\R_+\times [-\pi,\pi]) / \mathcal R$ vers $\R^2$.
+Montrer que l'application $f$ passe au quotient en une bijection  de $(\R_+\times [-\pi,\pi]) / \sim$ vers $\R^2$.
 \end{enumerate}
 \end{exercice}
 
 
 
 \begin{exercice}[\og En contractant un côté d'un carré, on obtient un triangle.\fg]
-Soit $\mathcal C$ le \og carré\fg{} $[0,1]^2$. On considère sur $\mathcal C$ la relation binaire suivante:
-\[ (x,y)\sim (x',y') \iff x=x'=0,\]
-qui consiste à identifier tous les points du bord gauche.
+Soit $\mathcal C$ le \og carré\fg{} $[0,1]^2$. Soit $\sim$ la relation d'équivalence la plus fine sur $\mathcal C$ vérifiant
+\[ \forall y\in [0,1], (0,y)\sim (0,y').\]
+Cette relation relie entre eux tous les points du \og bord gauche\fg.
 \begin{enumerate}
-\item Montrer que c'est une relation d'équivalence. Quelles sont ses orbites ?
 \item Soit $\mathcal T=\ensemble{(x,y)\in [0,1]^2}{y\leq x}$. Dessiner $\mathcal T$. Montrer que l'application $f : \mathcal C\to \mathcal T, (x,y)\mapsto (x,xy) $ est bien définie. Est-elle injective ? Surjective ? 
 \item Montrer que $f$ passe au quotient en une application de $\mathcal C/\sim$ dans $\mathcal T$ qui est bijective.
 \end{enumerate}
