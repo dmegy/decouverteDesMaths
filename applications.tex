@@ -87,7 +87,7 @@ x\mapsto \begin{cases}\sqrt{x}\text{ si }x\geq 0\\ x^2+x+e^x\text{ sinon.}\end{c
 %Une fonction n'a pas de raison d'être continue, dérivable etc.
 \end{remarque}
 
-\subsection{Images, antécédents}
+\subsection{Images, antécédents, fibres}
 
 On a vu que si $f : E\to F$ est une application et $x\in E$, alors l'élément $f(x)\in F$ est appelé \emph{image de $x$ par $f$}. On peut alors considérer l'ensemble de toutes les images possibles.
 
@@ -97,6 +97,8 @@ Soit $f : E\to F$. L'\emph{image} de $f$, notée $\Im(f)$, est l'ensemble de tou
 \Im(f) = \{f(x)\:\mid\: x\in E\}
 \]
 \end{definition}
+
+L'image d'une application est donc une partie (stricte ou pas) de son codomaine.
 
 \begin{definition}[Antécédents d'un élément]
 Soit $f : E\to F$ une fonction, et $y\in F$. On dit qu'un élément $x\in E$ est un \emph{antécédent} de $y$ si $f(x)=y$.
@@ -114,6 +116,9 @@ Soit $f : E\to F$. Montrer qu'un élément de $F$ appartient à $\Im f$ si et se
 Soit $f : \R^2\to \R,\: (x,y)\mapsto \sqrt{x^2+y^2}$. C'est l'application qui à un point du plan lui associe sa distance à l'origine. L'élément $-3$ n'a aucun antécédent (une distance est positive). L'élément $0$ a un seul antécédent, l'origine $(0,0)$. Le réel $2$ a une infinité d'antécédents : tous les points du plan à distance $2$ de l'origine (donc un cercle).
 \end{exemple}
 
+\begin{exercice}
+Soit $f : \R\setminus \{1\} \to \R, x\mapsto \frac{2x}{x-1}$. Montrer que l'élément $2 \in \R$ n'a pas d'antécédent. (Autrement dit, montrer que $2$ n'appartient pas à l'image de $f$.)
+\end{exercice}
 
 
 \begin{definition}[Fibres d'une application]
@@ -133,6 +138,7 @@ Soit $f : \R\to \R, x\mapsto x^2$. Soit $y\in \R$. La fibre de $f$ au-dessus de 
 \{-\sqrt y, \sqrt y\}& \quad\text{si}\quad y>0.
 \end{cases}
 \]
+(La distinction entre les deux derniers cas est superflue car $\{-0,0\}=\{0\}$ mais elle permet de souligner le changement de situation.)
 \end{exemple}
 
 \begin{exemple}
@@ -353,16 +359,18 @@ g\circ  f \circ h = g\circ (f \circ h) = g \circ \Id_F = g
 d'où $g=h$.
 \end{proof}
 
-\begin{attention}
-\begin{enumerate}
-\item On ne doit pas utiliser la notation $f^{-1}$ avant d'avoir démontré que la fonction admet effectivement une réciproque.
-\item Ne pas confondre fonction réciproque $f^{-1}$ et fonction \emph{inverse} $\frac{1}{f}$. La notion de fonction inverse  concerne les fonctions à valeurs réelles qui ne s'annulent pas et n'a rien à voir avec la notion de réciproque.
-\end{enumerate}
-\end{attention}
+
 
 \begin{exemple}
 Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
 \end{exemple}
+
+\begin{attention}
+\begin{enumerate}
+\item On ne doit pas utiliser la notation $f^{-1}$ avant d'avoir démontré que la fonction admet effectivement une réciproque.
+\item Ne pas confondre fonction réciproque $f^{-1}$ et fonction \emph{inverse} $\frac{1}{f}$. La notion de fonction inverse  concerne les fonctions à valeurs réelles qui ne s'annulent pas et n'a rien à voir avec la notion de réciproque. Par exemple, la fonction inverse de l'exponentielle est $x\mapsto 1/e^x = e^{-x}$, alors que sa fonction réciproque est $x\mapsto \ln(x)$
+\end{enumerate}
+\end{attention}
 
 \begin{attention}
 Dans la définition de réciproque, les conditions $g\circ f = \Id_E$ et  $f\circ g = \Id_F$ sont toutes les deux nécessaires : il est en effet possible que l'une soit vérifiée et pas l'autre. Par exemple, les fonctions 
