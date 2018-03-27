@@ -555,7 +555,7 @@ x-y \in a\Z
 (\exists k\in \Z\:\mid\: x=y+ka).
 \]
 Si ces conditions équivalentes sont vérifiées, on dit que $x$ et $y$ sont \emph{congrus modulo $a$} et on note 
-\[ x\equiv y\quad [a].\]
+\[ x\equiv y \modulo a.\]
 La relation de congruence\index{congruence!modulo un réel} modulo $a$ entre deux réels $x$ et $y$ est une relation d'équivalence.
 \end{propdef}
 \begin{proof}
@@ -569,28 +569,28 @@ Les relations de congruence les plus courantes sont celles modulo des entiers, o
 
 \begin{exemples}
 \begin{enumerate}[label=\alph*)]
-\item $1 \equiv 5 \: [2]$, car $1-5 = -4$ est un multiple de $2$.
-\item $4\equiv -9\sqrt{3}+4 \: [\sqrt{3}]$, car $4 - (-9\sqrt{3}+4) = 9\sqrt{3}$ est un multiple de $\sqrt{3}$.
-\item $\pi/3 \equiv 7\pi/3 \: [2\pi]$, car $\pi/3 - 13\pi/3 = -12\pi/3 = -4\pi$ est un multiple de $2\pi$.
-\item La congruence modulo $2\pi$ est plus fine que la congruence modulo $\pi$ : en effet, si $x\equiv y (mod.\:2\pi)$, alors $x\equiv y\: (mod.\: \pi)$.
+\item $1 \equiv 5 \modulo 2$, car $1-5 = -4$ est un multiple de $2$.
+\item $4\equiv -9\sqrt{3}+4 \modulo{\sqrt{3}}$, car $4 - (-9\sqrt{3}+4) = 9\sqrt{3}$ est un multiple de $\sqrt{3}$.
+\item $\pi/3 \equiv 7\pi/3 \modulo{2\pi}$, car $\pi/3 - 13\pi/3 = -12\pi/3 = -4\pi$ est un multiple de $2\pi$.
+\item La congruence modulo $2\pi$ est plus fine que la congruence modulo $\pi$ : en effet, si $x\equiv y \modulo{2\pi}$, alors $x\equiv y\: \modulo{\pi}$.
 \end{enumerate}
 \end{exemples}
 
 Les congruences se comportent relativement bien par rapport aux opération algébriques, comme le montre la proposition suivante (avec un bémol pour la multiplication, voir l'énoncé et la remarque qui suit).
 
-\begin{proposition} Soit $a\neq 0$ et $b\neq 0$ des réels non nuls, et $x$, $y$, $x'$, $y'$ des réels tels que $x \equiv y\: [a]$ et $x' \equiv y'\: [a]$. Alors:
+\begin{proposition} Soit $a\neq 0$ et $b\neq 0$ des réels non nuls, et $x$, $y$, $x'$, $y'$ des réels tels que $x \equiv y\modulo a$ et $x' \equiv y'\modulo a$. Alors:
 \begin{itemize}
-\item[i)]{$x+x' \equiv y+y'\: [a]$.}
-\item[ii)]{$bx\equiv by \: [ba]$.}
+\item[i)]{$x+x' \equiv y+y'\modulo a$.}
+\item[ii)]{$bx\equiv by \modulo{ba}$.}
 \end{itemize}
 \end{proposition}
 \begin{proof}
 \begin{itemize}
 \item[i)]{Si $\frac{x-y}{a} \in \Z$ et $\frac{x'-y'}{a} \in \Z$, alors $\frac{x-y}{a}+\frac{x'-y'}{a} \in \Z$.
 
-On a donc $\frac{(x+x')-(y+y')}{a} \in \Z$, c'est-à-dire $x+x' \equiv y+y'\: [a]$.}
+On a donc $\frac{(x+x')-(y+y')}{a} \in \Z$, c'est-à-dire $x+x' \equiv y+y'\modulo a$.}
 \item[ii)]{On a:
-\[\left(x\equiv y \: [a]\right) \Leftrightarrow  \left(\frac{x-y}{a} \in \Z\right) \Leftrightarrow \left(\frac{bx-by}{ba} \in \Z\right) \Leftrightarrow \left(bx\equiv by \: [ba]\right).\]}
+\[\left(x\equiv y \: [a]\right) \Leftrightarrow  \left(\frac{x-y}{a} \in \Z\right) \Leftrightarrow \left(\frac{bx-by}{ba} \in \Z\right) \Leftrightarrow \left(bx\equiv by \modulo{ba}\right).\]}
 \end{itemize}
 \end{proof}
 
@@ -606,30 +606,35 @@ Par exemple, la congruence modulo $3$ est une relation d'équivalence sur $\Z$.
 
 \subsection{Classes d'équivalence et quotient}
 \begin{definition}[Classe d'équivalence]\index{classe d'équivalence}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $\overline{x}$ (ou parfois $Cl(x)$, ou $[x]_{\mathcal R}$) et on appelle la \emph{classe d'équivalence de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble  de tous les éléments qui sont équivalents à $x$, c'est-à-dire l'ensemble:
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$. Soit $x\in E$. On note $[x]_{\mathcal R}$  et on appelle la \emph{classe d'équivalence de $x$ modulo $\mathcal R$ (ou : sous $\mathcal R$)} l'ensemble  de tous les éléments qui sont équivalents à $x$, c'est-à-dire l'ensemble:
 \[
-\overline x = \left\{y\in E\:\mid\: y{\mathcal R}x\right\}
+[x]_{\mathcal R} = \left\{y\in E\:\mid\: y{\mathcal R}x\right\}
 \]
 
 
-Soit $A\in \mathcal P(E)$ une partie de $E$. On dit que $A$ est une \emph{classe d'équivalence modulo $\mathcal R$} si c'est la classe d'équivalence d'un certain élément, c'est-à-dire si : $\exists x\in E, \: A=\overline x$.
+Soit $A\in \mathcal P(E)$ une partie de $E$. On dit que $A$ est une \emph{classe d'équivalence modulo $\mathcal R$} si c'est la classe d'équivalence d'un certain élément, c'est-à-dire si : $\exists x\in E, \: A=[x]_{\mathcal R}$.
 \end{definition}
-
-Attention au type des objets : $x \in E$, mais $\overline{x} \subseteq E$.
-
+\begin{remarque}
+\begin{enumerate}
+\item S'il n'y a pas d'ambiguïté possible sur la relation d'équivalence utilisée, on écrit simplement $[x]$ au lieu de $[x]_{\mathcal R}$. C'est ce que nous ferons dans la plupart des cas. 
+\item D'autres notations utilisées pour les classes d'équivalence sont $\overline{x}$ ou $Cl(x)$. On ne les utilisera pas dans ce cours.
+\item Le cas de figure le plus courant où l'on travaille simultanément avec plusieurs relations d'équivalence est celui des congruences : la classe de congruence d'un réel $t$ modulo $a\neq 0$ est dans ce cas particulier notée $[t]_a$. Il est important de faire apparaître explicitement la base de congruence, car celle-ci peut changer lors des calculs (par exemple lorsque l'on multiplie).
+\item Attention au type des objets : $x \in E$, mais $[x] \subseteq E$, autrement dit $[x] \in \mathcal P(E)$.
+\end{enumerate}
+\end{remarque}
 \begin{proposition}
 \begin{enumerate}
-\item $\forall x\in E, x\in \overline{x}$ (en particulier une classe d'équivalence n'est jamais vide).
-\item $\forall x, y\in E, x{\mathcal R}y \iff \overline{x}=\overline{y}$.
-\item $\forall x, y\in E, \overline{x} = \overline{y} \text{ ou } \overline{x}\cap \overline{y}=\varnothing$. (Deux classes sont égales ou disjointes.)
+\item $\forall x\in E, x\in [x]$ (en particulier une classe d'équivalence n'est jamais vide).
+\item $\forall x, y\in E, x{\mathcal R}y \iff [x]=[y]$.
+\item $\forall x, y\in E, [x] = [y] \text{ ou } [x]\cap [y]=\varnothing$. (Deux classes sont égales ou disjointes.)
 \end{enumerate}
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
 \item Découle de la réflexivité.
-\item Sens $\impliedby$ : Supposons $\overline{x}=\overline{y}$. Comme $y\in \overline{y}$, on a $y\in \overline{x}$, donc $y{\mathcal R}x$.\\
-Sens $\implies$ : Soit $z\in \overline{x}$. Alors $z{\mathcal R}x$ et comme $x{\mathcal R}y$, on a $z{\mathcal R}y$ par transitivité, et donc $z\in \overline{y}$. Ceci montre $\overline{x}\subseteq \overline{y}$. Pour montrer l'inclusion réciproque, on a $y{\mathcal R}x$ par symétrie de $R$ puis on termine de la même manière.
-\item Soient $x$ et $y$, et supposons $\overline{x}\cap \overline{y} \neq \varnothing$. Soit $z\in \overline{x}\cap \overline{y}$. Alors $z\mathcal R x$ et $z\mathcal R y$, donc par symétrie et transitivité, $x\mathcal R y$, d'où $\overline{x}=\overline{y}$.
+\item Sens $\impliedby$ : Supposons $[x]=[y]$. Comme $y\in [y]$, on a $y\in [x]$, donc $y{\mathcal R}x$.\\
+Sens $\implies$ : Soit $z\in [x]$. Alors $z{\mathcal R}x$ et comme $x{\mathcal R}y$, on a $z{\mathcal R}y$ par transitivité, et donc $z\in [y]$. Ceci montre $[x]\subseteq [y]$. Pour montrer l'inclusion réciproque, on a $y{\mathcal R}x$ par symétrie de $R$ puis on termine de la même manière.
+\item Soient $x$ et $y$, et supposons $[x]\cap [y] \neq \varnothing$. Soit $z\in [x]\cap [y]$. Alors $z\mathcal R x$ et $z\mathcal R y$, donc par symétrie et transitivité, $x\mathcal R y$, d'où $[x]=[y]$.
 \end{enumerate}
 \end{proof}
 
@@ -642,11 +647,11 @@ Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et soit $
 On dit qu'une partie est \emph{saturée} (relativement à $\mathcal R$), si elle est égale à sa saturation.
 \end{definition}
 
-\begin{remarque} La saturation de $A$ est égale à $\bigcup_{x\in A} \overline x$. En effet, si $y\in E$, alors 
+\begin{remarque} La saturation de $A$ est égale à $\bigcup_{x\in A} [x]$. En effet, si $y\in E$, alors 
 \[
 \exists x\in A, y\mathcal R x
-\iff \exists x\in A, y\in \overline x
-\iff y\in \bigcup_{x\in A} \overline x 
+\iff \exists x\in A, y\in [x]
+\iff y\in \bigcup_{x\in A} [x]
 \]
 \end{remarque}
 
@@ -665,7 +670,7 @@ L'outil principal pour manipuler les classes d'équivalence est l'\emph{ensemble
 
 L'ensemble des classes d'équivalence est appelé \emph{ensemble quotient de $E$ par $\mathcal R$}\index{ensemble quotient sous une relation d'équivalence} et est noté $E/{\mathcal R}$.
 
-L'application $p : E \to E/\mathcal R, x\mapsto \overline{x}$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée  \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective comme on le verra plus bas, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
+L'application $p : E \to E/\mathcal R, x\mapsto [x]$ qui à un élément de $E$ lui associe sa classe d'équivalence est appelée  \emph{projection canonique sur le quotient}\index{projection canonique sur le quotient}\index{application de passage au quotient}. (Cette application étant surjective comme on le verra plus bas, on l'appelle aussi la \emph{surjection canonique sur le quotient}\index{surjection canonique sur le quotient}.)
 \end{definition}
 
 \begin{exemple}
@@ -682,8 +687,8 @@ Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
-\item Soit $A$ une classe d'équivalence. Par définition, il existe $x\in E$ tel que $A = \overline{x} = p(x)$. Donc $p$ est surjective.
-\item On a $x\mathcal R y \iff \overline{x} = \overline{y} \iff p(x)=p(y)$.
+\item Soit $A$ une classe d'équivalence. Par définition, il existe $x\in E$ tel que $A = [x] = p(x)$. Donc $p$ est surjective.
+\item On a $x\mathcal R y \iff [x] = [y] \iff p(x)=p(y)$.
 \item C'est une relation du deuxième point, puisque par définition de la fibre d'une application quelconque $f$, deux éléments $x$ et $y$ sont dans la même fibre si et seulement $f(x)=f(y)$.
 \end{enumerate}
 \end{proof}
@@ -763,8 +768,8 @@ Soit $\mathcal R$ une relation d'équivalence sur $E$. Alors $E/\mathcal R$ est 
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
-\item Une classe d'équivalence n'est jamais vide, puisque qu'elle est toujours de la forme $\overline{x}$ et donc contient un élément $x$.
-\item Soit $a\in E$. On a $\overline{a} \in E/\mathcal R$, et $a\in \overline{a}$. Donc $a\in \bigcup_{A\in E/\mathcal R} A$. On en déduit que $E\subseteq \bigcup_{A\in E/\mathcal R} A$.
+\item Une classe d'équivalence n'est jamais vide, puisque qu'elle est toujours de la forme $[x]_{\mathcal R}$ et donc contient un élément $x$.
+\item Soit $a\in E$. On a $[a] \in E/\mathcal R$, et $a\in [a]$. Donc $a\in \bigcup_{A\in E/\mathcal R} A$. On en déduit que $E\subseteq \bigcup_{A\in E/\mathcal R} A$.
 \item On a déjà montré que deux classes d'équivalence sont soit égales soit disjointes.
 \end{enumerate}
 \end{proof}
