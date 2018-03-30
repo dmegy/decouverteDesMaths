@@ -16,7 +16,7 @@
 
 \usepackage{fontawesome}
 \usepackage{xypic,multicol,comment,variations,enumitem,datetime}
-
+\usepackage{imakeidx}% imakeidx ne met pas les liens?
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
@@ -33,7 +33,7 @@
    \shorthandoff{:;!?};}
 }}
 
-\usepackage{makeidx}% imakeidx ne met pas les liens?
+
 
 
 % - - - - - - -
@@ -57,6 +57,7 @@
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Bij}{Bij}
 \DeclareMathOperator{\Fix}{Fix}
 \DeclareMathOperator{\Card}{Card} % cardinal
 \renewcommand{\Im}{\operatorname{Im}}
@@ -147,7 +148,13 @@ Les remarques et les exemples de \og zérologie\fg{} sont très instructifs mais
 
 Le cours contient des exercices d'application directe à la suite de certaines définitions ou propositions. Il est conseillé d'essayer de les faire au moment où on les rencontre, pour mieux assimiler le cours.
 
-Ce document contient en outre des compléments de cours et des exercices d'approfondissement. Ceux-ci  sont en général plus abstraits que ceux traités en TD en L1. Ces compléments et exercices sont clairement signalés et séparés du reste du document, et pourront intéresser des étudiants (de L1 ou plus) souhaitant augmenter leur maîtrise dans la manipulation des notions fondamentales (logique, ensembles, relations).
+\paragraph{Objectifs du cours} Ce cours vise d'une part à donner une introduction au langage mathématique, aux divers types de raisonnements utilisés dans les preuves. Le but est de connaître les résultats du cours et surtout leur preuve, et de pouvoir comprendre un énoncé d'exercice, comprendre comment en fabriquer une preuve, et rédiger correctement une telle preuve. 
+
+Un autre objectif est de faire découvrir ou redécouvrir un certain nombre d'objets mathématiques fondamentaux (droites, plans, cercles, cubes, cylindres, sphères, coordonnées polaires et sphériques, résultats classiques d'arithmétique et de combinatoire), avec un langage précis et des démonstrations complètes lorsque c'est possible.
+
+Enfin, les notions de relation d'équivalence et de quotient sont centrales en mathématiques. Le chapitre sur les relations binaires est sans doute trop ambitieux tel qu'il est écrit, mais il pourra être relu au fil de la scolarité.
+
+\paragraph{Compléments (hors-programme)} Ce document contient en outre des compléments de cours et des exercices d'approfondissement. Ceux-ci  sont en général plus abstraits que ceux traités en TD en L1. Ces compléments et exercices sont clairement signalés et séparés du reste du document, et pourront intéresser des étudiants (de L1 ou plus) souhaitant augmenter leur maîtrise dans la manipulation des notions fondamentales (logique, ensembles, relations).
 
 \newpage
 \section{Alphabet grec}

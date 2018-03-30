@@ -162,8 +162,20 @@ On peut définir de même les produits finis du type $E_1\times E_2 \times ... E
 \end{definition}
 
 \begin{remarque}
+Le lecteur est sans doute déjà familier avec l'ensemble $\R^2$ (l'ensemble des couples de réels), qui est par exemple utilisé en géométrie plane lorsque l'on travaille en coordonnées (relatives à un repère fixé).
+\end{remarque}
+
+\begin{remarque}
 $E\times F = \varnothing \iff \left( E=\varnothing\text{ ou }F=\varnothing\right)$.
 \end{remarque}
+
+\begin{definition}[Diagonale]
+\index{diagonale!d'un produit de deux ensembles}
+Soit $E$ un ensemble. La \emph{diagonale} de $E\times E$ est l'ensemble des couples d'éléments identiques, c'est-à-dire l'ensemble
+\[
+\Delta_E = \{(x,x)\:|\: x\in E\}
+\]
+\end{definition}
 
 
 
@@ -176,13 +188,13 @@ Pour finir, on donne quelques exemples de sous-ensembles de $\R^2$ et $\R^3$, so
 On peut aussi l'écrire sous forme paramétrée $\mathcal D = \{ (2,3)+t(6,-1)\:\mid\: t\in \R\}$ (droite passant par le point $(2,3)$ et dirigée par le vecteur $(6,-1)$).
 \item \index{cercle!unité de $\R^2$} On appelle \emph{cercle unité de $\R^2$} et on note $\S^1$ le cercle centré sur l'origine et de rayon un, c'est-à-dire :
 \[ \S^1=\ensemble{(x,y)\in \R^2}{x^2+y^2=1}.\]
-Une de ses écritures paramétrées les plus courantes est  $\S^1=\ensemble{(\cos t,\sin t)}{t\in \R}$.
+Une de ses écritures paramétrées les plus courantes est  $\S^1=\ensemble{(\cos t,\sin t)}{t\in \R}$, mais on peut également écrire $\S^1=\ensemble{(\cos t,\sin t)}{t\in [-\pi,\pi]}$ ou même $\S^1=\ensemble{(\cos t,\sin t)}{t\in ]-\pi,\pi]}$.
 \item (Un cylindre) \index{cylindre} L'ensemble $\ensemble{(x,y,z)\in \R^3}{x^2+y^2=1}$ peut être visualisé comme un  cylindre (\og creux, vertical et de longueur infinie\fg). On peut aussi l'écrire sous forme de produit $\S^1 \times \R$ (cercle par droite), qui est bien un sous-ensemble de $\R^2\times \R = \R^3$. Enfin, on peut aussi l'écrire sous la forme paramétrée $\ensemble{(\cos t,\sin t,z)}{(t,z)\in \R^2}$.
 \item \index{sphère!unité de $\R^3$} On appelle \emph{sphère unité de $\R^3$} et on note\footnote{Le \og $2$\fg{} dans la notation $\S^2$ désigne la \og dimension\fg{}: la sphère est une surface, donc de \og dimension\fg{} deux, même si elle est plongée dans un espace ambiant de dimension trois.} $\S^2$ l'ensemble
-\[ \ensemble{(x,y,z)\in \R^3}{x^2+y^2+z^2=1}.\]
-Cet ensemble est un peu plus difficile à paramétrer. En physique, on utilise en général le paramétrage donné par les coordonnées sphériques:
-\[ \S^2 = \ensemble{(\cos\theta\cos\phi, \cos\theta\sin\phi, \sin\theta)}{\theta\in[-\frac{\pi}{2},\frac{\pi}{2}], \: \phi \in [-\pi,\pi]}.\]
-On démontrera dans la suite du cours que ceci est bien un paramétrage de la sphère.
+\[ \S^2 = \ensemble{(x,y,z)\in \R^3}{x^2+y^2+z^2=1}\]
+C'est l'ensemble des points de l'espace à distance $1$ de l'origine. Cet ensemble est un peu plus difficile à paramétrer. On utilise en général le paramétrage donné par les \emph{coordonnées sphériques}\index{coordonnées!sphériques}:
+\[ \S^2 = \ensemble{(\cos\theta\cos\phi, \sin\theta\cos\phi, \sin\phi)}{\theta \in [-\pi,\pi], \: \phi\in[-\frac{\pi}{2},\frac{\pi}{2}]}\]
+On démontrera dans l'exercice \ref{exo-coord-spheriques-sphere} que ceci est bien un paramétrage de la sphère. (Les notations sont ici celles des mathématiciens et géographes, et non des physiciens : $\theta$ est la longitude, et $\phi$ est la latitude usuelle. Les physiciens utilisent la colatitude et permutent les symboles $\theta$ et $\phi$.) On peut également paramétrer l'espace $\R^3$ par des \og coordonnées\fg{} sphériques, voir l'exercice \ref{exo-coord-spheriques-espace} qui explique également les guillemets.
 \end{enumerate}
 \end{exemple}
 
@@ -213,20 +225,10 @@ Leur \emph{union}, notée $\bigcup_{i\in I} E_i$, est l'ensemble $\{x\in E\:\mid
 Leur \emph{intersection}, notée $\bigcap_{i\in I} E_i$, est l'ensemble $\{x\in E\:\mid\: \forall i\in I, x\in E_i\}$.
 \end{definition}
 
-\section{Compléments de vocabulaire}
 
-\begin{definition}[Diagonale]
-\index{diagonale!d'un produit de deux ensembles}
-Soit $E$ un ensemble. La \emph{diagonale} de $E\times E$ est l'ensemble des couples d'éléments identiques, c'est-à-dire l'ensemble
-\[
-\Delta_E = \{(x,x)\:|\: x\in E\}
-\]
-\end{definition}
-
-\begin{definition}[Cylindre sur un ensemble]\index{cercle}\index{cylindre}
-\index{diagonale!d'un produit de deux ensembles}
-Soit $E$ un ensemble. Le \emph{cylindre sur $E$} est l'ensemble 
-\[ \operatorname{Cyl}(E) = E\times[0,1].\]
-Dans le cas particulier où l'ensemble $E$ est un cercle, son cylindre peut effectivement être vu comme un cylindre (de hauteur un). Le cas général est une abstraction de cet exemple. Dans le cas général, le cylindre peut être vu comme \og l'épaississement de $E$ dans une direction\fg.
-\end{definition}
+%\begin{definition}[Cylindre sur un ensemble]\index{cercle}\index{cylindre}
+%Soit $E$ un ensemble. Le \emph{cylindre sur $E$} est l'ensemble 
+%\[ \operatorname{Cyl}(E) = E\times[0,1].\]
+%Dans le cas particulier où l'ensemble $E$ est un cercle, son cylindre peut effectivement être vu comme un cylindre (de hauteur un). Le cas général est une abstraction de cet exemple. Dans le cas général, le cylindre peut être vu comme \og l'épaississement de $E$ dans une direction\fg.
+%\end{definition}
 

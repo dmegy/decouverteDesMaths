@@ -107,7 +107,7 @@ Un ensemble $E$ est \emph{fini} s'il existe $n\in \N$ et une injection de $E$ da
 \begin{enumerate}[label=\alph*)]
 \item On en déduit immédiatement qu'un ensemble qui s'injecte dans un ensemble fini est lui-même fini (la composée de deux injections est une injection).
 \item À priori, l'entier $n$ de la définition n'est pas unique, car si $n$ convient, alors $n+1$ aussi.
-\item (Zérologie) L'ensemble vide\index{ensemble vide} est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
+\item (Zérologie)\index{zérologie} L'ensemble vide\index{ensemble vide} est fini : il existe une (unique) application de l'ensemble dans tout ensemble $F$, c'est celle dont le graphe est la partie vide de $\varnothing\times F$ (cette partie vérifie bien les conditions pour être un graphe de fonction). On l'appelle \og l'application vide\fg.
 On vérifie ensuite que cette application est injective (en appliquant la définition).
 \end{enumerate}
 \end{remarque}
@@ -264,7 +264,7 @@ On note $\sum_{x\in E} f(x)$ le nombre $0$ auquel on ajoute la somme des valeurs
 On note $\prod_{x\in E} f(x)$ le nombre $1$ que l'on multiplie par le produit des valeurs prises par $f(x)$ lorsque $x$ parcourt $E$.
 \end{definition}
 
-\begin{remarque}[\og Un produit vide vaut $1$, une somme vide vaut $0$\fg]
+\begin{remarque}[\og Un produit vide vaut $1$, une somme vide vaut $0$\fg]\index{zérologie}
 Faire intervenir $0$ et $1$ sert à avoir les propriétés: $\sum_{x\in \varnothing} (...)=0$ et $\prod_{x\in \varnothing} (...) = 1$.
 \end{remarque}
 
@@ -337,7 +337,7 @@ La deuxième égalité se prouve de la même façon en échangeant les rôles de
 
 \begin{definition}[Factorielle]
 \index{factorielle}
-Soit $n\in \N$. La factorielle de $n$, notée $n!$, est le produit de tous les entiers strictement positifs et inférieurs à $n$. Autrement dit, $n! = \prod_{k \in \llbracket 1,n\rrbracket} k$. En particulier, si $n=0$, le produit est vide et donc $0!=1$ par définition d'un produit vide. 
+Soit $n\in \N$. La factorielle de $n$, notée $n!$, est le produit de tous les entiers strictement positifs et inférieurs à $n$. Autrement dit, $n! = \prod_{k \in \llbracket 1,n\rrbracket} k$. En particulier, si $n=0$, le produit est vide et donc $0!=1$ par définition d'un produit vide. \index{zérologie}
 \end{definition}
 
 
