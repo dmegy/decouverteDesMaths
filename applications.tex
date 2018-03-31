@@ -850,7 +850,9 @@ f^\leftarrow\left(\bigcap_{i\in I}B_i\right)
 
 Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
 
-Les définitions et résultats qui suivent concernent les fonctions ayant même source et but, autrement dit les fonctions d'un ensemble $E$ dans lui-même. De telles fonctions sont parfois appelées \emph{endofonctions (de l'ensemble $E$)}.
+Les définitions et résultats qui suivent concernent les fonctions ayant même source et but, autrement dit les fonctions d'un ensemble $E$ dans lui-même. De telles fonctions sont parfois appelées \emph{endofonctions
+\footnote{Du grec ancien éndon (« dans »). Sert à construire des mots avec l’idée d’intérieur. (Source : Wiktionnaire.) En algèbre linéaire, on croisera fréquemment des \emph{endomorphismes}.}
+ (de l'ensemble $E$)}.
 
 
 \subsection{Permutations}
@@ -859,7 +861,16 @@ Les définitions et résultats qui suivent concernent les fonctions ayant même 
 Une \emph{permutation} d'un ensemble $E$ est une bijection de $E$ dans $E$. 
 \end{definition}
 
-L'ensemble de toutes les permutations de $E$ est noté $\Bij(E)$, ou encore $\mathfrak S_E$ ($S$  majuscule gothique, en police fraktur).
+L'ensemble de toutes les permutations de $E$ est noté $\Bij(E)$, ou encore $\mathfrak S_E$ ($S$  majuscule gothique, en police \emph{Fraktur}).
+
+L'ensemble $\Bij(E)$ est donc une partie de $E^E$, l'ensemble de toutes les fonctions de $E$ dans $E$. Il vérifie les trois propriétés suivantes:
+\begin{enumerate}
+\item L'application identité $\Id_E$ appartient à $\Bij(E)$.
+\item Si $f$ et $g$ appartiennent à $\Bij(E)$, alors $f\circ g$ aussi.
+\item Si $f$ appartient à $\Bij(E)$, alors son application réciproque $f^{-1}$ aussi.
+\end{enumerate}
+Ces propriétés importantes (mais immédiates à vérifier dans le cas présent) sont celles qui donneront plus tard naissance au concept abstrait de \emph{groupe} (voir cours sur les structures algébriques usuelles : \emph{groupes, anneaux, corps}).
+
 
 \subsection{Involutions}
 \begin{definition}[Fonction involutive/involution]\index{application!involutive}\index{involution}
@@ -870,7 +881,7 @@ Soit $f : E\to E$ une fonction ayant même source et but. On dit que $f$ est \em
 Une involution est bijective puisqu'elle est sa propre fonction réciproque. Autrement dit une involution est une permutation.
 \end{remarque}
 
-\begin{exemple}\label{ex-involution}
+\begin{exemple}\label{ex-involution-1-x}
 La fonction $f : \R\to \R, x\mapsto 1-x$ est involutive.
 \end{exemple}
 
@@ -878,14 +889,12 @@ La fonction $f : \R\to \R, x\mapsto 1-x$ est involutive.
 Montrer que $f : \R\to \R, x\mapsto \frac{|x|-x\sqrt 5}{2}$ est involutive.
 \end{exercice}
 
-\begin{exercice}
+\begin{exercice}\label{ex-involution-cubique}
 Dans cet exercice on note $\sqrt[3]{}$ la racine cubique définie sur $\R$.
-Montrer que les fonctions $g : \R\to \R, x\mapsto \sqrt[3]{1-x^3}$ est $h : \R\to \R, x\mapsto (1-\sqrt[3]{x})^3$ sont involutives . Quel est le rapport avec la fonction $f$ de l'exemple \ref{ex-involution} (écrire les fonctions sous forme de composées) ?\footnote{Ce procédé s'appelle une \og conjugaison\fg{} (aucun lien avec la conjugaison complexe malgré le nom). On rencontrera souvent ce type de situation, en particulier en algèbre linéaire, puis en algèbre.}
-% plus généralement, si $\phi$ est une bijection, mq la conjuguée d'une involution est une involution ?
+Montrer que les fonctions $g : \R\to \R, x\mapsto \sqrt[3]{1-x^3}$ est $h : \R\to \R, x\mapsto (1-\sqrt[3]{x})^3$ sont involutives . 
 \end{exercice}
 
-% \subsection{Conjugaison par une bijection}
-% ici mettre des diagrammes, le fait que conjuguer par une bijection conserve le caractère involutif, bouge les points fixes, bouge les parties stables etc etc.
+
 
 
 \subsection{Itérées, points fixes, parties stables}
@@ -931,7 +940,19 @@ Soit $f : E\to E$ une application d'un ensemble dans lui-même. Une partie $A\su
 Soit $f : \R\to \R, x\mapsto x^3-x$. Montrer que $[-1,1]$ est stable.
 \end{exercice}
 
-
+\begin{exercice}[Conjugaison\footnote{(aucun lien avec la conjugaison complexe malgré le nom). On rencontrera souvent ce type de situation, en particulier en algèbre linéaire, puis en algèbre générale.} par une bijection]
+\index{conjugaison!par une bijection}
+Soit $E$ un ensemble, $f \in E^E$ une endofonction de $E$, et $g \in \Bij(E)$. L'application $g\circ f \circ g^{-1}$ est appelée la \emph{conjuguée de $f$ par $g$} (on \emph{conjugue} $f$ par la bijection $g$). On peut visualiser ce que fait cette application grâce au diagramme suivant (attention au sens des flèches):
+\[\xymatrix{
+E \ar[d]^g \ar[r]^f & E \ar[d]^g\\
+E \ar[r]_{g\circ f\circ g^{-1}}& E
+}\]
+\begin{enumerate}
+\item Montrer que si $f$ est une involution, alors $g\circ f \circ g^{-1}$ aussi. Quel est le rapport avec les exercices \ref{ex-involution-1-x} et \ref{ex-involution-cubique} (écrire les fonctions sous forme de composées) ?
+\item Montrer que si $x\in E$ est fixe par $f$, alors $g(x)$ est fixe par $g\circ f \circ g^{-1}$.
+\item Montrer que si $A \subseteq E$ est stable par $f$, alors $g(A) \subseteq E$ est stable par $g\circ f \circ g^{-1}$.
+\end{enumerate}
+\end{exercice}
 
 
 
