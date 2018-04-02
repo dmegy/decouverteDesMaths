@@ -319,6 +319,24 @@ est commutatif revient à dire que $\psi\circ f = g \circ \phi$. Un tel diagramm
 \end{enumerate}
 \end{exemple}
 
+\begin{attention}
+En général, un diagramme d'applications n'a aucune raison d'être commutatif.
+Par exemple, le diagramme
+\[\xymatrix{
+\R \ar[rr]^{x\mapsto x^2} \ar@/_1pc/[rrrr]_{x\mapsto e^x}  & & \R \ar[rr]^{x\mapsto \cos(x)} & & \R
+}\]
+n'est pas commutatif, puisque l'assertion \og $\forall x\in \R, \cos(x^2)=e^{x}$\fg{} est fausse. Encore plus simplement, le diagramme suivant n'est pas commutatif car les deux fonctions sont différentes :
+\[\xymatrix{
+\R \ar@/^/[rr]^{x\mapsto 2x} \ar@/_/[rr]_{x\mapsto x+1} & & \R
+}\]
+\end{attention}
+
+\begin{exercice} Montrer que le diagramme suivant est commutatif :
+\[\xymatrix{
+\R  \ar[r]^{x\mapsto x^2} \ar[d]_{x\mapsto \cos(x^2)} & \R  \ar[d]^{x\mapsto e^{\cos(x)}}\\
+\R  \ar[r]^{x\mapsto e^x}& \R 
+}\]
+\end{exercice}
 
 
 
