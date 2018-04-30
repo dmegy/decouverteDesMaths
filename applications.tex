@@ -864,9 +864,88 @@ f^\leftarrow\left(\bigcap_{i\in I}B_i\right)
 %- - - - - -
 % factorisations
 
-\section{Compléments : fonctions ayant même source et but}
+
+\section{Compléments : principes de factorisation}
 
 Les définitions et résultats de cette section ne sont pas exigibles comme cours à l'examen mais sont néanmoins importants.
+
+\begin{proposition}[Principe de factorisation à droite]
+\index{factorisation!à droite}
+\label{prop-CNS-factorisation-droite}
+Soient $f : A\to B$ et $g : A\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
+\begin{enumerate}
+\item  $g$ se factorise à droite par $f$;
+\item il existe une application $h : B\to C$ telle que $g = h\circ f$;
+\item il existe une application $h : B\to C$ faisant commuter  le diagramme \index{diagramme!commutatif} 
+$\xymatrix{
+A \ar[r]^g \ar[d]_{f}& C\\
+B \ar@{-->}[ur]_{\exists h}& 
+}$.
+\end{enumerate}
+Ces assertions sont vraies si et seulement si :
+\[\forall x, y \in A, f(x)=f(y) \implies g(x)=g(y).\]
+\end{proposition}
+\begin{proof}
+\textbf{Sens \og seulement si\fg.} Supposons que $g$ se factorise en $g = h\circ f$. Soient $x, y\in E$ tels que $f(x)=f(y)$. En composant à gauche par $h$, on obtient $h(f(x)) = h(f(y))$, c'est-à-dire $g(x)=g(y)$.\\
+\textbf{Sens \og si\fg.} Supposons que $\forall x, y \in A, f(x)=f(y) \implies g(x)=g(y)$. Construisons une fonction $h$ vérifiant les conditions demandées. Soit $b\in B$. S'il existe $a\in A$ tel que $f(a)=b$, on définit $h(b)$ comme étant égal à $g(a)$. Sinon, on définit $h(b)$ comme étant un élément quelconque de $C$. En définissant ainsi un élément $h(b)\in C$ pour tout élément $b\in B$, on définit donc une fonction $h : B\to C$ et par construction, on a $g = h\circ f$.
+\end{proof}
+
+\begin{remarque} Si $A=C$ et $g=\Id_A$, cette proposition devient l'équivalence entre injectivité et existence d'une rétraction $h$ (inverse à gauche).
+\end{remarque}
+
+Cette proposition peut paraître abstraite mais en pratique elle est très facile à utiliser, comme le montre l'exemple suivant.
+\begin{exemple}
+Montrer que $g : \R\to\R, x\mapsto |x|$ se factorise à droite par $f : \R\to \R, x\mapsto x^2$.
+\end{exemple}
+\begin{red}
+Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$ ou $x=-y$, et donc on en déduit que $|x|=|y|$ c'est-à-dire $g(x)=g(y)$. D'après la proposition \ref{prop-CNS-factorisation-droite}, il existe $h : \R\to \R$ telle que $g =h\circ f$, ou encore : $\forall x\in \R, |x|=h(x^2)$. 
+\end{red}
+
+(Attention, dans l'exemple précédent $h$ n'est pas exactement la racine carrée : en effet $h$ doit être définie sur $\R$. D'ailleurs $h$ n'est pas unique.)
+
+
+
+
+\begin{proposition}[Principe de factorisation à gauche]
+\index{factorisation!à gauche}
+\label{prop-CNS-factorisation-gauche}
+Soient $f : A\to C$ et $g : B\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
+\begin{enumerate}
+\item  $f$ se factorise à gauche par $g$;
+\item il existe une application $h : A\to B$ telle que $f = g\circ h$;
+\item il existe une application $h : A\to B$ faisant commuter le diagramme \index{diagramme!commutatif} 
+$\xymatrix{
+&B \ar[d]^{g} \\
+A \ar[r]_f \ar@{-->}[ur]^{\exists h}& C
+}$.
+\end{enumerate}
+Ces assertions sont vraies si et seulement si $f(A)\subseteq g(B)$.
+\end{proposition}
+\begin{proof}
+\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g(B)$. Ceci prouve que $f(A)\subseteq g(B)$.\\
+\textbf{Sens \og si\fg.} Supposons $f(A)\subseteq g(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f(A) \subseteq g(B)$, $f(a) \in g(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
+\end{proof}
+
+\begin{remarque}
+Si $A = C$ et que $f = \Id_C$, on retombe sur l'équivalence entre surjectivité et existence d'une section (inverse à droite).
+\end{remarque}
+
+\begin{exercice} 
+(Dans cet exercice les fonctions vont de $\R$ dans $\R$.) 
+Montrer l'application $x\mapsto x^2+6x+10$ se factorise à droite par $x\mapsto x+3$.
+% l'autre facteur est $x\mapsto x^2+1$
+ Montrer qu'elle se factorise à gauche par $x\mapsto x+5$.
+% l'autre facteur est $x\mapsto x^2+6x+5$.
+\end{exercice}
+
+
+
+
+
+
+\section{Compléments : fonctions ayant même source et but}
+
+
 
 Les définitions et résultats qui suivent concernent les fonctions ayant même source et but, autrement dit les fonctions d'un ensemble $E$ dans lui-même. De telles fonctions sont parfois appelées \emph{endofonctions
 \footnote{Du grec ancien éndon (« dans »). Sert à construire des mots avec l’idée d’intérieur. (Source : Wiktionnaire.) En algèbre linéaire, on croisera fréquemment des \emph{endomorphismes}.}
@@ -904,27 +983,19 @@ La fonction $f : \R\to \R, x\mapsto 1-x$ est involutive.
 \end{exemple}
 
 
-\begin{exercice}\label{exo-involution-cases}
-Montrer que $f:\R\to \R x\mapsto \begin{cases} -x/2 & \text{ si }x\geq 0\\-2x & \text{ si }x<0\end{cases}$ est involutive.
-\end{exercice}
-
-\begin{exercice}\label{exo-involution-graphe-sym}
-Montrer qu'une fonction $f:\R\to \R$ est involutive ssi son graphe $\Gamma_f \subseteq \R^2$ est symétrique par rapport à la droite d'équation $y=x$. 
-\end{exercice}
-
 \begin{exercice}\label{exo-involution-cubique}
 Dans cet exercice on note $\sqrt[3]{}$ la racine cubique définie sur $\R$.
-Montrer que les fonctions $g : \R\to \R, x\mapsto \sqrt[3]{1-x^3}$ est $h : \R\to \R, x\mapsto (1-\sqrt[3]{x})^3$ sont involutives. (On peut généraliser cette construction, voir l'exercice \ref{exo-conjugaison}.)
+Montrer que les fonctions $g : \R\to \R, x\mapsto \sqrt[3]{1-x^3}$ est $h : \R\to \R, x\mapsto (1-\sqrt[3]{x})^3$ sont involutives. Quel est le rapport entre cet exercice et l'exercice \ref{exo-involution-1-x} ? Voir l'exercice \ref{exo-conjugaison} pour le lien général.
 
 \begin{center}
-  \begin{tikzpicture}
-\draw[->,color=black] (-3,0) -- (3,0);
-\draw[->,color=black] (0,-3) -- (0,3);
-\clip(-3,-3) rectangle (3,3);
+  \begin{tikzpicture}[scale=1.5]
+\draw[->,color=black] (-2,0) -- (2,0);
+\draw[->,color=black] (0,-2) -- (0,2);
+\clip(-2,-2) rectangle (2,2);
 
-\draw[smooth,samples=100,domain=-3:1,thick,blue] plot(\x,{(1-(\x)^3)^(1/3)});
-\draw[smooth,samples=100,domain=1:3,thick,blue] plot(\x,{-(-1+(\x)^3)^(1/3)});
-\draw[dashed] (-3,-3) -- (3,3);
+\draw[smooth,samples=100,domain=-2:1,thick,blue] plot(\x,{(1-(\x)^3)^(1/3)});
+\draw[smooth,samples=100,domain=1:2,thick,blue] plot(\x,{-(-1+(\x)^3)^(1/3)});
+\draw[dashed] (-2,-2) -- (2,2);
 \end{tikzpicture}
 \hfill
 \begin{tikzpicture}[scale=.75]
@@ -938,6 +1009,13 @@ Montrer que les fonctions $g : \R\to \R, x\mapsto \sqrt[3]{1-x^3}$ est $h : \R\t
 \end{center}
 \end{exercice}
 
+\begin{exercice}\label{exo-involution-cases}
+Montrer que $f:\R\to \R,\: x\mapsto \begin{cases} -x/2 & \text{ si }x\geq 0\\-2x & \text{ si }x<0\end{cases}$ est involutive.
+\end{exercice}
+
+\begin{exercice}\label{exo-involution-graphe-sym}
+Montrer qu'une fonction $f:\R\to \R$ est involutive ssi son graphe $\Gamma_f \subseteq \R^2$ est symétrique par rapport à la droite d'équation $y=x$. 
+\end{exercice}
 
 \begin{exercice}\label{exo-involution-abs}
 \begin{enumerate}
@@ -1034,79 +1112,6 @@ La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée.
 \end{enumerate}
 \end{exemple}
 \end{comment}
-
-\section{Compléments : principes de factorisation}
-
-\begin{proposition}[Principe de factorisation à droite]
-\index{factorisation!à droite}
-\label{prop-CNS-factorisation-droite}
-Soient $f : A\to B$ et $g : A\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
-\begin{enumerate}
-\item  $g$ se factorise à droite par $f$;
-\item il existe une application $h : B\to C$ telle que $g = h\circ f$;
-\item il existe une application $h : B\to C$ faisant commuter  le diagramme \index{diagramme!commutatif} 
-$\xymatrix{
-A \ar[r]^g \ar[d]_{f}& C\\
-B \ar@{-->}[ur]_{\exists h}& 
-}$.
-\end{enumerate}
-Ces assertions sont vraies si et seulement si :
-\[\forall x, y \in A, f(x)=f(y) \implies g(x)=g(y).\]
-\end{proposition}
-\begin{proof}
-\textbf{Sens \og seulement si\fg.} Supposons que $g$ se factorise en $g = h\circ f$. Soient $x, y\in E$ tels que $f(x)=f(y)$. En composant à gauche par $h$, on obtient $h(f(x)) = h(f(y))$, c'est-à-dire $g(x)=g(y)$.\\
-\textbf{Sens \og si\fg.} Supposons que $\forall x, y \in A, f(x)=f(y) \implies g(x)=g(y)$. Construisons une fonction $h$ vérifiant les conditions demandées. Soit $b\in B$. S'il existe $a\in A$ tel que $f(a)=b$, on définit $h(b)$ comme étant égal à $g(a)$. Sinon, on définit $h(b)$ comme étant un élément quelconque de $C$. En définissant ainsi un élément $h(b)\in C$ pour tout élément $b\in B$, on définit donc une fonction $h : B\to C$ et par construction, on a $g = h\circ f$.
-\end{proof}
-
-\begin{remarque} Si $A=C$ et $g=\Id_A$, cette proposition devient l'équivalence entre injectivité et existence d'une rétraction $h$ (inverse à gauche).
-\end{remarque}
-
-Cette proposition peut paraître abstraite mais en pratique elle est très facile à utiliser, comme le montre l'exemple suivant.
-\begin{exemple}
-Montrer que $g : \R\to\R, x\mapsto |x|$ se factorise à droite par $f : \R\to \R, x\mapsto x^2$.
-\end{exemple}
-\begin{red}
-Soient $x, y\in \R$. Supposons $f(x)=f(y)$ c'est-à-dire $x^2=y^2$. Alors, $x=y$ ou $x=-y$, et donc on en déduit que $|x|=|y|$ c'est-à-dire $g(x)=g(y)$. D'après la proposition \ref{prop-CNS-factorisation-droite}, il existe $h : \R\to \R$ telle que $g =h\circ f$, ou encore : $\forall x\in \R, |x|=h(x^2)$. 
-\end{red}
-
-(Attention, dans l'exemple précédent $h$ n'est pas exactement la racine carrée : en effet $h$ doit être définie sur $\R$. D'ailleurs $h$ n'est pas unique.)
-
-
-
-
-\begin{proposition}[Principe de factorisation à gauche]
-\index{factorisation!à gauche}
-\label{prop-CNS-factorisation-gauche}
-Soient $f : A\to C$ et $g : B\to C$. Rappelons que les trois assertions suivantes sont équivalentes:
-\begin{enumerate}
-\item  $f$ se factorise à gauche par $g$;
-\item il existe une application $h : A\to B$ telle que $f = g\circ h$;
-\item il existe une application $h : A\to B$ faisant commuter le diagramme \index{diagramme!commutatif} 
-$\xymatrix{
-&B \ar[d]^{g} \\
-A \ar[r]_f \ar@{-->}[ur]^{\exists h}& C
-}$.
-\end{enumerate}
-Ces assertions sont vraies si et seulement si $f(A)\subseteq g(B)$.
-\end{proposition}
-\begin{proof}
-\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g(B)$. Ceci prouve que $f(A)\subseteq g(B)$.\\
-\textbf{Sens \og si\fg.} Supposons $f(A)\subseteq g(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f(A) \subseteq g(B)$, $f(a) \in g(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
-\end{proof}
-
-\begin{remarque}
-Si $A = C$ et que $f = \Id_C$, on retombe sur l'équivalence entre surjectivité et existence d'une section (inverse à droite).
-\end{remarque}
-
-\begin{exercice} 
-(Dans cet exercice les fonctions vont de $\R$ dans $\R$.) 
-Montrer l'application $x\mapsto x^2+6x+10$ se factorise à droite par $x\mapsto x+3$.
-% l'autre facteur est $x\mapsto x^2+1$
- Montrer qu'elle se factorise à gauche par $x\mapsto x+5$.
-% l'autre facteur est $x\mapsto x^2+6x+5$.
-\end{exercice}
-
-
 
 
 
