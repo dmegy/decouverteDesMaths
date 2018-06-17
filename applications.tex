@@ -477,19 +477,26 @@ Il existe en général plusieurs prolongements possibles d'une même fonction et
 \end{attention}
 
 
-\begin{definition}[Corestriction]\index{corestriction}\label{def-corestriction}
+\begin{definition}[Corestriction]
+\index{corestriction}\label{def-corestriction}
 Soit $f : E\to F$, et $B$ une partie de $F$ contenant toutes les images des éléments de $E$ (autrement dit, $\forall x\in E, f(x)\in B$).
 La \emph{corestriction} de $f$ à $B$ est l'application de domaine $E$, codomaine $B$ et de même graphe que $f$, autrement dit c'est l'application 
 \[ g : E\to B, x\mapsto f(x).\]
-La corestriction de $f$ à $B$ se note $f|^{B}$ mais cette notation n'est pas aussi standard que celle pour la restriction
 \end{definition}
+
+
+
 
 \begin{exemple}
 Soit $f : \R\to \R, x\mapsto x^2$. On peut la corestreindre à $[-3,+\infty[$ car cette partie de $\R$ contient toutes les images de $f$. La corestriction de $f$ à $[-3,+\infty[$ est $g : \R\to [-3,+\infty[, x\mapsto x^2$.
 \end{exemple}
 
 
+\begin{attention}
+La corestriction de $f$ à $B$ se note $f|^{B}$ mais cette notation n'est pas (encore ou partout) aussi standard que celle pour la restriction. Pour cette raison, il est conseillé, plutôt que d'utiliser la notation $f|^{B}$, de redéfinir explicitement la fonction. Par exemple, plutôt que d'écrire \og soit $g=\sin|^{[-1,1]}$\fg, on écrira \og soit $g : \begin{cases} \R&\to [-1,1],\\ x&\mapsto \sin(x)\end{cases}$.\fg{}
 
+Par contre, la notation pour la restriction $f|_A$, elle, est complètement standard et on peut l'utiliser sans plus de précisions.
+\end{attention}
 
 
 %---------------------------------
@@ -569,35 +576,6 @@ Par construction, on a $(x,y)\in \S^1$, et d'autre part $(x',y')=(rx,ry)=g\big(\
 On en déduit finalement que $g$ est surjective. Remarquer que l'origine du plan a une infinité d'antécédents, mais que les autres points du plan n'ont qu'un seul antécédent.
 \end{red}
 
-Les deux exercices qui suivent sont les analogues des deux précédents pour la sphère $\S^2$ à la place de $\S^1$.
-
-\begin{exercice}[Coordonnées sphériques sur la sphère]\index{coordonnées!sphériques}\label{exo-coord-spheriques-sphere}
-On note $\S^2$ la sphère unité de $\R^3$, c'est-à-dire 
-\[ \S^2 = \ensemble{(x,y,z)\in\R^3}{x^2+y^2+z^2=1}\]
-Soit 
-\[ f : 
-\begin{cases}
- [-\pi,\pi] \times [-\pi/2,\pi/2] &\longrightarrow \R^3\\
-(\theta,\phi) &\mapsto (\cos\phi\cos\theta,\: \cos\phi\sin\theta, \: \sin\phi)
-\end{cases}
-\]
-Montrer que l'image de $f$ est $\S^2$. Ceci signifie que l'on peut écrire:
-\[ \S^2 = \ensemble{(\cos\phi\cos\theta,\: \cos\phi\sin\theta, \: \sin\phi)}{\theta\in [-\pi,\pi], \phi\in [-\pi/2,\pi/2]}
-\]
-On dit que l'application $f$ est le paramétrage de la sphère $\S^2$ par longitude et latitude. Remarquer que les deux pôles n'ont pas de longitude bien définie.
-\end{exercice}
-
-\begin{exercice}\label{exo-decomp-spherique}
-Montrer que $g : \R_+\times \S^2 \to \R^3, \quad (r,(x,y,z))\mapsto (rx,ry,rz)$ est surjective.
-\end{exercice}
-
-\begin{exercice}[\og produit\fg{} de surjections]\label{exo-produit-surjections}
-Soient $f:X\to Y$ et $g:X'\to Y'$ deux surjections. Montrer que l'application
-\[ 
-\Phi : X\times X' \to Y\times Y', (x,x') \mapsto (f(x),g(x'))
-\]
-est surjective.
-\end{exercice}
 
 
 
@@ -625,10 +603,6 @@ Montrer que  $f: \R\to \R, x\mapsto x^3$ est bijective.
 
 \begin{remarque}
 En général, la surjectivité est plus difficile à montrer que l'injectivité, car il faut résoudre une équation à paramètre : l'équation $f(x)=y$, de paramètre $y$, et d'inconnue $x$, et ce pour tous les paramètres $y$. La non surjectivité est en revanche souvent plus facile à montrer, il suffit de trouver un élément qui n'a pas d'antécédent, en général cela se voit (éventuellement après un petit calcul / majoration / développement d'expression).
-\end{remarque}
-
-\begin{remarque}
-Si $f : A\to B$ est injective, alors on peut parfois \og identifier\fg{} $A$ à un sous-ensemble de $B$ grâce à $f$ : un élément $a \in A$ est identifié à $f(a) \in B$. \textbf{Attention}, cette façon d'identifier $A$ à une partie de $B$ dépend de $f$ et il existe en général plusieurs injections de $A$ dans $B$, donc le choix de l'injection n'est pas anodin, ni canonique en général.
 \end{remarque}
 
 
@@ -662,16 +636,6 @@ Montrer que
 Autrement dit, montrer que l'application $\Phi : \R_+\times \R \to \R^2, \quad (r,t) \mapsto (r\cos t, r\sin t)$ est surjective. Plutôt que d'utiliser un calcul direct, il est recommandé de l'écrire comme composée et d'utiliser la proposition \ref{prop-composition-inj-surj-bij}, ainsi que les exercices \ref{exo-param-cercle}, \ref{exo-decomp-polaire}  et \ref{exo-produit-surjections}.
 \end{exercice}
 
-\begin{exercice}[Coordonnées sphériques sur l'espace]\index{coordonnées!sphériques}\label{exo-coord-spheriques-espace}
-Montrer que 
-\[ \R^3 = \ensemble{(r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)}{r\in\R_+, \: \theta \in [-\pi,\pi], \: \phi\in[-\frac{\pi}{2},\frac{\pi}{2}]}\]
-Autrement dit, montrer que l'application 
-\[\Phi : \R_+\times [-\pi,\pi]\times [-\frac{\pi}{2},\frac{\pi}{2}] \to \R^3, \quad 
-(r,t) \mapsto (r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)
-\]
-est surjective. Plutôt que d'utiliser un calcul direct, il est recommandé de l'écrire comme composée et d'utiliser la proposition \ref{prop-composition-inj-surj-bij}, ainsi que les exercices \ref{exo-coord-spheriques-sphere}, \ref{exo-decomp-spherique}  et \ref{exo-produit-surjections}.
-C'est le paramétrage de $\R^3$ par coordonnées sphériques  ( par opposition aux coordonnées cartésiennes). Les conventions utilisées ici sont celles des mathématiciens et géographes (longitude et latitude), pas celles des physiciens (colatitude). Elles ont l'avantage d'être cohérentes avec les coordonnées polaires du plan, et les coordonnées cylindriques dans l'espace.
-\end{exercice}
 
 
 \begin{proposition}[réciproques partielles]
@@ -1120,6 +1084,50 @@ La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée.
 
 
 \section{Exercices d'approfondissement}
+
+Les premiers exercices tournent autour des coordonnées sphériques. Les résultats sont des analogues de ceux sur les coordonnées polaires dans le plan, mais sont plus techniques à énoncer et à démontrer.
+
+
+\begin{exercice}[Coordonnées sphériques sur la sphère]\index{coordonnées!sphériques}\label{exo-coord-spheriques-sphere}
+On note $\S^2$ la sphère unité de $\R^3$, c'est-à-dire 
+\[ \S^2 = \ensemble{(x,y,z)\in\R^3}{x^2+y^2+z^2=1}\]
+Soit 
+\[ f : 
+\begin{cases}
+ [-\pi,\pi] \times [-\pi/2,\pi/2] &\longrightarrow \R^3\\
+(\theta,\phi) &\mapsto (\cos\phi\cos\theta,\: \cos\phi\sin\theta, \: \sin\phi)
+\end{cases}
+\]
+Montrer que l'image de $f$ est $\S^2$. Ceci signifie que l'on peut écrire:
+\[ \S^2 = \ensemble{(\cos\phi\cos\theta,\: \cos\phi\sin\theta, \: \sin\phi)}{\theta\in [-\pi,\pi], \phi\in [-\pi/2,\pi/2]}
+\]
+On dit que l'application $f$ est le paramétrage de la sphère $\S^2$ par longitude et latitude. Remarquer que les deux pôles n'ont pas de longitude bien définie.
+\end{exercice}
+
+\begin{exercice}\label{exo-decomp-spherique}
+Montrer que $g : \R_+\times \S^2 \to \R^3, \quad (r,(x,y,z))\mapsto (rx,ry,rz)$ est surjective.
+\end{exercice}
+
+\begin{exercice}[\og produit\fg{} de surjections]\label{exo-produit-surjections}
+Soient $f:X\to Y$ et $g:X'\to Y'$ deux surjections. Montrer que l'application
+\[ 
+\Phi : X\times X' \to Y\times Y', (x,x') \mapsto (f(x),g(x'))
+\]
+est surjective.
+\end{exercice}
+
+
+\begin{exercice}[Coordonnées sphériques sur l'espace]\index{coordonnées!sphériques}\label{exo-coord-spheriques-espace}
+Montrer que 
+\[ \R^3 = \ensemble{(r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)}{r\in\R_+, \: \theta \in [-\pi,\pi], \: \phi\in[-\frac{\pi}{2},\frac{\pi}{2}]}\]
+Autrement dit, montrer que l'application 
+\[\Phi : \R_+\times [-\pi,\pi]\times [-\frac{\pi}{2},\frac{\pi}{2}] \to \R^3, \quad 
+(r,t) \mapsto (r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)
+\]
+est surjective. Plutôt que d'utiliser un calcul direct, il est recommandé de l'écrire comme composée et d'utiliser la proposition \ref{prop-composition-inj-surj-bij}, ainsi que les exercices \ref{exo-coord-spheriques-sphere}, \ref{exo-decomp-spherique}  et \ref{exo-produit-surjections}.
+C'est le paramétrage de $\R^3$ par coordonnées sphériques  ( par opposition aux coordonnées cartésiennes). Les conventions utilisées ici sont celles des mathématiciens et géographes (longitude et latitude), pas celles des physiciens (colatitude). Elles ont l'avantage d'être cohérentes avec les coordonnées polaires du plan, et les coordonnées cylindriques dans l'espace.
+\end{exercice}
+
 
 
 % restriction, corestriction 
