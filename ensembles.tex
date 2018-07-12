@@ -232,3 +232,25 @@ Leur \emph{intersection}, notée $\bigcap_{i\in I} E_i$, est l'ensemble $\{x\in 
 %Dans le cas particulier où l'ensemble $E$ est un cercle, son cylindre peut effectivement être vu comme un cylindre (de hauteur un). Le cas général est une abstraction de cet exemple. Dans le cas général, le cylindre peut être vu comme \og l'épaississement de $E$ dans une direction\fg.
 %\end{definition}
 
+\section{Exercices d'approfondissement}
+
+\begin{exercice}[Topologies]
+Soit $E$ un ensemble et  $\mathcal O$ une partie de $\mathcal P(E)$. On dit que $\mathcal O$ est une \emph{topologie sur $E$} si les conditions suivantes sont vérifiées
+\begin{itemize}
+\item Pour tout $n\in \N^*$ et toute famille $U_1, \cdots U_n$ d'éléments de $\mathcal O$, on a $\bigcap_{i=1}^n U_i\in \mathcal O$.
+\item Pour tout ensemble $I$ et toute famille $(U_i)_{i\in I}$ d'éléments de $\mathcal O$, $\bigcup_{i\in I}U_i \in \mathcal O$.
+\item Les parties $\emptyset$ et $E$ sont des éléments de $\mathcal O$.
+\end{itemize}
+
+\begin{enumerate}
+\item Montrer que $\mathcal O_1=\{\emptyset, E\}$ et $\mathcal O_2=\mathcal P(E)$ sont des topologies sur $E$.
+\item Montrer que 
+\[ \mathcal O_3 = \ensemble{U\in \mathcal P(E)}{U=\emptyset \text{ ou }{}^cU\text{ est fini}}
+\]
+est une topologie sur $E$.
+\item Combien de topologies différentes y a-t-il si $E$ est l'ensemble vide ? S'il n'a qu'un seul élément ? Deux éléments ? Trois éléments ?
+% les ensembles finis n'ont pas encore été vus en détail mais c'est faisable
+\end{enumerate}
+\end{exercice}
+
+

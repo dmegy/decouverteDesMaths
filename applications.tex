@@ -1146,6 +1146,24 @@ Soient $f : A\to B$ et $g : A\to C$. On suppose que $g$ se factorise à droite p
 Montrer que si $f$ est surjective, alors l'application $h$ qui factorise $g$ est forcément unique.
 \end{exercice}
 
+\begin{exercice}[Fonctions sous-modulaires]
+Soit $E$ un ensemble, et $f : \mathcal P(E) \to \R$. Montrer que les deux conditions suivantes sont équivalentes:
+\begin{enumerate}
+\item Pour toutes parties $A$ et $B$ de $E$, on a 
+\[
+f(A\cup B) \leq f(A)+f(B)-f(A\cap B)
+\]
+\item Pour toutes parties $A$ et $B$ de $E$ avec $A\subseteq B$, et pour tout $x\in E\setminus B$,
+\[
+f(A\cup \{x\}) - f(A) \geq f(B\cup \{x\}) - f(B)
+\]
+\end{enumerate}
+Une fonction qui vérifie ces conditions est dite \emph{sous-modulaire}.
+\end{exercice}
+
+% exercices sur les probas sur ensembles finis ? Sur l'entropie ?
+
+
 
 Les deux exercices suivants montrent que l'ensemble des surjections et l'ensemble des injections forment ce qui est parfois appelé un \emph{système orthogonal de factorisation}, une notion que l'on recroise dans plusieurs contextes en mathématiques.
 
