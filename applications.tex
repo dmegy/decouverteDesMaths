@@ -5,6 +5,8 @@
 % TODO : mettre exemple dans le plan, par exemple x^2+y^2, antécédents, applications linéaires (montrer surjectivité, injectivité)
 % mettre des courbes paramétrées
 % images réciproques et fibres <-> courbes de niveau ?
+% changer notation image directe et réciproque de parties : f_* et f^* ?
+% mettre un exercice sur les B-espaces ?
 
 
 
@@ -1267,8 +1269,9 @@ On note $\operatorname{pr}_A : A\times_C B \to A, (a,b)\mapsto a$ et $\operatorn
  & B \ar[ur]_{\psi}&
 }\]
 
-
-Montrer que l'ensemble $A\times_C B$ ainsi que les deux projections vérifient la propriété suivante (dite \emph{propriété universelle du produit fibré}):
+\begin{enumerate}
+\item (Mise en garde de zérologie) Trouver un exemple d'ensembles $A$, $B$ et $C$ non vides et  d'applications $\phi$ et $\psi$ comme plus haut, tels que $A\times_C B$ soit vide.
+\item Montrer que l'ensemble $A\times_C B$ ainsi que les deux projections vérifient la propriété suivante (dite \emph{propriété universelle du produit fibré}):
 \begin{quote}
 Pour tout ensemble $D$ muni d'applications $f$ et $g$ vers (respectivement) $A$ et $B$ vérifiant $\phi \circ f =  \psi\circ g$, il existe une unique application $h : D\to A\times_C B$ telle que $f =\operatorname{pr}_A \circ  h$ et $g =\operatorname{pr}_B \circ  h$, c'est-à-dire qu'il existe une unique application $h : D\to A\times_C B$ faisant commuter le diagramme suivant:
 \[ 
@@ -1278,6 +1281,7 @@ D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times_C B \ar[ur]
 & & & B \ar[ur]_{\psi}&
 }\]
 \end{quote}
+\end{enumerate}
 \end{exercice}
 
 % produits cofibrés et coégalisateurs après les ensembles quotients
@@ -1299,5 +1303,9 @@ Soit $f : A\to C$.
 Les notions de fibre et d'image réciproque sont donc des cas particuliers de la notion de produit fibré.
 \end{exercice}
 
+% exercice : défintion d'un graphe, orienté ou non orienté.
 
+% exercice : définition d'une catégorie.
+
+% exercice : définition d'une loi de composition
 
