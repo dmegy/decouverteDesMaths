@@ -452,7 +452,7 @@ Par ailleurs, $f$ est une rétraction de $s_1$ et de $s_2$. (Voir remarque ci-de
 \emph{Résumé : restriction, prolongement, corestriction}
 
 \begin{definition}[Restriction]
-\index{restriction d'une application}
+\index{restriction d'une application}\label{def-restriction}
 Soit $f : E\to F$ et $A \in \mathcal P(E)$ une partie de $E$. La \emph{restriction} de $f$ à $A$, notée $f|_{A}$, est l'application de $A$ dans $F$ suivante:
 \[
 f|_{A} : A\to F, \: x\mapsto f(x)
@@ -1096,7 +1096,7 @@ On note $\S^2$ la sphère unité de $\R^3$, c'est-à-dire
 Soit 
 \[ f : 
 \begin{cases}
- [-\pi,\pi] \times [-\pi/2,\pi/2] &\longrightarrow \R^3\\
+ [-\pi,\pi] \times \left[-\frac{\pi}{2},\frac{\pi}{2}\right] &\longrightarrow \R^3\\
 (\theta,\phi) &\mapsto (\cos\phi\cos\theta,\: \cos\phi\sin\theta, \: \sin\phi)
 \end{cases}
 \]
@@ -1121,16 +1121,42 @@ est surjective.
 
 \begin{exercice}[Coordonnées sphériques sur l'espace]\index{coordonnées!sphériques}\label{exo-coord-spheriques-espace}
 Montrer que 
-\[ \R^3 = \ensemble{(r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)}{r\in\R_+, \: \theta \in [-\pi,\pi], \: \phi\in[-\frac{\pi}{2},\frac{\pi}{2}]}\]
+\[ \R^3 = \ensemble{(r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)}{r\in\R_+, \: \theta \in [-\pi,\pi], \: \phi\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]}\]
 Autrement dit, montrer que l'application 
-\[\Phi : \R_+\times [-\pi,\pi]\times [-\frac{\pi}{2},\frac{\pi}{2}] \to \R^3, \quad 
+\[\Phi : \R_+\times [-\pi,\pi]\times \left[-\frac{\pi}{2},\frac{\pi}{2}\right] \to \R^3, \quad 
 (r,t) \mapsto (r\cos\theta\cos\phi, r\sin\theta\cos\phi, r\sin\phi)
 \]
 est surjective. Plutôt que d'utiliser un calcul direct, il est recommandé de l'écrire comme composée et d'utiliser la proposition \ref{prop-composition-inj-surj-bij}, ainsi que les exercices \ref{exo-coord-spheriques-sphere}, \ref{exo-decomp-spherique}  et \ref{exo-produit-surjections}.
 C'est le paramétrage de $\R^3$ par coordonnées sphériques  ( par opposition aux coordonnées cartésiennes). Les conventions utilisées ici sont celles des mathématiciens et géographes (longitude et latitude), pas celles des physiciens (colatitude). Elles ont l'avantage d'être cohérentes avec les coordonnées polaires du plan, et les coordonnées cylindriques dans l'espace.
 \end{exercice}
 
+\begin{exercice}(Curryfication)\index{curryfication}
+Soient $X$, $Y$ et $Z$ des ensembles. On définit une application $\phi : Z^{X\times Y} \to \left(Z^Y\right)^X$ comme suit. Si $f\in Z^{X\times Y}$ est une fonction, $\phi(f)$ est la fonction 
+\[ \phi(f) : \begin{cases}
+X \to &Z^Y\\
+x\mapsto& \phi(f)(x):\begin{cases}Y&\to Z\\y&\mapsto f\left( (x,y) \right)\end{cases}
+\end{cases}
+\]
+Montrer que $\phi$ est une bijection de $Z^{X\times Y} $ dans $\left(Z^Y\right)^X$. Indication : quelle est l'application réciproque ?
+(En informatique, l'application $\phi$ est appelée opération de \emph{curryfication} : elle transforme une fonction de plusieurs variables en une fonction d'une seule variable, mais qui retourne une fonction. L'application réciproque est la \emph{décurryfication}.)
+% voir https://fr.wikipedia.org/wiki/Curryfication
+\end{exercice}
 
+\begin{exercice}[Axiomes de recollement]
+% source : Maxime 9932
+Soit $E$ un ensemble et $A, B \in \mathcal P(E)$.
+
+On considère l'application
+\[ \Phi : \begin{cases}
+\R^E &\to \R^A \times \R^B\\
+f&\mapsto (f|_A, f|_B).
+\end{cases}\]
+\begin{enumerate}
+\item Montrer que $\Phi$ est injective si et seulement si $A \cup B = E$.
+\item Donner une condition nécessaire et suffisante pour que $\Phi$ soit surjective.
+\item En général, décrire l'image de $\Phi$.
+\end{enumerate}
+\end{exercice}
 
 % restriction, corestriction 
 \begin{exercice}
@@ -1140,6 +1166,24 @@ Soit $i : B\to F$ l'inclusion de $B$ dans $F$, et soit $r : F\to B$ une fonction
 \item Vérifier que $r$ est une rétraction de $i$.
 \item Vérifier que la corestriction $f|^{B}$ est égale à la composée $r\circ f$.
 \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Applications simplifiables  à gauche]
+Soit $f : X\to Y$ une application. On dit qu'elle est \emph{simplifiable à gauche} si pour tout ensemble $Z$ et pour tout couple d'applications $g$ et $h$ de $Z$ dans $X$, on a $(\: f\circ g = f\circ h \implies g=h \: )$.
+
+Montrer qu'une application est injective si et seulement si elle est simplifiable à gauche, d'abord en utilisant exclusivement la définition d'application injective, puis en utilisant la caractérisation en termes de rétractions.
+\end{exercice}
+
+\begin{exercice}[Monomorphismes, épimorphismes, tiré en arrière]
+% Maxime 5924
+Soit $E$ et $F$ deux ensembles non vides et $G$ un ensemble ayant au moins deux éléments. Soit $f : E \to F$. On considère l'application
+\[ \phi : \begin{cases}G^F&\to G^E\\ g&\mapsto g\circ f.\end{cases}\]
+\begin{enumerate}
+\item Montrer que $\phi$ est injective si et seulement si $f$ est surjective.
+\item Donner une condition nécessaire et suffisante sur $g, h : F \to G$ pour que $\phi(g) = \phi(h)$.
+\item Montrer que $\phi$ est surjective si et seulement si $f$ est injective.
+  \end{enumerate}
+(Remarque : l'application $\Phi$ est parfois notée $f^\#$, et appelée le \og tiré en arrière (de $F$ à $E$, par $f$)\fg. C'est juste la composition à droite par $f$, mais cette notation et ce nom sont plus parlants : lorsque l'on a une fonction de $F$ dans $G$, on peut la \og tirer en arrière à $E$\fg, ce qui donne une fonction de $E$ dans $G$.)
 \end{exercice}
 
 \begin{exercice}
@@ -1191,7 +1235,7 @@ B \ar[r]\ar[ur]^{r}& D
 Montrer que si $e$ est surjective et $m$ est injective, alors $e\perp m$.
 \end{exercice}
 
-Les deux exercices qui suivent donnent un éclairage alternatif sur le produit cartésien et sa contrepartie, l' \og union disjointe\fg.
+Les deux exercices qui suivent donnent un éclairage alternatif sur le produit cartésien et sa contrepartie, la \og somme cartésienne\og{}, aussi appelée \og union disjointe\fg.
 
 \begin{exercice}[Propriété universelle du produit]\index{propriété universelle!du produit}
 Soient $A$ et $B$ des ensembles, et $ A\times B$ leur produit (cartésien). On note $\operatorname{pr}_A : A\times B \to A, (a,b)\mapsto a$ et $\operatorname{pr}_B : A\times B \to B, (a,b)\mapsto b$. Ces deux applications sont appelées les \emph{projections canoniques sur les facteurs du produit}.
@@ -1208,15 +1252,15 @@ D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times B \ar[ur]_{
 \end{quote}
 \end{exercice}
 
-\begin{exercice}[Union disjointe/coproduit/somme cartésienne]\label{exo-coproduit}
-\index{union disjointe}\index{coproduit}\index{propriété universelle!de l'union disjointe/coproduit}
-Soient $A$ et $B$ deux ensembles. On appelle \emph{coproduit (ou union disjointe) de $A$ et $B$} l'ensemble
+\begin{exercice}[Union disjointe/somme cartésienne]\label{exo-coproduit}
+\index{union disjointe}\index{somme cartésienne}\index{propriété universelle!de la somme cartésienne}
+Soient $A$ et $B$ deux ensembles. On appelle \emph{somme cartésienne  de $A$ et $B$} l'ensemble
 \[
 A\coprod B = (\{0\}\times A) \bigcup (\{1\}\times B)
 \]
 Cet ensemble est muni de deux applications $i_A : A\to A\coprod B, a\mapsto (0,a)$ et  $i_B : B\to A\coprod B, b\mapsto (1,b)$.
 
-Montrer que $A\coprod B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle du coproduit (ou de l'union disjointe)}): 
+Montrer que $A\coprod B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle  de la somme cartésienne}): 
 \begin{quote}
 Pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\coprod B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application $h$ faisant commuter le diagramme  suivant:
 \[ 
@@ -1226,7 +1270,7 @@ A \ar[dr]_{i_A} \ar[drrr]^{f}& & & \\
 B \ar[ur]^{i_B} \ar[urrr]_{g}& & &
 }\]
 \end{quote}
-% aussi noté $A\biguplus B$
+(Remarque : la somme cartésienne de $A$ et de $B$ est aussi fréquemment notée $A\biguplus B$ ou $A\bigsqcup B$ et appelée \emph{union disjointe}. Cette dernière appellation est aussi plus parlante que celle de somme cartésienne, mais elle ne souligne pas la dualité avec la notion de produit cartésien.)
 \end{exercice}
 
 
