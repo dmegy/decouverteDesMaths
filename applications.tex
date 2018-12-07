@@ -593,7 +593,7 @@ On dit que $f : A\to B$ est \emph{bijective} (ou que c'est une \emph{bijection})
 \item Si $A\subseteq B$, la fonction $i : A\to B, x\mapsto x$, appelée \emph{l'inclusion de $A$ dans $B$}, est injective. De même que les fonctions identité, les fonctions d'inclusion jouent souvent un rôle important malgré leur apparence anodine.
 \item Si $f : E\to F$ est injective, sa restriction $f|_A$ à toute partie $A\subseteq E$ est injective.
 \item On a déjà vu que $f : \R \to \R, x\mapsto x^2$ n'est ni injective, ni surjective. La corestriction de $f$ à $\R_+$ est $g : \R \to \R_+, x\mapsto x^2$. Elle n'est pas injective pour les mêmes raisons que $f$, mais elle est surjective : le codomaine est cette fois $\R_+$, et tout nombre réel positif $y\geq 0$ a au moins un antécédent, par exemple $-\sqrt{y}$.
-\item La restriction de $g$ à $\R_+$ est $h : \R_+ \to \R_+, x\mapsto x^2$. Elle est injective et surjective, donc bijective. Elle est injective car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguité de signe). Sa surjectivité ne découle pas directement de celle de $g$ car le domaine a été restreint : elle est surjective car tout nombre réel positif $y\geq 0$ a au moins un antécédent \emph{dans $\R_+$}, à savoir $\sqrt{y}$.
+\item La restriction de $g$ à $\R_+$ est $h : \R_+ \to \R_+, x\mapsto x^2$. Elle est injective et surjective, donc bijective. Elle est injective car si $x$ et $y$ sont des réels positifs ayant même carré, ils sont forcément égaux (ils sont positifs donc il n'y a pas l'ambiguïté de signe). Sa surjectivité ne découle pas directement de celle de $g$ car le domaine a été restreint : elle est surjective car tout nombre réel positif $y\geq 0$ a au moins un antécédent \emph{dans $\R_+$}, à savoir $\sqrt{y}$.
 \item (Zérologie)\index{zérologie} L'unique fonction de $\varnothing$ dans $\varnothing$ est bijective. La fonction vide de $\varnothing$ dans n'importe quel ensemble est toujours injective.
 \end{enumerate}
 \end{exemple}
@@ -601,6 +601,19 @@ On dit que $f : A\to B$ est \emph{bijective} (ou que c'est une \emph{bijection})
 \begin{exercice}
 Montrer que  $f: \R\to \R, x\mapsto x^3$ est bijective.
 \end{exercice}
+
+\begin{exercice}
+On définit l'application 
+\[\phi : \N\to \Z, n\mapsto \begin{cases} n/2&\text{ si $n$ est pair},\\ -\frac{n+1}{2} & \text{sinon.}\end{cases}
+\]
+Montrer que $\phi$ est (bien définie et) bijective. Déterminer son application réciproque.
+\end{exercice}
+
+Cet exercice prouve donc le résultat suivant, fondamental (et potentiellement contre-intuitif) :
+
+\begin{mdframed}[linewidth=2]
+Il existe une bijection entre $\N$ et $\Z$.
+\end{mdframed}
 
 
 \begin{remarque}
@@ -1010,7 +1023,7 @@ f^{\circ n} = \begin{cases}
 Il arrive que l'on écrive $f^n$ au lieu de $f^{\circ n}$ bien que ce soit déconseillé, pour éviter la confusion entre produit et composition.
 \end{definition}
 
-\begin{definition}[Point fixe et lieu fixe]
+\begin{definition}[Point fixe et lieu fixe]\label{def-point-fixe}
 \index{point fixe}\index{lieu fixe}
 Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{fixe par $f$} (ou simplement \emph{fixe} s'il n'y a pas d'ambiguïté sur la fonction), si $f(x)=x$. On dit aussi que $x$ est un \emph{point fixe} de $f$. Le \emph{lieu fixe} de $f$ est la partie de $E$ constituée de tous les points fixes : $\Fix(f) = \{x\in E\:|\: f(x)=x \}$.
 \end{definition}
@@ -1051,10 +1064,19 @@ E \ar[r]_{g\circ f\circ g^{-1}}& E
 \end{enumerate}
 \end{exercice}
 
+\begin{definition}[Point cyclique]\index{point cyclique}\label{def-point-cyclique}
+Soit $f : E\to E$ une application d'un ensemble dans lui-même. Un élément $x\in E$ est dit \emph{cyclique par $f$} (ou simplement \emph{cyclique} s'il n'y a pas d'ambiguïté sur la fonction), s'il existe $k\in\N^*$ tel que $f^{\circ k}(x)=x$. 
+\end{definition}
+
+Cette notion généralise la notion de point fixe : un point fixe est cyclique, mais un point cyclique n'est pas forcément fixe.
+
+\begin{exercice}
+Soit $f : \R\to \R, x\mapsto -x$. Montrer que tous les points sont cycliques. Lesquels sont fixes ?
+\end{exercice}
 
 
-\begin{comment}
-\subsection{Saturation}
+
+\section{Compléments: saturation}
 
 
 \begin{propdef}[Saturation, partie saturée]
@@ -1077,7 +1099,10 @@ Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par dé
 La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée. Par contre, les parties $B = \{0\}$ et $C=\{-2,2\}$ sont saturées (relativement à $f$, toujours).
 \end{enumerate}
 \end{exemple}
-\end{comment}
+
+\begin{exercice}
+Montrer qu'une application $f:E\to F$ est injective si et seulement si toute partie de $E$ est saturée relativement à $f$.
+\end{exercice}
 
 
 
@@ -1252,15 +1277,15 @@ D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times B \ar[ur]_{
 \end{quote}
 \end{exercice}
 
-\begin{exercice}[Union disjointe/somme cartésienne]\label{exo-coproduit}
-\index{union disjointe}\index{somme cartésienne}\index{propriété universelle!de la somme cartésienne}
-Soient $A$ et $B$ deux ensembles. On appelle \emph{somme cartésienne  de $A$ et $B$} l'ensemble
+\begin{exercice}[Union disjointe]\label{exo-coproduit}
+\index{union disjointe}\index{propriété universelle!de l'union disjointe}
+Soient $A$ et $B$ deux ensembles. On appelle \emph{union disjointe  de $A$ et $B$} l'ensemble
 \[
 A\coprod B = (\{0\}\times A) \bigcup (\{1\}\times B)
 \]
 Cet ensemble est muni de deux applications $i_A : A\to A\coprod B, a\mapsto (0,a)$ et  $i_B : B\to A\coprod B, b\mapsto (1,b)$.
 
-Montrer que $A\coprod B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle  de la somme cartésienne}): 
+Montrer que $A\coprod B$ ainsi que $i_A$ et $i_B$ vérifient la propriété suivante (dite \emph{propriété universelle  de l'union disjointe}): 
 \begin{quote}
 Pour tout ensemble  $C$ muni d'applications $f : A\to C$ et $g : B\to C$, il existe une unique application $h : A\coprod B \to C$ telle que $f = h\circ i_A$ et $g = h\circ i_B$, autrement dit il existe une unique application $h$ faisant commuter le diagramme  suivant:
 \[ 
@@ -1270,7 +1295,7 @@ A \ar[dr]_{i_A} \ar[drrr]^{f}& & & \\
 B \ar[ur]^{i_B} \ar[urrr]_{g}& & &
 }\]
 \end{quote}
-(Remarque : la somme cartésienne de $A$ et de $B$ est aussi fréquemment notée $A\biguplus B$ ou $A\bigsqcup B$ et appelée \emph{union disjointe}. Cette dernière appellation est aussi plus parlante que celle de somme cartésienne, mais elle ne souligne pas la dualité avec la notion de produit cartésien.)
+(Remarque : l'union disjointe de $A$ et de $B$ est aussi souvent notée  $A\bigsqcup B$.)
 \end{exercice}
 
 
@@ -1345,6 +1370,10 @@ Soit $f : A\to C$.
 \item De manière plus générale, si $B\subseteq C$ est une partie, montrer que l'image réciproque de $B$ est exactement $A\times_C B$.
 \end{enumerate}
 Les notions de fibre et d'image réciproque sont donc des cas particuliers de la notion de produit fibré.
+\end{exercice}
+
+\begin{exercice}
+Existe-t-il une fonction $\phi : \N\to \N$ sans point cyclique ? % oui : bijection avec $\Z$, puis translation.
 \end{exercice}
 
 % exercice : défintion d'un graphe, orienté ou non orienté.
