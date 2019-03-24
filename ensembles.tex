@@ -237,8 +237,8 @@ Leur \emph{intersection}, notée $\bigcap_{i\in I} E_i$, est l'ensemble $\{x\in 
 \begin{exercice}[Topologies]
 Soit $E$ un ensemble et  $\mathcal O$ une partie de $\mathcal P(E)$. On dit que $\mathcal O$ est une \emph{topologie sur $E$} si les conditions suivantes sont vérifiées
 \begin{itemize}
-\item Pour tout $n\in \N^*$ et toute famille $U_1, \cdots U_n$ d'éléments de $\mathcal O$, on a $\bigcap_{i=1}^n U_i\in \mathcal O$.
-\item Pour tout ensemble $I$ et toute famille $(U_i)_{i\in I}$ d'éléments de $\mathcal O$, $\bigcup_{i\in I}U_i \in \mathcal O$.
+\item $\mathcal O$ est stable par intersection finie, autrement dit : pour tout $n\in \N^*$ et toute famille $U_1, \cdots U_n$ d'éléments de $\mathcal O$, on a $\bigcap_{i=1}^n U_i\in \mathcal O$.
+\item $\mathcal O$ est stable par union quelconque, autrement dit : pour tout ensemble $I$ et toute famille $(U_i)_{i\in I}$ d'éléments de $\mathcal O$, $\bigcup_{i\in I}U_i \in \mathcal O$.
 \item Les parties $\emptyset$ et $E$ sont des éléments de $\mathcal O$.
 \end{itemize}
 
@@ -253,4 +253,39 @@ est une topologie sur $E$.
 \end{enumerate}
 \end{exercice}
 
+\begin{exercice}[Bornologies]
+Dans l'ensemble $\R$, il existe une notion de \emph{partie bornée} : c'est une partie qui est incluse dans un segment du type $[-M,M]$, pour un certain $M$. Cet exercice montre comment généraliser cette notion de \emph{partie bornée} à un ensemble quelconque.
 
+Soit $E$ un ensemble et  $\mathcal B$ une partie de $\mathcal P(E)$. On dit que $\mathcal B$ est une \emph{bornologie sur $E$} si les conditions suivantes sont vérifiées
+\begin{itemize}
+\item Si $A\in \mathcal B$ et $B\subseteq A$, alors $B\in \mathcal B$.
+\item Si $A\in \mathcal B$ et $B \in \mathcal B$, alors $A\cup B\in \mathcal B$.
+\item Pour tout $x\in E$, on a  $\{x\} \in \mathcal B$.
+\end{itemize}
+Les éléments de $\mathcal B$ sont dits \emph{$\mathcal B$-bornés}, ou simplement \emph{bornés} s'il n'y a pas d'ambiguïté sur la bornologie utilisée.
+
+Dans la suite, on fixe un ensemble $E$.
+\begin{enumerate}
+\item Montrer que $\mathcal B_1=\{\emptyset, E\}$ est une bornologie de $E$. On l'appelle la \emph{bornologie triviale (ou : grossière)}.
+\item Montrer que l'ensemble $\mathcal B_2$ des parties finies de $E$ est une bornologie de $E$. On l'appelle la \emph{bornologie discrète}.
+\item Combien de bornologies différentes y a-t-il si $E$ est vide ? S'il contient (exactement) un élément ? Deux ? Trois ?
+\item On suppose maintenant que $E=\R$. Soit $\mathcal B_3$ l'ensemble des parties $A\subseteq \R$ bornées au sens classique, autrement dit 
+\[ A\in \mathcal B_3 \iff \exists M\in \R, \forall a\in A, |a|\leq M\]
+Montrer que $\mathcal B_3$ est une bornologie. On l'appelle la \emph{bornologie usuelle sur $\R$}, et lorsqu'on parle de bornés de $\R$, il est implicite qu'on se réfère à cette bornologie (et non aux deux premières par exemple).
+\item 
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Algèbre de parties]
+Soit $E$ un ensemble et  $\mathcal A$ une partie de $\mathcal P(E)$. On dit que $\mathcal A$ est une \emph{algèbre de parties $E$} si les conditions suivantes sont vérifiées:
+\begin{itemize}
+\item $\mathcal A$ n'est pas vide.
+\item Si $X\in \mathcal A$, alors $E\setminus X$ aussi.
+\item $\mathcal A$ est stable par union finie, autrement dit : pour tout $n\in \N^*$ et toute famille $U_1, \cdots U_n$ d'éléments de $\mathcal A$, on a $\bigcup_{i=1}^n U_i\in \mathcal A$.
+\end{itemize}
+\begin{enumerate}
+\item Montrer que $\mathcal P(E)$ est une algèbre de parties de $E$.
+\item Montrer  qu'une algèbre de parties de $E$ est stable par intersection finie.
+\item Si $E$ a un, deux, ou trois éléments, combien d'algèbres de parties y a-t-il ?
+\end{enumerate}
+\end{exercice}
