@@ -501,7 +501,7 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \item La relation $\perp$ (perpendiculaire) n'est \textbf{pas} une relation d'équivalence car elle n'est pas réflexive, ni transitive.
 \item Tout ensemble possède la relation d'équivalence triviale : celle où tous les éléments sont équivalents.
 \item Sur $\R$, la relation $x\mathcal R y \iff \left(x=y\text{ ou }x=-y\right)$ est une relation d'équivalence.
-\item L'ensemble vide\index{ensemble vide} possède une seule relation d'équivalence, la relation vide (la seule fonction de $\varnothing \times \varnothing$ dans $\{\text{vrai,\: faux}\}$ à savoir la fonction vide : on vérifie qu'elle définit bien une relation d'équivalence).
+\item L'ensemble vide\index{vide!ensemble} possède une seule relation d'équivalence, la relation vide (la seule fonction de $\varnothing \times \varnothing$ dans $\{\text{vrai,\: faux}\}$ à savoir la fonction vide : on vérifie qu'elle définit bien une relation d'équivalence).
 \item Un singleton\index{singleton}, c'est-à-dire un ensemble contenant un unique élément, possède une seule relation d'équivalence (celle où l'unique élément est relié à lui-même).
 \item Un ensemble $\{a,b\}$ à deux éléments possède deux relations d'équivalence distinctes : la première est l'\emph{égalité}, la seconde est la \emph{relation d'équivalence triviale}, celle où $a$ et $b$ sont équivalents.
 \item Un ensemble à trois éléments possède cinq relations d'équivalence (exercice).
@@ -510,7 +510,7 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 
 \begin{exercice}
 Sur $\Z\times \N^*$, on définit la relation binaire $\mathcal R$ par
-\[(p,q)\mathcal (p',q') \iff pq'=p'q.\]
+\[(p,q)\mathcal R (p',q') \iff pq'=p'q.\]
 Montrer que c'est une relation d'équivalence.
 \end{exercice}
 
@@ -736,7 +736,7 @@ Soit $E$ un ensemble, et soit $(A_i)_{i\in I}$ une famille de parties de $E$. Ce
 
 \begin{exemple}
 \begin{enumerate}
-\item L'ensemble vide\index{ensemble vide} possède une seule partition, la partition vide qui ne contient aucune partie (car les parties elles, doivent être non-vides).
+\item L'ensemble vide\index{vide!ensemble} possède une seule partition, la partition vide qui ne contient aucune partie (car les parties elles, doivent être non-vides).
 \item Un ensemble $\{a,b\}$ à deux éléments possède deux partitions : la partition triviale $\big\{\: \{a,b\} \:\big\}$ et la partition en deux singletons $\big\{\: \{a\},\{b\} \:\big\}$.
 \item Un ensemble à trois éléments possède cinq partitions distinctes (exercice).
 \item Tout ensemble possède la partition $\big\{\: \{x\}\:\mid\: x\in E \:\big\}$ qui est la partition en singletons inclus dans $E$. (Si $E$ est vide, la partition est vide).\index{partition!en singletons}
@@ -793,7 +793,7 @@ Au lieu de démontrer la prop. \ref{prop-fibres-partition} à l'aide de la prop.
 
 % rédiger différemment ? les deux propositons avec preuve directe + preuve utilisant l'autre proposition ? Quel choix est le plus rapide ?
 
-\begin{remarque}[Zérologie]\index{zérologie} Le quotient de l'ensemble vide\index{ensemble vide} par son unique relation d'équivalence est l'ensemble des classes d'équivalence : comme il n'y a aucune classe d'équivalence, l'ensemble quotient est vide. La projection canonique est l'application $p : \varnothing \to \varnothing$ (dite application vide). Elle est bien surjective !
+\begin{remarque}[Zérologie]\index{zérologie} Le quotient de l'ensemble vide\index{vide!ensemble} par son unique relation d'équivalence est l'ensemble des classes d'équivalence : comme il n'y a aucune classe d'équivalence, l'ensemble quotient est vide. La projection canonique est l'application $p : \varnothing \to \varnothing$ (dite application vide). Elle est bien surjective !
 \end{remarque}
 
 Ce résultat admet une \og réciproque\fg : 
@@ -1101,18 +1101,15 @@ Cette relation relie entre eux tous les points du \og bord gauche\fg.
 
 Les définitions introduites dans les exercices suivants ne sont pas exigibles à l'examen, mais la plupart sont très classiques : on les retrouve dans la plupart des cours sur le sujet (qui peuvent aussi être des cours d'informatique).
 
-\begin{exercice}[Union et intersection de deux relations]\label{exo-union-intersection-relations}
-Soient $\mathcal R$ et $\mathcal S$ deux relation sur $E$. On définit la disjonction (ou union), notée $\mathcal R \vee \mathcal S$, par:
+\begin{exercice}[Union/disjonction et intersection/conjonction de deux relations]\label{exo-union-intersection-relations}
+Soient $\mathcal R$ et $\mathcal S$ deux relations sur $E$. On définit la disjonction (ou union), notée $\mathcal R \vee \mathcal S$, par:
 \[ x (\mathcal R \vee \mathcal S) y \iff (x \mathcal R y\text{ ou } x \mathcal S y)\]
 De façon équivalente, le graphe de $\mathcal R \vee \mathcal S$ est l'union des graphes de $\mathcal R$ et de $\mathcal S$.
 
 De même, on définit la conjonction (ou intersection) $\mathcal R \wedge \mathcal S$ comme la relation dont le graphe est l'intersection des deux graphes de $\mathcal R$ et $\mathcal S$.
 
 
-\begin{enumerate}
-\item Soient $\mathcal R$ et $\mathcal S$ deux relation sur $E$. Montrer que $\mathcal R \vee \mathcal S$ et $\mathcal R \wedge \mathcal S$ sont symétriques.
-\item Si $\mathcal R$ et $\mathcal S$ sont réflexives et transitives, montrer que $\mathcal R \wedge \mathcal S$ est une relation d'équivalence, mais pas forcément $\mathcal R \vee \mathcal S$.
-\end{enumerate}
+Si $\mathcal R$ et $\mathcal S$ sont des relations d'équivalence, montrer que $\mathcal R \wedge \mathcal S$ est une relation d'équivalence, mais pas forcément $\mathcal R \vee \mathcal S$.
 \end{exercice}
 
 %\begin{exercice}[Clôture réflexive]
@@ -1221,7 +1218,7 @@ Pour tout ensemble $X$ et application $\phi : B \to X$ vérifiant $\phi\circ f =
 
 
 
-% (co) produits cofibrés
+
 
 \begin{exercice}[Somme / union amalgamée]
 Soient $A$,  $B$ et $C$  des ensembles et $f :  C\to A$, $g : C\to B$ des applications.
@@ -1258,7 +1255,7 @@ C\ar[ur]^f\ar[dr]_g& &  A\coprod_C B \ar@{-->}[rr]^{\exists !h}  & & D\\
 
 \begin{exercice}[Écrasement d'un sous-ensemble]%pincement?
 Soit $X$ un ensemble. Pour tout sous-ensemble $A\subseteq X$, on définit la relation binaire $\sim_A$ sur $X$ comme suit:
-\[ \forall (x,y)\in X^2, \: x\sim_A y \iff \left(x\in A\text{ et } y\in A\right).\]
+\[ \forall (x,y)\in X^2, \: x\sim_A y \iff \left(x=y \text{ ou } \left(x\in A\text{ et } y\in A\right)\right).\]
 \begin{enumerate}
 \item Montrer que c'est une relation d'équivalence sur $X$. Quelles sont ses classes d'équivalence ?
 \item Montrer que pour tout ensemble $E$, l'application 
