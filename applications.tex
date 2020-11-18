@@ -35,7 +35,7 @@ L'ensemble $\Gamma'' = \{(1,1),(2,1),(2,4),(3,4)\} \subseteq E\times F$ non plus
 
 \begin{definition}[Applications/fonction entre ensembles]
 \index{application}\index{fonction}\index{domaine}\index{source}\index{codomaine}\index{but}\index{graphe}\index{image!d'un élément}
-Une \emph{application} ou \emph{fonction} (dans ce cours, les deux mots sont synonymes) $f$ est la donnée de trois objets:
+Une \emph{application} (ou \emph{fonction}: dans ce cours, les deux mots sont synonymes) $f$ est la donnée de trois objets:
 \begin{enumerate}
 \item un ensemble $E$, appelé le \emph{domaine} ou la \emph{source}, ou encore l'\emph{ensemble de départ} de $f$;
 \item un ensemble $F$, appelé le \emph{codomaine} ou le \emph{but} ou encore l'\emph{ensemble d'arrivée} de $f$;
@@ -45,7 +45,8 @@ Ceci revient à donner $E$, $F$, et pour tout élément $x \in E$, un élément 
 \end{definition}
 
 \begin{attention}
-Il existe des ouvrages où le mot \og fonction\fg{} a un sens légèrement différent, mais ce n'est \textbf{pas} la convention adoptée ici. Les deux mots désignent rigoureusement le même concept jusqu'à la fin du cours. En particulier, le fameux \og domaine de définition d'une fonction\fg{} (terminologie du lycée, que l'on ne croisera bientôt plus) est ici toujours ...  son domaine tout entier : une fonction est par définition bien définie sur son domaine. La question de savoir si une expression est bien définie peut demeurer, mais doit être résolue \emph{avant} de définit une fonction à l'aide de cette expression.
+Il existe des ouvrages où les mots \og fonction\fg{} et \og application\fg{} ont des sens différents. Ce n'est \textbf{pas} la convention adoptée ici. Ici, et comme dans, par exemple, les programmes officiels des classes préparatoires, les deux mots désignent rigoureusement le même concept jusqu'à la fin du cours. Autrement dit les mots \og fonction\fg{} et \og application\fg{} sont synonymes.\\
+ En particulier, le fameux \og domaine de définition d'une fonction\fg{} (terminologie du lycée, que l'on ne croisera bientôt plus) est ici toujours ...  son domaine tout entier : une fonction est par définition bien définie sur son domaine. La question de savoir si une expression est bien définie peut demeurer, mais doit être résolue \emph{avant} de définir une fonction à l'aide de cette expression.
 \end{attention}
 
 Deux fonctions sont égales si elles ont même source et but, et si les images des éléments sont les mêmes. (Et il n'est pas suffisant de demander que les images soient les mêmes.)
@@ -742,57 +743,63 @@ Le sens \og si\fg{} a été démontré dans le corollaire \ref{bijective-si-reci
 
 \begin{definition}[Image directe d'une partie]
 \index{image!directe d'une partie}
-Soit $f : E\to F$ et $A\subseteq E$. On appelle image directe de $A$ l'ensemble des images des éléments de $A$ :
-\[f(A) = \{f(x)\:\mid\: x\in A\} = \{y\in F \:\mid\: \exists x\in A, y=f(x)\}.\]
-Autrement dit, pour un élément $y\in F$, on a $y\in f(A) \iff \left(\exists x\in A, y=f(x)\right)$.
+Soit $f : E\to F$ et $A\subseteq E$. On appelle image directe de $A$ et on note $f_*(A)$ l'ensemble des images des éléments de $A$ :
+\[f_*(A) := \{f(x)\:\mid\: x\in A\} = \{y\in F \:\mid\: \exists x\in A, y=f(x)\}.\]
+Autrement dit, pour un élément $y\in F$, on a $y\in f_*(A) \iff \left(\exists x\in A, y=f(x)\right)$.
 \end{definition}
 
+\begin{attention}
+Dans la plupart des ouvrages, l'image directe d'une partie est notée $f(A)$. C'est la notation la plus répandue, mais elle peut induire en erreur en laissant penser qu'on prend l'image par $g$ de $A$ : ceci n'a pas de sens a priori, car $f$ est définie sur $E$ et non $\mathcal P(E)$.
+
+Dans les examens, vous tolère la notation $f(A)$.
+\end{attention}
+
 \begin{exemple}\index{image}
-Si $f : E\to F$, alors $f(E)$ est juste l'image de $f$, introduite plus haut et notée $\Im f$. La notion d'image directe d'une partie est donc une généralisation de celle d'image d'une application.
+Si $f : E\to F$, alors $f_*(E)$ est juste l'image de $f$, introduite plus haut et notée $\Im f$. La notion d'image directe d'une partie est donc une généralisation de celle d'image d'une application.
 \end{exemple}
 
 \begin{exercice}
-Soit $f : E\to F$. On fixe une partie $A\subseteq E$ et on note $i : A\to E$ l'inclusion de $A$ dans $E$. Vérifier que $f(A) = \Im f\circ i$.
+Soit $f : E\to F$. On fixe une partie $A\subseteq E$ et on note $i : A\to E$ l'inclusion de $A$ dans $E$. Vérifier que $f_*(A) = \Im f\circ i$.
 \end{exercice}
 
 
 \begin{proposition}
 Soit $f : E\to F$.
 \begin{enumerate}
-\item $f(\varnothing)=\varnothing$.
-\item $f(E)\subseteq F$ avec égalité si et seulement si $f$ est surjective. En général, $f(E)\neq F$.
-\item Si $(A_i)_{i\in I}$ est une famille de parties de $E$, alors $f\left(\bigcup_{i\in I}A_i\right) = \bigcup_{i\in I} f(A_i)$.
-\item Par contre, on a en général $f\left(\bigcap_{i\in I}A_i\right) \subseteq \bigcap_{i\in I} f\left(A_i\right)$ mais pas forcément égalité.
+\item $f_*(\varnothing)=\varnothing$.
+\item $f_*(E)\subseteq F$ avec égalité si et seulement si $f$ est surjective. En général, $f_*(E)\neq F$.
+\item Si $(A_i)_{i\in I}$ est une famille de parties de $E$, alors $f_*\left(\bigcup_{i\in I}A_i\right) = \bigcup_{i\in I} f_*(A_i)$.
+\item Par contre, on a en général $f_*\left(\bigcap_{i\in I}A_i\right) \subseteq \bigcap_{i\in I} f_*\left(A_i\right)$ mais pas forcément égalité.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
 \item Clair.
-\item On a $f(E)=F \iff (\forall y\in F, y\in f(E))$ ce qui signifie par définition que tout élément $y\in F$ admet au moins un antécédent, et donc que $f$ est surjective.  
+\item On a $f_*(E)=F \iff (\forall y\in F, y\in f_*(E))$ ce qui signifie par définition que tout élément $y\in F$ admet au moins un antécédent, et donc que $f$ est surjective.  
 \item Soit $y\in F$. On a 
 \begin{align*}
-y\in f\left( \bigcup_{i\in I} A_i \right)
+y\in f_*\left( \bigcup_{i\in I} A_i \right)
 &\iff \exists x\in  \bigcup_{i\in I} A_i,   y=f(x) \\
 &\iff \exists x\in E, \left( x\in \bigcup_{i\in I} A_i\text{ et }  y=f(x)\right)\\
 &\iff \exists x\in E, \exists i\in I,  (x\in A_i\text{ et } y=f(x)) \\
 &\boxed{\iff \exists i\in I, \exists x\in E}\:, (x\in A_i\text{ et } y=f(x))\\
 &\iff \exists i\in I, \exists x\in A_i, y=f(x)\\
-&\iff \exists i\in I, y\in f(A_i)\\
-&\iff y\in \bigcup_{i\in I} f(A_i)
+&\iff \exists i\in I, y\in f_*(A_i)\\
+&\iff y\in \bigcup_{i\in I} f_*(A_i)
 \end{align*}
 L'interversion de quantificateur signalée est licite car ce sont deux quantificateurs existentiels.
 \item On a:
 \begin{align*}
-y\in f\left( \bigcap_{i\in I} A_i \right)
+y\in f_*\left( \bigcap_{i\in I} A_i \right)
 &\iff \exists x\in  \bigcap_{i\in I} A_i,   y=f(x) \\
 &\iff \exists x\in E, \left( x\in \bigcap_{i\in I} A_i\text{ et }  y=f(x)\right)\\
 &\iff \exists x\in E, \forall i\in I,  (x\in A_i\text{ et } y=f(x)) \\
 &\boxed{\implies \forall i\in I, \exists x\in E}\:, (x\in A_i\text{ et } y=f(x)) \quad(*)\\
 &\implies \forall i\in I, \exists x\in A_i, y=f(x)\\
-&\implies \forall i\in I, y\in f(A_i)\\
-&\implies y\in \bigcap_{i\in I} f(A_i)
+&\implies \forall i\in I, y\in f_*(A_i)\\
+&\implies y\in \bigcap_{i\in I} f_*(A_i)
 \end{align*}
-L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulement : $\exists x \forall i ... \implies \forall i \exists x ...$}, et l'équivalence devient une implication. Ceci prouve l'inclusion. Pour montrer qu'il n'y a pas forcément égalité, il suffit de donner un contre-exemple, par exemple $\sin(\R_-^* \cap \R_+^*) = \sin(\varnothing) = \varnothing \subsetneq \sin(\R_+^*) \cap \sin(\R_-^*)=[-1,1]$.
+L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulement : $\exists x \forall i ... \implies \forall i \exists x ...$}, et l'équivalence devient une implication. Ceci prouve l'inclusion. Pour montrer qu'il n'y a pas forcément égalité, il suffit de donner un contre-exemple, par exemple $\sin_*(\R_-^* \cap \R_+^*) = \sin_*(\varnothing) = \varnothing \subsetneq \sin(\R_+^*) \cap \sin_*(\R_-^*)=[-1,1]$.
 \end{enumerate}
 \end{proof}
 
@@ -801,38 +808,42 @@ L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulemen
 \begin{definition}[Image réciproque d'une partie]
 \index{image!réciproque d'une partie}
 Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensemble de tous les antécédents d'éléments de $B$ :
-\[f^\leftarrow(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
-Autrement dit, pour un élément $x\in E$, on a $x\in f^\leftarrow(B) \iff f(x)\in B$.
+\[f^*(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
+Autrement dit, pour un élément $x\in E$, on a $x\in f^*(B) \iff f(x)\in B$.
 
-\textbf{Attention}, la notation $f^\leftarrow(B)$ n'est \textbf{pas  standard}. La notation standard est $f^{-1}(B)$ mais elle est assez mauvaise car elle empiète sur la notation pour la fonction réciproque (qui n'existe pas toujours). En particulier,  dans les cas où la fonction $f$ n'admet de fonction réciproque, utiliser la notation  $f^{-1}$ pour les images réciproques peut laisser croire que l'on manipule une fonction réciproque, ce qui est faux.
+\textbf{Attention}, la notation $f^*(B)$ n'est \textbf{pas  standard}. La notation standard est $f^{-1}(B)$ mais elle est assez mauvaise car elle empiète sur la notation pour la fonction réciproque (qui n'existe pas toujours). En particulier,  dans les cas où la fonction $f$ n'admet de fonction réciproque, utiliser la notation  $f^{-1}$ pour les images réciproques peut laisser croire que l'on manipule une fonction réciproque, ce qui est faux.
 
-Pour ces raisons, on utilise dans ce cours la notation $f^\leftarrow(B)$. La notation $f^{-1}(B)$ sera adoptée progressivement dans les chapitres (ou semestres) suivants, une fois que la notion sera bien assimilée.
+Pour ces raisons, on utilise dans ce cours la notation $f^*(B)$.
+La notation $f^{-1}(B)$ sera adoptée progressivement dans les chapitres (ou semestres) suivants, une fois que la notion sera bien assimilée.
+
+ Remarque : dans cette situation, chercher à distinguer les notations est une pratique pédagogique standard. Beaucoup d'enseignants utilisent alternativement la notation $f^{<-1>}(B)$, au lieu de $f^*(B)$, mais la notation $f^*(B)$ est celle qui sera utilisée à plus haut niveau dans des situations analogues (en France comme à l'international), donc autant utiliser celle-là.
+
 \end{definition}
 
 \begin{exemple}[Fibres et images réciproques]
 \index{fibre}
 Soit $f : A\to B$ et $b\in B$. On a vu que la \emph{fibre de $f$ (au-dessus) de $b$} est par définition l'ensemble des antécédents de $b$, c'est-à-dire $\{a\in A \:\mid\: f(a)=b\} $.
 
-En reformulant, la fibre de $f$ au-dessus de $b$ est donc l'ensemble $f^\leftarrow(\{b\})$. De façon générale, les \emph{fibres} de l'application $f$ sont les images réciproques de singletons de $B$.
+En reformulant, la fibre de $f$ au-dessus de $b$ est donc l'ensemble $f^*(\{b\})$. De façon générale, les \emph{fibres} de l'application $f$ sont les images réciproques de singletons de $B$.
 \end{exemple}
 
 \begin{exemple}
 Soient $f : A\to B$,  $g : B\to C$ et $C'\subseteq C$ une partie de $C$. Alors, on a 
-\[\Im g\circ f \subseteq C' \iff \Im f \subseteq g^\leftarrow(C').\]
+\[\Im g\circ f \subseteq C' \iff \Im f \subseteq g^*(C').\]
 \end{exemple}
 
 \begin{proposition}
 Soit $f : E\to F$.
 \begin{enumerate}
-\item $f^\leftarrow(\varnothing)=\varnothing$.
-\item $f^\leftarrow(F)=E$.
+\item $f^*(\varnothing)=\varnothing$.
+\item $f^*(F)=E$.
 \item Si $(B_i)_{i\in I}$ est une famille de parties de $F$, alors 
 \[
-f^\leftarrow\left(\bigcup_{i\in I}B_i\right) 
-= \bigcup_{i\in I} f^\leftarrow(B_i)
+f^*\left(\bigcup_{i\in I}B_i\right) 
+= \bigcup_{i\in I} f^*(B_i)
 \quad \text{ et } \quad 
-f^\leftarrow\left(\bigcap_{i\in I}B_i\right) 
-= \bigcap_{i\in I} f^\leftarrow(B_i)/
+f^*\left(\bigcap_{i\in I}B_i\right) 
+= \bigcap_{i\in I} f^*(B_i)/
 \]
 \end{enumerate}
 \end{proposition}
@@ -1084,12 +1095,12 @@ Soit $f : \R\to \R, x\mapsto -x$. Montrer que tous les points sont cycliques. Le
 
 \begin{propdef}[Saturation, partie saturée]
 \index{partie!saturée}\index{saturation!relativement à une fonction}
-Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f(B) \subset f(A)$ est égale à $f^\leftarrow(f(A))$.
+Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f(B) \subset f(A)$ est égale à $f^*(f(A))$.
 
 Cette partie est appelée la \emph{saturation} de $A$ (relativement à la fonction $f$). On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
 \end{propdef}
 \begin{proof}
-Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par définition d'une image réciproque, $B = f^\leftarrow(f(A))$.
+Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par définition d'une image réciproque, $B = f^*(f(A))$.
 \end{proof}
 
 \begin{exemple}
@@ -1097,7 +1108,7 @@ Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par dé
 \item La saturation $\operatorname{Sat}_f(A)$ d'une partie $A$ contient toujours $A$ mais elle peut être plus grande (voir ci-dessous).
 \item La saturation d'une partie $A$ est saturée, autrement dit avec la notation plus haut  on a  $\operatorname{Sat}_f(\operatorname{Sat}_f(A)) = \operatorname{Sat}_f(A)$. Reformulation : l'application $\operatorname{Sat}_f : \mathcal P(E) \to \mathcal P(E), A\mapsto \operatorname{Sat}_f(A)$ vérifie la propriété $\operatorname{Sat}_f \circ \operatorname{Sat}_f = \operatorname{Sat}_f$.
 \item Soit $f : \R\to \R_+, x\mapsto x^2$, et soit $A=\{2\} \subseteq \R$. La saturation de $A$ est 
-\[f^\leftarrow(f(A)) = f^\leftarrow(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
+\[f^*(f(A)) = f^*(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
 \]
 La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée. Par contre, les parties $B = \{0\}$ et $C=\{-2,2\}$ sont saturées (relativement à $f$, toujours).
 \end{enumerate}
