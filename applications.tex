@@ -738,6 +738,10 @@ Le sens \og si\fg{} a été démontré dans le corollaire \ref{bijective-si-reci
 \section{Images directes et réciproques de parties}
 %--------------------------------------
 
+
+
+
+
 \emph{Résumé : images directes et réciproques de parties, fibres d'une application, union et intersections d'images directes et réciproques.}
 
 
@@ -748,10 +752,47 @@ Soit $f : E\to F$ et $A\subseteq E$. On appelle image directe de $A$ et on note 
 Autrement dit, pour un élément $y\in F$, on a $y\in f_*(A) \iff \left(\exists x\in A, y=f(x)\right)$.
 \end{definition}
 
-\begin{attention}
-Dans la plupart des ouvrages, l'image directe d'une partie est notée $f(A)$. C'est la notation la plus répandue, mais elle peut induire en erreur en laissant penser qu'on prend l'image par $g$ de $A$ : ceci n'a pas de sens a priori, car $f$ est définie sur $E$ et non $\mathcal P(E)$.
+\begin{definition}[Application image directe]
+Soit $f : E\to F$. L'application de $\mathcal P(E)$ dans $\mathcal P(F)$, qui à $A\in \mathcal P(E)$ associe $f_*(A)\in \mathcal P(F)$, est appelée \og l'image directe par $f$\fg, et est notée $f_*$ (ce qui est cohérent avec les notations choisies auparavant).
+\end{definition}
 
-Dans les examens, vous tolère la notation $f(A)$.
+
+\begin{definition}[Image réciproque d'une partie]
+\index{image!réciproque d'une partie}
+Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensemble de tous les antécédents d'éléments de $B$ :
+\[f^*(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
+Autrement dit, pour un élément $x\in E$, on a $x\in f^*(B) \iff f(x)\in B$.
+
+\end{definition}
+
+\begin{definition}[Application image réciproque]
+Soit $f : E\to F$. L'application de $\mathcal P(F)$ dans $\mathcal P(E)$, qui à $B\in \mathcal P(F)$ associe $f^*(B)\in \mathcal P(E)$, est appelée \og l'image réciproque par $f$\fg, et est notée $f^*$ (ce qui est cohérent avec les notations choisies auparavant).
+\end{definition}
+
+Pour récapituler, nous avons donc les diagrammes suivants:
+\begin{center}
+$\xymatrix{E\ar[rr]^{f} & & F}$, et 
+$\xymatrix{
+\mathcal P(E) \ar@/^/[rr]^{f_*}& & \mathcal P(F) \ar@/^/[ll]^{f^*}
+}$.
+\end{center}
+
+
+\begin{attention}
+Quelle que soit l'application $f$, les applications $f_*$ et $f^*$ sont bien définies, même si $f$ ne possède pas d'application réciproque (notée $f^{-1}$).
+\end{attention}
+
+
+\begin{attention}
+Les deux notations $f_*(A)$ et $f^*(B)$ ne sont (malheureusement) \textbf{pas  standard} (à ce niveau)
+.
+\begin{enumerate}
+\item Dans la plupart des ouvrages, l'image directe d'une partie est simplement notée $f(A)$. Autrement dit, l'application $f_*$ est simplement notée $f$ par abus de langage, même si formellement ce n'est pas la même application (elle ne prend pas le même type d'argument par exemple).
+\item 
+L'image réciproque d'une partie $B$ par $f$ est, elle, souvent notée $f^{-1}(B)$, ce qui constitue un abus de langage encore plus dommageable car il entre en collision avec la notation pour la fonction réciproque qui elle, n'existe pas toujours. Ceci provoquant de nombreuses erreurs, il est fréquent que les enseignants utilisent la notation $f^{<-1>}(B)$ pour les images réciproques, pour bien distinguer la notion de cette d'application réciproque, mais cette notation est moins naturelle et universelle que celle utilisée ici. L'abus de langage sur l'image directe, lui, est en général considéré comme bénin.
+\end{enumerate}
+
+Cela dit, dans ce cours, on utilisera exclusivement les notations non ambigues $f_*$ et $f^*$, essentiellement à des fins pédagogiques. Ces notations disparaitront à court terme et les deux abus de langage présentés plus haut prendront le dessus, mais elles referont leur apparition en M1 ou M2 dans d'autres contextes proches, où l'abus de notation redevient trop nocif.
 \end{attention}
 
 \begin{exemple}\index{image}
@@ -761,6 +802,7 @@ Si $f : E\to F$, alors $f_*(E)$ est juste l'image de $f$, introduite plus haut e
 \begin{exercice}
 Soit $f : E\to F$. On fixe une partie $A\subseteq E$ et on note $i : A\to E$ l'inclusion de $A$ dans $E$. Vérifier que $f_*(A) = \Im f\circ i$.
 \end{exercice}
+
 
 
 \begin{proposition}
@@ -804,21 +846,6 @@ L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulemen
 \end{proof}
 
 
-
-\begin{definition}[Image réciproque d'une partie]
-\index{image!réciproque d'une partie}
-Soit $f : E\to F$ et $B\subseteq F$. On appelle image réciproque de $B$ l'ensemble de tous les antécédents d'éléments de $B$ :
-\[f^*(B) = \{x\in E\:\mid\: f(x)\in B \}.\]
-Autrement dit, pour un élément $x\in E$, on a $x\in f^*(B) \iff f(x)\in B$.
-
-\textbf{Attention}, la notation $f^*(B)$ n'est \textbf{pas  standard}. La notation standard est $f^{-1}(B)$ mais elle est assez mauvaise car elle empiète sur la notation pour la fonction réciproque (qui n'existe pas toujours). En particulier,  dans les cas où la fonction $f$ n'admet de fonction réciproque, utiliser la notation  $f^{-1}$ pour les images réciproques peut laisser croire que l'on manipule une fonction réciproque, ce qui est faux.
-
-Pour ces raisons, on utilise dans ce cours la notation $f^*(B)$.
-La notation $f^{-1}(B)$ sera adoptée progressivement dans les chapitres (ou semestres) suivants, une fois que la notion sera bien assimilée.
-
- Remarque : dans cette situation, chercher à distinguer les notations est une pratique pédagogique standard. Beaucoup d'enseignants utilisent alternativement la notation $f^{<-1>}(B)$, au lieu de $f^*(B)$, mais la notation $f^*(B)$ est celle qui sera utilisée à plus haut niveau dans des situations analogues (en France comme à l'international), donc autant utiliser celle-là.
-
-\end{definition}
 
 \begin{exemple}[Fibres et images réciproques]
 \index{fibre}
