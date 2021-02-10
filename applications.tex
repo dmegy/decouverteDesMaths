@@ -939,11 +939,11 @@ $\xymatrix{
 A \ar[r]_f \ar@{-->}[ur]^{\exists h}& C
 }$.
 \end{enumerate}
-Ces assertions sont vraies si et seulement si $f(A)\subseteq g(B)$.
+Ces assertions sont vraies si et seulement si $f(A)\subseteq g_*(B)$.
 \end{proposition}
 \begin{proof}
-\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g(B)$. Ceci prouve que $f(A)\subseteq g(B)$.\\
-\textbf{Sens \og si\fg.} Supposons $f(A)\subseteq g(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f(A) \subseteq g(B)$, $f(a) \in g(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
+\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g_*(B)$. Ceci prouve que $f(A)\subseteq g_*(B)$.\\
+\textbf{Sens \og si\fg.} Supposons $f_*(A)\subseteq g_*(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f(A) \subseteq g_*(B)$, $f(a) \in g_*(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
 \end{proof}
 
 \begin{remarque}
@@ -1101,7 +1101,7 @@ E \ar[r]_{g\circ f\circ g^{-1}}& E
 \begin{enumerate}
 \item Montrer que si $f$ est une involution, alors $g\circ f \circ g^{-1}$ aussi. Quel est le rapport avec les exercices \ref{exo-involution-1-x} et \ref{exo-involution-cubique} (écrire les fonctions sous forme de composées) ?
 \item Montrer que si $x\in E$ est fixe par $f$, alors $g(x)$ est fixe par $g\circ f \circ g^{-1}$.
-\item Montrer que si $A \subseteq E$ est stable par $f$, alors $g(A) \subseteq E$ est stable par $g\circ f \circ g^{-1}$.
+\item Montrer que si $A \subseteq E$ est stable par $f$, alors $g_*(A) \subseteq E$ est stable par $g\circ f \circ g^{-1}$.
 \end{enumerate}
 \end{exercice}
 
@@ -1122,12 +1122,12 @@ Soit $f : \R\to \R, x\mapsto -x$. Montrer que tous les points sont cycliques. Le
 
 \begin{propdef}[Saturation, partie saturée]
 \index{partie!saturée}\index{saturation!relativement à une fonction}
-Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f(B) \subset f(A)$ est égale à $f^*(f(A))$.
+Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f_*(B) \subset f_*(A)$ est égale à $f^*(f_*A))$.
 
 Cette partie est appelée la \emph{saturation} de $A$ (relativement à la fonction $f$). On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
 \end{propdef}
 \begin{proof}
-Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par définition d'une image réciproque, $B = f^*(f(A))$.
+Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par définition d'une image réciproque, $B = f^*(f_*(A))$.
 \end{proof}
 
 \begin{exemple}
@@ -1135,7 +1135,7 @@ Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par dé
 \item La saturation $\operatorname{Sat}_f(A)$ d'une partie $A$ contient toujours $A$ mais elle peut être plus grande (voir ci-dessous).
 \item La saturation d'une partie $A$ est saturée, autrement dit avec la notation plus haut  on a  $\operatorname{Sat}_f(\operatorname{Sat}_f(A)) = \operatorname{Sat}_f(A)$. Reformulation : l'application $\operatorname{Sat}_f : \mathcal P(E) \to \mathcal P(E), A\mapsto \operatorname{Sat}_f(A)$ vérifie la propriété $\operatorname{Sat}_f \circ \operatorname{Sat}_f = \operatorname{Sat}_f$.
 \item Soit $f : \R\to \R_+, x\mapsto x^2$, et soit $A=\{2\} \subseteq \R$. La saturation de $A$ est 
-\[f^*(f(A)) = f^*(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
+\[f^*(f_*(A)) = f^*(\{4\}) = \{x\in \R\:|\: x^2=4\} = \{-2,2\}
 \]
 La saturation de $A$ contient donc strictement $A$, qui n'est donc pas saturée. Par contre, les parties $B = \{0\}$ et $C=\{-2,2\}$ sont saturées (relativement à $f$, toujours).
 \end{enumerate}
