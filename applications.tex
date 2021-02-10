@@ -939,11 +939,11 @@ $\xymatrix{
 A \ar[r]_f \ar@{-->}[ur]^{\exists h}& C
 }$.
 \end{enumerate}
-Ces assertions sont vraies si et seulement si $f(A)\subseteq g_*(B)$.
+Ces assertions sont vraies si et seulement si $f_*(A)\subseteq g_*(B)$.
 \end{proposition}
 \begin{proof}
-\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g_*(B)$. Ceci prouve que $f(A)\subseteq g_*(B)$.\\
-\textbf{Sens \og si\fg.} Supposons $f_*(A)\subseteq g_*(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f(A) \subseteq g_*(B)$, $f(a) \in g_*(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
+\textbf{Sens \og seulement si\fg.} Supposons $f = g\circ h$, et soit $a\in A$. Alors $f(a) = g(h(a))$, donc $f(a) \in g_*(B)$. Ceci prouve que $f_*(A)\subseteq g_*(B)$.\\
+\textbf{Sens \og si\fg.} Supposons $f_*(A)\subseteq g_*(B)$. Construisons une application $h$ vérifiant les conditions demandées. Soit $a\in A$. Comme $f(a) \in f_*(A) \subseteq g_*(B)$, $f(a) \in g_*(B)$ et donc $f(a)$ possède un antécédent par $g$. On définit $h(a)$ comme étant un tel antécédent. Par construction, on a $g\circ h = f$.
 \end{proof}
 
 \begin{remarque}
@@ -1127,7 +1127,7 @@ Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus gra
 Cette partie est appelée la \emph{saturation} de $A$ (relativement à la fonction $f$). On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
 \end{propdef}
 \begin{proof}
-Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f(A) \}$ et donc par définition d'une image réciproque, $B = f^*(f_*(A))$.
+Par définition de $B$, on a $B = \{x\in E\:|\: f(x)\in f_*(A) \}$ et donc par définition d'une image réciproque, $B = f^*(f_*(A))$.
 \end{proof}
 
 \begin{exemple}
