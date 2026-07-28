@@ -234,6 +234,21 @@ Leur \emph{intersection}, notée $\bigcap_{i\in I} E_i$, est l'ensemble $\{x\in 
 
 \section{Exercices d'approfondissement}
 
+\begin{exercice}[Parties définissables]
+On dit qu'une partie $A$ de $\R$ est \emph{définissable} si on peut l'écrire en compréhension sous la forme
+\[ A=\{x\in \R\:|\: \Phi(x)\}\]
+où $\Phi(x)$ est équivalente à une \og formule admissible\fg, c'est-à-dire une formule du premier ordre avec des quantificateurs portant obligatoirement sur $\R$, et faisant intervenir des constantes réelles, la somme de réels et le produit de réels, le symbole $\in$, les symboles logiques \og et\fg, \og ou\fg{} et la négation \og non\fg.
+
+On autorise donc également les symboles $\cup$, $\cap$, complémentaire, puisqu'ils peuvent s'écrire avec les opérateurs logiques décrits plus haut.
+
+\begin{enumerate}
+\item Montrer que $\R_+$ est définissable, ainsi que $\R_+^*$.
+\item Montrer que tout intervalle de $\R$ est définissable.
+\item Montrer que la partie $\ensemble{x\in\R}{\Phi(x)}$, où $\Phi(x)$ est la formule $\exists y\in [2,3[, x\leq y^2+1-3y$, est définissable, en exhibant une formule équivalente admissible.
+\end{enumerate}
+Remarque : le théorème de Tarski-Seidenberg énonce que les seules parties définissables de $\R$ sont les unions finies d'intervalles. Sa preuve est très difficile. En particulier, la partie $\N \subset \R$ n'est \textbf{pas} définissable. ($\Z$ et $\Q$ non plus.)
+\end{exercice}
+
 \begin{exercice}[Topologies]
 Soit $E$ un ensemble et  $\mathcal O$ une partie de $\mathcal P(E)$. On dit que $\mathcal O$ est une \emph{topologie sur $E$} si les conditions suivantes sont vérifiées
 \begin{itemize}
