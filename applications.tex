@@ -145,7 +145,7 @@ Soit $f : \R\to \R, x\mapsto x^2$. Soit $y\in \R$. La fibre de $f$ au-dessus de 
 \end{exemple}
 
 \begin{exemple}
-Soit $f : \R^2\to \R,\: (x,y)\mapsto 2x-3y$. La fibre de $f$ au-dessus de $5$ est l'ensemble des points $(x,y) \in R^2$ tels que $2x-3y=5$. Autrement dit, la fibre au-dessus de $5$ est la droite de $\R^2$ d'équation cartésienne $2x-3y-5=0$. (Exercice : les autres fibres sont également des droites, toutes parallèles.)
+Soit $f : \R^2\to \R,\: (x,y)\mapsto 2x-3y$. La fibre de $f$ au-dessus de $5$ est l'ensemble des points $(x,y) \in \R^2$ tels que $2x-3y=5$. Autrement dit, la fibre au-dessus de $5$ est la droite de $\R^2$ d'équation cartésienne $2x-3y-5=0$. (Exercice : les autres fibres sont également des droites, toutes parallèles.)
 \end{exemple}
 
 \begin{definition}[Fonction caractéristique]
@@ -254,7 +254,7 @@ Une telle factorisation se voit instantanément avec un peu de pratique et  perm
 
 
 \begin{attention}[La composition n'est pas commutative]
-Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $g\circ f$ obtenues sont en général distinctes. Par exemple, avec $f : \R\to R, x\mapsto x^2
+Attention, même si les domaines et codomaines permettent de composer deux fonctions dans les deux sens, les fonctions $g\circ f$ et $f\circ g$ obtenues sont en général distinctes. Par exemple, avec $f : \R\to \R, x\mapsto x^2
 $ et $g : \R\to \R, x\mapsto x+1$,  on peut composer dans les deux sens mais on a :
 \begin{align*}
 g\circ f : \R\to \R, & x\mapsto g(f(x)) = g(x^2) = x^2+1,\\
@@ -353,7 +353,7 @@ n'est pas commutatif, puisque l'assertion \og $\forall x\in \R, \cos(x^2)=e^{x}$
 
 \begin{definition}[Fonction réciproque]
 \index{réciproque (fonction)}
-Soient $f : E\to F$ et $g = F\to E$ deux fonctions. On dit qu'elles sont réciproques l'une de l'autre (ou que $g$ est une réciproque de $f$, ou que $f$ est une réciproque de $g$) si $g\circ f = \Id_E$ \underline{et} $f\circ g = \Id_F$. 
+Soient $f : E\to F$ et $g : F\to E$ deux fonctions. On dit qu'elles sont réciproques l'une de l'autre (ou que $g$ est une réciproque de $f$, ou que $f$ est une réciproque de $g$) si $g\circ f = \Id_E$ \underline{et} $f\circ g = \Id_F$. 
 \[
 \xymatrix{
  E \ar@(dl,ul)^{\Id_E} \ar@/^2pc/[rrr]^{f} \ar@(ur,dr)^{g\circ f} 
@@ -370,7 +370,7 @@ Attention, une fonction $f$ n'a pas toujours de fonction réciproque!
 \begin{proposition} Soit $f : E\to F$ une fonction. Si elle admet une (fonction) réciproque, alors celle-ci est unique. Elle est notée généralement $f^{-1}$.
 \end{proposition}
 \begin{proof}
-Soient en effet $g = F\to E$ et $h : F \to E$ deux réciproques de $f$. Alors
+Soient en effet $g : F\to E$ et $h : F \to E$ deux réciproques de $f$. Alors
 \[
 g\circ  f \circ h = (g\circ f) \circ h = \Id_E \circ h = h, \text{ et}
 \]
@@ -383,7 +383,7 @@ d'où $g=h$.
 
 
 \begin{exemple}
-Les fonctions $f = \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
+Les fonctions $f : \R\to \R_+^*, x\mapsto e^x$ et $g : \R_+^*\to R, x\mapsto \ln(x)$ sont réciproques l'une de l'autre.
 \end{exemple}
 
 \begin{attention}
@@ -841,7 +841,7 @@ y\in f_*\left( \bigcap_{i\in I} A_i \right)
 &\implies \forall i\in I, y\in f_*(A_i)\\
 &\implies y\in \bigcap_{i\in I} f_*(A_i)
 \end{align*}
-L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulement : $\exists x \forall i ... \implies \forall i \exists x ...$}, et l'équivalence devient une implication. Ceci prouve l'inclusion. Pour montrer qu'il n'y a pas forcément égalité, il suffit de donner un contre-exemple, par exemple $\sin_*(\R_-^* \cap \R_+^*) = \sin_*(\varnothing) = \varnothing \subsetneq \sin(\R_+^*) \cap \sin_*(\R_-^*)=[-1,1]$.
+L'interversion des quantificateurs  est licite \textbf{dans ce sens-là seulement : $\exists x \forall i ... \implies \forall i \exists x ...$}, et l'équivalence devient une implication. Ceci prouve l'inclusion. Pour montrer qu'il n'y a pas forcément égalité, il suffit de donner un contre-exemple, par exemple $\sin_*(\R_-^* \cap \R_+^*) = \sin_*(\varnothing) = \varnothing \subsetneq \sin_*(\R_+^*) \cap \sin_*(\R_-^*)=[-1,1]$.
 \end{enumerate}
 \end{proof}
 
@@ -870,7 +870,7 @@ f^*\left(\bigcup_{i\in I}B_i\right)
 = \bigcup_{i\in I} f^*(B_i)
 \quad \text{ et } \quad 
 f^*\left(\bigcap_{i\in I}B_i\right) 
-= \bigcap_{i\in I} f^*(B_i)/
+= \bigcap_{i\in I} f^*(B_i)
 \]
 \end{enumerate}
 \end{proposition}
@@ -1122,7 +1122,7 @@ Soit $f : \R\to \R, x\mapsto -x$. Montrer que tous les points sont cycliques. Le
 
 \begin{propdef}[Saturation, partie saturée]
 \index{partie!saturée}\index{saturation!relativement à une fonction}
-Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f_*(B) \subset f_*(A)$ est égale à $f^*(f_*A))$.
+Soit $f : E\to F$ et $A \subseteq E$ une partie de la source de $f$. La plus grande partie $B\subseteq E$ telle que $f_*(B) \subset f_*(A)$ est égale à $f^*(f_*(A))$.
 
 Cette partie est appelée la \emph{saturation} de $A$ (relativement à la fonction $f$). On dit que $A$ est \emph{saturée} (relativement à la fonction $f$) si elle est égale à sa saturation.
 \end{propdef}
@@ -1398,7 +1398,7 @@ D \ar@{-->}[rr]^{\exists !h} \ar[urrr]^{f} \ar[drrr]_{g} & & A\times_C B \ar[ur]
 
 
 \begin{exercice}
-Soient $A$, $B$ et $C$ des ensembles et $\phi : A\to C$, $\psi : B\to C$ des applications. On note $\operatorname{p}_A$ et $\operatorname{p}_A$ les surjections canoniques de $A\times B$ vers ses deux facteurs $A$ et $B$. Soit $E$ l'égalisateur de $\phi \circ \operatorname{p}_A$ et $\psi \circ \operatorname{p}_B$.
+Soient $A$, $B$ et $C$ des ensembles et $\phi : A\to C$, $\psi : B\to C$ des applications. On note $\operatorname{p}_A$ et $\operatorname{p}_B$ les surjections canoniques de $A\times B$ vers ses deux facteurs $A$ et $B$. Soit $E$ l'égalisateur de $\phi \circ \operatorname{p}_A$ et $\psi \circ \operatorname{p}_B$.
 
 Montrer qu'il existe une bijection entre $E$ et $A\times_C B$ sans utiliser les définitions explicites de $E$ ni de $A\times_C B$, uniquement leur propriétés universelles.
 % en fait vu les définitions, on a égalité ensembliste.
