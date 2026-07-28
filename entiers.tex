@@ -7,7 +7,7 @@
 
 L'ensemble $\N$ est supposé connu. Il vérifie les propriétés suivantes (les ensembles ordonnés sont traités dans un chapitre ultérieur mais le vocabulaire devrait être connu):
 \begin{enumerate}
-\item tout partie non vide majorée admet un plus grand élément;
+\item toute partie non vide et majorée admet un plus grand élément;
 \item toute partie non vide admet un plus petit élément.
 \end{enumerate}
 
@@ -34,15 +34,15 @@ Si $A(0)$ est vraie et que la propriété est héréditaire, alors la propriét�
 \end{theoreme}
 \begin{proof}Supposons la propriété vraie au rang $0$ et héréditaire.
 
-Montrons que la partie $A = \{n\in \N\:\mid\: A(n)\text{ est fausse}\} \subseteq \N$ est vide.
+Montrons que la partie $E := \{n\in \N\:\mid\: A(n)\text{ est fausse}\} \subseteq \N$ est vide.
 
-Si $A$ est non-vide, elle possède un plus petit élément $m$ avec $m\geq 1$ puisque $A(0)$ est vraie. Donc $m-1 \in \N$ et $A(m-1)$ est vraie par définition de $m$. Par hérédité, $A(m)=A((m-1)+1)$ est vraie, contradiction. Donc $A=\varnothing$ ce qui signifie exactement: $\forall \in\N,\:A(n)$.
+Si $E$ est non-vide, elle possède un plus petit élément $m$ avec $m\geq 1$ puisque $A(0)$ est vraie. Donc $m-1 \in \N$ et $A(m-1)$ est vraie par définition de $m$. Par hérédité, $A(m)=A((m-1)+1)$ est vraie, contradiction. Donc $E=\varnothing$ ce qui signifie exactement: $\forall n \in\N,\:A(n)$.
 \end{proof}
 
 \begin{theoreme}[Récurrence forte]\index{principe de récurrence!forte}
 Soit $A(n)$ une propriété dépendant d'un paramètre $n\in \N$. 
 
-Si $A(0)$ est vraie et que $\forall n\in \N, (\forall k\leq n, A(k))\implies A(n+1)$, alors $A(n)$ est vraie pour tout $n\in N$.
+Si $A(0)$ est vraie et que $\forall n\in \N, (\forall k\leq n, A(k))\implies A(n+1)$, alors $A(n)$ est vraie pour tout $n\in \N$.
 \end{theoreme}
 \begin{proof}
 Exercice. Appliquer le principe de  récurrence simple à la propriété $B(n)$ : \og $\big(\forall k\leq n,\: A(k)\big)$\fg.
@@ -123,8 +123,8 @@ Cet entier $n$ est appelé le \emph{cardinal} de $E$. Il est noté $\Card(A)$, o
 L'unicité découle des lemmes précédents.
 
 Pour l'existence, Soit $n\in \N$ et soit $f : E\to \llbracket 1,n\rrbracket$ une injection.
-Si $f(E) = \llbracket 1,n\rrbracket$, l'application est surjective donc bijective.
-Sinon, il existe $a\in \llbracket 1,n\rrbracket \setminus f(E)$, donc en composant $f$ avec une injection $\phi  : \llbracket 1,n\rrbracket \setminus \{a\} \to \llbracket 1,n-1\rrbracket$, on obtient une injection $\phi\circ f : E \to \llbracket 1,n-1\rrbracket$.
+Si $f_*(E) = \llbracket 1,n\rrbracket$, l'application est surjective donc bijective.
+Sinon, il existe $a\in \llbracket 1,n\rrbracket \setminus f_*(E)$, donc en composant $f$ avec une injection $\phi  : \llbracket 1,n\rrbracket \setminus \{a\} \to \llbracket 1,n-1\rrbracket$, on obtient une injection $\phi\circ f : E \to \llbracket 1,n-1\rrbracket$.
 On itère ce processus tant que l'application n'est pas bijective, ce qui finit par se produire puisque l'ensemble d'arrivée des injections diminue strictement à chaque étape.
 \end{proof}
 
@@ -164,7 +164,7 @@ m+g(x) & \text{ si }x\in B
 \end{cases}
 \]
 est bien définie, et c'est une bijection de $A\cup B$ dans $\llbracket 1,m+n\rrbracket$.
-\item Si $A$ est fini, alors $B$ s'injecte dans un ensemble fini donc est fini. De même, la partie $A\setminus B$ de $A$ est également finie. On peut alors écrire $A$ comme l'union disjointe d'ensembles finis $A=B \cup (A\setminus B)$ et par ce qui précède, on a $|A|=|B|+|A\setminus B|$. On en déduit que $|B|\leq A$ et que s'il y a égalité, $A\setminus B$ est de cardinal $0$, donc vide, d'où $A=B$.
+\item Si $A$ est fini, alors $B$ s'injecte dans un ensemble fini donc est fini. De même, la partie $A\setminus B$ de $A$ est également finie. On peut alors écrire $A$ comme l'union disjointe d'ensembles finis $A=B \cup (A\setminus B)$ et par ce qui précède, on a $|A|=|B|+|A\setminus B|$. On en déduit que $|B|\leq |A|$ et que s'il y a égalité, $A\setminus B$ est de cardinal $0$, donc vide, d'où $A=B$.
 \item On a l'union disjointe $A = A\cup (B\setminus A)$  donc $|A\cup B| = |A|+|B\setminus A|$.
 D'autre part, on a l'union disjointe $B = (B\cap A) \cup (B\setminus A)$, donc $|B| = |B\cap A|+|B\setminus A|$.
 En remplaçant $|B\setminus A|$ par $|B|-|B\cap A|$ dans la première égalité, on obtient le résultat.
@@ -176,16 +176,16 @@ En remplaçant $|B\setminus A|$ par $|B|-|B\cap A|$ dans la première égalité,
 \begin{proposition}
 Soit $f : A\to B$ une application.
 \begin{enumerate}
-\item Si $B$ est fini, alors $|f(A)|\leq |B|$ et si de plus $|f(A)|= |B|$ alors $f$ est surjective.
-\item Si $A$ est fini et $f$ est injective, alors $|f(A)|=|A|$.
+\item Si $B$ est fini, alors $|f_*(A)|\leq |B|$ et si de plus $|f_*(A)|= |B|$ alors $f$ est surjective.
+\item Si $A$ est fini et $f$ est injective, alors $|f_*(A)|=|A|$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
-\item On a $f(A)\subseteq B$ donc $f(A)$ est fini et $|f(A)|\leq |B|$. S'il y a égalité des cardinaux, alors on a $f(A)=B$ ce qui signifie que $f$ est surjective.
-\item Soit $g : A\to f(A)$ la corestriction de $f$ à $f(A)$, c'est-à-dire l'application déduite de $f$ en remplaçant le codomaine $B$ par $f(A)$. L'application $g$ est surjective par construction, que $A$ soit fini ou pas.
+\item On a $f_*(A)\subseteq B$ donc $f_*(A)$ est fini et $|f_*(A)|\leq |B|$. S'il y a égalité des cardinaux, alors on a $f_*(A)=B$ ce qui signifie que $f$ est surjective.
+\item Soit $g : A\to f_*(A)$ la corestriction de $f$ à $f_*(A)$, c'est-à-dire l'application déduite de $f$ en remplaçant le codomaine $B$ par $f_*(A)$. L'application $g$ est surjective par construction, que $A$ soit fini ou pas.
 
-Si $f$ est injective, $g$ l'est également. On en déduit que $A$ et $f(A)$ sont en bijection. Si de plus $A$ est fini, ils ont donc le même cardinal.
+Si $f$ est injective, $g$ l'est également. On en déduit que $A$ et $f_*(A)$ sont en bijection. Si de plus $A$ est fini, ils ont donc le même cardinal.
 \end{enumerate}
 \end{proof}
 
@@ -198,7 +198,7 @@ Soit $f : A\to B$ une application.
 \end{proposition}
 \begin{proof}
 \begin{enumerate}
-\item Si $B$ est fini, alors $A$ s'injecte dans un ensemble fini donc est fini. De plus, on a $|A|=|f(A)|\leq |B|$.
+\item Si $B$ est fini, alors $A$ s'injecte dans un ensemble fini donc est fini. De plus, on a $|A|=|f_*(A)|\leq |B|$.
 \item Soit $g:B\to A$ une \emph{section}\index{section} de $f$, c'est-à-dire une application  qui à $y\in B$ associe un antécédent quelconque de $y$. Par construction, on a $f\circ g=\Id_{B}$ donc $g$ est injective, et par le premier point $B$ est fini et $|B| \leq |A|$.
 \end{enumerate}
 \end{proof}
@@ -212,23 +212,23 @@ $f$ est injective $\iff$ $f$ est surjective $\iff$ $f$ est  bijective.
 \begin{proof}
 Il suffit de prouver la première équivalence.
 
-Sens $\implies$ : Si $f$ est injective, on a $|f(A)|=|A|=|B|$, et comme $f(A)\subseteq B$, l'égalité des cardinaux force $f(A)=B$ c'est-à-dire que $f$ est surjective.
+Sens $\implies$ : Si $f$ est injective, on a $|f_*(A)|=|A|=|B|$, et comme $f_*(A)\subseteq B$, l'égalité des cardinaux force $f_*(A)=B$ c'est-à-dire que $f$ est surjective.
 
-Sens $\impliedby$, par contraposée : Si $f$ n'est pas injective, soient $x$ et $y$ distincts tels que $f(x)=f(y)$. Alors $f(A) = f(A\setminus \{y\})$, donc 
+Sens $\impliedby$, par contraposée : Si $f$ n'est pas injective, soient $x$ et $y$ distincts tels que $f(x)=f(y)$. Alors $f_*(A) = f_*(A\setminus \{y\})$, donc 
 \[
-|f(A)| \leq |A\setminus \{y\}| = |A|-1 = |B|-1,
+|f_*(A)| \leq |A\setminus \{y\}| = |A|-1 = |B|-1,
 \]
-donc $f(A) \neq B$ et donc $f$ n'est pas surjective.
+donc $f_*(A) \neq B$ et donc $f$ n'est pas surjective.
 \end{proof}
 
 Ce théorème est à retenir, il est indispensable dans tous les domaines des mathématiques. En particulier, il est crucial pour la théorie de la dimension des espaces vectoriels, au prochain semestre.
 
 \begin{corollaire}
-Soit $f : A\to B$ entre ensembles finis. Alors $f$ est injective si et seulement si $|f(A)|=|A|$.
+Soit $f : A\to B$ entre ensembles finis. Alors $f$ est injective si et seulement si $|f_*(A)|=|A|$.
 \end{corollaire}
 \begin{proof}On a déjà prouvé le sens \og seulement si\fg.
 
-Si $|f(A)|=|A|$, alors la corestriction\index{corestriction} $g : A\to f(A), x\mapsto f(x)$ qui est par définition surjective, est également injective par le précédent théorème. Donc $f$ est injective.
+Si $|f_*(A)|=|A|$, alors la corestriction\index{corestriction} $g : A\to f_*(A), x\mapsto f(x)$ qui est par définition surjective, est également injective par le précédent théorème. Donc $f$ est injective.
 \end{proof}
 
 
@@ -287,7 +287,7 @@ Soit $A$ un ensemble fini, $f$, $g$ deux fonctions de $A$ dans $\C$ et $\lambda$
 \end{proposition}
 
 \begin{exemple}
-Soit $n\in N$. On peut écrire 
+Soit $n\in \N$. On peut écrire 
 \[
 \sum_{k=0}^n (2k+3) 
 = 2\sum_{k=0}^n k + 3\sum_{k=0}^n1 
@@ -461,7 +461,7 @@ La preuve qui suit est la version rigoureuse de la phrase \og pour compter le no
 
 \begin{proof} 
 
-Soit $I$ l'ensemble des injections de $\llbracket 1,k\rrbracket$ dans $\llbracket 1,n\rrbracket$ (en bijection avec les listes ordonnées de $k$ éléments de $\llbracket 1,k\rrbracket$). Il est de cardinal $\frac{n!}{(n-k)!}$. Montrer le résultat revient à montrer que $|I| = k! |\mathcal P_k(n)|$.
+Soit $I$ l'ensemble des injections de $\llbracket 1,k\rrbracket$ dans $\llbracket 1,n\rrbracket$ (en bijection avec les listes ordonnées de $k$ éléments de $\llbracket 1,n\rrbracket$). Il est de cardinal $\frac{n!}{(n-k)!}$. Montrer le résultat revient à montrer que $|I| = k! |\mathcal P_k(n)|$.
 
 Or, on peut écrire $|I| = \sum_{X\in \mathcal P_k(n)} \left| \{f\in I\:,\: f(\llbracket 1,k\rrbracket)=X\}\right|$. Mais si $X$ est de cardinal $k$, une injection $f\in I$ telle que  $f(\llbracket 1,k\rrbracket)=X$ est forcément une bijection, et on sait qu'il y a $k!$ telles bijections.
 
