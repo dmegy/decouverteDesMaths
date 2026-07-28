@@ -98,7 +98,7 @@ On peut également représenter graphiquement une relation binaire sur un ensemb
 Soit $E$ un ensemble. Une relation binaire ${\mathcal R}$ sur $E$ est : 
 \begin{enumerate}
 \item réflexive\index{relation!réflexive} ssi $\forall x\in E, x{\mathcal R}x$;
-\item transitive\index{relation!symétrique} ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
+\item transitive\index{relation!transitive} ssi $\forall x, y, z\in E, x\mathcal Ry \text{ et } y{\mathcal R}z \implies x{\mathcal R}z$;
 \item antisymétrique\index{relation!antisymétrique} ssi $\forall x, y \in E, x{\mathcal R}y\text{ et } y{\mathcal R}x \implies x=y$.
 \item symétrique\index{relation!symétrique} ssi $\forall x, y\in E, x\mathcal R y \implies y\mathcal R x$.
 \end{enumerate}
@@ -438,7 +438,7 @@ Il existe des ensembles ordonnés ne possédant pas la propriété de la borne s
 \subsection{Ordre produit et ordre lexicographique}
 
 \begin{propdef}
-Soient $(E\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés.
+Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles ordonnés.
 L'\emph{ordre produit}\index{relation!d'ordre!produit} sur $E\times F$ est défini par :
 \[
 (x,y) \leq_{E\times F} (x',y') \iff \left(x\leq_E x' \text{ et } y\leq_F y'\right).
@@ -451,7 +451,7 @@ Il s'agit de prouver que la relation binaire définie est bien une relation d'or
 Attention, même si $\leq_E$ et $\leq_F$ sont totales, l'ordre produit n'est pas forcément un ordre total. Par exemple, pour $E=F=\R$ et l'ordre usuel sur $\R$ qui est bien total, on remarque que l'ordre produit $\leq_{\R\times\R}$ sur $\R\times \R$ n'est pas total car $(1,2)$ et $(2,1)$ ne sont pas comparables.
 
 \begin{propdef}
-Soient $(E\leq_E)$ et $F,\leq_F)$ des ensembles \textbf{totalement} ordonnés.
+Soient $(E,\leq_E)$ et $(F,\leq_F)$ des ensembles \textbf{totalement} ordonnés.
 L'ordre lexicographique\index{relation!d'ordre!lexicographique} sur $E\times F$ est défini par :
 \[
 (x,y) \leq_{E\times F} (x',y') \iff \left(x<_E x' \text{ ou } (x=x' \text{ et } y\leq_F y')\right).
@@ -491,7 +491,7 @@ Une relation binaire ${\mathcal R}$ sur un ensemble $E$ est une \emph{relation d
 \begin{enumerate}
 \item réflexive (rappel : $\forall x\in E, x{\mathcal R}x$);
 \item transitive (rappel : $\forall x, y, z\in E, x{\mathcal R}y\text{ et } y{\mathcal R}z \implies x{\mathcal R}z$);
-\item symétrique (rappel : $\forall x, y\in E, x{\mathcal R}y \implies yRx$).
+\item symétrique (rappel : $\forall x, y\in E, x{\mathcal R}y \implies y{\mathcal R}x$).
 \end{enumerate}
 \end{definition}
 
@@ -524,7 +524,11 @@ est une relation d'équivalence sur $E$.
 (Rappelons que par définition de ce que sont les fibres d'une application, on peut reformuler la définition de cette relation en: $x\mathcal R y \iff f(x)=f(y)$.)
 \end{proposition}
 \begin{proof}
-Soit $x \in E$. Alors on a bien $f(x)=f(x)$ donc $x\mathcal R x$, donc $\mathcal R$ est réflexive. Si $x, y\in E$, on a bien $x\mathcal R y \iff f(x)=f(y) \iff f(y)=f(x) \iff y\mathcal x$ donc $\mathcal R$ est symétrique. Et enfin, Si $x,y,z\in E$ et que $x\mathcal R y$ et $y\mathcal R z$, alors $f(x)=f(y)$ et $f(y)=f(z)$, donc $f(x)=f(z)$ et donc $x\mathcal R z$, donc $\mathcal R$ est transitive. Ceci montre que $\mathcal R$ est bien une relation d'équivalence.
+Soit $x \in E$.
+Alors on a bien $f(x)=f(x)$ donc $x\mathcal R x$, donc $\mathcal R$ est réflexive.
+Si $x, y\in E$, on a bien $x\mathcal R y \iff f(x)=f(y) \iff f(y)=f(x) \iff y\mathcal R x$ donc $\mathcal R$ est symétrique.
+Et enfin, si $x,y,z\in E$ et que $x\mathcal R y$ et $y\mathcal R z$, alors $f(x)=f(y)$ et $f(y)=f(z)$, donc $f(x)=f(z)$ et donc $x\mathcal R z$, donc $\mathcal R$ est transitive.
+Ceci montre que $\mathcal R$ est bien une relation d'équivalence.
 
 On verra dans la dernière section que toutes les relations d'équivalence sont de ce type, pour une application $f$ bien choisie : la \emph{surjection canonique sur le quotient}.
 \end{proof}
@@ -565,7 +569,7 @@ Les relations de congruence les plus courantes sont celles modulo des entiers, o
 \begin{enumerate}[label=\alph*)]
 \item $1 \equiv 5 \modulo 2$, car $1-5 = -4$ est un multiple de $2$.
 \item $4\equiv -9\sqrt{3}+4 \modulo{\sqrt{3}}$, car $4 - (-9\sqrt{3}+4) = 9\sqrt{3}$ est un multiple de $\sqrt{3}$.
-\item $\pi/3 \equiv 7\pi/3 \modulo{2\pi}$, car $\pi/3 - 13\pi/3 = -12\pi/3 = -4\pi$ est un multiple de $2\pi$.
+\item $\pi/3 \equiv 13\pi/3 \modulo{2\pi}$, car $\pi/3 - 13\pi/3 = -12\pi/3 = -4\pi$ est un multiple de $2\pi$.
 \item La congruence modulo $2\pi$ est plus fine que la congruence modulo $\pi$ : en effet, si $x\equiv y \modulo{2\pi}$, alors $x\equiv y\: \modulo{\pi}$.
 \end{enumerate}
 \end{exemples}
@@ -627,7 +631,7 @@ Soit $A\in \mathcal P(E)$ une partie de $E$. On dit que $A$ est une \emph{classe
 \begin{enumerate}
 \item Découle de la réflexivité.
 \item Sens $\impliedby$ : Supposons $[x]=[y]$. Comme $y\in [y]$, on a $y\in [x]$, donc $y{\mathcal R}x$.\\
-Sens $\implies$ : Soit $z\in [x]$. Alors $z{\mathcal R}x$ et comme $x{\mathcal R}y$, on a $z{\mathcal R}y$ par transitivité, et donc $z\in [y]$. Ceci montre $[x]\subseteq [y]$. Pour montrer l'inclusion réciproque, on a $y{\mathcal R}x$ par symétrie de $R$ puis on termine de la même manière.
+Sens $\implies$ : Soit $z\in [x]$. Alors $z{\mathcal R}x$ et comme $x{\mathcal R}y$, on a $z{\mathcal R}y$ par transitivité, et donc $z\in [y]$. Ceci montre $[x]\subseteq [y]$. Pour montrer l'inclusion réciproque, on a $y{\mathcal R}x$ par symétrie de $\mathcal R$ puis on termine de la même manière.
 \item Soient $x$ et $y$, et supposons $[x]\cap [y] \neq \varnothing$. Soit $z\in [x]\cap [y]$. Alors $z\mathcal R x$ et $z\mathcal R y$, donc par symétrie et transitivité, $x\mathcal R y$, d'où $[x]=[y]$.
 \end{enumerate}
 \end{proof}
@@ -680,7 +684,7 @@ Pour l'ensemble $E$ des droites du plan $\R^2$ muni de la relation d'équivalenc
 \end{exemple}
 
 \begin{proposition}
-Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p = E\to E/\mathcal R$ la projection canonique sur le quotient. Alors 
+Soit $E$ un ensemble muni d'une relation d'équivalence ${\mathcal R}$ et $p : E\to E/\mathcal R$ la projection canonique sur le quotient. Alors 
 \begin{enumerate}
 \item $p$ est surjective.
 \item $x\mathcal R y \iff p(x)=p(y)$.
@@ -853,7 +857,7 @@ Or il n'est pas immédiatement clair qu'une telle relation existe, ou soit uniqu
 \end{mdframed}
 
 \begin{propdef}[intersection/conjonction de deux relations d'équivalence]
-Soit $E$ un ensemble muni de deux relations d'équivalence $\mathcal R$ et $\mathcal S$, de graphes $\Gamma_{\mathcal R}$ et $\Gamma_{\mathcal S}$. L'ensemble $\Gamma_{\mathcal R} \cap \Gamma_{\mathcal R} \subseteq E\times E$ est le graphe d'une relation d'équivalence sur $E$. 
+Soit $E$ un ensemble muni de deux relations d'équivalence $\mathcal R$ et $\mathcal S$, de graphes $\Gamma_{\mathcal R}$ et $\Gamma_{\mathcal S}$. L'ensemble $\Gamma_{\mathcal R} \cap \Gamma_{\mathcal S} \subseteq E\times E$ est le graphe d'une relation d'équivalence sur $E$. 
 
  Cette relation d'équivalence, notée $\mathcal R \wedge \mathcal S$, peut également être  définie par
 :
@@ -1055,7 +1059,7 @@ L'exercice qui suit est très proche du précédent, mais avec un cylindre au li
 
 \begin{exercice}[\og en recollant dans le même sens deux bords opposés d'un carré, on obtient un cylindre\fg]
 Soit $X=[-1,1]^2$ et $\mathcal R$ la relation d'équivalence la plus fine sur $X$ vérifiant:
-\[ \forall y\in [–1,1], \: (-1,y)\sim (1,y).\]
+\[ \forall y\in [-1,1], \: (-1,y)\sim (1,y).\]
 \begin{quote}
 \emph{Dans la suite on cherche à étudier l'ensemble quotient $X/\mathcal R$. L'idée est qu'on recollant (dans le même sens) deux bords opposés d'un carré, on obtient un cylindre. La suite formalise ceci, en utilisant le cylindre $\S^1\times [-1,1]$ de $\R^3$.}
 \end{quote}
@@ -1297,7 +1301,7 @@ Soit $X$ un ensemble et $Y = X\times [0,1]$. Sur $Y$,soit $\mathcal R$ la relati
 
 \begin{exercice}[Suspension d'un ensemble]\index{suspension}
 %mettre les sphères avant
-Soit $X$ un ensemble. Sur l'ensemble $X\times [1,1]$, on considère la relation d'équivalence la plus fine vérifiant:
+Soit $X$ un ensemble. Sur l'ensemble $X\times [-1,1]$, on considère la relation d'équivalence la plus fine vérifiant:
 \[ \begin{cases}
 \forall x,x'\in X, (x,-1)\mathcal R (x',-1)\\
 \forall x,x'\in X, (x,1)\mathcal R (x',1)

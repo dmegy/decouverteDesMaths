@@ -811,7 +811,7 @@ Soit $f : E\to F$.
 \item $f_*(\varnothing)=\varnothing$.
 \item $f_*(E)\subseteq F$ avec égalité si et seulement si $f$ est surjective. En général, $f_*(E)\neq F$.
 \item Si $(A_i)_{i\in I}$ est une famille de parties de $E$, alors $f_*\left(\bigcup_{i\in I}A_i\right) = \bigcup_{i\in I} f_*(A_i)$.
-\item Par contre, on a en général $f_*\left(\bigcap_{i\in I}A_i\right) \subseteq \bigcap_{i\in I} f_*\left(A_i\right)$ mais pas forcément égalité.
+\item [ATTENTION] Par contre, on a en général $f_*\left(\bigcap_{i\in I}A_i\right) \subseteq \bigcap_{i\in I} f_*\left(A_i\right)$ mais pas forcément égalité.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -880,6 +880,11 @@ f^*\left(\bigcap_{i\in I}B_i\right)
 \begin{quote}
 \emph{En conclusion, l'image réciproque se comporte mieux que l'image directe vis-à-vis des unions et intersections.}
 \end{quote}
+
+\begin{remarque}
+La raison pour laquelle $f^*$ se comporte mieux que $f_*$ est assez profonde. Elle est mieux comprise si l'on connaît la notion (bien plus avancée) de foncteur et d'adjoint.
+Si l'on désire vraiment avoir un énoncé un peu plus harmonieux et symétrique, il est nécessaire d'introduire de nouvelles applications $f_!$ et $f^!$. Ces considérations dépassent le cadre de ce cours.
+\end{remarque}
 
 %- - - - - -
 % factorisations
@@ -967,8 +972,8 @@ Montrer l'application $x\mapsto x^2+6x+10$ se factorise à droite par $x\mapsto 
 
 
 
-Les définitions et résultats qui suivent concernent les fonctions ayant même source et but, autrement dit les fonctions d'un ensemble $E$ dans lui-même. De telles fonctions sont parfois appelées \emph{endofonctions
-\footnote{Du grec ancien éndon (« dans »). Sert à construire des mots avec l’idée d’intérieur. (Source : Wiktionnaire.) En algèbre linéaire, on croisera fréquemment des \emph{endomorphismes}.}
+Les définitions et résultats qui suivent concernent les fonctions ayant même source et but, autrement dit les fonctions d'un ensemble $E$ dans lui-même. De telles fonctions sont parfois appelées \emph{endofonctions (ou endoapplications) 
+\footnote{Du grec ancien éndon (« dans »). Sert à construire des mots avec l’idée d’intérieur. (Source : Wiktionnaire.) En algèbre linéaire, on croisera fréquemment des \emph{endomorphismes}.
  (de l'ensemble $E$)}.
 
 
