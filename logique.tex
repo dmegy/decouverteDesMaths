@@ -276,3 +276,28 @@ Exemple : résoudre $|x-1|=2x+3$, d'inconnue $x\in \R$.\\
 Soit $x\in\R$. On a la chaîne d'implications $|x-1|=2x+3 \Rightarrow |x-1|^2=(2x+3)^2 \Leftrightarrow x^2-2x+1=4x^2+12x+9 \iff 3x^2+14x+8=0 \iff (x\in \{-4;-2/3\})$. Réciproquement, on vérifie que $-4$ n'est pas solution mais que $-2/3$ est solution. Finalement, l'équation a une unique solution, $-2/3$.
 \end{red}
 
+\section{Exercices}
+
+Les exerceis suivants portent sur l'élimination des quantificateurs.
+2liminer un quantificateur (dans une assertion, aussi appelée \og formule\fg), c'est écrire l'assertion sous une forme équivalente mais dans laquelle le quantificateur a disparu.
+
+Par exemple, éliminer le quantificateur $\exists$ de la formule \og $\exists y\in\R, xy=1$\fg, formule qui comporte une variable libre, $x$ qui est implicitement un réel (?), et une variable quantifiée $y$,  c'est l'écrire sous la forme 
+$x\neq 0$.
+
+\begin{exercice}[Élimination des quantificateurs, partie 1]
+\begin{enumerate}
+\item Les variables libres des formules suivantes sont des réels. Éliminer les quantificateurs de ces formules:
+\begin{enumerate}
+\item $\exists y\in\R, x=y^2$. % $x\geq 0$
+\item $\exists z\in\R, x<z\text{ et } z<y$. % $x<y$
+\item $\exists y\in\R, x^2+y^2=1$. % $x\geq -1 \land x\leq 1$ 
+\end{enumerate}
+\item Éliminer le quantificateur  de la formule $\exists x\in\R, ax+b=c$
+\item Montrer que la formule $\exists x\in\R, ax^2+bx+c=0$ est équivalente à la formule
+\[ (a\neq 0\land b^2-4ac\geq 0) \lor (a=0\land b\neq 0) \lor (a=0\land b=0\land c=0)\]
+\item Montrer que la formule
+\[ \exists(x,y,z,t)\in\R^4, ax+bz=1\land ay+bt=0 \land cx+dz=0\land cy+dt=1\]
+est équivalente à $ad-bc\neq 0$. (Il est préférable de connaître les matrices pour cette question.)
+\end{enumerate}
+    
+\end{exercice}
