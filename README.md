@@ -14,7 +14,7 @@ Le document compilé est : [cours.pdf](cours.pdf).
 
 ## Particularités : 
 - point de vue et notations modernes lorsque possible
-- partie sur les relations assez étoffée (relations plus ou moins fines, graphes d'une relation, ensembles quotient, passage au quotient d'applications)
-- exercices assez abstraits qui introduisent des concepts plus avancés (égalisateurs et coégalisateurs, produits fibrés, coproduits, cônes, cylindres, suspensions etc)
+- partie sur les relations assez étoffée (relations plus ou moins fines, graphes d'une relation, ensembles quotient, passage au quotient d'applications, relations engendrées etc)
+- exercices assez abstraits qui introduisent des concepts plus avancés (égalisateurs et coégalisateurs, produits fibrés, coproduits, sommes amalgamées, cônes, cylindres, suspensions etc)
 
 
